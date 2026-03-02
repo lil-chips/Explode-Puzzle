@@ -86,6 +86,14 @@ If a link cannot be accessed (login/paywall), request pasted text or a screensho
 3260 威剛
 2603 長榮海運
 
+### 2002 中鋼（波段型）— personal playbook
+- One-line rule（口訣）:
+  - 買在盤整下緣/均線支撐帶（19～20），賣在長均線壓力帶（23～25），大行情才看 30+（但那是循環行情，不是常態）。
+- How to use:
+  - Treat 19–20 as the primary accumulation/support zone when structure is intact.
+  - Treat 23–25 as the primary distribution/resistance zone.
+  - Only consider 30+ scenarios when there is clear macro/industry-cycle confirmation (not the base case).
+
 ### Crypto list (current)
 - BTC, ETH, ADA, SNEK, WMTx
 
