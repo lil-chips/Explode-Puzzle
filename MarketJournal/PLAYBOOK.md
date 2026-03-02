@@ -25,7 +25,7 @@
 - User message trigger: “今天的圖放好了＋台股三檔：A/B/C”
 
 ## 2) Daily Brief Output Template
-File name: `MarketJournal/daily/YYYY-MM-DD_市場簡報.md`
+File name: `MarketJournal/daily/YYYY-MM-DD_市場簡報.docx`
 
 Sections (always in this order):
 1. 總結（Summary）— 1–3 sentences

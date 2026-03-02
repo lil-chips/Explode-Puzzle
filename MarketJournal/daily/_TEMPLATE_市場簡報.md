@@ -1,4 +1,4 @@
-# YYYY-MM-DD 市場簡報
+# YYYY-MM-DD 市場簡報（for docx output）
 
 ## 1) 總結（Summary）
 - 
