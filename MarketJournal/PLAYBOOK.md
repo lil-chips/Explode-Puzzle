@@ -85,6 +85,8 @@ If a link cannot be accessed (login/paywall), request pasted text or a screensho
 4938 和碩
 3260 威剛
 2603 長榮海運
+8454 富邦媒
+2377 微星
 
 ### 2002 中鋼（波段型）— personal playbook
 - One-line rule（口訣）:
