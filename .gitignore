@@ -20,3 +20,6 @@ fastlane/test_output
 
 # OpenClaw
 .openclaw/
+
+# Nested repos / local projects
+Projects/BlockPuzzle/BlockPuzzle/
