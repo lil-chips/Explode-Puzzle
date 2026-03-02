@@ -1,0 +1,384 @@
+# Slide 1
+INTE 2402/INTE 2691 Cloud Security
+Dr. Xun Yi
+Room: 14-11-30
+Tel: 9925 1902
+E-mail: xun.yi@rmit.edu.au 
+
+https://rmit.instructure.com/courses/158528/pages/teaching-team?module_item_id=8234051
+
+# Slide 2
+Course Description
+This course provides a practical survey of both the principles and practices of cloud security. 
+The emphasis of this course is on the underlying principles and techniques of cloud security with examples of how they are applied in practice.
+
+# Slide 3
+Prerequisite
+INTE2402
+COSC2712/COSC2081/COSC1073 Programming 1 OR
+COSC2803/COSC3056/COSC3057 Java Programming Studio OR
+COSC3106 Python Programming Studio
+
+INTE2691
+COSC1295 Advanced Programming
+
+# Slide 4
+Contents
+Part One: Introduce to Cloud Computing
+Part Two: Security Principles
+Part Three: Cloud Security Practices
+
+# Slide 5
+Learning Outcomes
+Gain the skills required to develop a cloud security infrastructure
+Recognize threats and vulnerabilities to cloud computing
+Mitigate security threats to cloud
+Prepare exams for certificates of cloud security, e.g., CCSK, CCSP
+
+# Slide 6
+Timetable
+
+# Slide 7
+Assessments
+Assignment 1 (15%)
+Assignment 2 (35%)  
+Assignment 3 (35%)
+Final 2-hour online quiz (15%)
+
+# Slide 8
+Textbooks
+William Stallings (2017) Cryptography and Network Security – Principles and Practices, 7th Ed. Pearson.
+
+# Slide 9
+Cyber Security Career
+How to Get into Cybersecurity
+
+https://www.youtube.com/watch?v=Hct2kr_X73s
+
+# Slide 10
+Chapter 1Introduction to Cloud Computing
+Chapter 1.1
+Computing Technology History
+
+# Slide 11
+Who invented computer?
+The Imitation Game 
+https://www.youtube.com/watch?v=nuPZUUED5uk
+Alan Turing (1912 – 1954) was a British pioneering computer scientist, mathematician, logician, and cryptanalyst. Turing is widely considered to be the father of theoretical computer science and artificial intelligence.
+
+# Slide 12
+Computing Revolutions
+Personal computing (1985-1995)
+Network computing (1995-2005)
+Mobile computing (2005-2015)
+Cloud computing (2015-2025)
+…
+
+# Slide 13
+Personal computing (85-95)
+Hard drives: 5MB, 10MB and 20MB
+5.5’’ floppy disk: 350 Kbytes
+3.5’’ floppy disk: 720 Kbytes
+
+# Slide 14
+Network computing (95-05)
+
+# Slide 15
+Mobile computing (05-15)
+Commonwealth Scientific and Industrial Research Organisation (CSIRO), Australia
+
+# Slide 16
+Cloud computing (15-25)
+Cloud computing is about the storing of data and applications on remote servers, and accessing them via the Internet rather than saving or installing them on your personal or office computer.
+
+# Slide 17
+What is cloud computing?
+https://www.youtube.com/watch?v=DGDtujmOBKc
+
+# Slide 18
+Advantages of Cloud Computing
+Lower computer costs
+Improved performance
+Reduced software costs
+Instant software updates
+Unlimited storage capacity
+Increased data reliability
+Latest version availability
+Easier group collaboration
+Device independence
+18
+
+# Slide 19
+Disadvantages of Cloud Computing
+Requires a constant Internet connection
+Does not work well with low-speed connections
+Can be slow
+Stored data might not be secure
+Stored data can be lost
+19
+
+# Slide 20
+5 essential characteristics
+On-demand self-service
+Broad network access
+Resource pooling
+Rapid elasticity
+Measured service
+
+# Slide 21
+Cloud computing forecast
+
+# Slide 22
+Chapter 1Introduction to Cloud Computing
+Chapter 1.2
+Cloud Computing Models
+
+# Slide 23
+Service models
+Software (SaaS)
+Platform (PaaS)
+Infrastructure (IaaS)
+
+
+
+
+
+https://www.youtube.com/watch?v=SgujaIzkwrE
+23
+
+# Slide 24
+SaaS examples
+Gmail
+Dropbox
+DocuSign
+…
+24
+
+# Slide 25
+PaaS examples
+Goggle App Engine
+Amazon Simple Storage Service (S3)
+Microsoft Azure Blob Storage
+…
+25
+
+# Slide 26
+IaaS examples
+Amazon Elastic Computer Cloud (EC2)
+Azure Windows Virtual Machines
+…
+26
+
+# Slide 27
+SaaS vs. PaaS vs. IaaS
+
+# Slide 28
+Deployment models
+Public cloud
+Private cloud
+Hybrid cloud
+28
+
+# Slide 29
+https://www.youtube.com/watch?v=3WIJ4axzFlU
+Public Cloud vs Private Cloud vs Hybrid Cloud
+
+# Slide 30
+Chapter 1Introduction to Cloud Computing
+Chapter 1.3
+Virtualization
+
+# Slide 31
+Servers
+Web server
+Mail server
+Database server
+File server
+Proxy server
+DNS server
+…
+Hardware
+Operating
+System
+Applications
+
+# Slide 32
+What is virtualization?
+https://www.youtube.com/watch?v=NmrJlWDG0yk   
+Virtualization is the creation of a virtual (rather than actual) version of something, such as an operating system, a server, a storage device or network resources and hides the physical characteristics of computing resources from their users.
+Server virtualization enables different operating systems to share the same hardware and make it easy to move operating systems between different hardware, all while the applications are running.
+Storage virtualization does the same thing for data. Storage virtualization creates the abstraction layer between the applications running on the servers, and the storage they use to store the data.
+
+# Slide 33
+What is hypervisor?
+A hypervisor (virtual machine monitor) is a piece of computer software, firmware or hardware that creates and runs virtual machines.
+
+# Slide 34
+Virtual Machine
+34
+A virtual machine (VM) is an operating system OS and application environment that is installed on hypervisor which imitates dedicated hardware. The end user has the same experience on a virtual machine as they would have on dedicated hardware.
+
+# Slide 35
+Virtual Machine Migration
+Virtual machine migration is one of the most important benefits of server virtualization technology. The ability to migrate a virtual machine (VM) from one physical host to another can significantly boost an organization's disaster recovery efforts and improve business agility.
+
+# Slide 36
+Virtual Machine Snapshot
+A VM snapshot is a copy of the virtual machine's disk file (VMDK) at a given point in time. Snapshots are used to restore a VM to a particular point in time when a failure or system error occurs.
+
+# Slide 37
+Virtual machine management
+Virtual Machine Manager allows users to:
+create, edit, start and stop VMs
+view and control of each VM's console
+see performance and utilization statistics for each VM
+view all running VMs and hosts, and their live performance or resource utilization statistics.
+
+# Slide 38
+Chapter 1Introduction to Cloud Computing
+Chapter 1.4
+Cloud Security and Privacy Issues
+
+# Slide 39
+If cloud computing is so great, why isn’t everyone doing it?
+The cloud acts as a big black box, nothing inside the cloud is visible to the clients
+Clients have no idea or control over what happens inside a cloud
+Even if the cloud provider is honest, it can have malicious system admins who can tamper with the VMs and violate confidentiality and integrity
+Clouds are still subject to traditional data confidentiality, integrity, availability, and privacy issues, plus some additional attacks
+
+# Slide 40
+Companies are still afraid to use clouds
+40
+
+# Slide 42
+Internet
+
+# Slide 43
+Attacks to Internet
+Masquerade
+Eavesdropping
+Modification
+Deny
+Passive attack
+Active attack
+Active attack
+
+# Slide 44
+Security requirements
+Masquerade
+Eavesdropping
+Modification
+Non-repudiation
+Confidentiality
+Integrity
+Authentication
+Deny
+
+# Slide 45
+Security services
+Confidentiality – ensures that the information in a computer system and transmitted information are accessible only for reading by authorized parties.
+Authentication – ensures that the origin of a message or electronic document is correctly identified, with an assurance that the identity is not false.
+Integrity – ensures that unauthorized parties are not able to modify computer system assets and transmitted information.
+Non-repudiation – ensures that neither the sender nor the receiver of a message be able to deny the transmission.
+
+# Slide 46
+Solutions
+Confidentiality - Encryption
+Authentication – Digital signature, password, biometric …  
+Integrity – Hash function
+Non-repudiation – Digital signature
+
+# Slide 47
+Outside attacker
+An "outside attack" is initiated from outside the perimeter, by an unauthorized or illegitimate user of the system (an "outsider"). 
+In the Internet, potential outside attackers 
+Eavesdropper
+Impersonator
+Forger
+Hacker
+…
+
+# Slide 48
+Malicious insiders
+An "inside attack" is an attack initiated by an entity inside the security perimeter (an "insider"), i.e., an entity that is authorized to access system resources but uses them in a way not approved by those who granted the authorization.
+In the Internet, potential malicious insiders 
+Data administrator
+Network manager
+ITS staff
+…
+
+# Slide 49
+Password cracking
+Password storage
+Dictionary attack
+Rainbow table
+Brute force
+Hybrid
+Commonly used passwords
+
+# Slide 50
+Cloud security
+Facilities security
+Network level security
+Operating system and application level security
+Data level security
+
+# Slide 51
+Virtualization security
+Inter-VM attacks 
+Attacks to VM migration  
+Side channel attacks
+Attacks on hypervisor
+
+# Slide 52
+Inter-VM Attacks
+Attack via shared physical server
+Use shared folder to alter other VM’s disk image
+
+# Slide 53
+Attacks to VM migration
+
+# Slide 54
+Side channel attacks
+You don’t know whose VMs are sharing the physical machine with you.
+Attackers can place their VMs on your machine.
+Shared physical resources include
+CPU data cache 
+CPU branch prediction
+CPU instruction cache 
+In single OS environment, people can extract cryptographic keys with these attacks.
+
+# Slide 55
+Attacks on hypervisor
+55
+
+# Slide 56
+Privacy of cloud data
+https://www.youtube.com/watch?v=bqWuioPHhz0
+
+# Slide 57
+Chapter 2Secret Key Encryption Standard
+Chapter 2.1
+Classical Encryption Principles
+
+# Slide 58
+Model of Conventional Encryption
+
+# Slide 59
+Substitution Cipher
+Substitution cipher is one in which the letters of plaintext are replaced by other letters or by numbers or symbols.
+Caesar cipher is the earliest substitution cipher.
+
+# Slide 60
+Caesar Cipher
+The famous Roman commander-in-chief and statesman Juliu Caesar (100-44 B.C.)
+The Caesar cipher involves replacing each letter of the alphabet with letter standing three places further down the alphabet.
+Plain = PLEASE CONFIRM RECEIPT
+Cipher = SOHDVH FRQILUP UHFHLSW
+Plaintext:    a b c d e f g h i  j  k l m n o p q  r s  t  u v w x y z
+Ciphertext: d e f  g h i j k l m n o p q  r s  t  u v w x y  z a b c
+Key = 3
+
+# Slide 61
+Shift Ciphers
+Caesar
