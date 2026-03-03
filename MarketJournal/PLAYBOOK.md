@@ -61,6 +61,19 @@ Rank evidence (highest → lowest):
 
 If a link cannot be accessed (login/paywall), request pasted text or a screenshot.
 
+## 4.1) Polymarket rules capture (market-specific)
+When analyzing a Polymarket market, always capture:
+- What exactly resolves YES/NO (verbatim rule summary)
+- Resolution source (e.g., official sources consensus)
+- Edge cases (e.g., nominee replacement does/does not change resolution)
+
+Current tracked market:
+- Democratic presidential nominee 2028
+  - URL: https://polymarket.com/zh/event/democratic-presidential-nominee-2028
+  - Resolves YES if the named individual **wins and accepts** the 2028 Democratic Party nomination for U.S. president.
+  - Resolution source: consensus of **official Democratic Party sources**.
+  - Edge case: replacement of the nominee before election day **does not change** resolution.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
