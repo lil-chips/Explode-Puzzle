@@ -81,6 +81,20 @@ Current tracked market:
   - Treat research time as an investment; convert insights into checklists.
   - Expect edge to shrink when information becomes crowded.
 
+## 4.3) Signal-combination research checklist (RL × TA paper, 2025)
+From: “Reinforcement learning meets technical analysis: combining moving average rules for optimal alpha” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2490818
+- Start from signal usefulness:
+  - Verify at least some individual signals have edge in the target market; otherwise combinations amplify noise.
+- Fight data mining / overfitting:
+  - Strict train/validation/test split; record all tuning decisions.
+  - Prefer simpler policies + regularization + early stopping.
+- Separate alpha from underlying beta:
+  - Avoid mistaking buy-and-hold exposure for alpha; consider market-neutral / zero-arbitrage framing.
+- Costs & tradability:
+  - Always stress-test transaction costs and liquidity assumptions.
+- Robustness:
+  - Re-test on alternative samples, proxies, or cost assumptions; don’t accept a single backtest.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
