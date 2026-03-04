@@ -166,6 +166,16 @@ From: “Determinants of the fiscal space of WAEMU member countries” (Cogent E
 - Policy order:
   - Control rigid spending + improve governance → then expand tax base so new revenue becomes development investment.
 
+## 4.10) Probabilistic debt sustainability lens (Euro Area paper, 2025)
+From: “Sovereign debt sustainability in the Euro Area: a probabilistic assessment” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2584593
+- Treat sustainability as a probability distribution, not a single threshold:
+  - Use simulations of joint fiscal–macro dynamics (growth, interest rates, primary balances).
+- Two archetypes of sustainability:
+  - “r−g-supported” sustainability (vulnerable to rate shocks)
+  - “surplus-supported” sustainability (driven by future primary surpluses)
+- Practical risk question:
+  - Is a country ‘living off low rates’ or ‘living off surpluses’?
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
