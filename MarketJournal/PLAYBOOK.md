@@ -187,6 +187,15 @@ From: “Fiscal operations and treasury bonds: is Tanzania experiencing investme
 - Structural vs cyclical:
   - In shallow markets, crowding-out can be a long-run structural drag, not just a short-run rate effect.
 
+## 4.12) LDR rule design × deposit-maturity lens (Saudi paper, 2025)
+From: “Loan-to-deposit reform and deposit maturity: evidence from Saudi Arabia” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2562344
+- LDR is not just a ratio; it is an incentive system:
+  - By assigning higher weights to longer-maturity deposits, regulators can steer banks toward more stable funding.
+- Expect time-to-effect:
+  - Short-run impact may be weak/transitionary; long-run interaction (policy × stable deposits) can be the real channel.
+- Practical bank-stability question:
+  - Is lending growth funded by stable deposits (time/savings) or by volatile short-term funding?
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
