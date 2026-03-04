@@ -74,6 +74,13 @@ Current tracked market:
   - Resolution source: consensus of **official Democratic Party sources**.
   - Edge case: replacement of the nominee before election day **does not change** resolution.
 
+## 4.2) Core market-research principle (Grossman–Stiglitz 1980)
+- If information is costly, markets cannot be perfectly informationally efficient.
+- Practical implication for our workflow:
+  - Seek small, repeatable edges (edge) rather than “perfect prediction”.
+  - Treat research time as an investment; convert insights into checklists.
+  - Expect edge to shrink when information becomes crowded.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
