@@ -216,6 +216,15 @@ From: “Fiscal policy and household savings in Central Europe: a Markov switchi
 - Credibility matters:
   - The same debt/spending can support consumption in one country but depress it in another if sustainability/trust differs.
 
+## 4.15) Mobility × growth lens (education spending paper, 2025)
+From: “The effects of intergenerational income mobility and per pupil education spending on economic growth” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2521465
+- Treat intergenerational mobility as a long-run state variable:
+  - Low mobility → talent misallocation → lower potential growth.
+- K-12 per-pupil spending is growth policy, not only welfare:
+  - Higher spending improves absolute & relative mobility and raises attainment.
+- Centralized education finance has redistribution/leveling effects:
+  - Helps lower-spending regions catch up, improving long-run performance.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
