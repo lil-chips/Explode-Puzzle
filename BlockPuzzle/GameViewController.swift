@@ -6,29 +6,31 @@
 //
 
 import UIKit
-import SpriteKit
-import GameplayKit
+import SwiftUI
 
-class GameViewController: UIViewController {
+final class GameViewController: UIViewController {
+
+    private var hostingController: UIHostingController<ContentView>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+
+        // MVP: replace SpriteKit template with a SwiftUI board preview.
+        let hosting = UIHostingController(rootView: ContentView())
+        hostingController = hosting
+
+        addChild(hosting)
+        hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hosting.view)
+
+        NSLayoutConstraint.activate([
+            hosting.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hosting.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hosting.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hosting.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
+        hosting.didMove(toParent: self)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
