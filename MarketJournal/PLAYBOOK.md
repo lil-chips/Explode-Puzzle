@@ -95,6 +95,20 @@ From: “Reinforcement learning meets technical analysis: combining moving avera
 - Robustness:
   - Re-test on alternative samples, proxies, or cost assumptions; don’t accept a single backtest.
 
+## 4.4) Macroprudential × monetary policy lens (repo-rate paper, 2026)
+From: “The effect of macroprudential indicators on the repo rate: Evidence from South Africa” (Cogent Economics & Finance, 2026), DOI: https://doi.org/10.1080/23322039.2026.2616509
+- Central bank reaction function ≠ inflation-only:
+  - In emerging/high-volatility contexts, policy rates can respond to systemic-risk indicators (e.g., DTI, CAR, NPLs, credit conditions).
+- Two-tool coordination frame:
+  - Rate policy mainly targets inflation/demand; macroprudential tools target leverage/systemic risk.
+- Practical analysis questions when reading “hawkish/dovish” signals:
+  - Are households over-levered (DTI)?
+  - Are banks well-capitalized (CAR)?
+  - Is credit growth overheating or tightening?
+- Research hygiene:
+  - Check integration order I(0)/I(1) → cointegration → long-run vs short-run.
+  - Watch multicollinearity (VIF) when mixing many macro-financial indicators.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
