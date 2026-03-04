@@ -12,6 +12,48 @@
   - Optional: Polymarket (screenshots/links)
 - No auto-trading, no wallet connections, no automated betting.
 
+## 0.1) 公開資料來源清單（你手動查、丟給我整理）
+下面列的都是「官方/半官方/學術常用」公開來源。你只要把你查到的 **PDF/Excel/截圖/網址** 丟給我，我就能整理成中文 docx 筆記，並把可複用框架寫回本 PLAYBOOK。
+
+### 台灣（總體、外貿、產業）
+- 財政部統計處：外貿新聞稿/簡報、稅收、綜合統計
+- 財政部關務署：海關進出口統計、品項/地區、月報
+- 中央銀行：利率、匯率、貨幣供給、金融統計與報告
+- 行政院主計總處：GDP、CPI、國民所得、就業
+- 經濟部（國際貿易署等）：貿易政策、產業資料、重點產業報告
+- 證交所/櫃買：市場統計、上市櫃資料、公司公告/財報連結
+
+### 美國（全球最常用的宏觀資料來源）
+- FRED：利率/通膨/就業/金融條件等大量序列
+- BEA：GDP、PCE、國民所得
+- BLS：CPI、就業、薪資、PPI
+- Census：零售、貿易、住房部分統計
+- USTR / USITC：關稅、貿易政策/案件、貿易統計
+
+### 國際組織（跨國一致口徑，適合比較）
+- IMF（WEO/IFS）：總體、外部、財政、金融
+- World Bank（WDI）：跨國發展與總體指標
+- OECD：結構/政策資料（成員國更完整）
+- BIS：銀行/跨境資金/信用/金融穩定
+- UN Comtrade：全球貿易資料庫（品項/地區比較）
+
+### 市場/金融（偏市場資料而非政府統計）
+- 各國監管/交易所（如 SEC/EDGAR、交易所公告）：公司財報與公告
+- 央行/財政部的債券拍賣與發行公告：政府債務結構/期限/成本
+
+### 你丟給我時，最有效的格式
+- PDF 簡報/報告（最好）
+- Excel/CSV（數列乾淨、可做圖/計算）
+- 可公開瀏覽的網頁網址
+- 截圖（表格/圖表也行；解析度越高越好）
+
+### 建議固定追的核心指標集合（快速版）
+- 外貿：出口/進口年增、資通訊/電子零組件貢獻、資本設備進口
+- 物價：CPI、核心 CPI
+- 景氣：PMI、工業生產、零售
+- 資金：政策利率、M2、信用、匯率
+- 財政：赤字、債務、利息支出
+
 ## 1) Daily Workflow (Weekdays)
 ### Inputs the user provides each weekday morning
 - 1× NASDAQ daily chart screenshot (same platform, daily timeframe, **with volume**)
