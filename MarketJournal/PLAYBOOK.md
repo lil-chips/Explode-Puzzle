@@ -121,6 +121,17 @@ From: “Fiscal revenue mobilization and structural transformation in Sub-Sahara
 - Panel-study hygiene:
   - Watch endogeneity (use IV strategies) and cross-sectional dependence (robust SE like Driscoll–Kraay).
 
+## 4.6) Global uncertainty × small open economy lens (Nepal ARDL paper, 2025)
+From: “Monetary policy and global uncertainty in a small open economy: an ARDL evidence with structural breaks in Nepal” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2610558
+- External uncertainty is a state variable:
+  - It can directly slow growth and weaken monetary transmission.
+- Breaks/regime shifts must be modeled:
+  - Use break dummies / regime interactions when shocks (pandemic, disasters, blockades) change transmission.
+- Practical policy/market questions:
+  - Is uncertainty spiking? Are FX regime constraints tightening? Are reserves/liquidity tools losing effectiveness?
+- ECM interpretation hygiene:
+  - If adjustment speed is very strong (< -1), expect short-run oscillations; interpret carefully.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
