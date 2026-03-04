@@ -176,6 +176,17 @@ From: “Sovereign debt sustainability in the Euro Area: a probabilistic assessm
 - Practical risk question:
   - Is a country ‘living off low rates’ or ‘living off surpluses’?
 
+## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
+From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
+- Crowding-out mechanism (bank-dominated markets):
+  - Government bond issuance can attract bank balance sheets away from private lending.
+- Coordination lens:
+  - Monetary easing can be offset by fiscal absorption of liquidity via domestic borrowing.
+- Practical macro question:
+  - Is private credit weakening while domestic government borrowing is accelerating?
+- Structural vs cyclical:
+  - In shallow markets, crowding-out can be a long-run structural drag, not just a short-run rate effect.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
