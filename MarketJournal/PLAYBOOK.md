@@ -154,6 +154,18 @@ From: “Monetary aggregates and private sector credit growth in Tanzania: a cau
 - Policy framing:
   - Manage both immediate liquidity (NM/BM) and long-run deposit depth (BM/EBM), plus macroprudential oversight.
 
+## 4.9) Fiscal space erosion lens (WAEMU paper, 2025)
+From: “Determinants of the fiscal space of WAEMU member countries” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2584517
+- Fiscal space is often killed by rigid spending:
+  - Wage bill, debt service, military spending, and (inefficient) capital spending can structurally shrink room to maneuver.
+- In monetary unions, fiscal space is the key stabilization capacity:
+  - With limited independent monetary policy, fiscal rules + debt dynamics make fiscal space a primary risk variable.
+- Practical analysis questions:
+  - What share of spending is rigid (wages/interest/security)?
+  - Is capex productive or leak-prone (governance)?
+- Policy order:
+  - Control rigid spending + improve governance → then expand tax base so new revenue becomes development investment.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
