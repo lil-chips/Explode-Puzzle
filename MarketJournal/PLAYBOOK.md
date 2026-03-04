@@ -132,6 +132,17 @@ From: “Monetary policy and global uncertainty in a small open economy: an ARDL
 - ECM interpretation hygiene:
   - If adjustment speed is very strong (< -1), expect short-run oscillations; interpret carefully.
 
+## 4.7) External-balance constraint lens (CAB × growth paper, 2025)
+From: “An empirical investigation of current account balance and economic growth in Sierra Leone: evidence from GARCH-model and VEC-model” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2599566
+- External balance can be a hard long-run growth constraint:
+  - Persistent CAB imbalances + FX volatility can cap growth.
+- Volatility persistence matters:
+  - If FX volatility is near-IGARCH (α+β≈1), shocks decay slowly; focus on reducing vulnerability, not just short-term stabilization.
+- ToT as a long-run driver:
+  - Terms-of-trade improvements may be one of the few persistent positive growth channels; use good ToT periods to invest in diversification.
+- Short-run vs long-run policy split:
+  - Slow ECM adjustment implies structural reforms matter more than temporary stimulus.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
