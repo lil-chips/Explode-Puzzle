@@ -196,6 +196,17 @@ From: “Loan-to-deposit reform and deposit maturity: evidence from Saudi Arabia
 - Practical bank-stability question:
   - Is lending growth funded by stable deposits (time/savings) or by volatile short-term funding?
 
+## 4.13) Nonlinear debt “safe zone” lens (Tanzania TVAR paper, 2025)
+From: “Public debt sustainability in Tanzania: a non-linear analysis of fiscal and monetary policy interactions” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2554299
+- Debt is regime-dependent (threshold effects):
+  - Below a threshold, debt can support growth; above it, debt becomes a macro instability amplifier.
+- High-debt regime risks:
+  - Higher inflation, depreciation, higher rates, slower GDP growth.
+- Policy interaction lens:
+  - High debt can weaken monetary policy effectiveness (fiscal dominance risk).
+- External shock amplification:
+  - Oil/FX shocks hurt more in high-debt regimes.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
