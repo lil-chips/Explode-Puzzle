@@ -109,6 +109,18 @@ From: “The effect of macroprudential indicators on the repo rate: Evidence fro
   - Check integration order I(0)/I(1) → cointegration → long-run vs short-run.
   - Watch multicollinearity (VIF) when mixing many macro-financial indicators.
 
+## 4.5) Fiscal capacity × structural transformation lens (SSA panel paper, 2025)
+From: “Fiscal revenue mobilization and structural transformation in Sub-Saharan Africa: a panel data analysis” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2611621
+- Treat fiscal capacity (revenue-to-GDP) as a state variable for long-run development:
+  - It finances infrastructure, human capital, and institutions that enable diversification.
+- Governance is a multiplier (mechanism):
+  - Revenue → better control of corruption + political stability → stronger structural transformation.
+- Practical country/region analysis questions:
+  - Is revenue mobilization improving or deteriorating?
+  - Are institutions stable enough for productive public investment?
+- Panel-study hygiene:
+  - Watch endogeneity (use IV strategies) and cross-sectional dependence (robust SE like Driscoll–Kraay).
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
