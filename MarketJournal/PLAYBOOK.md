@@ -143,6 +143,17 @@ From: “An empirical investigation of current account balance and economic grow
 - Short-run vs long-run policy split:
   - Slow ECM adjustment implies structural reforms matter more than temporary stimulus.
 
+## 4.8) Money supply composition × credit-growth lens (Tanzania ARDL+Granger paper, 2025)
+From: “Monetary aggregates and private sector credit growth in Tanzania: a causality and elasticity analysis” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2596196
+- Separate “short-run leading” vs “long-run structural” effects:
+  - NM/BM can lead credit in the short run (Granger), while EBM can have the strongest long-run elasticity.
+- Read money as layers:
+  - NM/BM = near-term liquidity pulse; EBM = financial depth (incl. institutional/FX deposits).
+- Endogeneity feedback matters:
+  - Credit can Granger-cause NM; monitor credit growth as a driver of transactional liquidity.
+- Policy framing:
+  - Manage both immediate liquidity (NM/BM) and long-run deposit depth (BM/EBM), plus macroprudential oversight.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
