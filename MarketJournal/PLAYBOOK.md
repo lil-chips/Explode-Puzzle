@@ -207,6 +207,15 @@ From: “Public debt sustainability in Tanzania: a non-linear analysis of fiscal
 - External shock amplification:
   - Oil/FX shocks hurt more in high-debt regimes.
 
+## 4.14) Regime-dependent fiscal effectiveness lens (Central Europe MSVAR paper, 2025)
+From: “Fiscal policy and household savings in Central Europe: a Markov switching VAR with covid shock” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2537233
+- Fiscal multipliers are regime-dependent:
+  - Initial shock vs peak crisis vs recovery can show different effects.
+- MPC vs IMPC split:
+  - Transfers/subsidies may raise IMPC (future smoothing) while lowering MPC (immediate spending).
+- Credibility matters:
+  - The same debt/spending can support consumption in one country but depress it in another if sustainability/trust differs.
+
 ## 5) Risk Management (Spot-only, user preference)
 - Default risk-per-idea guidance (user can override): 0.5%–1.5% of total capital.
 - Always include: invalidation idea (what would prove the scenario wrong).
