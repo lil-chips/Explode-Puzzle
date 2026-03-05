@@ -16,6 +16,26 @@ struct BoardView: View {
     let clearOverlay: [BlockPuzzlePoint: Int]
     let clearFadeOut: Bool
 
+    init(
+        gameState: GameState,
+        ghostCells: Set<BlockPuzzlePoint>? = nil,
+        ghostColor: Color? = nil,
+        ghostValid: Bool = true,
+        popCells: Set<BlockPuzzlePoint> = [],
+        popOn: Bool = false,
+        clearOverlay: [BlockPuzzlePoint: Int] = [:],
+        clearFadeOut: Bool = false
+    ) {
+        self.gameState = gameState
+        self.ghostCells = ghostCells
+        self.ghostColor = ghostColor
+        self.ghostValid = ghostValid
+        self.popCells = popCells
+        self.popOn = popOn
+        self.clearOverlay = clearOverlay
+        self.clearFadeOut = clearFadeOut
+    }
+
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
