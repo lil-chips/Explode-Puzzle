@@ -262,6 +262,20 @@ From: “Technological innovation, R&D, FDI, and governance as drivers of econom
 - Practical market/research use:
   - When analyzing “FDI-led growth” stories, always ask: which income stage? which quantile? what’s the absorptive capacity proxy?
 
+## 4.15) Subsidy intensity can be too small to show up in profits; separate selection bias vs true zero-effect (Burkina Faso fertilizer subsidy, 2020 survey)
+From: “Effect of fertilizer subsidies on farm financial profitability in Burkina Faso” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2607204
+- If a subsidy shows “no effect”, first ask: **is it under-dosed?**
+  - Low subsidy rate can be statistically indistinguishable from zero impact even if the mechanism is real.
+- Evaluation hygiene for policy programs:
+  - Treat both **selection bias** (who receives subsidy) and **endogeneity** (subsidy correlated with unobservables) as default problems; combine tools (e.g., matching + Heckman / simultaneous equations) rather than relying on one estimator.
+- Profit decomposition lens:
+  - Subsidy works mainly by lowering **variable costs**; if variable costs don’t move enough, profits won’t move.
+- Common correlates to watch (from this case):
+  - Positive: equipment/capital, extension services, fixed-capacity factors.
+  - Negative: credit access can correlate with lower profitability (often a distress/need proxy), household size, variable costs.
+- Practical policy mapping:
+  - If keeping the program, scale intensity and pair it with extension/capacity support; otherwise you’re subsidizing paperwork, not productivity.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
