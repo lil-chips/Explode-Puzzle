@@ -325,6 +325,19 @@ From: “Leveraging FDI for peacebuilding: evidence from youth employment dynami
 - Practical macro lens:
   - If inflation is high/persistent, it can erode employability gains; treat stabilization policy as complementary to FDI-led job strategies.
 
+## 4.20) Digital transformation attracts FDI via transaction-cost + transparency channels; components matter by partner development level (Vietnam 2007–2023 gravity)
+From: “Digital transformation as a catalyst for foreign direct investment: evidence from an emerging economy” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2586304
+- Treat “digital transformation” as multiple levers, not one blob:
+  - e-government, digital economy, digital society can have different effects.
+- Expect heterogeneity by investor origin:
+  - Developed-country investors respond to broad digital improvements; developing-country investors may respond mostly to **e-government** (friction removal).
+- Regulatory alignment amplifies digital effects:
+  - Stronger effects with partners where standards/institutions align (e.g., EU alignment story).
+- Robust proxy rule:
+  - Mobile connectivity (subscriptions/usage) is often the most powerful practical proxy for “digital readiness” in emerging markets.
+- Practical policy mapping:
+  - Prioritize e-government + digital infrastructure first; then pursue international-standard alignment to compound FDI attractiveness.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
