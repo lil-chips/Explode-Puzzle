@@ -314,6 +314,17 @@ From: “Evaluating the impact of remittance, FDI and export on economic growth 
 - Practical research rule:
   - When you see negative export coefficients, ask: export composition? ToT shocks? measurement of “exports” capturing smuggling/commodity cycles?
 
+## 4.19) FDI is a labor-market lever in fragile states; treat youth unemployment as a stability variable (Sudan youth employment/peacebuilding, 1992–2023)
+From: “Leveraging FDI for peacebuilding: evidence from youth employment dynamics in Sudan” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2594125
+- In post-conflict contexts, map FDI → outcomes through **jobs**, not only GDP:
+  - Youth unemployment is a stability/peacebuilding variable, not just an economic statistic.
+- Separate horizons:
+  - FDI and financial development can lower youth unemployment in the long run, while inflation can worsen it.
+- Practical policy mapping:
+  - “FDI attraction” should be evaluated by employability creation (training pipelines, labor absorption), not headline inflows.
+- Practical macro lens:
+  - If inflation is high/persistent, it can erode employability gains; treat stabilization policy as complementary to FDI-led job strategies.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
