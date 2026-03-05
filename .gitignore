@@ -21,5 +21,10 @@ fastlane/test_output
 # OpenClaw
 .openclaw/
 
+# Secrets / credentials
+.credentials/
+.env
+.env.*
+
 # Nested repos / local projects
 Projects/BlockPuzzle/BlockPuzzle/
