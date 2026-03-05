@@ -24,6 +24,12 @@ struct ContentView: View {
     @State private var scoreToastGlobalPoint: CGPoint = .zero
     @State private var showScoreToast: Bool = false
 
+    // Combo toast.
+    @State private var comboToastText: String = ""
+    @State private var comboToastColor: Color = .white
+    @State private var comboToastGlobalPoint: CGPoint = .zero
+    @State private var showComboToast: Bool = false
+
     private let piecePalette: [Color] = [
         .pink,
         .cyan,
@@ -35,6 +41,16 @@ struct ContentView: View {
 
     private func pieceColor(for index: Int) -> Color {
         piecePalette[index % piecePalette.count]
+    }
+
+    private func comboWord(for totalLines: Int) -> String {
+        switch totalLines {
+        case 1: return "Good"
+        case 2: return "Great"
+        case 3: return "Awesome"
+        case 4: return "Legendary"
+        default: return "Godlike"
+        }
     }
 
     private var ghostOrigin: BlockPuzzlePoint? {
@@ -192,13 +208,24 @@ struct ContentView: View {
                                         }
 
                                         if result.clearBonus > 0 {
+                                            let color = pieceColor(for: index)
+
                                             scoreToastText = "+\(result.clearBonus)"
-                                            scoreToastColor = pieceColor(for: index)
+                                            scoreToastColor = color
                                             // Use board center as default anchor (refine later to cleared centroid).
                                             scoreToastGlobalPoint = CGPoint(x: boardFrame.midX, y: boardFrame.midY)
                                             showScoreToast = true
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                                                 showScoreToast = false
+                                            }
+
+                                            let totalLines = result.rowsCleared + result.colsCleared
+                                            comboToastText = comboWord(for: totalLines)
+                                            comboToastColor = color
+                                            comboToastGlobalPoint = CGPoint(x: boardFrame.midX, y: boardFrame.midY - 38)
+                                            showComboToast = true
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                                showComboToast = false
                                             }
                                         }
                                     }
@@ -212,6 +239,35 @@ struct ContentView: View {
                     .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90).opacity(0.8))
             }
             .padding(.vertical, 24)
+
+            // Combo toast overlay (global-positioned, then converted to local).
+            if showComboToast {
+                let local = CGPoint(
+                    x: comboToastGlobalPoint.x - rootFrame.minX,
+                    y: comboToastGlobalPoint.y - rootFrame.minY
+                )
+
+                Text(comboToastText)
+                    .font(.system(size: 30, weight: .heavy, design: .rounded))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [comboToastColor.opacity(0.95), .white.opacity(0.9)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .shadow(color: comboToastColor.opacity(0.35), radius: 10, x: 0, y: 0)
+                    .position(local)
+                    .transition(
+                        .asymmetric(
+                            insertion: .scale(scale: 0.85).combined(with: .opacity),
+                            removal: .opacity
+                        )
+                    )
+                    .offset(y: -46)
+                    .animation(.spring(response: 0.22, dampingFraction: 0.75), value: showComboToast)
+                    .allowsHitTesting(false)
+            }
 
             // Score toast overlay (global-positioned, then converted to local).
             if showScoreToast {

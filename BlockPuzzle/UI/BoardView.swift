@@ -1,25 +1,15 @@
 import SwiftUI
 
+/// Renders the 10x10 board grid.
+///
+/// MVP step: static rendering only (no gestures/drag/drop).
 struct BoardView: View {
     let gameState: GameState
-
-    /// Optional ghost preview (board coordinates).
-    let ghostCells: Set<BlockPuzzlePoint>?
-    let ghostColor: Color?
-    let ghostValid: Bool
-
-    // Pop animation.
-    let popCells: Set<BlockPuzzlePoint>
-    let popOn: Bool
-
-    // Clear animation overlay.
-    let clearOverlay: [BlockPuzzlePoint: Int]
-    let clearFadeOut: Bool
 
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
-    // Candy palette (match Piece tray vibe for now).
+    // Candy palette for now (wood theme background comes from ContentView container).
     private let filledPalette: [Color] = [
         .pink, .cyan, .green, .orange, .purple, .yellow
     ]
@@ -43,6 +33,8 @@ struct BoardView: View {
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .aspectRatio(1, contentMode: .fit)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(Text("Board"))
     }
 
     private func filledColor(x: Int, y: Int) -> Color {
@@ -50,6 +42,7 @@ struct BoardView: View {
         if let idx = gameState.board.colorIndex(at: p) {
             return filledPalette[idx % filledPalette.count]
         }
+
         // Fallback (shouldn't happen for occupied cells).
         let idx = abs((x &* 31) &+ y) % filledPalette.count
         return filledPalette[idx]
@@ -61,42 +54,17 @@ struct BoardView: View {
         let isFilled = gameState.board.isOccupied(p)
         let fillColor = isFilled ? filledColor(x: x, y: y) : Color(red: 0.92, green: 0.86, blue: 0.77)
 
-        let isGhost = ghostCells?.contains(p) ?? false
-        let ghostFill = (ghostColor ?? Color.white)
-            .opacity(ghostValid ? 0.45 : 0.35)
-
-        let isClearing = clearOverlay[p] != nil
-        let clearIdx = clearOverlay[p] ?? 0
-        let clearColor = filledPalette[clearIdx % filledPalette.count]
-
-        // Priority: clearing overlay > ghost > existing occupied.
-        let baseFill: Color = isClearing
-            ? clearColor
-            : (isGhost ? ghostFill : fillColor)
-
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(baseFill)
+            .fill(fillColor)
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(
-                        isClearing
-                            ? clearColor.opacity(0.7)
-                            : (isGhost
-                                ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                                : (isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52))),
+                        isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52),
                         lineWidth: 1
                     )
             }
-            .shadow(color: (isFilled || isGhost || isClearing) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
-            .opacity(isClearing ? (clearFadeOut ? 0.0 : 1.0) : 1.0)
-            .scaleEffect(
-                isClearing
-                    ? (clearFadeOut ? 0.96 : 1.0)
-                    : (popOn && popCells.contains(p) ? 1.06 : 1.0)
-            )
-            .animation(.easeOut(duration: 0.22), value: clearFadeOut)
-            .animation(.spring(response: 0.18, dampingFraction: 0.75), value: popOn)
-            .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : (isClearing ? "Clearing" : "Empty"))))
+            .shadow(color: isFilled ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .accessibilityLabel(Text(isFilled ? "Occupied" : "Empty"))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }
 }
