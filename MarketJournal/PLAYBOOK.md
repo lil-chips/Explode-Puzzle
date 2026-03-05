@@ -287,6 +287,19 @@ From: “Artificial intelligence and gross domestic product: the case of the USA
 - Practical reading rule:
   - If a paper uses coherence methods, extract: (a) which years the relationship is strong, (b) which direction leads/lag, (c) whether results persist outside shocks.
 
+## 4.17) Sin-tax has inertia + stockpiling; index excises to inflation and enforce against illicit substitution (Jordan cigarette excise, 2008–2023)
+From: “Nicotax: the fiscal and behavioural dynamics of cigarette taxation in Jordan” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2596459
+- Expect a **front-loaded behavior response** to excise hikes, then partial rebound:
+  - Immediate consumption drop can be followed by offsets in later quarters (inertia, stockpiling, substitution/illicit).
+- Don’t do one-off hikes; do **regular, inflation-indexed** excise updates:
+  - Otherwise real tax erodes and the behavior effect fades.
+- Track the fiscal-health bind explicitly:
+  - Revenue is often tightly tied to consumption → policymakers face a dilemma; model both consumption and revenue dynamics.
+- Complementary policy is not optional:
+  - Enforcement/anti-illicit measures are required so the response isn’t mostly substitution into untaxed channels.
+- Practical macro lens:
+  - For any sin-tax story (tobacco, alcohol, fuel), always ask: rebound/stockpiling? illicit share? inflation indexation? revenue elasticity?
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
