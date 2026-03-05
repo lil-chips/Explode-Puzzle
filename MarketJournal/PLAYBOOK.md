@@ -377,6 +377,19 @@ From: “The impact of private credit and foreign direct investment on economic 
 - Practical market use:
   - When you see rising credit-to-GDP, ask: where is it going (housing/real estate vs tradables/productivity)? If it’s the former, treat it as a fragility signal, not a growth signal.
 
+## 4.24) Political instability shows up as *investment inefficiency*; use ICOR as a macro lens in low-income contexts (WAEMU 2002–2021)
+From: “Macroeconomic effects of political instability in the WAEMU: an analysis of investment efficiency” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2571863
+- For low-income/macro settings, measure investment “quality” with **ICOR**:
+  - Political instability can reduce growth not only by lowering investment volume, but by worsening **investment efficiency** (higher ICOR).
+- Long-run lens matters:
+  - Instability effects accumulate; ARDL/long-run analysis is often the right horizon.
+- Private investment is the weak link:
+  - Instability tends to hit private investment efficiency more than public investment.
+- Practical policy mapping:
+  - Stabilization isn’t abstract: reducing political violence, government instability, internal conflict can directly improve capital productivity.
+- Practical market lens:
+  - When you see instability risk rising, expect not just “less investment” but “worse ROI of investment” → slower potential growth.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
