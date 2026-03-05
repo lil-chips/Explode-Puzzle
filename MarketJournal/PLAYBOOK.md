@@ -364,6 +364,19 @@ From: “Re-assessing the growth impact of FDI and remittances in Africa: eviden
 - Practical policy mapping:
   - If you want remittances to support growth, build products/pipes that convert them into investment (diaspora bonds, SME lending channels).
 
+## 4.23) Private credit can be growth-negative if misallocated; analyze allocation quality, not just credit quantity (ASEAN-5 DCP+FDI, 1986–2023)
+From: “The impact of private credit and foreign direct investment on economic growth: evidence from ASEAN-5 countries” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2578342
+- Don’t treat domestic private credit as automatically pro-growth:
+  - Credit expansion can correlate negatively with growth when funds flow to unproductive sectors.
+- Use a short-run/long-run lens (ARDL/ECM framing):
+  - Separate immediate dynamics from long-horizon associations.
+- Practical policy translation:
+  - Regulate/supervise credit **allocation** (macroprudential + sectoral guidance), while separately improving FDI attractiveness.
+- Macro control heuristics (often repeat in these papers):
+  - Trade openness + gross fixed capital formation tend to be growth-positive; government consumption can be growth-negative.
+- Practical market use:
+  - When you see rising credit-to-GDP, ask: where is it going (housing/real estate vs tradables/productivity)? If it’s the former, treat it as a fragility signal, not a growth signal.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
