@@ -218,6 +218,37 @@ From: “Sovereign debt sustainability in the Euro Area: a probabilistic assessm
 - Practical risk question:
   - Is a country ‘living off low rates’ or ‘living off surpluses’?
 
+## 4.11) Productive capacity × regional value chains lens (Southern Africa auto RVC, 2026)
+From: “Productive capacity and regional value chains of the automotive sector in Southern Africa” (Cogent Economics & Finance, 2026), DOI: https://doi.org/10.1080/23322039.2026.2617689
+- Productive capacity is a first-class driver of RVC depth:
+  - Higher productive capacity → stronger intra-regional exports, especially **higher value Tier 1 components**.
+- RVC mapping matters (tiered decomposition):
+  - Distinguish Tier 1 vs Tier 2 vs Tier 3 (raw materials). Don’t call “exports” integration if it’s mostly Tier 3.
+- Non-obvious trade-off:
+  - Importers with rising productive capacity can become self-sufficient → intra-regional imports may fall (integration can plateau).
+- Practical policy question:
+  - Are we investing in capabilities that move the region up-tier (skills, manufacturing processes, standards), or just expanding extraction/inputs?
+
+## 4.12) Trade policy instruments have limits without productivity/regulation (Kenya sugar, EAC/COMESA, 2026)
+From: “The impact of the East African Community (EAC) trade policies on the performance of the sugar industry in Kenya” (Cogent Economics & Finance, 2026), DOI: https://doi.org/10.1080/23322039.2026.2614454
+- Tariffs/NTBs may not move import demand directly, but they reshape *protection* metrics:
+  - Track sector protection via measures like Net Protection Rate (NPR), not only import volumes.
+- “Trade policy in isolation” failure mode:
+  - Market integration tools without regulatory reform + efficiency investment → mixed/weak performance effects.
+- Practical integration lens:
+  - Sensitive staples (sugar, grains) need sequencing: productivity upgrade + governance/regulation first, then negotiate liberalization space.
+
+## 4.13) Public debt → private investment is asymmetric (Uganda NARDL, 1990–2022)
+From: “Effects of public debt on private investment in Sub–Saharan Africa empirical evidence on the uneven effects in Uganda” (Cogent Economics & Finance, 2026), DOI: https://doi.org/10.1080/23322039.2026.2614474
+- Assume **nonlinearity/asymmetry** by default when debt levels are rising:
+  - Rising debt can crowd out private investment differently than falling debt helps it (use NARDL-type framing).
+- Separate domestic vs external debt channels:
+  - Domestic borrowing is more likely to crowd out via local liquidity/interest rate pressure; external debt works through FX risk/conditionality.
+- Policy mapping:
+  - Borrowing composition matters as much as total: shift toward productive sectors (infrastructure/human capital) vs recurrent spending.
+- Practical market question:
+  - Is debt financing soaking up domestic credit that would otherwise fund private capex (watch credit growth + government securities appetite)?
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
