@@ -12,6 +12,10 @@ struct BoardView: View {
     let popCells: Set<BlockPuzzlePoint>
     let popOn: Bool
 
+    // Clear animation overlay.
+    let clearOverlay: [BlockPuzzlePoint: Int]
+    let clearFadeOut: Bool
+
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
@@ -61,21 +65,38 @@ struct BoardView: View {
         let ghostFill = (ghostColor ?? Color.white)
             .opacity(ghostValid ? 0.45 : 0.35)
 
+        let isClearing = clearOverlay[p] != nil
+        let clearIdx = clearOverlay[p] ?? 0
+        let clearColor = filledPalette[clearIdx % filledPalette.count]
+
+        // Priority: clearing overlay > ghost > existing occupied.
+        let baseFill: Color = isClearing
+            ? clearColor
+            : (isGhost ? ghostFill : fillColor)
+
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(isGhost ? ghostFill : fillColor)
+            .fill(baseFill)
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(
-                        isGhost
-                            ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                            : (isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52)),
+                        isClearing
+                            ? clearColor.opacity(0.7)
+                            : (isGhost
+                                ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
+                                : (isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52))),
                         lineWidth: 1
                     )
             }
-            .shadow(color: (isFilled || isGhost) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
-            .scaleEffect(popOn && popCells.contains(p) ? 1.06 : 1.0)
+            .shadow(color: (isFilled || isGhost || isClearing) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .opacity(isClearing ? (clearFadeOut ? 0.0 : 1.0) : 1.0)
+            .scaleEffect(
+                isClearing
+                    ? (clearFadeOut ? 0.96 : 1.0)
+                    : (popOn && popCells.contains(p) ? 1.06 : 1.0)
+            )
+            .animation(.easeOut(duration: 0.22), value: clearFadeOut)
             .animation(.spring(response: 0.18, dampingFraction: 0.75), value: popOn)
-            .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : "Empty")))
+            .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : (isClearing ? "Clearing" : "Empty"))))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }
 }

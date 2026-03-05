@@ -7,6 +7,9 @@ struct Board: Codable, Hashable {
     /// Occupied cells with a palette index (used for UI coloring).
     private(set) var occupied: [BlockPuzzlePoint: Int]
 
+    // Internal read access for game logic/UI.
+    var occupiedCells: [BlockPuzzlePoint: Int] { occupied }
+
     init(width: Int = 10, height: Int = 10, occupied: [BlockPuzzlePoint: Int] = [:]) {
         precondition(width > 0 && height > 0)
         self.width = width

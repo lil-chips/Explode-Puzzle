@@ -13,6 +13,10 @@ struct ContentView: View {
     @State private var popCells: Set<BlockPuzzlePoint> = []
     @State private var popOn: Bool = false
 
+    // Clear animation overlay.
+    @State private var clearOverlay: [BlockPuzzlePoint: Int] = [:]
+    @State private var clearFadeOut: Bool = false
+
     private let piecePalette: [Color] = [
         .pink,
         .cyan,
@@ -79,7 +83,9 @@ struct ContentView: View {
                     ghostColor: ghost?.color,
                     ghostValid: ghost?.valid ?? true,
                     popCells: popCells,
-                    popOn: popOn
+                    popOn: popOn,
+                    clearOverlay: clearOverlay,
+                    clearFadeOut: clearFadeOut
                 )
                 .padding(16)
                 .background(
@@ -133,17 +139,36 @@ struct ContentView: View {
 
                                         guard let origin = ghostOrigin else { return }
 
-                                        if gameState.tryPlacePiece(at: index, origin: origin, colorIndex: index % piecePalette.count) {
-                                            if let g = ghost {
-                                                popCells = g.cells
-                                                withAnimation(.spring(response: 0.18, dampingFraction: 0.75)) {
-                                                    popOn = true
+                                        // Attempt placement.
+                                        guard let clearedOverlay = gameState.tryPlacePiece(
+                                            at: index,
+                                            origin: origin,
+                                            colorIndex: index % piecePalette.count
+                                        ) else { return }
+
+                                        if let g = ghost {
+                                            // Tight placement pop.
+                                            popCells = g.cells
+                                            withAnimation(.spring(response: 0.18, dampingFraction: 0.75)) {
+                                                popOn = true
+                                            }
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
+                                                withAnimation(.spring(response: 0.18, dampingFraction: 0.9)) {
+                                                    popOn = false
                                                 }
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
-                                                    withAnimation(.spring(response: 0.18, dampingFraction: 0.9)) {
-                                                        popOn = false
-                                                    }
-                                                }
+                                            }
+                                        }
+
+                                        if !clearedOverlay.isEmpty {
+                                            // Animate clear overlay (small pop + fade out).
+                                            clearOverlay = clearedOverlay
+                                            clearFadeOut = false
+                                            withAnimation(.easeOut(duration: 0.22)) {
+                                                clearFadeOut = true
+                                            }
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.24) {
+                                                clearOverlay = [:]
+                                                clearFadeOut = false
                                             }
                                         }
                                     }
