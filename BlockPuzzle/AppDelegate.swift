@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // MVP: switch the template SpriteKit root over to SwiftUI.
+        // Keep it in AppDelegate for now (no SceneDelegate) to minimize project churn.
+        let root = ContentView()
+        if window == nil {
+            window = UIWindow(frame: UIScreen.main.bounds)
+        }
+        window?.rootViewController = UIHostingController(rootView: root)
+        window?.makeKeyAndVisible()
         return true
     }
 
