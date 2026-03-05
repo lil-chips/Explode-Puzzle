@@ -1,0 +1,65 @@
+Tutorial #1
+Cloud Security INTE2401/2402
+1. Multiple Choice Questions
+Which service model is an example of a cloud computing environment that provides users with a web based e­mail service?
+A. Software as a Service
+B. Platform as a Service
+C. Computing as a Service
+D. Infrastructure as a Service
+Which service model is an example of a cloud computing environment that provides users access to virtual machines?
+A. Platform as a Service
+B. Software as a Service
+C. Application as a Service
+D. Infrastructure as a Service
+How do users access Software as a Service cloud services?
+A. Thick client
+B. Local client
+C. Web browser 
+D. Command line
+What is a hypervisor? 
+A. A hypervisor is a virtual machine.
+B. A hypervisor is a virtual machine monitor.
+C. A hypervisor is a virtual machine manager console. 
+D. A hypervisor hosts a virtual machine.
+What are Type 1 hypervisors? 
+A. Type 1 hypervisors run directly on the system hardware.
+B. Type 1 hypervisors run on a host operating system.
+C. Type 1 hypervisors run over virtual machines.
+D. Type 1 hypervisors run over applications.
+A virtual machine is composed of  
+A. Hardware, operating system and application.
+B. Operating system and application.
+C. Hardware, hypervisor, operating system.
+D. Hypervisor and operating system.
+Which of the following involves prevention of unauthorized withholding of information?
+A. Confidentiality
+B. Integrity
+C. Availability
+D. Accountability
+Which of the following is active attack?
+A. Eavesdropping
+B. Modification
+C. Masquerade 
+D. Both B and C
+Authentication is needed to prevent
+A. Eavesdropping
+B. Impersonation 
+C. Brute force 
+D. Cryptanalysis
+In the model of conventional encryption, the encryption key is known to 
+A. Sender 
+B. Receiver 
+C. Eavesdropper
+D. Both A and B
+2. Computational Questions
+Encrypt PASSWORD with a shift cipher with key = 6.
+Find the plaintext and the key from the ciphertext GSQIFEGO given that the cipher is a shift cipher.
+3. Programming (HTML and JavaScript) Questions
+Familiar with JavaScript (basic functions) via W3SCHOOL.
+Create an input box (HTML) and retrieve a Plaintext for Caser Cipher using JavaScript function. 
+             (hint: get input value)
+Split the Plaintext to an array of characters
+             (hint: split string to array)
+Substitute each Plaintext letter with Ciphertext letter when key is 3, refer to Lecture 1 page 59
+(hint: if statement)
+Potential solution: demo here
