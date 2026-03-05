@@ -300,6 +300,20 @@ From: “Nicotax: the fiscal and behavioural dynamics of cigarette taxation in J
 - Practical macro lens:
   - For any sin-tax story (tobacco, alcohol, fuel), always ask: rebound/stockpiling? illicit share? inflation indexation? revenue elasticity?
 
+## 4.18) Fragile-state macro drivers can flip sign; separate short-run shock effects vs long-run association (Somalia remittances/FDI/exports, 1991–2020)
+From: “Evaluating the impact of remittance, FDI and export on economic growth of Somalia: an empirical analysis” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2593737
+- In fragile/post-conflict states, standard “growth drivers” can behave nonstandard:
+  - Exports can correlate negatively with growth if they reflect low value-add, concentration, or extraction.
+- Expect **short-run vs long-run sign reversals** (the “FDI paradox” pattern):
+  - FDI may be disruptive in the short run (institutional weakness, enclave projects), yet positive in the long run.
+- Remittances as a lifeline vs development channel:
+  - Remittances can boost short-run stability/consumption, but need formal channels to become productive investment.
+- Practical policy translation:
+  - Don’t chase FDI volume; write contracts for local jobs/value-add and manage the transition costs.
+  - Diversify exports (products/markets) and move up value chain before expecting exports to be “growth positive.”
+- Practical research rule:
+  - When you see negative export coefficients, ask: export composition? ToT shocks? measurement of “exports” capturing smuggling/commodity cycles?
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
