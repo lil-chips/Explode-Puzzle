@@ -249,6 +249,19 @@ From: “Effects of public debt on private investment in Sub–Saharan Africa em
 - Practical market question:
   - Is debt financing soaking up domestic credit that would otherwise fund private capex (watch credit growth + government securities appetite)?
 
+## 4.14) Innovation/R&D/FDI effects are *quantile- and stage-dependent* (West Africa, 1991–2023)
+From: “Technological innovation, R&D, FDI, and governance as drivers of economic growth: evidence from West African countries” (Cogent Economics & Finance, 2026), DOI: https://doi.org/10.1080/23322039.2026.2614434
+- Don’t assume uniform average effects; check **heterogeneity across the growth/income distribution**:
+  - Innovation (patents) and R&D can be strongly positive at higher quantiles / more advanced contexts, but weak or even negative at very low income levels.
+- **Absorptive capacity is the gate** for FDI impact:
+  - If infrastructure/skills/institutions are weak, FDI’s measured growth impact can be limited or fade as economies move up.
+- Governance signals can be mixed/non-monotonic:
+  - Governance measures may look weak or even negative in higher-performing contexts; treat governance as potentially **indirect/long-horizon** rather than a guaranteed short-run growth booster.
+- Practical policy sequence:
+  - Build absorptive capacity (education, infrastructure, innovation ecosystem) → then FDI + innovation variables become reliable growth engines.
+- Practical market/research use:
+  - When analyzing “FDI-led growth” stories, always ask: which income stage? which quantile? what’s the absorptive capacity proxy?
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
