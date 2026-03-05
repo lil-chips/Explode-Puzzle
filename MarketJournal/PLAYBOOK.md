@@ -338,6 +338,17 @@ From: “Digital transformation as a catalyst for foreign direct investment: evi
 - Practical policy mapping:
   - Prioritize e-government + digital infrastructure first; then pursue international-standard alignment to compound FDI attractiveness.
 
+## 4.21) FX regime credibility matters for exports; volatility hurts short-run while conflict scars long-run trade capacity (Somalia exports, 1985–2019)
+From: “Factors influencing exports in Somalia: analyzing the impact of conflicts and unregulated exchange rates” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2586314
+- Split “FX issues” into short-run vs long-run:
+  - Unregulated/volatile exchange rates can depress exports in the short run even if long-run cointegration looks weaker.
+- Conflict is a long-run exporter-killer:
+  - Internal conflict can persistently reduce export capacity (infrastructure, contracts, trust, logistics).
+- Practical macro lens for small/fragile states:
+  - Trade performance often depends more on **policy credibility + security** than on relative prices alone.
+- Policy mapping (generalized):
+  - Stabilize the currency regime/settlement system + reduce internal conflict → then export diversification/value-add can start to matter.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
