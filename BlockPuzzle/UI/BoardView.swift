@@ -39,10 +39,8 @@ struct BoardView: View {
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
-    // Candy palette (match Piece tray vibe for now).
-    private let filledPalette: [Color] = [
-        .pink, .cyan, .green, .orange, .purple, .yellow
-    ]
+    // Early wood theme palette.
+    private let filledPalette: [Color] = Theme.Wood.blockPalette
 
     var body: some View {
         GeometryReader { geo in
@@ -81,7 +79,7 @@ struct BoardView: View {
     private func cellView(x: Int, y: Int) -> some View {
         let p = BlockPuzzlePoint(x, y)
         let isFilled = gameState.board.isOccupied(p)
-        let fillColor = isFilled ? filledColor(x: x, y: y) : Color(red: 0.92, green: 0.86, blue: 0.77)
+        let fillColor = isFilled ? filledColor(x: x, y: y) : Theme.Wood.slotFill
 
         let isGhost = ghostCells?.contains(p) ?? false
         let ghostFill = (ghostColor ?? Color.white)
@@ -105,7 +103,7 @@ struct BoardView: View {
                             ? clearColor.opacity(0.7)
                             : (isGhost
                                 ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                                : (isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52))),
+                                : (isFilled ? fillColor.opacity(0.55) : Theme.Wood.slotStroke)),
                         lineWidth: 1
                     )
             }

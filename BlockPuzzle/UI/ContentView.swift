@@ -8,9 +8,8 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            // Simple wood-ish background for now.
             LinearGradient(
-                colors: [Color(red: 0.40, green: 0.26, blue: 0.14), Color(red: 0.26, green: 0.16, blue: 0.09)],
+                colors: [Theme.Wood.backgroundTop, Theme.Wood.backgroundBottom],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -25,11 +24,11 @@ struct ContentView: View {
                     .padding(16)
                     .background(
                         RoundedRectangle(cornerRadius: 18, style: .continuous)
-                            .fill(Color(red: 0.85, green: 0.74, blue: 0.60))
+                            .fill(Theme.Wood.frameFill)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 18, style: .continuous)
-                            .stroke(Color(red: 0.55, green: 0.40, blue: 0.26), lineWidth: 3)
+                            .stroke(Theme.Wood.frameStroke, lineWidth: 3)
                     )
                     .padding(.horizontal, 20)
 
