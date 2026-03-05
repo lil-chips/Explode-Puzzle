@@ -21,6 +21,14 @@ extension GameState {
         }
 
         let board = Board(width: 10, height: 10, occupied: occupied)
-        return GameState(board: board, currentPieces: [], score: 0)
+
+        // Static upcoming pieces for UI scaffolding.
+        let currentPieces: [Piece] = [
+            Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(2,0)]), // 3-line
+            Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(1,1)]), // corner
+            Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(1,1)]) // 2x2
+        ]
+
+        return GameState(board: board, currentPieces: currentPieces, score: 0)
     }
 }

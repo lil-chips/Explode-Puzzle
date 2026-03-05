@@ -30,7 +30,24 @@ struct ContentView: View {
                     )
                     .padding(.horizontal, 20)
 
-                Text("(Static board preview — drag/drop next)")
+                HStack(spacing: 12) {
+                    ForEach(Array(state.currentPieces.enumerated()), id: \.offset) { _, piece in
+                        PieceView(piece: piece)
+                            .frame(width: 88, height: 88)
+                            .padding(10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                    .fill(Color(red: 0.85, green: 0.74, blue: 0.60))
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                    .stroke(Color(red: 0.55, green: 0.40, blue: 0.26), lineWidth: 2)
+                            )
+                    }
+                }
+                .padding(.horizontal, 20)
+
+                Text("(Static preview — piece rendering next: drag/drop)")
                     .font(.footnote)
                     .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90).opacity(0.8))
             }
