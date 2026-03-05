@@ -59,10 +59,12 @@ struct BoardView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("board.grid")
             .frame(width: side, height: side, alignment: .center)
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .aspectRatio(1, contentMode: .fit)
+        .accessibilityIdentifier("board")
     }
 
     private func filledColor(x: Int, y: Int) -> Color {
@@ -116,6 +118,7 @@ struct BoardView: View {
             )
             .animation(.easeOut(duration: 0.22), value: clearFadeOut)
             .animation(.spring(response: 0.18, dampingFraction: 0.75), value: popOn)
+            .accessibilityIdentifier("board.cell.\(x).\(y)")
             .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : (isClearing ? "Clearing" : "Empty"))))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }
