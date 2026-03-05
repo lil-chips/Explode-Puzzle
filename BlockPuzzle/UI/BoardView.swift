@@ -3,6 +3,11 @@ import SwiftUI
 struct BoardView: View {
     let gameState: GameState
 
+    /// Optional ghost preview (board coordinates).
+    let ghostCells: Set<BlockPuzzlePoint>?
+    let ghostColor: Color?
+    let ghostValid: Bool
+
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
@@ -44,14 +49,23 @@ struct BoardView: View {
         let isFilled = gameState.board.isOccupied(p)
         let fillColor = isFilled ? filledColor(x: x, y: y) : Color(red: 0.92, green: 0.86, blue: 0.77)
 
+        let isGhost = ghostCells?.contains(p) ?? false
+        let ghostFill = (ghostColor ?? Color.white)
+            .opacity(ghostValid ? 0.45 : 0.35)
+
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(fillColor)
+            .fill(isGhost ? ghostFill : fillColor)
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52), lineWidth: 1)
+                    .stroke(
+                        isGhost
+                            ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
+                            : (isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52)),
+                        lineWidth: 1
+                    )
             }
-            .shadow(color: isFilled ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
-            .accessibilityLabel(Text(isFilled ? "Occupied" : "Empty"))
+            .shadow(color: (isFilled || isGhost) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : "Empty")))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }
 }
