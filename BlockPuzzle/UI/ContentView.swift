@@ -9,6 +9,10 @@ struct ContentView: View {
     @State private var draggingPieceIndex: Int? = nil
     @State private var dragLocation: CGPoint? = nil
 
+    // Pop animation.
+    @State private var popCells: Set<BlockPuzzlePoint> = []
+    @State private var popOn: Bool = false
+
     private let piecePalette: [Color] = [
         .pink,
         .cyan,
@@ -73,7 +77,9 @@ struct ContentView: View {
                     gameState: gameState,
                     ghostCells: ghost?.cells,
                     ghostColor: ghost?.color,
-                    ghostValid: ghost?.valid ?? true
+                    ghostValid: ghost?.valid ?? true,
+                    popCells: popCells,
+                    popOn: popOn
                 )
                 .padding(16)
                 .background(
@@ -127,8 +133,18 @@ struct ContentView: View {
 
                                         guard let origin = ghostOrigin else { return }
 
-                                        if gameState.tryPlacePiece(at: index, origin: origin) {
-                                            // later: animate clears/refill.
+                                        if gameState.tryPlacePiece(at: index, origin: origin, colorIndex: index % piecePalette.count) {
+                                            if let g = ghost {
+                                                popCells = g.cells
+                                                withAnimation(.spring(response: 0.18, dampingFraction: 0.75)) {
+                                                    popOn = true
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
+                                                    withAnimation(.spring(response: 0.18, dampingFraction: 0.9)) {
+                                                        popOn = false
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                             )

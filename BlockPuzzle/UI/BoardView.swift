@@ -8,6 +8,10 @@ struct BoardView: View {
     let ghostColor: Color?
     let ghostValid: Bool
 
+    // Pop animation.
+    let popCells: Set<BlockPuzzlePoint>
+    let popOn: Bool
+
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
 
@@ -38,7 +42,11 @@ struct BoardView: View {
     }
 
     private func filledColor(x: Int, y: Int) -> Color {
-        // Deterministic per-cell color for now; later this will come from the placed piece.
+        let p = BlockPuzzlePoint(x, y)
+        if let idx = gameState.board.colorIndex(at: p) {
+            return filledPalette[idx % filledPalette.count]
+        }
+        // Fallback (shouldn't happen for occupied cells).
         let idx = abs((x &* 31) &+ y) % filledPalette.count
         return filledPalette[idx]
     }
@@ -65,6 +73,8 @@ struct BoardView: View {
                     )
             }
             .shadow(color: (isFilled || isGhost) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .scaleEffect(popOn && popCells.contains(p) ? 1.06 : 1.0)
+            .animation(.spring(response: 0.18, dampingFraction: 0.75), value: popOn)
             .accessibilityLabel(Text(isFilled ? "Occupied" : (isGhost ? "Ghost" : "Empty")))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }

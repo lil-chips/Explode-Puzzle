@@ -25,12 +25,12 @@ struct GameState: Codable, Hashable {
     }
 
     /// Attempts to place the piece at index. Returns true if placed.
-    mutating func tryPlacePiece(at index: Int, origin: BlockPuzzlePoint) -> Bool {
+    mutating func tryPlacePiece(at index: Int, origin: BlockPuzzlePoint, colorIndex: Int = 0) -> Bool {
         guard currentPieces.indices.contains(index) else { return false }
         let piece = currentPieces[index]
         guard board.canPlace(piece, at: origin) else { return false }
 
-        board.place(piece, at: origin)
+        board.place(piece, at: origin, colorIndex: colorIndex)
         score += piece.cells.count
         _ = board.clearFullLines() // scoring for clears can be added later
 

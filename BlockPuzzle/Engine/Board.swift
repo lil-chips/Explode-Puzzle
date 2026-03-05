@@ -3,9 +3,11 @@ import Foundation
 struct Board: Codable, Hashable {
     let width: Int
     let height: Int
-    private(set) var occupied: Set<BlockPuzzlePoint>
 
-    init(width: Int = 10, height: Int = 10, occupied: Set<BlockPuzzlePoint> = []) {
+    /// Occupied cells with a palette index (used for UI coloring).
+    private(set) var occupied: [BlockPuzzlePoint: Int]
+
+    init(width: Int = 10, height: Int = 10, occupied: [BlockPuzzlePoint: Int] = [:]) {
         precondition(width > 0 && height > 0)
         self.width = width
         self.height = height
@@ -17,7 +19,11 @@ struct Board: Codable, Hashable {
     }
 
     func isOccupied(_ p: BlockPuzzlePoint) -> Bool {
-        occupied.contains(p)
+        occupied[p] != nil
+    }
+
+    func colorIndex(at p: BlockPuzzlePoint) -> Int? {
+        occupied[p]
     }
 
     func canPlace(_ piece: Piece, at origin: BlockPuzzlePoint) -> Bool {
@@ -29,10 +35,10 @@ struct Board: Codable, Hashable {
         return true
     }
 
-    mutating func place(_ piece: Piece, at origin: BlockPuzzlePoint) {
+    mutating func place(_ piece: Piece, at origin: BlockPuzzlePoint, colorIndex: Int) {
         precondition(canPlace(piece, at: origin), "Invalid placement")
         for c in piece.cells {
-            occupied.insert(BlockPuzzlePoint(origin.x + c.x, origin.y + c.y))
+            occupied[BlockPuzzlePoint(origin.x + c.x, origin.y + c.y)] = colorIndex
         }
     }
 
@@ -42,7 +48,7 @@ struct Board: Codable, Hashable {
         for y in 0..<height {
             var count = 0
             for x in 0..<width {
-                if occupied.contains(BlockPuzzlePoint(x,y)) { count += 1 }
+                if occupied[BlockPuzzlePoint(x,y)] != nil { count += 1 }
             }
             if count == width { fullRows.append(y) }
         }
@@ -51,7 +57,7 @@ struct Board: Codable, Hashable {
         for x in 0..<width {
             var count = 0
             for y in 0..<height {
-                if occupied.contains(BlockPuzzlePoint(x,y)) { count += 1 }
+                if occupied[BlockPuzzlePoint(x,y)] != nil { count += 1 }
             }
             if count == height { fullCols.append(x) }
         }
@@ -60,7 +66,7 @@ struct Board: Codable, Hashable {
             return (0,0)
         }
 
-        occupied = occupied.filter { p in
+        occupied = occupied.filter { (p, _) in
             !fullRows.contains(p.y) && !fullCols.contains(p.x)
         }
 
