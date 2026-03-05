@@ -276,6 +276,17 @@ From: “Effect of fertilizer subsidies on farm financial profitability in Burki
 - Practical policy mapping:
   - If keeping the program, scale intensity and pair it with extension/capacity support; otherwise you’re subsidizing paperwork, not productivity.
 
+## 4.16) Co-movement ≠ mechanism; treat AI investment and GDP as a feedback loop with regime breaks (USA 2012–2023, wavelets)
+From: “Artificial intelligence and gross domestic product: the case of the USA” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2601923
+- When studying AI investment ↔ growth, assume **two-way feedback** rather than one-direction causality:
+  - Growth can induce AI investment (profit expectations/capex), and AI investment can raise growth (productivity).
+- Use a **regime/break lens**:
+  - Large shocks (e.g., COVID) can dominate co-movement; don’t generalize from crisis windows.
+- Time-frequency tools are good for “when does the link hold?” questions:
+  - Wavelet coherence/power is a fit when relationships change by period/horizon; don’t overinterpret it as structural causality.
+- Practical reading rule:
+  - If a paper uses coherence methods, extract: (a) which years the relationship is strong, (b) which direction leads/lag, (c) whether results persist outside shocks.
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
