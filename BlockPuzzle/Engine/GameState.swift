@@ -1,6 +1,13 @@
 import Foundation
 
 struct GameState: Codable, Hashable {
+    struct PlacementResult: Hashable {
+        let clearedOverlay: [BlockPuzzlePoint: Int]
+        let clearBonus: Int
+        let rowsCleared: Int
+        let colsCleared: Int
+    }
+
     var board: Board
     var currentPieces: [Piece]
     var score: Int
@@ -24,10 +31,9 @@ struct GameState: Codable, Hashable {
         return currentPieces.allSatisfy { !board.hasAnyValidPlacement(for: $0) }
     }
 
-    /// Attempts to place the piece at index. Returns true if placed.
-    /// Places the piece if valid and returns an overlay dictionary of any cleared cells.
-    /// - Returns: nil if the placement is invalid; otherwise a dictionary (possibly empty) of cleared cells.
-    mutating func tryPlacePiece(at index: Int, origin: BlockPuzzlePoint, colorIndex: Int = 0) -> [BlockPuzzlePoint: Int]? {
+    /// Places the piece if valid.
+    /// - Returns: nil if the placement is invalid; otherwise a result including cleared-cell overlay and bonus.
+    mutating func tryPlacePiece(at index: Int, origin: BlockPuzzlePoint, colorIndex: Int = 0) -> PlacementResult? {
         guard currentPieces.indices.contains(index) else { return nil }
         let piece = currentPieces[index]
         guard board.canPlace(piece, at: origin) else { return nil }
@@ -36,8 +42,11 @@ struct GameState: Codable, Hashable {
         score += piece.cells.count
 
         let beforeClear = board.occupiedCells
-        _ = board.clearFullLines() // scoring for clears can be added later
+        let cleared = board.clearFullLines()
         let afterClear = board.occupiedCells
+
+        let clearBonus = (cleared.rows + cleared.cols) * 100
+        score += clearBonus
 
         let removedPoints = Set(beforeClear.keys).subtracting(afterClear.keys)
         let removedOverlay: [BlockPuzzlePoint: Int] = removedPoints.reduce(into: [:]) { acc, p in
@@ -45,6 +54,11 @@ struct GameState: Codable, Hashable {
         }
 
         currentPieces.remove(at: index)
-        return removedOverlay
+        return PlacementResult(
+            clearedOverlay: removedOverlay,
+            clearBonus: clearBonus,
+            rowsCleared: cleared.rows,
+            colsCleared: cleared.cols
+        )
     }
 }

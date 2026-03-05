@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var gameState = GameState.samplePreview
 
     // Drag/drop scaffolding.
+    @State private var rootFrame: CGRect = .zero
     @State private var boardFrame: CGRect = .zero
     @State private var draggingPieceIndex: Int? = nil
     @State private var dragLocation: CGPoint? = nil
@@ -16,6 +17,12 @@ struct ContentView: View {
     // Clear animation overlay.
     @State private var clearOverlay: [BlockPuzzlePoint: Int] = [:]
     @State private var clearFadeOut: Bool = false
+
+    // Score toast.
+    @State private var scoreToastText: String = ""
+    @State private var scoreToastColor: Color = .white
+    @State private var scoreToastGlobalPoint: CGPoint = .zero
+    @State private var showScoreToast: Bool = false
 
     private let piecePalette: [Color] = [
         .pink,
@@ -72,10 +79,22 @@ struct ContentView: View {
             )
             .ignoresSafeArea()
 
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear { rootFrame = geo.frame(in: .global) }
+                    .onChange(of: geo.frame(in: .global)) { _, newValue in
+                        rootFrame = newValue
+                    }
+            }
+
             VStack(spacing: 16) {
                 Text("BlockPuzzle")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90))
+
+                Text("Score: \(gameState.score)")
+                    .font(.system(.headline, design: .rounded).weight(.heavy))
+                    .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90).opacity(0.9))
 
                 BoardView(
                     gameState: gameState,
@@ -140,7 +159,7 @@ struct ContentView: View {
                                         guard let origin = ghostOrigin else { return }
 
                                         // Attempt placement.
-                                        guard let clearedOverlay = gameState.tryPlacePiece(
+                                        guard let result = gameState.tryPlacePiece(
                                             at: index,
                                             origin: origin,
                                             colorIndex: index % piecePalette.count
@@ -159,9 +178,9 @@ struct ContentView: View {
                                             }
                                         }
 
-                                        if !clearedOverlay.isEmpty {
+                                        if !result.clearedOverlay.isEmpty {
                                             // Animate clear overlay (small pop + fade out).
-                                            clearOverlay = clearedOverlay
+                                            clearOverlay = result.clearedOverlay
                                             clearFadeOut = false
                                             withAnimation(.easeOut(duration: 0.22)) {
                                                 clearFadeOut = true
@@ -169,6 +188,17 @@ struct ContentView: View {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.24) {
                                                 clearOverlay = [:]
                                                 clearFadeOut = false
+                                            }
+                                        }
+
+                                        if result.clearBonus > 0 {
+                                            scoreToastText = "+\(result.clearBonus)"
+                                            scoreToastColor = pieceColor(for: index)
+                                            // Use board center as default anchor (refine later to cleared centroid).
+                                            scoreToastGlobalPoint = CGPoint(x: boardFrame.midX, y: boardFrame.midY)
+                                            showScoreToast = true
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                                showScoreToast = false
                                             }
                                         }
                                     }
@@ -182,6 +212,45 @@ struct ContentView: View {
                     .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90).opacity(0.8))
             }
             .padding(.vertical, 24)
+
+            // Score toast overlay (global-positioned, then converted to local).
+            if showScoreToast {
+                let local = CGPoint(
+                    x: scoreToastGlobalPoint.x - rootFrame.minX,
+                    y: scoreToastGlobalPoint.y - rootFrame.minY
+                )
+
+                Text(scoreToastText)
+                    .font(.system(size: 28, weight: .heavy, design: .rounded))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [scoreToastColor, scoreToastColor.opacity(0.65)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(Color.black.opacity(0.25))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                    .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                            )
+                    )
+                    .shadow(color: .black.opacity(0.25), radius: 10, x: 0, y: 6)
+                    .position(local)
+                    .transition(
+                        .asymmetric(
+                            insertion: .scale(scale: 0.85).combined(with: .opacity),
+                            removal: .opacity
+                        )
+                    )
+                    .offset(y: -28)
+                    .animation(.spring(response: 0.22, dampingFraction: 0.75), value: showScoreToast)
+                    .allowsHitTesting(false)
+            }
         }
     }
 }
