@@ -349,6 +349,21 @@ From: “Factors influencing exports in Somalia: analyzing the impact of conflic
 - Policy mapping (generalized):
   - Stabilize the currency regime/settlement system + reduce internal conflict → then export diversification/value-add can start to matter.
 
+## 4.22) Treat external flows separately; remittances can be growth-negative in financially developed contexts (Africa dynamic panel 1980–2023)
+From: “Re-assessing the growth impact of FDI and remittances in Africa: evidence from dynamic panel analysis” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2586309
+- Don’t lump external inflows together:
+  - FDI and remittances have different channels and can carry opposite growth signs.
+- FDI is more consistently growth-positive:
+  - Often shows unidirectional causality FDI → GDP in panel causality settings.
+- Remittances can be growth-negative when financial depth is higher:
+  - In financially developed contexts, remittances may tilt toward consumption rather than investment (watch mechanism, not morality).
+- Financial development is a modifier, not always “good”:
+  - It can amplify FDI’s growth effect while **diminishing** remittance-growth linkage.
+- Crisis resilience lens:
+  - Remittances tend to be more stable than FDI in crises; treat them as an insurance/stability flow even if growth effect is weak.
+- Practical policy mapping:
+  - If you want remittances to support growth, build products/pipes that convert them into investment (diaspora bonds, SME lending channels).
+
 ## 4.11) Domestic borrowing crowding-out lens (Tanzania paper, 2025)
 From: “Fiscal operations and treasury bonds: is Tanzania experiencing investment crowding out?” (Cogent Economics & Finance, 2025), DOI: https://doi.org/10.1080/23322039.2025.2582893
 - Crowding-out mechanism (bank-dominated markets):
