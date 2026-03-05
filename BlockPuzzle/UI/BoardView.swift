@@ -3,9 +3,13 @@ import SwiftUI
 struct BoardView: View {
     let gameState: GameState
 
-    // MVP: static sizing + simple wood-ish palette (refine later)
     private let gridSpacing: CGFloat = 2
     private let cornerRadius: CGFloat = 2
+
+    // Candy palette (match Piece tray vibe for now).
+    private let filledPalette: [Color] = [
+        .pink, .cyan, .green, .orange, .purple, .yellow
+    ]
 
     var body: some View {
         GeometryReader { geo in
@@ -28,17 +32,25 @@ struct BoardView: View {
         .aspectRatio(1, contentMode: .fit)
     }
 
+    private func filledColor(x: Int, y: Int) -> Color {
+        // Deterministic per-cell color for now; later this will come from the placed piece.
+        let idx = abs((x &* 31) &+ y) % filledPalette.count
+        return filledPalette[idx]
+    }
+
     @ViewBuilder
     private func cellView(x: Int, y: Int) -> some View {
         let p = BlockPuzzlePoint(x, y)
         let isFilled = gameState.board.isOccupied(p)
+        let fillColor = isFilled ? filledColor(x: x, y: y) : Color(red: 0.92, green: 0.86, blue: 0.77)
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(isFilled ? Color(red: 0.33, green: 0.20, blue: 0.10) : Color(red: 0.92, green: 0.86, blue: 0.77))
+            .fill(fillColor)
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(Color(red: 0.74, green: 0.63, blue: 0.52), lineWidth: 1)
+                    .stroke(isFilled ? fillColor.opacity(0.55) : Color(red: 0.74, green: 0.63, blue: 0.52), lineWidth: 1)
             }
+            .shadow(color: isFilled ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
             .accessibilityLabel(Text(isFilled ? "Occupied" : "Empty"))
             .accessibilityValue(Text("x \(x), y \(y)"))
     }
