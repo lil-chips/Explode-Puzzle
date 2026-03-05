@@ -4,10 +4,10 @@
 > Update this file **before responding** when the user provides corrections, decisions, preferences, names, dates, IDs, URLs, or specific values.
 
 ## Current focus
-- (empty)
+- Consolidate learning from papers into reusable playbooks (not skills yet).
 
 ## Decisions / preferences (active)
-- (empty)
+- Learning should be captured in playbooks first; convert to a Skill later when mature.
 
 ## Next actions
-- (empty)
+- Commit the new playbook file to the workspace repo.
