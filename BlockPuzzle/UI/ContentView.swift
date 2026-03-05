@@ -4,6 +4,19 @@ struct ContentView: View {
     // MVP: hardcoded state to prove rendering pipeline.
     private let state = GameState.samplePreview
 
+    private let piecePalette: [Color] = [
+        .pink,
+        .cyan,
+        .green,
+        .orange,
+        .purple,
+        .yellow
+    ]
+
+    private func pieceColor(for index: Int) -> Color {
+        piecePalette[index % piecePalette.count]
+    }
+
     var body: some View {
         ZStack {
             LinearGradient(
@@ -31,17 +44,18 @@ struct ContentView: View {
                     .padding(.horizontal, 20)
 
                 HStack(spacing: 12) {
-                    ForEach(Array(state.currentPieces.enumerated()), id: \.offset) { _, piece in
-                        PieceView(piece: piece)
+                    ForEach(Array(state.currentPieces.enumerated()), id: \.offset) { index, piece in
+                        PieceView(piece: piece, fillColor: pieceColor(for: index))
                             .frame(width: 88, height: 88)
                             .padding(10)
                             .background(
                                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .fill(Color(red: 0.85, green: 0.74, blue: 0.60))
+                                    .fill(Color(red: 0.93, green: 0.86, blue: 0.77))
+                                    .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
                             )
                             .overlay(
                                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .stroke(Color(red: 0.55, green: 0.40, blue: 0.26), lineWidth: 2)
+                                    .stroke(Color(red: 0.55, green: 0.40, blue: 0.26).opacity(0.65), lineWidth: 2)
                             )
                     }
                 }

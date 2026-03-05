@@ -4,9 +4,10 @@ import SwiftUI
 /// MVP: static rendering only (no drag/drop yet).
 struct PieceView: View {
     let piece: Piece
+    let fillColor: Color
 
     private let spacing: CGFloat = 2
-    private let cornerRadius: CGFloat = 3
+    private let cornerRadius: CGFloat = 4
 
     var body: some View {
         GeometryReader { geo in
@@ -43,22 +44,30 @@ struct PieceView: View {
         let filled = piece.cells.contains(BlockPuzzlePoint(x, y))
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(filled ? Color(red: 0.33, green: 0.20, blue: 0.10) : Color.clear)
+            .fill(filled ? fillColor : Color.clear)
             .overlay {
                 if filled {
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                        .stroke(Color(red: 0.55, green: 0.40, blue: 0.26), lineWidth: 1)
+                        .stroke(fillColor.opacity(0.55), lineWidth: 1)
                 }
             }
+            .shadow(color: filled ? .black.opacity(0.18) : .clear, radius: 1.5, x: 0, y: 1)
     }
 }
 
 #Preview {
     VStack(spacing: 16) {
-        PieceView(piece: Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(0,1)]))
-            .frame(width: 96, height: 96)
-        PieceView(piece: Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(2,0), BlockPuzzlePoint(0,1)]))
-            .frame(width: 96, height: 96)
+        PieceView(
+            piece: Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(0,1)]),
+            fillColor: .pink
+        )
+        .frame(width: 96, height: 96)
+
+        PieceView(
+            piece: Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(2,0), BlockPuzzlePoint(0,1)]),
+            fillColor: .cyan
+        )
+        .frame(width: 96, height: 96)
     }
     .padding()
     .background(Color(red: 0.85, green: 0.74, blue: 0.60))
