@@ -212,6 +212,12 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Proactive-Agent additions (local, guarded)
+
+- **SESSION-STATE.md (WAL-lite):** Before replying, update `SESSION-STATE.md` whenever the user provides corrections, decisions, preferences, names, dates/IDs/URLs, or specific values.
+- **Working buffer (danger zone):** If the conversation gets long, use `memory/working-buffer.md` to append each human message + a short summary of the response so the thread survives compaction.
+- **Guardrail stays king:** No external actions (network/third‑party APIs, messaging, cron/config changes, writing outside workspace) without explicit user approval.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
