@@ -45,10 +45,11 @@ struct ContentView: View {
 
     private func comboWord(for totalLines: Int) -> String {
         switch totalLines {
-        case 1: return "Good"
-        case 2: return "Great"
-        case 3: return "Awesome"
-        case 4: return "Legendary"
+        case 1: return "Wonderful"
+        case 2: return "Good"
+        case 3: return "Great"
+        case 4: return "Awesome"
+        case 5: return "Legendary"
         default: return "Godlike"
         }
     }
