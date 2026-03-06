@@ -1,0 +1,226 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+Week 3: Workshop
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+Our plan for
+this session
+Recap: V&S and PC
+Victoria Farms Scenario – drafts
+of Product backlog parts, creating
+a full product backlog
+Sample for  SE Challenge 1
+3
+===== Page 4 =====
+Please use this link to join EdForum
+using your RMIT student email address
+https://edstem.org/au/join/6tzstn
+4
+If you are an exchange student or
+have RMIT Vietnam student email address,
+please send an email to Dr Maria Spichkova
+(maria.spichkova@rmit.edu.au)
+to be added to the EdForum manually.
+===== Page 5 =====
+Project Charter (PMBOK)
+1. Purpose *
+2. Objectives *
+3. Overview *
+4. Schedules *
+5. Resource requirements
+6. Personnel and stakeholders *
+7. Evaluation methods
+8. Risk management *
+Vision & Scope document:
+1. Business Requirements
+1) Background
+2) Business Opportunity
+3) Business Objectives and Success Criteria
+4) Business Assumptions and Dependencies
+5) Business Risks
+2. Vision of the Solution
+1) Vision Statement
+2) Major Features
+3. Scope and Limitations
+1) Scope of Initial and Subsequent Releases
+2) Limitations and Exclusions
+4. Business Context
+1) Stakeholder Profiles
+2) Project Priorities
+3) Operating Environment
+Recap: We always use only one of these documents!
+===== Page 6 =====
+Activity 1: Victoria Farms scenario
+This week focus on the following case study: Victoria
+Farms.
+Read, analyse and discuss the scenario: general
+description and functionality to implement within the
+project.
+A team created very early drafts of the Product
+Backlog for the above product, but they are
+incomplete and contains mistakes – our next activity
+will focus on analysing and fixing these drafts. For
+this analysis and correction we need to know the
+scenario.
+Duration: approx. 10 minutes
+===== Page 7 =====
+Victoria Farms scenario:
+General description
+“Victoria Farms” is an innovative technologically
+driven Food Service distributor who uses the strategy
+of franchising to make a significant difference in
+distributing Fruit, Vegetables and Dairy into the
+Hospitality Industry. “Franchisees” are drivers who
+pick up the fresh produce from the Victoria Farms
+warehouse, pack the produce, and deliver it to the
+restaurants that are customers of Victoria Farms.
+They work 7 days a week.
+Victoria Farms’ technology has been specially
+developed for their business and is largely a web
+ordering, procurement, and distribution system.
+There has been interest from parties in similar
+businesses and industries who would like to adopt
+the technology and so Victoria Farms would like to
+begin to make the software a commercial product, by
+initially doing a full rewrite of the existing interfaces.
+===== Page 8 =====
+Victoria Farms scenario:
+Required functionality
+The major system functions required are:
+▪ Victoria Farm’s user maintenance system for
+maintaining records of all the system’s users
+▪  Inventory system for all available fresh
+produce.
+▪  Maintenance of all franchisee and customer
+records, these include
+• Types of orders
+• Dates of orders
+• Details of order deliveries
+• Details of product returns
+• Cost of products purchased
+• Payment of products purchased
+• Monthly financial reports
+.
+===== Page 9 =====
+Activity 2: Draft 1 of Product backlog
+Let’s now analyse the first draft of a backlog’s
+part. You can also use the checklist for feedback
+on Product backlog as a guidance for your
+analysis.
+Duration: approx. 10 minutes
+===== Page 10 =====
+Is our Product Backlog correct?
+✓ Are the PBI IDs unique? Do the IDs make sense?
+✓ Are the PBI written as reasonable user stories?
+(reasonable semantics, correct format As a… I want to …
+so that …)
+✓ Is the product backlog sorted by the priorities of the PBIs?
+✓ Are the priorities correct wrt. notes made during the initial
+requirements elicitation interviews with the stakeholders?
+✓ Are the Owners reasonable wrt. the PBIs?
+✓ Are the Efforts reasonable wrt. the PBIs?
+✓ Are the DoDs reasonable wrt. the PBIs?
+✓ Is the PB complete?
+10
+===== Page 11 =====
+Draft 1 of Product Backlog:
+What exactly should be fixed and why?
+✓ Are the PBI IDs correct?
+✓ Are the PBI written as reasonable user stories?
+✓ Is the product backlog sorted by the priorities ?
+✓ Are the priorities correct?
+✓ Are the Owners reasonable wrt. the PBIs?
+✓ Are the Efforts reasonable wrt. the PBIs?
+✓ Are the DoDs reasonable wrt. the PBIs?
+✓ Is the PB complete?
+===== Page 12 =====
+Activity 3: Draft 2 of Product backlog
+Let’s now analyse the second draft of a backlog’s
+part. You can also use the checklist for feedback
+on Product backlog as a guidance for your
+analysis.
+Duration: approx. 10 minutes
+===== Page 13 =====
+Draft 2 of Product Backlog:
+What exactly should be fixed and why?
+✓ Are the PBI IDs correct?
+✓ Are the PBI written as reasonable user stories?
+✓ Is the product backlog sorted by the priorities ?
+✓ Are the priorities correct?
+✓ Are the Owners reasonable wrt. the PBIs?
+✓ Are the Efforts reasonable wrt. the PBIs?
+✓ Are the DoDs reasonable wrt. the PBIs?
+✓ Is the PB complete?
+===== Page 14 =====
+Activity 4: Fixing this part of the Product backlog
+Let’s now fix this part of the product backlog. You
+can also use the checklist for feedback on
+Product backlog as a guidance for your analysis.
+Templates for a Product backlog can be downloaded
+from
+Modules →  Templates, Tools, Team Allocation →
+Useful templates
+Duration: approx. 10 minutes
+===== Page 15 =====
+Sample Correction for this part of Product Backlog
+IMPORTANT:
+We fixed here all points except completeness issue.
+How would you fix completeness issue?
+===== Page 16 =====
+Completeness of the Product Backlog (PB)
+16
+• It's not about the number of PBIs in PB
+• It’s about coverage of all the requirements
+In the case of assignment project:
+• You have to cover all requests listed in the notes made during the initial
+requirements elicitation interviews with the stakeholders.
+• It might be complicated to cover all this information in less than
+20 PBIs…
+===== Page 17 =====
+Completeness of the Product Backlog,
+for example…
+17
+• 30 PBIs, all requirements covered, no out of scope requirements
+• 60 PBIs, all requirements covered, no out of scope requirements
+• 30 PBIs, all requirements covered, some requirements are out of scope
+• 30 PBIs, not all requirements covered, no out of scope requirements
+• 60 PBIs, all requirements covered, some requirements are out of scope
+• 60 PBIs, not all requirements covered, no out of scope requirements
+• 30 PBIs, not all requirements covered, some requirements are out of scope
+• 60 PBIs, not all requirements covered, some requirements are out of scope
+Product backlog is complete ==
+it covers the expected scope of the project
+===== Page 18 =====
+Activity 5: Creating a complete Product backlog
+Let’s now try to create a complete product
+backlog for the Victoria Farms scenario.
+Note that there will be no sample solution for this
+activity, but the tutor can provide you feedback
+on your solution within this session.
+Templates for a Product backlog can be downloaded
+from
+Modules →  Templates, Tools, Team Allocation →
+Useful templates
+Duration: approx. 40 minutes
+===== Page 19 =====
+Activity 6: Sample Challenge 1
+Try to complete sample challenge. You will see the correct solutions as soon
+as you complete the challenge.
+Ask your tutor if you have any questions.
+1919
+Duration: approx. 30 minutes

@@ -1,0 +1,176 @@
+===== Page 1 =====
+RMIT Classification: Trusted
+COSC2626/2640
+Overview
+Dr. Qiang Fu
+School of computing technologies
+===== Page 2 =====
+RMIT Classification: Trusted
+Course Overview
+• Course information
+– People/times/venues
+– Course objectives, prerequisites, texts/resources, assessments, policies
+• How to succeed and get help
+• Some important info.
+– Set up your AWS canvas shell account (this is separate from your RMIT
+canvas shell)
+– COSC2626 course Canvas shell shared between UG class (COSC2626)
+and PG class (COSC2640)
+• Appointing class reps
+2
+===== Page 3 =====
+RMIT Classification: Trusted
+People
+• Course coordinator and lecturer
+– Dr. Qiang Fu: qiang.fu@rmit.edu.au
+– Dr. Vu Huy Mai: vuhuy.mai@rmit.edu.au
+• Tutors
+– Dr. Ying Zhang: ying.zhang3@rmit.edu.au
+– Tim Lo: tim.lo@rmit.edu.au
+– Yiwei Zhong: yiwei.zhong@rmit.edu.au
+– Khang Vo: khang.vo@rmit.edu.au
+3
+===== Page 4 =====
+RMIT Classification: Trusted
+Important Times
+• Check your timetable for your lecture and tutorial sessions
+• Canvas  Modules  Class Timetable
+4
+===== Page 5 =====
+RMIT Classification: Trusted
+Course Objectives
+• The course is about:
+– How to use and build cloud
+– How to develop a cloud application using AWS services
+– The enabling technologies building the cloud
+– Details on course guide
+• Note:
+– This is a generic cloud computing course
+– NOT an AWS course (AWS is just a tool)
+– Interested in AWS  Cloud Foundation (COSC2757)
+5
+===== Page 6 =====
+RMIT Classification: Trusted
+Pre-requisites and assumed knowledge
+• Good knowledge in programming (This is a MUST!)
+• Good knowledge in Java/PHP/Python or any other programming
+language supported by AWS
+– We use Java in the exercises
+• Basic knowledge in computer networks, operating systems and
+computer architecture
+– We do not assume you have this
+6
+===== Page 7 =====
+RMIT Classification: Trusted
+Course Texts
+• No prescribed texts
+• References (Canvas  Syllabus, Course Guide)
+– Cloud Computing: Theory and Practice
+– The Cloud Computing Book: The Future of Computing Explained
+– Learning Amazon Web Services (AWS): A Hands-On Guide to the Fundamentals
+of AWS Cloud
+• Good books about
+– Computer networks
+– Operating systems
+– Computer architecture
+7
+===== Page 8 =====
+RMIT Classification: Trusted
+On-line Resources
+• Everything is on Canvas including both RMIT and AWS Canvas
+shells and AWS documentation
+• Online sessions will be carried out via Collaborate Ultra on
+Canvas.
+8
+===== Page 9 =====
+RMIT Classification: Trusted
+Assessment
+• Fortnightly quizzes
+– Weight: 10%
+• Assignment 1: written assignment (group or individual)
+– Weight: 10%
+– Due: Sun. Week 4
+• Assignment 2: project (group or individual)
+– Weight: 40%
+– Due: Fri. Week 9
+– Demo marking. You must attend the demo to get marks – no demo, no marks!
+• Assignment 3: written assignment (individual)
+– Weight: 40%
+– Due: Fri. Week 13
+9
+===== Page 10 =====
+RMIT Classification: Trusted
+Rules and Policies
+• The usual rules and policies apply.
+• Information is available on the course web page.
+• Plagiarism (cheating) – a big no-no!
+– Example: copy directly from ChatGPT or other sources
+10
+===== Page 11 =====
+RMIT Classification: Trusted
+How to succeed and get Help
+• Lectures
+– Attend lectures, watch lecture recordings, or self-study the materials if you
+are confident
+– You are encouraged to ask questions
+– Try to get as much as possible from the lectures
+– Materials available a few days earlier (may get updated after the lectures)
+11
+===== Page 12 =====
+RMIT Classification: Trusted
+How to succeed and get Help
+• Exercises (if any) / AWS exercises
+– AWS exercises are designed to help you develop hands-on skills and do
+the project.
+– Steps of doing these exercises are provided in the exercise notes.
+– You need to get your hands dirty, going through these exercises before
+coming to the Tutotial sessions when you need help.
+12
+===== Page 13 =====
+RMIT Classification: Trusted
+How to succeed and get Help
+• Tutorial sessions
+– The primary venue to interact with teaching staff for help
+– If you have trouble going through the exercises or understanding the
+lecture materials, you are encouraged to attend these sessions to get help
+– The attendance is optional
+– You may attend any of these sessions that suits you
+13
+===== Page 14 =====
+RMIT Classification: Trusted
+How to succeed and get Help
+• Canvas Discussion Forums
+– Designed for the discussions among students to create the vibe of a
+community
+– Moderated and facilitated by teaching staff
+– If any clarifications are needed, teaching staff will step in.
+– Note that teaching staff is not in a position to help interpret assignment
+questions. It is part of your job.
+14
+===== Page 15 =====
+RMIT Classification: Trusted
+How to succeed and get Help
+• Don’t hesitate to use all these channels if you need help
+• You will be fine!
+15
+===== Page 16 =====
+RMIT Classification: Trusted
+Some important things to know
+• We will send out AWS invites soon if not already. If you enrolled
+late, please contact your Tutorial session tutors to get an invite.
+– You will need set up a separate AWS account for AWS Canvas shell (this
+is not your RMIT Canvas shell account).
+• We use COSC2626 course Canvas shell, which is shared
+between UG class (COSC2626) and PG class (COSC2640)
+– Assessments 2 and 3 have one version for COSC2626 and another for
+COSC2640.
+16
+===== Page 17 =====
+RMIT Classification: Trusted
+Appointing Class Representatives (Class Reps)
+• Class Reps are expected to liaise with the Course Coordinator,
+lecturer, and the class to support and improve students’ learning
+experiences in this course
+• Elected
+• Please send me an email to confirm
+17

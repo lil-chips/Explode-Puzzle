@@ -1,0 +1,121 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+Week 2: Workshop
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+Our plan for
+this session
+Orga points: What to expect from
+workshops and tutors
+Project charter vs. Vision & Scope
+document
+Work Breakdown Structure (WBS)
+in traditional methodologies
+3
+===== Page 4 =====
+What to expect from your
+workshop and tutors?
+Each workshop will have a number of activities, where we
+will discuss   practical case studies and examples.
+Workshop sessions are not recorded, but we will share with
+you workshop slides and (for some tasks) sample solutions.
+We will discuss here sample challenges and (after
+announcement of marks) correct solutions of actual
+challenges.
+If you have questions on your assignments (need more
+feedback or have questions on your mark) – ask your tutor
+at the workshop! We will allocate a part of the sessions
+exactly to these activities.
+4
+===== Page 5 =====
+Activity 1: Introduce yourself ☺
+Who is your tutor?
+Who are the students in the class?
+Note: You will have a team-based assignment!
+The teams will be formed within the workshop
+sessions by the tutors and will typically have
+4-5 members.
+All team members should be from the same
+workshop class as per official enrolments.
+Duration: approx. 15 minutes
+===== Page 6 =====
+Activity 2:
+Let’s discuss what to use – PC or V&S?
+Project Charter and Vision & Scope document are very similar.
+Even when their structure looks different, they have similar goals.
+Which of the documents would you personally prefer to have for
+your project?
+What writing styles are easier for you to read?
+Duration: approx. 30 minutes
+Have you checked the Week 1’s materials
+on this topic? If not, then please do it now
+and ask questions if something is unclear!
+===== Page 7 =====
+Project Charter (PMBOK)
+1. Purpose *
+2. Objectives *
+3. Overview *
+4. Schedules *
+5. Resource requirements
+6. Personnel and stakeholders *
+7. Evaluation methods
+8. Risk management *
+Vision & Scope document:
+1. Business Requirements
+1) Background
+2) Business Opportunity
+3) Business Objectives and Success Criteria
+4) Business Assumptions and Dependencies
+5) Business Risks
+2. Vision of the Solution
+1) Vision Statement
+2) Major Features
+3. Scope and Limitations
+1) Scope of Initial and Subsequent Releases
+2) Limitations and Exclusions
+4. Business Context
+1) Stakeholder Profiles
+2) Project Priorities
+3) Operating Environment
+V&S Document vs. Project Charter
+===== Page 8 =====
+Activity 3: Project charter for LOS case study
+The Project Charter for LOS was created under an assumption
+that the project will be conducted using Agile approach.
+If we would plan for a traditional project, the WBS (work
+breakdown structure) must be created in a different way.
+Discuss with the tutor the differences and similarities on the
+basis of LOS case study.
+Duration: approx. 30 minutes
+===== Page 9 =====
+Activity 4: WBS
+Scenario: Assume that the LOS project should be
+conducted using a traditional methodology, within 6
+months (1 May – 31 October).
+Task 1: Discuss with the tutor what information is missing in
+the scenario to start creating WBS. Extend the scenario
+based on this discussion.
+Task 2: Create a WBS with at least two levels for the case
+✓ Think of general steps that may be needed!
+✓ Make sure that you included predecessor, task durations,
+resources and milestones.
+✓ The tasks must be at least two levelled.
+Templates are available in Canvas:
+Modules →  Templates, Tools, Team Allocation →
+Useful templates
+Duration: approx. 30 minutes

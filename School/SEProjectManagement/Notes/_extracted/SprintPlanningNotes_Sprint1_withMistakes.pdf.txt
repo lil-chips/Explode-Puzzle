@@ -1,0 +1,4 @@
+===== Page 1 =====
+SPRINT PLANNING NOTES DATE OF THE MEETING: 1 MARCH 2023
+Project: OPM (Online Patient Management) Team: X1   Attended Absent Scrum Master Severus Snape  Product Owner Severus Snape  Development Team Harry Potter, Ron Weasley, Hermione Granger, Neville Longbottom, Luna Lovegood, Draco Malfoy
+Customers (optional)    Sprint duration Sprint # Start Day End Day Total Working Days Expected capacity Expected Velocity 1.5 weeks 1 27 February 2023 10 March 2023 10 100% 27 story points   1. Team’s goal (vision) for this sprint The aim of this sprint is work well with the team members, to follow best coding practices and the Scrum methodology.  2. Scope of the sprint: Estimation • PBI 3:   3 story points  • PBI 1:   13 story points  • PBI 24: 5 story points • PBI 8:   3 story points  • PBI 12: 3 story points

@@ -1,6 +1,4 @@
-
-
-=== Page 1 ===
+===== Page 1 =====
 2/23/26
 1
 CRICOS provider number: 00122A| RTO Code: 3046
@@ -8,40 +6,35 @@ ISYS1102/3479 – Database ApplicationsWeek 1 – Introduction and Database Arch
 1
 Acknowledgement of CountryRMIT University acknowledges the people of the Woi wurrung and Boon wurrung language groups of the eastern Kulin Nation on whose unceded lands we conduct the business of the University. RMIT University respectfully acknowledges their Ancestors and Elders, past and present.RMIT also acknowledges the Traditional Custodians and their Ancestors of the lands and waters across Australia where we conduct our business.
 2
-
-=== Page 2 ===
+===== Page 2 =====
 2/23/26
 2
 What do you expect from this course?Menti.com Code: 7563 9007Link: https://www.menti.com/qnary4qvvd
 3
 What is covered in this course?https://miro.com/app/board/uXjVKwUF8FM=/
 4
-
-=== Page 3 ===
+===== Page 3 =====
 2/23/26
 3
-Setting the SceneA common complaint you heard about web sites:ØIt takes too long to load my web page!ØMore like than not, the culprit is the database back-end.ØDatabase performance matters – e.g. RMIT student database, search by name took approx. 13 seconds, where a search by student number would take less than a second.  
+Setting the SceneA common complaint you heard about web sites:ØIt takes too long to load my web page!ØMore like than not, the culprit is the database back-end.ØDatabase performance matters – e.g. RMIT student database, search by name took approx. 13 seconds, where a search by student number would take less than a second.
 5
 Setting the SceneA common complaint you heard about web sites:Ø47% of consumers expect a web page to load in 2 seconds or less.ØNot only do consumersEXPECTyour website to load in 2 seconds or less, but 40% of users will also abandon your website if it takes more than three seconds to load.ØSo, DB Designers have an important role, making your database backend is efficient and queries are optimised.(https://blog.kissmetrics.com/wp-content/uploads/2011/04/loading-time.pdf)
 6
-
-=== Page 4 ===
+===== Page 4 =====
 2/23/26
 4
 How can we efficiently store data?Storing large volumes of data in a methodical way is essentialØTra d i t i o n a l  sto ra g e  m e t h o d s  – flat files, spreadsheets – became insufficient and limited in many waysØTo  m e e t  t h e  e v e r-increasing demand, since 1970s, databases and database management systems have been in use.
 7
 Database Management Systems to the rescue!
 8
-
-=== Page 5 ===
+===== Page 5 =====
 2/23/26
 5
 Database Management Systems to the rescue!http://upload.wikimedia.org/wikipedia/commons/2/22/RDBMS_timeline.svg
 9
 Database Management Systems to the rescue!ØRecently DBMS technology celebrated 50-year anniversary . Half a century is a long time in modern day technologies.ØSo what is the secret to its longevity?ØIts ability to evolve to keep pace with the ever-changing nature of data, applications, workloads, and deployment alternativesØEven if other database technologies, including object-oriented, graph, and document databases, have come into the market, relational databases continue to be the most popular DBMS.Sources: https://www.oracle.com/database/50-years-relational-databasehttps://sqldbm.com/blog/from-the-birth-of-data-modeling-to-ai-milestones-and-timeline/
 10
-
-=== Page 6 ===
+===== Page 6 =====
 2/23/26
 6
 Which DBMS is most commonly used today?
@@ -49,31 +42,28 @@ https://www.statista.com/statistics/809750/worldwide-popularity-ranking-database
 11
 What DBMS have you used?Menti.com Code: 7563 9007Link: https://www.menti.com/qnary4qvvd
 12
-
-=== Page 7 ===
+===== Page 7 =====
 2/23/26
 7
 Comparing DBMS apples (and oranges)https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems
 13
 Non-relational (no-SQL) Databases
 Re-invent the wheel?
-ØData is everywhere. The digital transformation drives us to the frontiers that never reached.ØThe digital transformation demands for rich content and big data!ØThe relational database model, that catered the data management needs for almost half a century, has its inherent limitations.    
+ØData is everywhere. The digital transformation drives us to the frontiers that never reached.ØThe digital transformation demands for rich content and big data!ØThe relational database model, that catered the data management needs for almost half a century, has its inherent limitations.
 Source: https://misapuntesde.com/2024/07/rdbms_vs_nosql.html14
-
-=== Page 8 ===
+===== Page 8 =====
 2/23/26
 8
 Non-relational (no-SQL) Databases
 Re-invent the wheel?
-Non-relational (no-SQL) Database SystemsØMongoDBØDynamo DBØRegisØMany more… 
+Non-relational (no-SQL) Database SystemsØMongoDBØDynamo DBØRegisØMany more…
 Relational Database SystemsØOracleØMS SQL ServerØMySQLØPostgreSQLØMany more…
 ØNon-relational databases (AKA "not only SQL") store data differently than relational tables.ØThey provide flexible schemas and scale easily with large amounts of big data and high user loads.Øfour major types of NoSQL databases have emerged: document databases, key-value databases, wide-column stores, and graph databases.
 15
 16
 NoSQL – Not just one modelDocument DatabasesGraph DatabasesKey-value StoresWide-column StoresMongoDBAzure Cosmos DB Amazon DynamoDBAzure Cosmos DB, Google Cloud FirestoreInfiniteGraphAzure Cosmos DBAmazon DynamoDB, Azure Cosmos DBApache GiraphCouchbaseCassandraApache CouchDBNeo4JRiakGoogle Cloud DatastoreOracle NoSQLHBaseBigtable
 16
-
-=== Page 9 ===
+===== Page 9 =====
 2/23/26
 9
 17
@@ -81,20 +71,18 @@ SQL, NoSQL – Different StrengthsData Model/FunctionalityRelational DatabaseDoc
 17
 Comparing DB paradigms – relational vs non-relational
 18
-
-=== Page 10 ===
+===== Page 10 =====
 2/23/26
 10
 Database Performance. -- Focus in this course!!
 https://danielfoo.medium.com/11-database-optimization-techniques-97fdbed1b627
 Database often becomes the bottleneck in software performance. Refer to the original remarks I made at the beginning of this lecture.
-Having an optimised database is essential for high performing systems. 
+Having an optimised database is essential for high performing systems.
 19
 Database PerformanceHow?ØIndexes are data structures that provide a quick lookup mechanism, significantly improving query performance. They work by creating a sorted data structure that allows the database engine to quickly locate the rows that satisfy a WHERE clause. ØWhile indexes speed up SELECT queries, they may slow down write operations, so it's crucial to strike a balance between read and write performance.ØDiscussed next week
 Indexing
 20
-
-=== Page 11 ===
+===== Page 11 =====
 2/23/26
 11
 Database PerformanceHow?ØThis process organises data to minimise redundancy and dependency, reducing the likelihood of data anomalies.ØBy breaking down large tables into smaller, related ones, normalization ensures data consistency. ØHowever, it may lead to more complex queries.ØWe have covered this in pre-req courses
@@ -103,8 +91,7 @@ Good database design – Normalisation
 Database PerformanceHow?ØWhile normalisation reduces redundancy, denormalisation introduces controlled redundancy to improve query performance, especially for read-heavy operations. ØThis can involve adding redundant columns or tables strategically.ØMongoDB, a non-relational database system use this approach as its data model.ØWe cover MongoDB in the second half of the semester.
 Demormalisation
 22
-
-=== Page 12 ===
+===== Page 12 =====
 2/23/26
 12
 Database PerformanceHow?ØOptimise Queries: Regularly analyse and optimise frequently used queries. ØUse tools like EXPLAIN to understand the query execution plan and identify areas for improvement.ØDiscussed in week 3.
@@ -113,8 +100,7 @@ Query Optimisation
 Database PerformanceHow?ØPartitioning involves dividing large tables into smaller, more manageable pieces. ØThis can significantly improve query performance by allowing the database engine to work on smaller subsets of data, leading to faster query execution.ØDiscussed in week 4
 Partitioning
 24
-
-=== Page 13 ===
+===== Page 13 =====
 2/23/26
 13
 Database PerformanceHow?ØIsolation Levels: Adjust isolation levels based on the requirements of your application. ØIsolation levels control the visibility of changes made by one transaction to other transactions. ØChoosing the appropriate isolation level is crucial for balancing consistency and performance.ØDiscussed next week 7.
@@ -123,8 +109,7 @@ Concurrency Control
 House KeepingØAttendance is essential for successfully completing the courseØA laptop is required – either Windows or Mac is acceptableØSoftware:vVisual Studio CodevMongo CompassØAssignments -- 4 assessments in the courseØAssignment 1 – relational database optimisationØAssignment 2 – Mongo DB design and implementationØAssignment 3 – Mid-semester test (MCQ and short-answer type)ØAssignment 4 – Building a web database application using NodeJS and MongoDB.
 Essential information for success
 26
-
-=== Page 14 ===
+===== Page 14 =====
 2/23/26
 14
 CRICOS provider number: 00122A| RTO Code: 3046

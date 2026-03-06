@@ -1,0 +1,590 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+Week 1: Lectorial
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+"Womin Djeka"
+is the Aboriginal, Kulin Nation word
+for...
+"Welcome, what is your
+purpose?"
+It is statement as well as a question
+===== Page 4 =====
+Our plan for this session
+Core organizational points: sessions,
+schedule, expectations, assessments…
+SE Project Management: Why?
+Discussion on pre-recorded materials
+Project Methodologies: overview
+Vision & Scope document vs. Project
+Charter
+Work Breakdown Structure (WBS):
+Traditional vs. Agile
+4
++ any questions you
+have on related
+material ☺
+===== Page 5 =====
+Who?
+You:
+• Bachelor and Master students
+Course Coordinator and Lecturer:
+• Dr Maria Spichkova, Senior Lecturer in Software Engineering
+maria.spichkova@rmit.edu.au
+    Feedback/ Consultation hours (might be updated later):
+• Tuesdays, 16:30 – 17:30pm, office 14.10.13
+Tutors:
+Anthony Clapp, Fiona Le, Anh Nguyen Thi Phuong (Sofia),
+Osheen Walawedura, Zhenshuo (Vincent) Zhao
+===== Page 6 =====
+Who am I?
+Active researcher in Software Engineering:
+human-oriented SE, Agile, RE, modelling, testing
+as well as formal specification and verification of
+safety-critical and distributed systems.
+Dr Maria Spichkova
+===== Page 7 =====
+Why are we doing this course?
+IT graduates often think good programming skills is all they require
+▪
+ What if I my interest is only into coding?
+▪
+ Hmm... I don’t want to be a project manager!!!!!111
+IT Industry is very dynamic and is changing very fast today
+You need other skills too
+▪ Software Engineering
+▪ Project Management
+▪ Professional Communication and above all
+This course is not about being
+a Project Manager, but about
+being an IT Professional /
+Software Engineer ☺
+This is a very common
+mistake to make ☺
+===== Page 8 =====
+Where & When?
+• Lectorials:     discussion of general ideas +
+         “big picture”+ theory + analysis +
+         examples + inspiration
+• Workshops:   more analysis- and skill-based Work on set problems +
+discussions +
+answering questions
+Workshops:
+Enrolment is crucial, we will allocate you to
+the teams within the class you are enrolled in
+– you cannot attend another on Campus class
+Invest at least 6h in reading
+and learning the materials +
+working on the assignments
+===== Page 9 =====
+Classes and Deadlines
+Week
+1
+Week
+2
+Week
+3
+Week 4 Week
+5
+Week
+6
+Week
+7
+Week 8 Week 9 Week
+10
+Week 11 Week 12
+Lectorials
+Workshops Team
+work
+Team
+work
+A1: SE
+Challenge
+Friday:
+Challenge 1
+10%
+Friday:
+Challenge 2
+10%
+Friday:
+Challenge 3
+10%
+A2: Team-
+based
+assignment
+Due on
+Friday:
+30%
+A3:
+Individual
+Assignment
+Due on Friday:
+40%
+Mid-semester break is between Weeks 5 and 6
+Team-based
+assignment
+activities
+===== Page 10 =====
+✓ Individual assessment
+✓ 3 online challenges with a number of practical case studies
+with real-life scenarios: on Fridays of Weeks 4, 9, 11
+✓ weight - 10% each,
+✓ timed, to be completed within within 24h window – you should
+demonstrate that you not only can solve project management
+tasks but also can do it within reasonable time
+No “late submission” possible – if missed by a valid reason,
+the only option is a deferred challenge based on granted
+special consideration (can be granted only by Spec. Cons.
+Office, Course Coordinator cannot provide it)
+A1: SE Challenges
+===== Page 11 =====
+A2: Team-based Assignment
+Simulated Scrum Project: 30%
+You team will be provided with scenarios, for which you will need to
+create Scrum artefacts (product backlog, sprint backlog, notes, etc.)
+Assignments are team-based,
+unless you have
+corresponding ELP
+The teams will be formed by tutors during the workshop sessions.
+Typical size of a team: 4-5 students enrolled in the same workshop class.
+The core work will be done in Workshop sessions 6+7, under the
+observation of the tutor.
+===== Page 12 =====
+A3: Individual Assignment
+(on-demand interview): 40%
+• You will work individually on a Scrum Project scenario, to
+create a burn-down chart and to analyse some other
+artefacts. You will need to create two short videos to present
+your results and a report.
+• Marks announced at the official release date
+===== Page 13 =====
+Extensions
+• Extensions per person, not per team (even for the
+team-based assessment)
+• Valid and documented reasons. A Course
+Coordinator can approve only if a valid certificate is
+provided:
+• Serious illness, family tragedy, etc.
+• Provide corresponding valid certificate
+• Extensions up to 7 calendar days:
+• Not applicable for A1 (SE Challenges)
+• Applicable for A2: you might get an alternative
+assessment, to submit without your team
+• Applicable for A3: You might get an extension
+• Apply at least one working day before the
+deadline – apply using Canvas “Assessment
+extension” functionality!
+Special consideration: If it is granted
+then
+• A1: Deferred SE challenge
+• A2: Alternative assessment with
+extension more than 7 calendar days
+• A3: Extension more than 7 calendar
+days
+• Apply within 5 working day from the
+deadline – follow the RMIT Special
+Consideration policy:
+https://www.rmit.edu.au/students/student-essentials/assessment-and-
+exams/assessment/special-consideration
+===== Page 14 =====
+Marking
+14
+You don’t  “lose” marks, you EARN them!
+✓ You start with a blank page and 0 marks
+✓ You earn marks for what you do:
+you get rewarded for what you do correctly
+✓ You don’t get penalized for what you don’t do
+✓ Full marks are possible, but rare and needs to be earned
+===== Page 15 =====
+Questions
+• Ask!
+• Ask early!
+Questions to me:
+• Ask preferably during lectures and workshops – there
+might be more students having the same question
+• Feedback/ Consultation session
+• EdForum
+• Emails: Write from your RMIT account, otherwise
+Outlook might put your message in junk  
+Within the teaching period (Weeks 1-12), I will try to answer
+your questions within 48h or less, within business hours
+(except weekends and public holidays ☺).
+In some circumstances I might answer out of business
+hours, but this is an exception, not a rule.
+Please do net expect answering your questions 24/7 ☺.
+===== Page 16 =====
+Please use this link to join EdForum
+using your RMIT student email address
+https://edstem.org/au/join/KJWMWB
+16
+If you are an exchange student or
+have RMIT Vietnam student email address,
+please send me an email and I will add you
+to the EdForum manually.
+===== Page 17 =====
+Recommended Materials
+Papers on recent research and industry trends – will be shared in Canvas
++
+(recommended, not compulsory)
+"The Project Manager’s Guide to Mastering Agile:
+Principles and Practices for an Adaptive Approach”,
+Charles Cobb
++
+(for RE-related topics)
+•  "Requirements Engineering”, Axel van Lamsweerde
+• "Software Requirements”, Karl Wiegers, Joy Beatty
+===== Page 18 =====
+Preliminary schedule “Syllabus” in Canvas
+Preliminary schedule
+“Syllabus” in Canvas
+Why “preliminary”?
+Because all the mentioned
+material is important, but we
+can refocus some parts so that
+your preferences are taken into
+account
+There is no Workshop on
+Week 1 but we shared with
+you a set of videos to watch
+===== Page 19 =====
+Questions?
+Let’s go to www.menti.com ☺
+===== Page 20 =====
+Discussion on pre-recorded materials
+20
+===== Page 21 =====
+21
+Pre-lectorial materials
+===== Page 22 =====
+22
+Do you have any
+questions on
+these videos?
+===== Page 23 =====
+Project
+methodologies
+Overview
+===== Page 24 =====
+RUP
+LEAN
+Prince2
+V-Modell
+Waterfall
+Kanban
+===== Page 25 =====
+Project
+Methodologies
+There are many Project Methodologies - variations of a them - common principles
+differently packaged:
+▪ Traditional – Waterfall(-based)
+▪ RUP (Rational Unified Process) introduced by Rational, a division of IBM
+▪ AUP (Agile Unified Process) - simplified version of RUP
+▪ Agile
+▪ Lean
+▪ Prince2
+▪ …
+They describe how the Software Development Life Cycles ( SDLC) should work, i.e.,
+how the phases of SDLC should be organized
+Project Methodology:
+• A process that documents a series of steps and
+procedures to bring about the successful completion of a
+project.
+• A series of steps through which the project progresses
+===== Page 26 =====
+Processes in SDLC
+1. Initiating Processes - performed to define new project or phase of
+existing project by obtaining authorisation to start the project or
+phase
+2. Planning Processes – performed to establish the total scope of the
+effort, define and refine objectives, and develop the course of action
+required to attain those objectives
+3. Executing Processes – performed to complete the work defined in
+the project management plan to satisfy the project specifications
+4. Monitoring & Controlling Processes – performed to track, review,
+and regulate the progress and performance of the project
+5. Closing Processes – performed to finalise all activities across all
+Project Management Process Groups to formally close the project,
+phases, or contractual obligations
+===== Page 27 =====
+Waterfall
+ Waterfall = planning projects fully,
+then executing through phases
+1956: the first mentioning of the idea
+by Herbert D. Benington at the
+Symposium on Advanced Programming
+Methods for Digital Computers
+1970: the first formal description of the
+waterfall model in article by Winston W.
+Royce “Managing the Development of
+Large Software Systems”
+1976: The earliest use of the term
+"waterfall" may have been by Bell and
+Thayer in their paper “Software
+requirements: Are they really a
+problem?”
+===== Page 28 =====
+Traditional Methodologies
+• Linear sequential model
+• Requirements need to be locked
+• Development only starts after planning
+• Output of one step acts as input of next step
+• Still widely used
+• Separate and distinct phases of specification and development
+• Separate and distinct use/application of resources
+• Waterfall
+• PMI’s PMBOK - applying universal standards to waterfall project management
+• PRINCE2 - waterfall project management methodology that includes
+principles, themes and processes (more strict)
+Not flexible to readily
+incorporate changes
+Inappropriate for version-wise
+release method
+===== Page 29 =====
+Error correction cost
+The failure / success cant be decided till too late.
+Errors found in later phases difficult to correct…
+Cost of error correction grows rapidly along the
+project life-cycle
+===== Page 30 =====
+V-Modell
+A kind of improvement of Waterfall:
+✓ High-level testing (verification) is
+done before coding
+✓ Greater emphasis on testing
+✓ Easy to understand and to use
+✘ Still inflexible and linear
+✘ Good for managers, but what
+about developers?
+Project
+definition
+Time
+Testing &
+Integration
+===== Page 31 =====
+Is Waterfall really so useless?
+Let’s discuss…
+31
+===== Page 32 =====
+Agile
+It encompasses set of exciting new practices and techniques that
+make product development more cyclical (or iterative).
+It relies on lean governance (management) as opposed to more
+traditional techniques that rely on heavyweight governance.
+Agile is all about empowering the team and getting closer to what
+the customer wants.
+A framework for delivering products quickly and efficiently.
+As opposed to the standard
+requirements-gathering, plan-driven
+project development, the customer is
+continually involved in Agile.
+===== Page 33 =====
+Core artefacts we have to create at the beginning of a project
+33
+Business Case Document
+Vision & Scope Document / Project Charter
+Market (marketing)
+requirements document
+Methodology-specific artefacts, e.g.,
+Requirements Specification document for traditional methodology,
+Product backlog for Agile methodology, etc.
+Business
+requirements
+Functional
+req.
+These
+documents
+are on
+boundary of
+PM and RE
+===== Page 34 =====
+Vision & Scope Document / Project Charter
+Both documents serve the same purpose:
+• Collect all business requirements into a single deliverable that sets the
+stage for subsequent development work
+• Define the business case for the project in nontechnical language
+(overlaps with Business Case document!).
+Goal/aim of these documents are the same, difference is in the format and
+focus on particular topics
+→ We never use both documents in the same project
+→ We have to decide at the very beginning, what format we follow
+• Owner of this document: project’s executive sponsor, funding authority, …
+• Creator: Business Analyst, but might be also Project Manager or Product Owner
+Goals: Specify and justify the project
+===== Page 35 =====
+Project Charter (PMBOK)
+1. Purpose *
+2. Objectives *
+3. Overview *
+4. Schedules *
+5. Resource requirements
+6. Personnel and stakeholders *
+7. Evaluation methods
+8. Risk management *
+Vision & Scope document:
+1. Business Requirements
+1) Background
+2) Business Opportunity
+3) Business Objectives and Success Criteria
+4) Business Assumptions and Dependencies
+5) Business Risks
+2. Vision of the Solution
+1) Vision Statement
+2) Major Features
+3. Scope and Limitations
+1) Scope of Initial and Subsequent Releases
+2) Limitations and Exclusions
+4. Business Context
+1) Stakeholder Profiles
+2) Project Priorities
+3) Operating Environment
+V&S Document vs. Project Charter
+===== Page 36 =====
+What if we miss something in Project
+Charter / Vision & Scope document?
+36
+===== Page 37 =====
+WBS: Traditional vs. Agile
+WBS in Traditional / Waterfall  projects
+▪ Very detailed
+▪ Who is doing what and when
+Agile: You start with a high level plan and end up with a detailed plan…
+So can we have WBS in Agile?
+WBS in Agile:
+▪ Agile WBS == your release plan has to be detailed
+▪ Dependencies among features/ epics
+▪ Traceability among features, user stories, and the sprint tasks
+▪ (!) No allocation in advance to particular team members
+Can we do the same in
+Agile?
+===== Page 38 =====
+WBS: Traditional vs. Agile
+38
+Traditional: Detailed, phase-oriented
+Agile: High-level, feature-oriented, more similar to a release planning
+===== Page 39 =====
+WBS: Traditional view – Exercise
+A draft WBS was created, see below (the milestones are highlighted with (*) ).
+In this draft, some elements are missing or incorrect in this WBS.
+Briefly explain what should be corrected and how .
+ID Task Name
+Estimated
+Duration Resource Name
+1 System Design 2 Weeks Jess, Alex
+1.1 Design of the system architecture 2 Weeks Alex
+1.2 UI design 2 Weeks Jess
+1.3 Usability testing 1 Weeks Anna
+2 Product Backlog development 2 Weeks Jess
+3 Implementation (*) 8 Weeks Alex, John, Max
+4 Integration and System Testing 1 Weeks Anna, John, Max
+5 Documentation: User Guide (*) 2 Weeks Jess
+5.1 First draft of the User Guide 2 Weeks Jess
+5.2 Final version of the User Guide 1 Week Jess
+Missing/incorrect points?
+39
+Project duration is expected to be
+3 months, but the start date isn’t
+specified yet.
+The team includes:
+Jess (requirements engineer),
+Alex (system architect, developer),
+John  (developer, QA expert),
+Anna (UI designer, QA expert),
+Max (QA expert).
+Similar type of task will be in your
+A1.1 – SE challenge
+===== Page 40 =====
+WBS: Traditional view – Exercise
+ID Task Name
+Estimated
+Duration Resource Name
+1 System Design 2 Weeks Jess, Alex
+1.1 Design of the system architecture 2 Weeks Alex
+1.2 UI design 2 Weeks Jess
+1.3 Usability testing 1 Weeks Anna
+2 Product Backlog development 2 Weeks Jess
+3 Implementation (*) 8 Weeks Alex, John, Max
+4 Integration and System Testing 1 Weeks Anna, John, Max
+5 Documentation: User Guide (*) 2 Weeks Jess
+5.1 First draft of the User Guide 2 Weeks Jess
+5.2 Final version of the User
+Guide
+1 Week Jess
+Missing/incorrect points:
+1. Missing predecessors
+2. Missing RE phase
+3. Usability testing cannot be done before
+implementation
+4. Usability testing cannot be a part of system design
+5. Product backlog is an Agile/ Scrum artefact, but
+the whole WBS is traditional
+6. Duration of Task 5 should be 3 weeks = 2 weeks +
+1 week (5.2 can be done only when 5.1 is
+completed), if we really keep durations of 5.1 and
+5.2 as they are specified – better to make them
+shorter, 2-3 days each
+7. Too short time for testing
+8. 3 months = approx. 12 weeks, where the overall
+sum of tasks’ durations is much longer
+9. Task 1.2 should be done by Anna instead of Jess,
+Task 1 will be then done by Anna and Alex40
+===== Page 41 =====
+WBS: Traditional view – Exercise (continues)
+ID Task Name
+Estimated
+Duration Resource Name
+1 System Design 2 Weeks Jess, Alex
+1.1 Design of the system architecture 2 Weeks Alex
+1.2 UI design 2 Weeks Jess
+1.3 Usability testing 1 Weeks Anna
+2 Product Backlog development 2 Weeks Jess
+3 Implementation (*) 8 Weeks Alex, John, Max
+4 Integration and System Testing 1 Weeks Anna, John, Max
+5 Documentation: User Guide (*) 2 Weeks Jess
+5.1 First draft of the User Guide 2 Weeks Jess
+5.2 Final version of the User
+Guide
+1 Week Jess
+Corrected WBS:
+41
+ID Task Name Pred.
+Estimated
+Duration Resource
+Name
+1 Requirements Specification ( *) - 2 Weeks Jess
+2 System Design 1 2 Weeks Anna, Alex
+2.1 Design of the system architecture 1 2 Weeks Alex
+2.2 UI design 1 2 Weeks Anna
+3 Implementation (*) 2 4 Weeks Alex, John, Max
+4 Integration and System Testing,
+Usability testing
+3 3 Weeks Anna, John,
+Max
+5 Documentation: User Guide (*) 4 1 Week Jess
+5.1 First draft of the User Guide 4 2 days Jess
+5.2 Final version of the User Guide 5.1 3 days Jess
+===== Page 42 =====
+WBS:
+Agile view – Example
+(fragment)
+Analyse the difference
+between Agile and Traditional
+WBS on this example
+===== Page 43 =====
+43
+===== Page 44 =====
+Questions?

@@ -1,0 +1,110 @@
+===== Page 1 =====
+Vision & Scope Document
+===== Page 2 =====
+Vision & Scope © Karl E. Wiegers: Content
+[Revision History] 1.Business Requirements1)Background2)Business Opportunity3)Business Objectives and Success Criteria 4)Business Assumptions and Dependencies 5)Business Risks2.Vision of the Solution1)Vision Statement2)Major Features3.Scope and Limitations1)Scope of Initial and Subsequent Releases 2)Limitations and Exclusions4.Business Context1)Stakeholder Profiles2)Project Priorities3)Operating Environment
+Let’s discuss Vision & Scope using an example of Lunch Ordering System (LOS)
+===== Page 3 =====
+V&S: 1.1 BackgroundAdapted from [K. Wiegers& J. Beatty. Software Requirements]1.Business Requirements1)Background2)Business Opportunity3)Business Objectives and Success Criteria 4)Business Assumptions and Dependencies 5)Business Risks
+Employees at the company spend an average of 65 minutes per day going to cafeteria to select, purchase, and eat lunch. About 20 minutes of this time is spent walking to and from cafeteria, selecting their meals, and paying by cash or credit card. When employees go for lunch to local restaurants, they spend an average of 90 minutes off-site. Some employees phone the cafeteria in advance to order a meal to be ready for them to pick up. Employees don’t always get the selections they want because cafeteria runs out of certain items. The cafeteria wastes a significant quantity of food that is not purchased and must be thrown away.
+Example: Background for Lunch Ordering System (LOS)
+===== Page 4 =====
+1.Business Requirements1)Background2)Business Opportunity3)Business Objectives and Success Criteria 4)Business Assumptions and Dependencies 5)Business Risks
+V&S: 1.2 Business Opportunity
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+Many employees have requested a system that would permit a cafeteria user to order meals (defined as a set of one or more food items selected from the cafeteria menu) online, to be picked up at the cafeteria or delivered to the company location at a specified time and date. The LOS would save employees time, and it would increase their chance of getting the items they prefer. Knowing what food items customer want in advance, would reduce waste in the cafeteria and would improve the efficiency of cafeteria staff. The future ability for employees to order meals for delivery from local restaurants would make a wide range of choices available to employees and provide the possibility of cost savings through volume discount agreements with the restaurants.
+===== Page 5 =====
+V&S: 1.3 Business Objectives and Success Criteria
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+Business ObjectivesBO-1: Reduce the cost of cafeteria food wastage by 40% within 6 months following initial release. The scale of measure to quantify the statementwill be the cost of food thrown away each week by cafeteria staff, identified via examination of Cafeteria Inventory System logs. BO-2: Reduce cafeteria operating costs by 15% within 12 months following initial release.BO-3: Increase average effective work time by 15 minutes per cafeteria-using employee per day within 6 months following initial release. Success Criteria / MetricsSM-1: 75% of employees who used the cafeteria at least 3 times per week during Q3 2013 use the new system at least once a week within 6 months following initial release.SM-2: The average rating on the quarterly cafeteria satisfaction survey increases by 0.5 on scale of 1 to 5 from Q3 2013 rating within 3 months following initial release and by 1.0 within 12 months.
+===== Page 6 =====
+V&S: 1.4 Business Assumptions and Dependencies
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+AS-1: Systems with appropriate user interfaces will be available for cafeteria employees to process the expected volume of meals ordered.AS-2:Cafeteria staff and vehicles will be available to deliver all meals for specified delivery time slots within 15 minutes of the requested delivery time.DE-1: If a restaurant has its own online ordering system, the LOS must be able to communicate with it bi-directionally.
+===== Page 7 =====
+V&S: 1.5 Business Risks Adapted from [K. Wiegers& J. Beatty. Software Requirements]Risk IDRisk ProbabilityImpact
+RI-1The Cafeteria Employees Union might require that their contract be renegotiated to reflect the new employee roles and cafeteria hours for operation. 0.63
+RI-2To few employees might use the system, reducing the return of investment from the system development and the changes in cafeteria operating procedures. 0.39
+RI-3Local restaurants might not agree to offerdelivery, which would reduce employee satisfaction with the system and possibly their usage of it.0.33
+RI-4Sufficient delivery capacity might not be available,which means that employees might not always receive their meals on time and could not always request delivery for the desired times.0.56
+===== Page 8 =====
+Vision & Scope Summarisethe long-term purpose and intent of the product.  2.   Vision of the Solution1)Vision Statement2)Major Features
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+You can use the following template: For<target customer>Who<statement of the need or opportunity>The<product name>Is<product category>That<major capabilities, key benefits, compelling reason to buy or use>Unlike<primary competitive alternative, current system, …>Our product <statement of primary differentiation and advantages of new product>
+===== Page 9 =====
+V&S: 2.1 Vision Statement
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+Foremployees whowant to order lunches from the cafeteria or from local restaurants online, theLunch Ordering System (LOS) isa web-based and smartphone-enabled application that will accept individual or group meal orders, process payments, and trigger delivery of the prepared meals to a designated location on campus. Unlikethe current phone and manual ordering processes, employees who use LOS will not have to go to the cafeteria to get their meals, which will save them time and will increase the food choices available to them.
+===== Page 10 =====
+V&S: 2.1 Vision Statement
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+Foremployees whowant to order lunches from the cafeteria or from local restaurants online, theLunch Ordering System (LOS) isa web-based and smartphone-enabled application that will accept individual or group meal orders, process payments, and trigger delivery of the prepared meals to a designated location on campus. Unlikethe current phone and manual ordering processes, employees who use LOS will not have to go to the cafeteria to get their meals, which will save them time and will increase the food choices available to them.
+===== Page 11 =====
+V&S: 2.2 Major Features
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+Feature IDFeature NameFeature Description
+F-1Order lunch from cafeteriaOrder and pay for lunch from the cafeteria menu to be picked up or deliveredF-2Order lunch from restaurantsOrder and pay for lunch from local restaurants to be deliveredF-3Lunch subscriptionsCreate, view,modify, and cancel meal subscriptionsfor standing or recurring lunch orders F-4MenusCreate, view, modify, delete, and archive cafeteriamenusF-5Ingredient listView ingredient lists and nutritional information for cafeteria menu itemsF-6SystemaccessProvide system access through web application aswell as iOS, Android, and Windows apps
+===== Page 12 =====
+Vision & Scope: 3.1Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+3.Scope and Limitations1.Scope of Initial and Subsequent Releases2.Limitations and Exclusions
+FeatureRelease 1Release 2Release 3F1: Name of the featureWhat should be completed for Release 1What should be completed for Release 2What should be completed for Release 3…… … …
+===== Page 13 =====
+V&S: 3.1 Scope of Initial and Subsequent Releases
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+FeatureRelease 1Release 2Release 3F1: Order lunch from cafeteriaMeals orders for delivery can be paid for by payroll deduction onlyAccept credit and debit cardpaymentsF2: Order lunch from restaurantsNot implementedDelivery to campus onlyFully implemented
+F3: Lunch subscriptionsNot implementedImplemented if time permitsFully implemented
+F4: MenusCreate and view menusAdd,edit, and delete  menus  F5: Ingredient listNot implementedFully implementedF6: SystemaccessWeb applicationiOSand Android appsWindowsphone and tablet apps
+===== Page 14 =====
+Feature tree (also called Feature Model, Feature Diagram)
+Lunch Ordering System
+F-2: Order lunch from restaurants F-3: Lunch subscriptionsF-1: Order lunch from cafeteria
+View order history Create subscriptionModify subscription
+Cancel subscription
+F-6:Sustem Access
+Web-application
+Smartphone applicationsiOS app
+FEATURE TREE LOS Maria Spichkova   |   March 1, 2019
+Android app
+Windows app
+View subscription
+Place order
+Cancel order
+Change order
+View order history
+Place order
+Cancel order
+Change order
+F-4: Menus
+View menu
+Add menu
+Edit menu
+Delete menu
+F-5: Ingredient list
+View menu
+View ingredient list
+To create a feature tree, you may use  the free version of Lucidchart:“Cause and Effect Diagram” (Business Analyst section)  or “Fishbone Diagram” (Education Section)
+What feature is missing here and in the table?
+===== Page 15 =====
+Context Diagram
+Find a mistake in the diagram J
+===== Page 16 =====
+V&S: 3.2 Limitations and Exclusions
+Adapted from [K. Wiegers& J. Beatty. Software Requirements]
+LI-1: Some food items that are available from the cafeteria will not be suitable for delivery, so the LOS delivery menus must be a subset of the full cafeteria menus.
+===== Page 17 =====
+Vision & Scope: 4 Adapted from [K. Wiegers& J. Beatty. Software Requirements]4.  Business Context1.Stakeholder Profiles2.Project Priorities3.Operating Environment The profile of each stakeholder group should include the following information:üthe major value or benefits they will receive from the product, ütheir likely attitudes toward the product, ümajor features and characteristics of interest, andüany known constraints that must be accommodated.
+===== Page 18 =====
+V&S: 4.1 Stakeholder ProfilesAdapted from [K. Wiegers& J. Beatty. Software Requirements]StakeholderMajor valueAttitudesMajorinterestConstraintsCorporate ManagementImproved employee productivity; cost saving for cafeteriaStrong commitment through Release 2; support for Release 3 depends on earlier resultsCosts saving and employee time savings must exceed developmentand usage costsNot identified
+CafeteriaStaffMore efficientuse of staff time; higher customer satisfactionConcerns about union relationships and possible downsizing; otherwise receptiveJob preservationTraining for staff required; delivery staff and vehicles neededUsers (Employees) Better food selection; time savings; convenienceStrong enthusiasm, but might not use COSas much as expected because of social value of eating lunches in cafeteria and restaurants
+Simplicity of use; reliabilityof delivery; availability of food choicesInternetaccess or mobile device is needed
+Payroll departmentNo benefit; needs to set up payrolldeduction registration scheme
+Not happy about the required work, but recognizethe value to the company and employeesMinimal changes in currentpayroll applicationsNo resources yet committed to make softwarechanges for payrollRestaurantmanagersIncreases sales;marketing exposure to generate new customers
+Receptive but cautionsMinimalnew technology needed; concerns about resources and costs for delivering meals
+Might not have capacity to handle order levels; might not have menus online
+===== Page 19 =====
+V&S: 4.2 Project Priorities (Version 1)Adapted from [K. Wiegers& J. Beatty. Software Requirements]DimensionConstraintDriverDegree of freedomFeaturesAll features scheduled for Release 1 must be fully operationalQuality95% of user acceptance tests must pass; all security tests must passSchedule Release 1 planned to be available by the end of Q1 of next year; Release 2 by theend of Q2; overrun of up to 2 weeks acceptable without sponsor reviewCost Budget overrun up to 15% acceptable without sponsor reviewStaff Team size: half-time project manager, half-time BA, 3 developers, 1 tester; additional developer and half-timetester available if necessary
+===== Page 20 =====
+V&S: 4.2 Project Priorities (Version 2)Adapted from [K. Wiegers& J. Beatty. Software Requirements]DimensionConstraintDriverDegree of freedomFeatures At least 80% of featured scheduled for Release 1 must be fully operationalQualityAll security tests must pass At least 90% of user acceptance tests must pass for Release1; At least 95% of user acceptance tests must pass for Release1. ScheduleRelease 1 to be available by the end of Q1 of next year; Release 2 by theend of Q2;  Cost Budget overrun up to 15% acceptable without sponsor reviewStaffTeam size: half-time project manager, half-time BA, 4 developers, 1 tester
+===== Page 21 =====
+Vision & Scope: 4.3Adapted from [K. Wiegers& J. Beatty. Software Requirements]4.  Business Context1.Stakeholder Profiles2.Project Priorities3.Operating Environment
+The web server software will need to be upgraded to the latest version. Apps have to be developed for iOS and Android smartphones and tablets as part of Release 2, with corresponding app for Windows smartphones and tablets for Release 3. Any corresponding infrastructure changes must be in place at time of Release 2. Videos (no more than 5 minutes long) shall be developed to train users in both web-and app-based versions of LOS.

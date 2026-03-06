@@ -1,0 +1,710 @@
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+Week 3: Lectorial
+ISYS 1108 / 3474
+Software Engineering 
+Project Management
+Acknowledgement of Country
+RMIT University acknowledges the people of the 
+Woi wurrung and Boon wurrung language groups of 
+the eastern Kulin Nation on whose unceded lands 
+we conduct the business of the University. 
+RMIT University respectfully acknowledges their 
+Ancestors and Elders, past and present. 
+RMIT also acknowledges the Traditional Custodians 
+and their Ancestors of the lands and waters across 
+Australia where we conduct our business.
+2
+Classes and Deadlines
+Week 
+1
+Week 
+2
+Week 
+3
+Week 4 Week 
+5
+Week 
+6
+Week 
+7
+Week 8 Week 9 Week 
+10
+Week 11 Week 12
+Lectorials
+Workshops Team
+work
+Team
+work
+A1: SE 
+Challenge
+Friday: 
+Challenge 1
+10%
+Friday: 
+Challenge 2
+10%
+Friday: 
+Challenge 3
+10%
+A2: Team-
+based 
+assignment 
+Due on 
+Friday: 
+30%
+A3: 
+Individual 
+Assignment
+Due on Friday:
+40%
+Mid-semester break is between Weeks 5 and 6 
+Team-based 
+assignment 
+activities
+Our plan for this session
+SE Challenge 1: next Friday (Week 4) 
+User Story Cards and Acceptance Criteria
+Recap quiz: agile vs Scrum, Scrum roles 
+and artefacts
+DoD vs Acceptance Criteria    
+… more exercises on User Story Cards
+4
++ any questions you 
+have on related 
+material ☺
+SE Challenge: Friday of Week 4
+10% of the final grade 
+This challenge will be provided as a Canvas quiz, available to you within 24h, 
+from 12:00am till 11:59pm, on the corresponding date .
+You will be examined on the course material presented and discussed on 
+Weeks 1 – 3, especially focusing on the  following topics:  Work Breakdown 
+Structure, Vision & Scope document, Project Charter .
+ 
+5
+
+SE Challenge: 27 March (Friday of Week 4)
+You will have ONE attempt at this assessment.
+Once you open the test you must complete it in the allocated 
+time. To complete this task, you will have exactly 30 minutes 
+from the time you start the quiz (limited by the due time on 
+11:59pm).
+If your test is disrupted due to: PC crash, internet dropout, etc., 
+please take a screenshot or use your phone to take a photo as 
+evidence, let the course coordinator know and apply for a special 
+consideration. Please note that the course coordinator cannot 
+provide any extensions for this assessment, only spec. cons. 
+office can approve a deferred challenge.
+ 
+6
+User Story 
+Cards
+
+User Story vs. User Story Card
+8
+User Story Card (USC) 
+= 
+User Story (US)
++ unique ID
++ Priority,
++ Effort,
++ Acceptance criteria
+
+Why cards?
+User stories emerged in Extreme Programming (XP)
+The early XP literature talks about story cards rather than user stories. 
+Why?
+User stories were captured on paper cards. 
+Benefits: 
+1. Paper cards are cheap and easy to use. 
+2. They facilitate collaboration: Every one can take a card and write down an idea. 
+3. Cards can be easily grouped on the table or wall to check for consistency and 
+completeness and to visualize dependencies.  
+Even if your stories are stored electronically, it might be worthwhile to use paper 
+cards when you write new stories. https://www.romanpichler.com/blog/10-tips-writing-good-user-stories/
+
+Acceptance criteria
+US1: As a Premium member, I want to be able to cancel my hotel reservations at 
+any time so that I can save on cancellation penalty.
+AC1.1: Verify that a Premium member can cancel without any penalty.
+AC1.2: Verify that the hotel is notified of cancellation request.
+AC1.3: Verify that the Premium member receives a confirmation that their 
+cancellation request is complete, and no penalty has been charged.
+Condition of satisfaction: a high-level 
+acceptance test (acceptance criteria) that 
+will be true after the user story is complete
+This is the simplest way to specify ACs, 
+but it has many disadvantages…
+IDs required to achieve traceability
+Acceptance criteria (AC): 
+Given – When –Then 
+GIVEN some context
+WHEN some action is carried out
+THEN a particular set of measurable consequences should be observable
+These ACs look more complex, but most 
+companies use this format as it’s more precise.
+Behavior-driven development
+There should be only one action in the WHEN -part 
+→ If you need to cover 2 or more actions, you will 
+need to specify 2 or more ACs
+Acceptance criteria: 
+Let’s convert Verify-style in 
+Given-When-Then
+AC1.1: Verify that a Premium member can cancel without any penalty.
+ 
+Acceptance criteria: 
+Given-When-Then format AC1.1
+AC1.1: Verify that a Premium member can cancel without any penalty.
+→
+AC1.1: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation
+When the user clicks on “cancel reservation” button associated with that reservation
+Then this reservation is cancelled without without any penalty.
+ 
+This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Given-When-Then format AC1.1
+AC1.1: Verify that a Premium member can cancel without any penalty.
+→
+AC1.1: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the system cancels that reservation without without any penalty.
+ 
+This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Let’s convert Verify-style in 
+Given-When-Then
+AC1.2: Verify that the hotel is notified of cancellation request. 
+Acceptance criteria: 
+Given-When-Then format AC1.2
+AC1.2: Verify that the hotel is notified of cancellation request. 
+→
+AC1.2: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the hotel is notified of cancellation request.
+ 
+This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Given-When-Then format AC1.2
+AC1.2: Verify that the hotel is notified of cancellation request. 
+→
+AC1.2: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the system sends an email to the hotel to notify regarding cancellation request.
+ 
+This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Let’s convert Verify-style in 
+Given-When-Then
+AC1.3: Verify that the Premium member receives a confirmation that their 
+cancellation request is complete, and no penalty has been charged.
+Acceptance criteria: 
+Given-When-Then format AC1.3
+AC1.3: Verify that the Premium member receives a confirmation that their 
+cancellation request is complete, and no penalty has been charged.
+→
+AC1.3: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation 
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the user receives a confirmation that their cancellation request is complete 
+without any penalty.  
+ 
+ This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Given-When-Then format AC1.3
+AC1.3: Verify that the Premium member receives a confirmation that their 
+cancellation request is complete, and no penalty has been charged.
+→
+AC1.3: 
+Given a user is logged in as a Premium member AND the user has a hotel 
+reservation 
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the system sends to the user an email with a confirmation that their cancellation 
+request is complete without any penalty.  
+ 
+ This is one of possible ways 
+to formulate this criterion in 
+Given-When-Then format
+Acceptance criteria: 
+Given-When-Then format – alternative solution
+AC1.1: Verify that a Premium member can cancel without any penalty.
+AC1.2: Verify that the hotel is notified of cancellation request.
+AC1.3: Verify that the Premium member receives a confirmation that their cancellation 
+request is complete, and no penalty has been charged.
+→
+AC1.1: 
+Given a user is logged in as a Premium member AND the user has a hotel reservation 
+When the user clicks on “cancel reservation” button associated with that reservation
+Then the system cancels that reservation without without any penalty AND the system sends 
+an email to the hotel to notify regarding cancellation request AND the system sends to the 
+user an email with a confirmation that their cancellation request is complete without any 
+penalty.
+ 
+To wrote ACs, a User Story should be small
+Larger stories = hidden assumptions and ambiguity during the development
+Example:  As a website user, I want to post my resume so that I can be contacted 
+regarding job interviews. 
+Too vague and compound story because
+• A resume includes separate sections for education, prior jobs, salary history, 
+publications, etc.
+• Users can mark resumes as inactive
+• Users can have multiple resumes
+• Users can edit resumes
+• Users can delete resumes
+What to do with a bigger story?
+
+Epics
+• A large user story is typically referred to as an epic 
+• There is no “magic size” at which we start calling a user 
+story an epic
+• Generally: an epic is a user story that will take more 
+than one or two sprints to develop and test 
+• Epics are split into smaller user stories, so that a story 
+can be completed within a sprint
+https://www.ibm.com/developerworks/rational/library/user-stories-product-
+backlog/index.html
+Is this an epic?
+As a user, I want to log in to the system so that 
+my information can be accessed only by me. 
+Assume that the product owner clarifies that this 
+simple story is intended to cover everything 
+related to logging in: 
+• requesting a new password, 
+• changing the password, 
+• ... 
+It is about more than pressing a Log in button on 
+one screen.
+ 
+
+From an epic to a user story
+As a user, I want to log in to the system so that my information can be 
+accessed only by me.  
+• As a new user, I want to register by creating a username and password so that the 
+system can remember my personal information.
+• As a registered user, I want to log in with my username and password so that I can 
+trust the system.
+• As a registered user, I want to change my password so that I can keep it secure or 
+make it easier to remember.
+• As a registered user, I want the system to warn me if my password is easy to 
+guess so that my account is harder to break into.
+• As a registered user, I want to be able to request a new password so that I am not 
+permanently locked out if I forget it.
+• As a registered user, I do not want to be sure if it was the username, password, or 
+both that was wrong when my login attempt fails so that someone trying to 
+impersonate me will have a harder time doing so.
+• …
+26
+Themes:
+• groups of related stories
+• contribute to a common goal or are related 
+in some obvious way, such as all focusing 
+on a single customer. 
+• stories in a theme do not need to 
+encapsulate a specific work flow or be 
+delivered together.
+• some stories in a theme may be dependent 
+on one another, but are independent 
+enough to be delivered separately and still 
+provide some business value 
+Epics:
+• groups of related stories
+• comprise a complete work flow 
+for a user 
+• the stories that comprise an epic 
+may be completed 
+independently, but their 
+business value isn't realised 
+until the entire epic is complete 
+• it rarely makes sense to deliver 
+an epic until all of the underlying 
+stories are complete 
+What makes a product backlog good / bad?
+The product backlog should be available for anyone to see.
+The backlog must be the single source of requests.                                              
+It’s important for the source of requests to be centralized because the entire list 
+needs to be ordered.
+The product backlog is a living artifact and is never complete.                          
+It’s very normal to identify new items, remove items that are no longer 
+considered valuable and to morph existing items.                                             
+The product backlog lives for as long as the product lives.
+Using the backlog as a dumping ground of ideas to appease stakeholders.
+Having more than 1 backlog 
+The Scrum guide suggests you spend no more than 10% of your team’s time 
+keeping the backlog in working order. 
+Grooming your backlog ensures that it always exhibits the healthy 
+characteristics that make the backlog a pleasure to work with. If you don’t groom 
+the backlog you’ll run into difficulty planning and delivering backlog items. 
+
+Is our Product Backlog correct?
+✓ Are the PBI IDs unique? Do the IDs make sense? 
+✓ Are the PBI written as reasonable user stories? (reasonable semantics, 
+correct format As a… I want to … so that …)
+✓ Is the product backlog sorted by the priorities of the PBIs?
+✓ Are the priorities correct wrt. notes made during the initial requirements 
+elicitation interviews with the stakeholders?
+✓ Are the Owners reasonable wrt. the PBIs?
+✓ Are the Efforts reasonable wrt. the PBIs?
+✓ Are the DoDs reasonable wrt. the PBIs?
+28
+… and we also need to 
+check COMPLETENESS 
+of the Product Backlog 
+(i.e. whether all needed 
+requirements are covered)
+29
+
+
+31
+DoD 
+vs. 
+Acceptance 
+Criteria
+DoD is intended to be 
+universally applicable  
+             (quality!)
+Acceptance Criteria are specific 
+for each feature  
+                 (functionality!)
+DoD should NOT include any 
+functionality!
+Definition of Done (DoD)
+• List of activities that add verifiable/demonstrable value to the product  
+• DoD is orthogonal to user acceptance criteria (functional acceptance) 
+for a feature: It is a comprehensive checklist of necessary, value-added 
+activities that assert the quality of a feature and not the functionality of 
+that feature.  
+• Ensures that only truly done features are delivered, not only in terms of 
+functionality but in terms of quality as well. 
+ 
+• The exit-criteria to determine whether a product backlog item is complete. 
+• In many cases the DoD requires that all regression tests should be successful. 
+• The definition of "done" may vary from one Scrum team to another, but must be 
+consistent within one team.
+
+Definition of Done
+Goals:
+• to build a common understanding within the Team about Quality and Completeness
+• to be a checklist that User Stories (or PBIs) are checked against
+• to ensure the increment shipped at the end of the Sprint has high quality and that the 
+quality is well understood by all involved.
+ 
+Example of DoD:
+✓ Code is either reviewed or produced with a pair -programming method
+✓ The code is covered by Unit Tests (minimum of 70% code coverage) and all tests are Green 
+(means it has passed )
+✓ Automated acceptance tests (based on the Acceptance Criteria of the User Story) are 
+conducted and passed
+✓ Integration tests of the affected areas are conducted and passed
+✓ Usability Review Completed, Tested on iPhone 6 -11
+✓ Regression testing
+Definition of Done 
+(DoD, Done Done)
+• should focus on how you will ensure 
+the quality of the product you develop 
+– what kind of tests you are going to 
+conduct, what quality criteria you will 
+apply to each item
+• DoD == the rules that the 
+development team, Product Owner, 
+and to some extent the organisation 
+have agreed on when they mean a 
+story is ready for delivery
+
+Example of DoD
+▪ Unit testing completed (coverage 80%)
+▪ Peer reviewed 
+▪ Architecture updated (if necessary)
+▪ Functional testing based on ACs completed
+▪ Regression testing completed 
+▪ Performance testing benchmark achieved
+▪ User documentation updated to reflect new story
+▪ Approved by the Product Owner  
+36
+
+User stories and Acceptance criteria
+37
+DoD: Levels
+There might be different DoD at various levels:
+❑ DoD for a Product Backlog Item (e.g., writing code, 
+tests and all necessary documentation)
+❑ DoD for a Sprint (e.g., install demo system for review)
+❑ DoD for a Release (e.g., writing release notes)
+• Can we do this activity for each feature? If not, 
+then
+• Can we do this activity for each sprint? If not, then
+• We have to do this activity for our release!
+You also might read this: 
+http://www.scrumalliance.org/community/articles/2008/september/what-is-definition-of-done-(dod)
+Let’s do 
+more 
+exercises 
+on USCs
+
+Story # 5  
+Priority Medium
+Effort 8
+As a New franchisee user
+I want to create a franchisee account
+So that  I can start working with Victoria Farms
+Acceptance 
+criteria
+AC 5.1
+Given a new user is on the home page of the system and isn’t logged in
+When the user clicks the icon “Add a franchisee”
+Then the user is forwarded to the page “Add new franchisee”
+AC 5.2
+Given the user is on the “Add new franchisee” page AND the login details of a new 
+franchisee are entered correctly (the franchisee email is not recorded in the system)
+When the user clicks on the “Add” button
+Then a message is displayed “Franchisee is added to the system.” AND the new login 
+details are added to the system AND the system sends a notification email to franchisee
+AC 5.3
+Given the user is on the “Add new franchisee” page AND the login details of a new 
+franchisee are entered incorrectly (email is already recorded in the system)
+When the user clicks on the “Add” button
+Then a message is displayed “Franchisee is NOT added to the system. This email is 
+already recorded in the system.” 
+Let’s discuss this User Story Card:
+Are the ACs correct and complete?
+Story # 5  
+Priority Medium
+Effort 8
+As a New franchisee user
+I want to create a franchisee account
+So that  I can start working with Victoria Farms
+Acceptance 
+criteria
+AC 5.1
+Given a new user is on the home page of the system and isn’t logged in
+When the user clicks the icon “Add a franchisee”
+Then the user is forwarded to the page “Add new franchisee”
+AC 5.2
+Given the user is on the “Add new franchisee” page AND the login details of a new 
+franchisee are entered correctly (the franchisee email is not recorded in the system)
+When the user clicks on the “Add” button
+Then a message is displayed “Franchisee is added to the system.” AND the new login 
+details are added to the system AND the system sends a notification email to franchisee
+AC 5.3
+Given the user is on the “Add new franchisee” page AND the login details of a new 
+franchisee are entered incorrectly (email is already recorded in the system)
+When the user clicks on the “Add” button
+Then a message is displayed “Franchisee is NOT added to the system. This email is 
+already recorded in the system.” 
+How easy would be to specify 
+these acceptance criteria in the 
+Verify-That format? 
+Story # 5  
+Priority Medium
+Effort 8
+As An admin
+I want to to delete a hospital staff member
+So that  they are no longer in the system
+Acceptance 
+criteria
+AC 5.1
+Given I am logged in as an admin
+When I click on “Management” tab 
+Then I am forwarded to the page “Staff Management”
+AC 5.2
+Given I am logged in as an admin AND I am on the page “Staff Management”  
+When I click on “Delete” button near the name of a staff member
+Then a pop-up window is displayed “Do you want to remove the staff member <name, ID> from the 
+system?” with the buttons “Confirm” and “Cancel”
+AC 5.3
+Given I am logged in as an admin  AND a pop -up window is displayed “Do you want to remove the 
+staff member <name, ID> from the system?” 
+When I click “Confirm” button
+Then the user <name, ID> is removed from the system and you get a confirmation message on the 
+screen “The staff member <name, ID> removed from the system”
+AC 5.4
+Given I am logged in as an admin  AND a pop -up window is displayed “Do you want to remove the 
+staff member <name, ID> from the system?” 
+When I click “Cancel” button
+Then the user <name, ID> is not removed from the system and you get a confirmation message on 
+the screen “you cancelled the request”
+Are the ACs correct and complete? 
+Any other issues?
+Story # 5  
+Priority Medium
+Effort 8
+As An admin
+I want to to delete a hospital staff member
+So that  they are no longer in the system
+Acceptance 
+criteria
+AC 5.1
+Given I am logged in as an admin
+When I click on “Management” tab 
+Then I am forwarded to the page “Staff Management”
+AC 5.2
+Given I am logged in as an admin AND I am on the page “Staff Management”  
+When I click on “Delete” button near the name of a staff member
+Then a pop-up window is displayed “Do you want to remove the staff member <name, ID> from the 
+system?” with the buttons “Confirm” and “Cancel”
+AC 5.3
+Given I am logged in as an admin  AND a pop -up window is displayed “Do you want to remove the 
+staff member <name, ID> from the system?” 
+When I click “Confirm” button
+Then the user <name, ID> is removed from the system and you get a confirmation message on the 
+screen “The staff member <name, ID> removed from the system”
+AC 5.4
+Given I am logged in as an admin  AND a pop -up window is displayed “Do you want to remove the 
+staff member <name, ID> from the system?” 
+When I click “Cancel” button
+Then the user <name, ID> is not removed from the system and you get a confirmation message on 
+the screen “you cancelled the request”
+You would need to check whether PBI ID, 
+priority and efforts match to the 
+information in the product backlog  
+You would need to check whether 
+ACs’ IDs match to the PBI ID
+I-want-to part should be 
+reformulated to “delete a record 
+of a hospital staff member” or 
+“delete a hospital staff member’s 
+record”
+Story # 5  
+Priority Medium
+Effort 8
+As An admin
+I want to view status history of patient
+So that  
+Acceptance 
+criteria
+AC 5.1
+Given I am logged in as an admin
+When I click on “Patients” tab 
+Then I am forwarded to the page “Patient Management”
+AC 5.2
+Given I am logged in as an admin AND I am on the page “Patient Management”  
+When I click on “History” button near the name of a patient
+Then the status history of the patient is presented in a new tab of browser”  
+Are the ACs correct and complete? 
+Any other issues?
+Story # 5  
+Priority Medium
+Effort 8
+As An admin
+I want to view status history of patient
+So that  
+Acceptance 
+criteria
+AC 5.1
+Given I am logged in as an admin
+When I click on “Patients” tab 
+Then I am forwarded to the page “Patient Management”
+AC 5.2
+Given I am logged in as an admin AND I am on the page “Patient Management”  
+When I click on “History” button near the name of a patient
+Then the status history of the patient is presented in a new tab of browser”  
+You need to find the patient first…
+So-that part is missing
+Story # 5  
+Priority Medium
+Effort 8
+As An admin
+I want to view status history of patient
+So that  
+Acceptance 
+criteria
+AC 5.1
+Given I am logged in as an admin
+When I click on “Patients” tab 
+Then I am forwarded to the page “Patient Management”
+AC 5.2
+Given I am logged in as an admin AND I am on the page “Patient Management”  
+When I click on “History” button near the name of a patient
+Then the status history of the patient is presented in a new tab of browser”  
+You need to find the patient first…
+AC 11.1 
+Given I am logged in as an admin AND I am on the “Search page” with a list of patients 
+presented based on my search criteria
+When I click on “History” button near the name of a patient
+Then the status history of the patient is presented in a new tab of browser  
+Story # 8  
+Priority Medium
+Effort 8
+As a doctor/nurse
+I want to edit patient information
+So that  the patient record is up to date
+Acceptance 
+criteria
+AC 8.1
+Given I am logged in as a doctor/nurse
+When I click on “edit” button 
+Then I can edit patient record 
+Are the ACs correct and complete? 
+Any other issues?
+Story # 8  
+Priority Medium
+Effort 8
+As a doctor/nurse
+I want to edit patient information
+So that  the patient record is up to date
+Acceptance 
+criteria
+AC 8.1
+Given I am logged in as a doctor/nurse
+When I click on “edit” button 
+Then I can edit patient record 
+AC 8.1 
+Given I am logged in as a doctor/ nurse  AND I am on the “Search page” with a list of 
+patients presented based on my search criteria
+When I click on “Edit” button near the name of a patient
+Then a new page “Patient Data” is opened with editable fields on patient information (full 
+name, phone number, postal address) AND “Cancel” button is enabled AND “Save” button is 
+disabled
+AC 8.2 
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data”
+When I click on “Cancel” button  
+Then the page “Patient Data” will be closed AND no changes in patient’s data will be made 
+AC 8.3
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data” AND “Save” 
+button is enabled
+When I click on “Save” button  
+Then the page “Patient Data” will be closed AND all changes in patient’s data will be saved 
+in the system
+49
+AC 8.1-8.3… Do we need more?
+AC 8.4 
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data”  
+When I edited the first name of the patient as per system constraints (the field contains only 
+letters and is nonempty)
+Then “Save” button is enabled
+AC 8.5 
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data”  
+When I incorrectly edited the first name of the patient (the field now contains not only letters 
+or is empty)
+Then “Save” button is disabled
+AC 8.6 
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data”  
+When I edited the last name of the patient as per system constraints (the field contains only 
+letters and is nonempty)
+Then “Save” button is enabled 
+50
+AC 8.4-8.6… Do we need more?
+AC 8.7 
+Given I am logged in as a doctor/ nurse AND I am on the page “Patient Data”  
+When I incorrectly edited the last name of the patient (the field now contains not only letters 
+or is empty)
+Then “Save” button is disabled
+51
+AC 8.7… Do we need more?

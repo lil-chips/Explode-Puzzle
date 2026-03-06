@@ -1,0 +1,165 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+Week 4: Workshop
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+Our plan for
+this session
+Product backlog for the Hospital
+System Scenario
+Acceptance criteria
+Second Sample for  SE Challenge 1
+Check: Do you have a team?
+3
+===== Page 4 =====
+Hospital System scenario
+This week focus on the following case study:
+Hospital case study, see
+SEPM_Week_4_Hospital_scenario.pdf
+in Modules → Week 4 - Lectorials and Workshops
+A team created a draft of the Product Backlog for the
+above product, but it contains mistakes – our next
+activity will focus on analysing and fixing them.
+For this analysis and correction we need to know the
+scenario.
+Then we will go through the product backlog
+together, step by step using the checklist.
+Note: a similar type of
+analysis will be required
+in one of the tasks of
+your Assignment 3
+(On-demand interview)
+===== Page 5 =====
+Detailed checklist to analyse the product backlog
+1. Are the PBI IDs unique?
+2. Do the PBI IDs have a reasonable format?
+3. Do PBI have a correct user story format (As a… I want to …
+so that …)?
+4. Are the items in the product backlog presented in a correct
+order?
+5. Are the priorities correct wrt. the scenario?
+6. Are the numbers of story points allocated to each PBI
+reasonable?
+7. Is the syntax of efforts correct (Fibonacci numbers are
+used)?
+8. Are/Is the DoD(s) reasonable?
+9. Are there any contradictions among the PBIs or within the
+PBIs?
+10. Is the product backlog complete?
+11. Are all the PBIs in scope?
+These two points will be
+discussed on Week 5
+===== Page 6 =====
+Activity 1: Product backlog – PBI IDs
+Open the document
+SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following questions of the checklist
+and discuss required changes:
+• Are the PBI IDs unique?
+• Do the PBI IDs have a reasonable format?
+Duration: approx. 5 minutes
+===== Page 7 =====
+Activity 2: Product backlog – User stories
+Open the document
+SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following question of the checklist
+and discuss required changes:
+• Do PBI have a correct user story format (As a… I
+want to … so that …)?
+Duration: approx. 10 minutes
+Role (user type)
+Activity to describe the
+required functionality
+(use VERBS!)
+Justification, why this
+functionality is needed
+===== Page 8 =====
+Activity 3: Product backlog – Priorities
+Open the document
+SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following questions of the checklist
+and discuss required changes:
+• Are the items in the product backlog presented in
+a correct order?
+• Are the priorities correct wrt. the scenario?
+Duration: approx. 5 minutes
+===== Page 9 =====
+Activity 4: Product backlog – DoD
+Open the document
+SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following question of the checklist
+and discuss required changes:
+• Are/Is the DoD(s) reasonable?
+Duration: approx. 5 minutes
+===== Page 10 =====
+Activity 5: Product backlog – Scope
+Open the document
+SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following questions of the checklist
+and discuss required changes:
+• Are there any contradictions among the PBIs or
+within the PBIs?
+• Is the product backlog complete?
+• Are all the PBIs in scope?
+Duration: approx. 15  minutes
+===== Page 11 =====
+Activity 6: Acceptance Criteria
+Create acceptance criteria for the following user
+story:
+PBI 17. As a doctor/nurse, I want to send instant
+messages to other doctors and nurses, so that our
+communication is faster
+Duration: approx. 15  minutes
+===== Page 12 =====
+Activity 7: Acceptance Criteria
+Create acceptance criteria for the following user
+story and discuss your results with the tutor:
+PBI 18. As a doctor/nurse, I want to receive instant
+messages to other doctors and nurses, so that our
+communication is faster.
+Duration: approx. 15  minutes
+===== Page 13 =====
+Activity 8: Acceptance Criteria
+Create acceptance criteria for the following user
+story and discuss your results with the tutor:
+PBI 19. As a doctor/nurse, I want to read old instant
+message conversations, so that I can better recall
+the reasons for the decisions made.
+Duration: approx. 5  minutes
+===== Page 14 =====
+Activity 9: Check – Do you have a team?
+The teams will typically have 4-5 members.
+All team members should be from the same
+workshop class as per official enrolments.
+Duration: approx. 5  minutes
+===== Page 15 =====
+Activity 10: Second Sample for SE Challenge 1?
+If you have any questions on SE Challenge
+1, this is the last opportunity to ask them to
+the tutor ☺
+Have you checked the Samples?
+In Week 2 Workshop, we discussed the first
+Sample. Do you have any questions on it?
+Do you have any questions on the second
+Sample?
+Duration: approx. 30  minutes

@@ -1,0 +1,971 @@
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+Week 5: Lectorial
+ISYS 1108 / 3474
+Software Engineering 
+Project Management
+Acknowledgement of Country
+RMIT University acknowledges the people of the 
+Woi wurrung and Boon wurrung language groups of 
+the eastern Kulin Nation on whose unceded lands 
+we conduct the business of the University. 
+RMIT University respectfully acknowledges their 
+Ancestors and Elders, past and present. 
+RMIT also acknowledges the Traditional Custodians 
+and their Ancestors of the lands and waters across 
+Australia where we conduct our business.
+2
+Classes and Deadlines
+Week 
+1
+Week 
+2
+Week 
+3
+Week 4 Week 
+5
+Week 
+6
+Week 
+7
+Week 8 Week 9 Week 
+10
+Week 11 Week 12
+Lectorials
+Workshops Team
+work
+Team
+work
+A1: SE 
+Challenge
+Friday: 
+Challenge 1
+10%
+Friday: 
+Challenge 2
+10%
+Friday: 
+Challenge 3
+10%
+A2: Team-
+based 
+assignment 
+Due on 
+Friday: 
+30%
+A3: 
+Individual 
+Assignment
+Due on Friday:
+40%
+Mid-semester break is between Weeks 5 and 6 
+Team-based 
+assignment 
+activities
+A2: Team-based Assignment
+Simulated Scrum Project: 30%
+You team will be provided with scenarios, for which you will need to 
+create Scrum artefacts (product backlog, sprint backlog, notes, etc.)
+Assignments are team-based, 
+unless you have 
+corresponding ELP
+The teams will be formed by tutors during the workshop sessions. 
+Typical size of a team: 4-5 students enrolled in the same workshop class.
+The core work will be done in Workshop sessions 6+7, under the 
+observation of the tutor.
+Please check the marking criteria 
+(below you can see the first 2 criteria)  
+
+Our plan for this session
+Information radiator – “there can be only one!”
+Sprint backlogs – exercises 
+How to plan a (development) sprint? What 
+velocity is “good enough” to complete the project 
+successfully? 
+Methodology or philosophy? 
+Kanban vs. Scrum, Scrum + Kanban
+Trello vs Jira
+6
++ any questions you 
+have on related 
+material ☺
+Information Radiator
+An information radiator is a large and highly 
+visible display of critical team information 
+▪ typically located in a spot where the team 
+and others can see it constantly, 
+▪ is continuously updated either during the 
+daily stand-up meetings or even more 
+frequently in real-time as work is completed.  
+There can be only one!
+
+Information Radiator
+An information radiator is a large and highly 
+visible display of critical team information 
+▪ typically located in a spot where the team 
+and others can see it constantly, 
+▪ is continuously updated either during the 
+daily stand-up meetings or even more 
+frequently in real-time as work is completed.  
+There can be only one!
+What does belong to 
+the Sprint tasks for a 
+PBI?
+What should be 
+included?
+What level of details 
+is good enough?
+9
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+10
+Do we have 
+enough information 
+to decide whether 
+it’s correct?
+Let’s analyze each 
+column…
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+11
+Are ID and user story reasonable?
+Are they correctly copied from the product backlog?
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+12
+Do the task IDs 
+match to the PBI 
+ID?
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+13
+Do the sprint tasks 
+(development part 
+of them) covers all 
+needed 
+functionalities 
+needed for this 
+PBI?
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+14
+Do the sprint tasks 
+(Quality Assurance 
+part of them) 
+covers all needed 
+testing as per DoD?
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+15
+Does the status of 
+the tasks match the 
+information in the 
+product backlog? 
+Is the status 
+reasonable?
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+16
+Assume:
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Functional testing based on ACs
+1.7 Regression testing
+17
+Assume:
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Unit testing with 70% code coverage
+1.4 Functional testing based on ACs
+1.6 Regression testing
+1.7 Peer review of the code
+18
+Assume:
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Unit testing with 70% code coverage
+1.4 Functional testing based on ACs
+1.6 Regression testing
+1.7 Peer review of the code
+19
+Assume:
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Unit testing with 80% code coverage
+1.7 Peer review of the code
+1.8 Functional testing based on ACs
+1.9 Regression testing
+20
+Assume:
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1 Define required database table /fields Harry Potter
+1.2
+Develop registration screen with the core 
+correctness checks for input data Ron Weasley
+1.3
+Develop the check whether the patient 
+with the provided data is already in the 
+system
+Hermione 
+Granger
+1.4
+Develop functionality to save all entered 
+data in the database Harry Potter
+1.5
+Develop notification that the patient with 
+the provided data is already in the system
+1.6 Unit testing with 80% code coverage
+1.7 Peer review of the code
+1.8 Functional testing based on ACs
+1.9 Regression testing
+21
+Correct solution, 
+assuming
+1) Sprint not started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing 
+based on ACs
+• Regression testing
+• Approved by PO
+
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1
+Implement front-end functionality for 
+registration Harry Potter
+1.2
+Implement back-end functionality for 
+registration Ron Weasley
+1.3 Unit testing with 80% code coverage
+1.4 Peer review of the code Harry Potter
+1.5 Functional testing based on ACs
+1.6 Regression testing
+22
+Assume:
+1) Sprint already 
+started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing based 
+on ACs
+• Regression testing
+• Approved by PO
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1
+Implement front-end functionality for 
+registration Harry Potter
+1.2
+Implement back-end functionality for 
+registration Ron Weasley
+1.3 Unit testing with 80% code coverage
+1.4 Peer review of the code Harry Potter
+1.5 Functional testing based on ACs
+1.6 Regression testing
+23
+Assume:
+1) Sprint already 
+started 
+2) DoD:
+• Unit testing with 80% 
+code coverage
+• Peer-review of code
+• Functional testing based 
+on ACs
+• Regression testing
+• Approved by PO
+
+Is this part of the sprint backlog reasonable/correct?
+PBI 
+ID PBI NAME
+TASK 
+ID TASK
+ASSIGNED 
+TO
+NOT 
+STARTED
+IN 
+PROGR. COMPL.
+1
+As an admin, I want to register 
+new patients so that there is a 
+record of them in the system. 1.1
+Implement front-end functionality for 
+registration Harry Potter
+1.2
+Implement back-end functionality for 
+registration Ron Weasley
+1.3 Unit testing with 80% code coverage Harry Potter
+1.4 Peer review of the code
+Hermione 
+Granger
+1.5 Functional testing based on ACs
+Hermione 
+Granger
+1.6 Regression testing
+24
+Correct solution assuming 
+that 
+1) Sprint already started 
+2) DoD:
+• Unit testing with 80% code 
+coverage
+• Peer-review of code
+• Functional testing based on 
+ACs
+• Regression testing
+• Approved by PO
+
+How to plan a sprint?
+25
+
+How to plan a sprint?
+Analyse:
+• real team’s velocity (= capacity of a team for each sprint) 
+• “ideal velocity”:
+𝑂𝑣𝑒𝑟𝑎𝑙𝑙 𝑠𝑢𝑚 𝑜𝑓 𝑠𝑡𝑜𝑟𝑦 𝑝𝑜𝑖𝑛𝑡𝑠 𝑖𝑛 𝑡ℎ𝑒 𝑝𝑟𝑜𝑑𝑢𝑐𝑡 𝑏𝑎𝑐𝑘𝑙𝑜𝑔
+𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑠𝑝𝑟𝑖𝑛𝑡𝑠
+• “acceptable velocity”
+𝑆𝑢𝑚 𝑜𝑓 𝑠𝑡𝑜𝑟𝑦 𝑝𝑜𝑖𝑛𝑡𝑠 𝑜𝑓 𝐶𝑟𝑖𝑟𝑖𝑐𝑎𝑙,𝐻𝑖𝑔ℎ 𝑎𝑛𝑑 𝑀𝑒𝑑𝑖𝑢𝑚 𝑝𝑟𝑖𝑜𝑟𝑖𝑡𝑦 𝑖𝑡𝑒𝑚𝑠 𝑖𝑛 𝑡ℎ𝑒 𝑝𝑟𝑜𝑑𝑢𝑐𝑡 𝑏𝑎𝑐𝑘𝑙𝑜𝑔
+𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑠𝑝𝑟𝑖𝑛𝑡𝑠  
+26
+You need to select enough items 
+from your product backlog. 
+But what is “enough”? ☺
+Sprint scope:
+We select top priority 
+PBIs. How many?
+The sum of story points 
+should be close to the 
+ideal velocity.
+How to know that your velocity is good 
+enough to complete the project on time?
+Analyze the Product backlog wrt. the duration of the project:
+1. Focus on PBIs’ priorities, efforts, and the expected number of sprints
+2. Don’t forget that 
+▪ Critical or High priority == very important, must be completed as 
+soon as possible
+▪ Medium priority == important, should be completed within the 
+project, but it’s ok to complete it towards the end
+▪ Low priority == “nice to have”, the project can be seen as 
+completed successfully even if you haven’t implemented this 
+functionality
+How to calculate what velocity would 
+be good enough to complete on time?
+Given the below extract of a product backlog (some columns 
+are removed from it for the simplicity of this discussion)
+Let assume that the planned project duration is 6 weekly 
+sprints.
+
+How to calculate what velocity would 
+be good enough to complete on time?
+Given the below extract of a product backlog (some columns 
+are removed from it for the simplicity of this discussion)
+Let assume that the planned project duration is 6 weekly 
+sprints.
+The overall sum of story points: 150  
+We need to do 25 story points per sprint 
+(150 / 6 = 25)
+to complete all items from the product backlog on time
+
+How to calculate what velocity would 
+be good enough to complete on time?
+Given the below extract of a product backlog (some columns 
+are removed from it for the simplicity of this discussion)
+Let assume that the planned project duration is 6 weekly 
+sprints.
+The overall sum of story points if we count all items except 
+Low priority (nice-to-have items): 111  
+We need to do 18.5 story points per sprint 
+(111 / 6 = 18.5)
+to complete High and Medium priority items on time
+
+How to calculate what velocity would 
+be good enough to complete on time?
+Given the below extract of a product backlog (some columns 
+are removed from it for the simplicity of this discussion)
+Let assume that the planned project duration is 6 weekly 
+sprints.
+ 
+… but what if the team’s capacity is lower 
+than 18 story points per weekly sprint? 
+What can we do in this case?
+Let’s discuss!
+
+Methodology or Philosophy?
+https://realtimeboard.com/blog/choose-between-agile-lean-scrum-kanban/
+Yes, methodologies can be combined!
+Lean is a good fit to Agile
+Kanban is a good fit to Scrum
+Differences: 
+Scrum vs. Kanban
+34
+What is the difference between 
+Scrum and Kanban?
+Scrum:
+• has sprints!
+• estimates complexity of Product Backlog 
+Items (PBIs) in story points – this is used to 
+check whether the team is on track ☺
+• PBIs are specified as user stories.
+35
+Kanban:
+• has no sprints – this methodology is 
+based on the idea of “continuous flow”
+• doesn’t require estimates for 
+complexity of PBIs (but doesn’t forbid 
+you having this addition to it)
+• no rules on specifying PBIs as user 
+stories (it’s ok to specify items like 
+“login functionality”)
+
+Kanban boards
+Kanban believes in visual transparency
+For this purpose Kanban boards are used
+A Kanban board is a work and workflow visualization tool that enables you to 
+optimize the flow of your work
+Physical Kanban boards are typically use sticky notes on a whiteboard to 
+communicate status, progress, and issues
+The simples version of a Kanban board has only 3 columns: to do, doing, done
+… but the simples isn’t necessary the best… 
+Why?
+Kanban Board 
+https://www.atlassian.com
+A Kanban board is a work and workflow 
+visualization tool that enables you to 
+optimize the flow of your work
+• Cards are placed on the board in 
+columns that indicate the current 
+status of the work  
+• Each card can be customised to 
+indicate teams process and efforts 
+• Different colours can be used to 
+indicate various aspects of the work or 
+the level of importance / critical path / 
+…
+Kanban Board: Example
+https://www.atlassian.com
+• Kanban cards are then placed on the 
+board in columns that indicate the 
+current status of the work  
+• Each card can be customised to 
+indicate teams process and efforts 
+• Different colours are used to indicate 
+various aspects of the work or the level 
+of importance / critical path / …
+Kanban board: Examples
+Figures from 
+https://docs.microsoft.com/en-
+us/azure/devops/learn/agile/what-is-
+kanban
+
+Scrum using Trello = 
+Scrum + Kanban 
+Columns
+▪ Product backlog  – or  – Project backlog
+▪ Sprint Backlog
+▪ In progress
+▪ Ready to present
+▪ Done – or  – Sprint 1 Done, Sprint 2 Done, ….
+Cards
+▪ Should be allocated, when ”In progress”
+▪ Labels might be useful
+Checklists
+▪ Design, Implementation, Testing (or several items for 
+several types of testing), Deployment, …
+▪ Can be used to reflect DoD
+Use one board 
+only!
+41
+Note: On this screenshot 
+you cannot see the whole backlog! 
+Sprint tasks must be specified 
+for all PBIs in your Sprint backlog!
+Acceptance criteria must be specified 
+for all PBIs in your Sprint backlog
+Trello board: What to check?  
+Trello board: checklist
+42
+Is your Trello board is correct and complete? 
+Are all functionalities covered?
+Are all “out of scope” items removed?
+Do all cards have a reasonable amount of details?
+1. Correctly specified user story
+2. DoD (if not presented by a separate card)
+3. ID, priority, effort in story points
+4. For the cards in your backlog that were selected for the Sprints:
+• Acceptance criteria in Given-When-Then format  
+• Development and QA tasks as per DoD  
+• Allocation to team members (if the card was started)
+
+Trello vs. Jira
+43
+Jira Scrum: 
+What is different to strict Scrum? 
+▪ Both PBIs (user stories) and sprint tasks are called in Jira “issues”
+▪ General Agile approach instead of strict Scrum Approach:
+• Jira doesn’t force you to specify PBI as a user story, you need to care about this yourself 
+(same as with Trello)
+• Sprints might be 1, 2, or 4 weeks long 
+• Jira product backlog isn’t a part of the board, but each sprint has a 
+separate board
+• Jira Burn-down chart shows actual and estimated amount of work  to be 
+done in a sprint
+• You can generate a sprint report: Burn-down chart + lists of work 
+completed, work not completed, and work added after sprint started
+44
+https://www.atlassian.com/agile/tutorials/how-to-do-scrum-with-jira-software
+What is the difference between 
+Scrum and Kanban Trello boards?
+Standard structure of 
+Trello board for Scrum: 
+45
+Product 
+backlog
+Sprint 
+backlog
+In 
+Progress
+Ready to 
+present
+Done
+Standard structure of 
+Trello board for Kanban: 
+Product 
+backlog
+Design Development Testing Done
+What is the difference between 
+Scrum and Kanban Jira boards/structures?
+46
+Standard Jira structure for Scrum: 
+46
+To Do In 
+Progress
+In Review Done
+Standard Jira structure for Kanban: Product backlog page
+Board for the current sprint – created when you 
+select items for a sprint and starts the sprint, 
+“To Do” == Sprint backlog
+To Do In 
+Progress
+In Review Done
+Board for the whole project, 
+“To Do” == Product backlog
+47
+https://www.atlassian.com/software/jira/guides/getting-
+started/basics#step -1-create-a-project
+
+Questions?
+There can be only one 
+(information radiator)!

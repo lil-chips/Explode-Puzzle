@@ -1,0 +1,233 @@
+===== Page 1 =====
+RMIT Classification: Trusted
+COSC2626/2640
+Introduction to Cloud Computing
+Dr. Qiang Fu
+School of computing technologies
+===== Page 2 =====
+RMIT Classification: Trusted
+This Lecture
+• Cloud computing use cases
+• Cloud computing and relevant computings
+• Cloud characteristics
+• Cloud service models
+• Cloud deployment models
+2
+===== Page 3 =====
+RMIT Classification: Trusted
+Cloud computing use cases
+3
+You
+Social
+Media
+Entertai
+nment
+Banking
+Finance
+Your
+Known
+History
+Shopping
+Gaming
+===== Page 4 =====
+RMIT Classification: Trusted
+Use Case – Cloud accelerates AI: Self-driving car
+4
+===== Page 5 =====
+RMIT Classification: Trusted
+Use Case – Cloud accelerates AI: Smart city
+5
+===== Page 6 =====
+RMIT Classification: Trusted
+Cloud Computing
+• The delivery of computing services over the Internet
+• Cloud is built over data centres that are centralized or distributed.
+• Applies parallel or distributed computing or combination of both
+• On-demand and elastic provisioning through virtualization
+• What is your view of Cloud Computing?
+6
+===== Page 7 =====
+RMIT Classification: Trusted
+Fog computing
+• A small cloud before data go the actual cloud: enterprise network
+• Provide computing, storage and networking services for data
+processing.
+7
+===== Page 8 =====
+RMIT Classification: Trusted
+Edge computing
+• Local processing with/without
+the cloud involved
+• Data from IoT devices analysed
+at the edge: devices themselves,
+base stations or gateways
+• Why do we want to do this?
+8
+===== Page 9 =====
+RMIT Classification: Trusted
+Essential cloud characteristics
+• Large data centres
+• Virtualization
+• Resource pooling
+• Elastic provisioning
+• Self-service and on-demand services
+• Pay-as-you go
+• Measured service
+• ….
+9
+===== Page 10 =====
+RMIT Classification: Trusted
+Large Data Centres
+10
+===== Page 11 =====
+RMIT Classification: Trusted
+Large Data Centres
+• Data centres have grown rapidly in recent years.
+• Amazon, Microsoft, Google, Alibaba, etc. are all  companies have
+invested billions of dollars in datacentre construction and
+automation.
+• Huge volumes of hardware, software, and database resources in
+these data centres can be allocated dynamically to millions of
+Internet users simultaneously.
+• Guaranteed QoS and cost-effectiveness.
+11
+===== Page 12 =====
+RMIT Classification: Trusted
+Virtualization
+12
+App App App
+OperatingSystem
+Hardware
+Traditional computing
+environment
+App App App
+OS OS OS
+Hypervisor
+Hardware
+Virtualized computing
+environment
+A hypervisor or virtual machine monitor (VMM)
+is a piece of computer software, firmware or
+hardwarethat createsand runs virtual machines.
+===== Page 13 =====
+RMIT Classification: Trusted
+Resource Pooling
+• The provider’s computing resources are pooled to serve multiple consumers
+using a multi-tenant model, with different  physical and virtual resources
+dynamically assigned and  reassigned according to consumer demand
+• Examples: AWS availability zones
+13
+===== Page 14 =====
+RMIT Classification: Trusted
+Elastic Provisioning
+• Capabilities can be elastically provisioned and released, to scale
+rapidly outward and inward with demand
+• Examples: AWS auto-scaling
+14
+===== Page 15 =====
+RMIT Classification: Trusted
+Self-Service and On-Demand Services
+• A consumer can unilaterally provision
+computing capabilities,  such as
+server time and network storage, as
+needed  automatically without
+requiring human interaction with each
+service provider.
+• Example: AWS Management Console
+15
+===== Page 16 =====
+RMIT Classification: Trusted
+Pay as you go
+16
+We calculate users’expenses when they execute a task
+Pay as you Go
+===== Page 17 =====
+RMIT Classification: Trusted
+Measured Service
+• Cloud systems automatically control and optimize resources by
+leveraging a metering capability
+• Resource usage can be monitored, controlled, and reported,
+providing transparency for both the provider and consumer of  the
+utilized service.
+• Example: Pay-as-you-Go model, auto-scaling
+17
+===== Page 18 =====
+RMIT Classification: Trusted
+Cloud service models: IaaS, PaaS, SaaS
+• Cloud Infrastructure as a Service (IaaS)
+– Rent processing, storage, network  capacity,
+and other fundamental  computing resources
+• Cloud Platform as a Service (PaaS)
+– Deploy customer-created  applications to a
+cloud
+• Cloud Software as a Service (SaaS)
+– Use provider’s applications over a network
+• To be considered “cloud” they must be
+deployed on top of cloud infrastructure
+that has the key characteristics
+18
+• IaaS
+– Why buy machines when you
+can rent cycles?
+– Examples: Amazon’s EC2,
+GoGrid, AppNexus
+• PaaS
+– Give me nice API and take care
+of the implementation
+– Example: Google App Engine
+• SaaS
+– Just run it for me!
+– Example: Gmail, Facebook
+===== Page 19 =====
+RMIT Classification: Trusted
+Cloud Service Model Hierarchy
+19
+Cloud Infrastructure
+IaaS
+PaaS
+SaaS
+Infrastructure as a Service (IaaS)
+Architectures
+Platform as a Service (PaaS)
+Architectures
+Software as a Service
+(SaaS)
+Architectures
+Cloud Infrastructure
+SaaS
+Cloud Infrastructure
+PaaS
+SaaS
+Cloud Infrastructure
+IaaS
+PaaS
+Cloud Infrastructure
+PaaS
+Cloud Infrastructure
+IaaS
+Google
+App
+Engi
+n  e
+SalesForce CRM
+LotusLive
+===== Page 20 =====
+RMIT Classification: Trusted
+Cloud Deployment Models
+• Private cloud
+– enterprise owned or leased. Cloud infrastructure for single org only,  may
+be managed by the org or a 3rd party, on or off premises
+• Public cloud
+– Sold to the public, mega-scale infrastructure. Cloud infrastructure is
+available to the general public, owned by org selling cloud services
+• Hybrid cloud
+– composition of two or more cloud deployment models
+20
+===== Page 21 =====
+RMIT Classification: Trusted
+Get your hands dirty with AWS!
+• You have now been invited to set up an AWS account.
+– Contact your Helpdesk session tutors if you enrolled late
+• Accept and go through Leaner Lab materials to get started
+• Enjoy!
+21

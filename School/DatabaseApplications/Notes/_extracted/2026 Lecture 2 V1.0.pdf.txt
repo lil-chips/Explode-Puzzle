@@ -1,0 +1,325 @@
+===== Page 1 =====
+3/4/26
+1
+1
+—Database ApplicationsLecture 2: IndexingSantha SumanasekaraMarch 2026
+1
+2
+RMIT Classification: Trusted
+2
+Announcements•Assignment 1 – released on Wednesday•SQL Server – Do you have any issues?•Technical Drop-in/ Consultation Session Monday 3:00PM
+2
+===== Page 2 =====
+3/4/26
+2
+3
+RMIT Classification: Trusted
+3
+Database Indexing•Overview – Why indexing is important? •Examples of index-based queries -- Demos•Different indexing methods used in databases•Clustered vs. Non-clustered indexes•Unique vs. Non-unique indexes•How indexes are built using B+ Trees•Disadvantages of Indexing
+3
+4
+RMIT Classification: Trusted
+4
+Why is database optimisation important?•As data size grows, query performance degrades.•In many applications, growth is not even linear. Recall the exponential growth of Facebook users or Amazon catalog.•Hardware improvements often lag the growth of data (do not expect exponential growth of SSD (solid state disk) speeds over next decade.)•Disk Access time is critical!
+4
+===== Page 3 =====
+3/4/26
+3
+5
+RMIT Classification: Trusted
+5
+Disk Access! ØFirst rule of database performance: Disk access is the most expensive thing databases do! ØAccessing data in memory can be 10-100ns ØAccessing data on disk can be up to 10s of msØThat’s 5-6 orders of magnitude difference! ØEven solid-state drives are 10s-100s of μs (1000x slower) ØUnfortunately, disk IO is usually unavoidable ØUsually the data simply doesn’t fit into memoryØThe data needs to be persistent for when the DB is shut down, or when the server crashes, etc. ØDBs work very hard to minimise the amount of disk IO.
+5
+6
+RMIT Classification: Trusted
+6
+Disk Access! ØRun the following query twice:
+ØDid you see any difference in runtime?•Why?
+SELECT COUNT(*) FROM ontime;
+This table has 7 million rows – on-time performance of US flights in a calendar year.
+6
+===== Page 4 =====
+3/4/26
+4
+7
+RMIT Classification: Trusted
+7
+Minimising Disk Access! ØConsider the following query:
+ØThere are 2 different ways that SQL could find the results:ØDo a "full table scan":look at every single row in the table, return the matching rows. ØMake a copy of the table sorted by serialnum, then do a “binary search” to find the row where the serialnum is 12345.
+SELECT * FROM ontime WHERE serialnum = 12345;
+7
+8
+RMIT Classification: Trusted
+8
+Minimising Disk Access! ØConsider the following query:
+ØWhich one is faster? ØIt depends on the data, and on how often the query will be executed. ØIf the table is only 10 rows long, then a full table scan only requires looking at 10 rows, and the first plan would work out well.ØHowever our ontime table has 7 million rows!ØIt would be faster to do a binary search on a sorted table - we only need 23 lookups to find a value in 7 million rows.ØBut, sorting of 7 million rows is expensive!
+SELECT * FROM ontime WHERE serialnum = 12345;
+Will show “how” later!
+8
+===== Page 5 =====
+3/4/26
+5
+9
+RMIT Classification: Trusted
+9
+Minimising Disk Access! ØConsider the following query:
+ØApparently, both methods are not very efficient!ØBuilding and using an Index is a very promising approach this problem.
+SELECT * FROM ontime WHERE serialnum = 12345;
+9
+10
+RMIT Classification: Trusted
+10
+Minimising Disk Access! ØAn (over-)simplified illustration of how indexing help reduce disk accesses.
+10
+===== Page 6 =====
+3/4/26
+6
+12
+RMIT Classification: Trusted
+12
+Minimising Disk Access! ØFor mathematically inclined:Given that an index record contains only the indexed field and a pointer to the original record, it will be smaller than the multi-field record that it points to. So the index itself requires fewer disk blocks than the original table, which therefore requires fewer block accesses to iterate through. The schema for an index on theSerialNumfield is outlined below;
+Note: Pointers in MySQL are 2, 3, 4 or 5 bytes in length depending on the size of the table.Given our sample database ofr = 7,000,000records with an index record length ofR = 8bytes and using the default block sizeB = 1,024bytes. The blocking factor of the index would bebfr = (B/R) = 1024/8 = 128records per disk block. The total number of blocks required to hold the index isN = (r/bfr) = 7000000/128 = 54688blocks.Now a search using theSerialNumfield can utilize the index to increase performance. This allows for a binary search of the index with an average oflog2 54688 = 15.73 = 16block accesses. To find the address of the actual record, which requires a further block access to read, bringing the total to16 + 1 = 17block accesses, a far cry from the 7,000,000 block accesses required to find aSerialNummatch in the non-indexed table.
+FieldnameData typesizeSerialNumserial4 bytes(record pointer)Special4 bytes
+12
+13
+RMIT Classification: Trusted
+Demo Time!Let’s try out a query with and without an index to help us.
+13
+===== Page 7 =====
+3/4/26
+7
+14
+RMIT Classification: Trusted
+14
+Demo Time! ØConsider the following query:
+ØThere are no indexes on any of the columns. So, both queries will require full table scan.
+SELECT * FROM ontime  WHERE serialnum = 12345;
+SELECT * FROM ontime  WHERE tailnum ='N305SW';
+14
+15
+RMIT Classification: Trusted
+15
+Demo Time! ØLook at the query plan and estimated costs:
+Note the massive I/O cost due to full table scan
+15
+===== Page 8 =====
+3/4/26
+8
+16
+RMIT Classification: Trusted
+16
+Demo Time! ØLook at the query plan and estimated costs with the second query:
+ØTook the same time to process as the previous query, even if the result set has more rows.
+16
+17
+RMIT Classification: Trusted
+17
+Let’s build an index! ØBuild an index on talinum column
+ØThere is a substantial one-off cost on building the index.ØIf the table is very dynamic (i.e. lot of ongoing insertions and deletions), there is an associated cost of maintaining the index, too.
+CREATE INDEX tailnumIDX     ON ontime(talinum);
+17
+===== Page 9 =====
+3/4/26
+9
+18
+RMIT Classification: Trusted
+18
+Demo Time! ØConsider the following query:
+ØNow, there is an index on talinum attribute.ØSo, theoretically, this query should utilise the index.
+SELECT * FROM ontime  WHERE tailnum ='N305SW';
+18
+19
+RMIT Classification: Trusted
+19
+ØThe total I/O cost is now only a fraction of the original cost.
+19
+===== Page 10 =====
+3/4/26
+10
+20
+RMIT Classification: Trusted
+20
+Demo Time – What is an Index-only Scan query? SELECT tailnum FROM ontime  WHERE tailnum LIKE 'N305%';ØMany databasessupportindex-only scans, which can answer queries from an index alone without any table access.ØOracle and SQL Server can do index-only scans.ØSome other DBMS’s (such as PostgreSQL) has partial support (depends on index type).
+20
+21
+RMIT Classification: Trusted
+21
+Demo Time – What is an Index-only Scan (or index seek) query? SELECT tailnum FROM ontime  WHERE tailnum LIKE 'N305%';
+21
+===== Page 11 =====
+3/4/26
+11
+22
+RMIT Classification: Trusted
+Let’s explore!It seems like indexing is such a great idea.
+22
+23
+RMIT Classification: Trusted
+23
+Indexing – To be used to not to be used?ØAs you have seen during the demo, there are three possible scenarios with use of indexes:ØIndex Scan: when query optimiser determines that it is likely to be efficient to use any available index to reach out to relevant rows in the table;ØIndex-Only Scan: when the query can be answered by just only accessing the index. The basic idea is to return values directly out of each index entry instead of consulting the associated table.ØFull Table Scan: Even when an index presents, sometimes the optimiser determines that it is quicker to retrieve data directly from the table, bypassing the index.
+23
+===== Page 12 =====
+3/4/26
+12
+24
+RMIT Classification: Trusted
+24
+Example 1: Index ScanSELECT * FROM ontime  WHERE tailnum ='N305SW';
+This exact match query benefits from the tailnumIDX. Cost-based optimizer determines that only a small fraction of tailnum will meet the WHERE condition, and index scan is quicker than a full table scan
+24
+25
+RMIT Classification: Trusted
+25
+Example 2: Index-only Scan query SELECT tailnum FROM ontime  WHERE tailnum LIKE 'N305%';
+This partial match query only requires tailnum column, and there is an index on that column: tailnum_index. So, cost-based optimizer determines that the whole query can be processed on the index, itself and never reaches out to the table.
+25
+===== Page 13 =====
+3/4/26
+13
+26
+RMIT Classification: Trusted
+26
+Example 3: Full Table Scan query SELECT * FROM ontime  WHERE tailnum LIKE 'N%';
+Cost-based optimizer compares the cost of executing the query with and without index. Because there is a large proportion of rows that meets this partial condition, it determines that a full table scan is quicker than index-scan. So, it ignores the index and do a full table scan.
+26
+27
+RMIT Classification: Trusted
+27
+Building Indexes -- SQLØConsider building an index on SerialNum attribute.
+Ø“serial_index” is a label given to the index.ØIt is possible to build an index on more than one attribute (a composite index). ØSay if we do lot of queries on dates, we can build a date index.
+CREATE INDEX serial_index ON ontime(serialnum);
+CREATE INDEX date_index ON                     ontime(year, month, dayofmonth);
+27
+===== Page 14 =====
+3/4/26
+14
+28
+RMIT Classification: Trusted
+28
+Index Characteristics: Clustered vs. Non-clusteredØMicrosoft SQL Server is one of the only few DBMS’es that implement Clustered Indexes.ØClustered indexes sort and store the data rows in the table based on their key values. ØThere can only be one clustered index per table.ØWhen you CREATE TABLE with PRIMARY KEY constraint, it will create a cluster index on the primary key column (in SQL Server only)ØOr else, you can define a clustered index as follows:CREATE CLUSTERED INDEX OntimeSerialnumIDX    ON ontime(serialnum);
+28
+29
+RMIT Classification: Trusted
+29
+Clustered IndexesØUseful when queriesØWith WHERE clauses with BETWEEN, >, >=, <, and <=ØReturn large result setsØUse JOINs (e.g. PK with FK type joins)ØORDER BY ØGROUP BY
+29
+===== Page 15 =====
+3/4/26
+15
+30
+RMIT Classification: Trusted
+30
+Clustered IndexesØE.g.: https://miro.com/app/board/uXjVKuTFwdk=/
+You can imagine that the leaf level of the index tree is in fact the data pages (i.e. table) itself.
+30
+31
+RMIT Classification: Trusted
+31
+Non-clustered IndexesØSince you can have only one clustered index, every other index must be defined as a non-clustered indexØThe leaf level of a non-clustered index is made up of index pages instead of data pages ØIf the table is a heap, which means it doesn't have a clustered index, the row locator in leaf nodes is a pointer to the corresponding data pages (in the table) – refer to the diagram in the next slide.CREATE INDEX OntimeTailnumIDX    ON ontime(tailnum);
+31
+===== Page 16 =====
+3/4/26
+16
+32
+RMIT Classification: Trusted
+32
+Non-Clustered IndexesØE.g.: https://miro.com/app/board/uXjVKuMTHZc=/
+Pointers in leaf nodes points to corresponding pages where the data rows are located
+32
+33
+RMIT Classification: Trusted
+33
+Index Characteristics: Unique vs. Non-uniqueØA unique index guarantees that the index key contains no duplicate valuesØSpecifying a unique index makes sense only when uniqueness is a semantic characteristic of the data itself.ØFor example, in ontimetable, Serial number is unique while tail number is not unique (each aircraft is used in many many flights).ØWhen you CREATE TABLE with PRIMARY KEY constraint, it will create a Unique Index on the primary key column (in SQL Server only)ØOr else, you can explicitly create a unique index:CREATE UNIQUE INDEX OntimeSerialnumIDX    ON ontime(serialnum);33
+===== Page 17 =====
+3/4/26
+17
+34
+RMIT Classification: Trusted
+34
+Index ImplementationsØVirtually all databases provide ordered indexes, using some kind of balanced tree structure ØB+-tree and B-tree indexes, typically referred to as “b tree” indexes ØSome databases also provide hash indexesØMore complex to manage than ordered indexes, so not very common in open-source databasesØSeveral other kinds of indexes as well: ØBitmap indexes – to speed up queries on multiple keysvAlso less common in open-source databases ØR-tree indexes – to make spatial queries very fastvWith ubiquity of geospatial data, quite common these days
+34
+35
+RMIT Classification: Trusted
+35
+Index Implementations – B+ TreeØA very widely used ordered index storage format ØManages a balanced tree structure ØEvery path from root to leaf is the same length ØGenerally remains efficient for selects, even with inserts and deletes occurringØCan consume significant space, since individual nodes can be up to half empty!ØIndex updates for insert and delete can be slow.ØTree structure must be updated properly ØInserts may require one or more nodes to be splitØDeletes may require one or more nodes to be merged. ØPerformance benefits on queries more than outweigh these costs!ØQueries are straightforward: exact match, partial-match, range, etc
+35
+===== Page 18 =====
+3/4/26
+18
+36
+RMIT Classification: TrustedIndex Implementations – B+ TreeTree
+https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html
+36
+37
+RMIT Classification: Trusted
+37
+B+ Trees for Indexing
+Index nodes are also stored in disk pages, so, they can have a large number of <key, pointer> pairs.
+37
+===== Page 19 =====
+3/4/26
+19
+38
+RMIT Classification: Trusted
+38
+Height of a B+ Tree•Height = Log f (N)•F – Fanout – how many <key, pointer> pairs in a disk page•N – No. of rows in the table•Not all pages are filled to the maximum – space left in nodes to accommodate future insertions. Normally, on average 2/3 of node utilisation•Use an online logarithm calculator, such as https://www.calculator.net/log-calculator.html •E.g. 7 million records•key value (integer) = 4 bytes•Pointer = 4 bytes•Block size = 4096 bytes•Load factor = 67% (or 2 third filled on average)•Fanout ~ (approx) 343•Height = Log 343 (7000000) = 2.7 à rounded up: 3 levels 38
+39
+RMIT Classification: Trusted
+39
+Index Implementations – Hash IndexØA hash index consists of a collection of buckets organized in an array. A hash function maps index keys to corresponding buckets in the hash index.ØMultiple index keys may be mapped to the same hash bucket.ØIf two index keys are mapped to the same hash bucket, there is a hash collision. A large number of hash collisions can have a performance impact on read operations.ØThe in-memory hash index structure consists of an array of memory pointers.
+39
+===== Page 20 =====
+3/4/26
+20
+40
+RMIT Classification: Trusted
+Index Implementations – Hash Index
+40
+41
+RMIT Classification: Trusted
+Index Implementations – ComparisonB+ Tree IndexHash IndexCREATE INDEX name ON        table(attributes);Syntax depend on the DBMSALTER TABLE <table Name>      ADD INDEX <index name>      HASH (<column name>) WITH (BUCKET_COUNT = <number buckets>);Works with all kinds of queries: exact match, partial match, range, etcWorks with exact match onlyGenerally takes up disk space, and based on the choice of the key, can be largeSmall(ish) enough to maintain in-memory, and as a result, very fastNot sensitive to data spread (even mostly skewed data produce balanced ++ trees.If (key) data spread is skewed, there can be lot of collisions and as a result, performance can degrade.
+41
+===== Page 21 =====
+3/4/26
+21
+42
+RMIT Classification: Trusted
+42
+Verifying Indexing UsageØVery important to verify that your new index is actually being used! ØSometimes (cost-based) query optimiser decides against the use of an index! It might have determined a full table scan can be cheaper.ØConsider the following query: SELECT tailnum FROM ontime  WHERE year >= 2008;ØCan you guess why the optimiser made that choice?
+42
+43
+RMIT Classification: Trusted
+43
+Indexing – Disadvantages ØIndexes impose an overhead in both space and time ØSpeeds up “SELECT”s, but slows down all modificationsØLarge keys seriously degrade index performance. vExample: B+ trees vBiggest benefit is very large branching factor of each node vLarge key-values will dramatically reduce the branching factor, deepening the tree and increasing IO costs Ø Adding indexes on frequently changing fieldsvAny drawbacks to putting an index on account balances? vAccount balances change all the time.vWill definitely incur a performance penalty on updates  43
+===== Page 22 =====
+3/4/26
+22
+44
+RMIT Classification: Trusted
+44
+Filtered Index – Mitigating Disadvantages ØFiltered indexing allows us to build an index on a portion of the table – a portion that is unlikely (or less-likely) change over time and  more queries are likely be based on.ØAn example is to build an index on older rows on a transactions table where filtering is done based on transaction date. CREATE INDEX FilteredOntimeTailnumIDX      ON ontime(tailnum)      WHERE month <=10;
+This builds a filtered index on rows related to first 10 months of the ontime data, assuming no new rows are added, this portion of the table is static, hence no additional index management costs.
+44
+45
+RMIT Classification: Trusted
+45
+Filtered Index – Mitigating Disadvantages ØNow try out these two queries SELECT tailnum    FROM ontime    WHERE tailnum LIKE ’N305%’;
+This query does not get any benefit from the index.
+SELECT tailnum    FROM ontime    WHERE month = 1 AND          tailnum LIKE ’N305%’;This query does use index.
+45
+===== Page 23 =====
+3/4/26
+23
+46
+RMIT Classification: Trusted
+46
+Next week…
+ØWe will explore how query optimiser does its magic and how can you help with its role.
+46
+—Menti-time!Menti.comCode:
+47
+===== Page 24 =====
+3/4/26
+24
+—Questions?
+48

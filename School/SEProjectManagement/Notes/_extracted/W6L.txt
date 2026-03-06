@@ -1,0 +1,440 @@
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+Week 6: Lectorial
+ISYS 1108/ 3474
+Software Engineering 
+Project Management
+Acknowledgement of Country
+RMIT University acknowledges the people of the 
+Woi wurrung and Boon wurrung language groups of 
+the eastern Kulin Nation on whose unceded lands 
+we conduct the business of the University. 
+RMIT University respectfully acknowledges their 
+Ancestors and Elders, past and present. 
+RMIT also acknowledges the Traditional Custodians 
+and their Ancestors of the lands and waters across 
+Australia where we conduct our business.
+2
+Classes and Deadlines
+Week 
+1
+Week 
+2
+Week 
+3
+Week 4 Week 
+5
+Week 
+6
+Week 
+7
+Week 8 Week 9 Week 
+10
+Week 11 Week 12
+Lectorials
+Workshops Team
+work
+Team
+work
+A1: SE 
+Challenge
+Friday: 
+Challenge 1
+10%
+Friday: 
+Challenge 2
+10%
+Friday: 
+Challenge 3
+10%
+A2: Team-
+based 
+assignment 
+Due on 
+Friday: 
+30%
+A3: 
+Individual 
+Assignment
+Due on Friday:
+40%
+Mid-semester break is between Weeks 5 and 6 
+Team-based 
+assignment 
+activities
+A2: Team-based Assignment
+Simulated Scrum Project: 30%
+You team will be provided with scenarios, for which you will need to 
+create Scrum artefacts (product backlog, sprint backlog, notes, etc.)
+Assignments are team-based, 
+unless you have 
+corresponding ELP
+The teams will be formed by tutors during the workshop sessions. 
+Typical size of a team: 4-5 students enrolled in the same workshop class.
+The core work will be done in Workshop sessions 6+7, under the 
+observation of the tutor.
+Please check the marking criteria 
+(below you can see the first 2 criteria)  
+
+Our plan for this session
+ Lean: Detailed discussion 
+ Kanban methodology
+Assignments: Can we use Val or ChatGPT?
+Challenges of teamwork
+6
++ any questions you 
+have on related 
+material ☺
+LEAN
+
+History
+Lean was elaborated in Japan in the mid 1950 -s in manufacturing 
+industry (automotive industry - Toyota) 
+Lean was  mainly aimed at 
+▪ waste reduction and 
+▪ sustainable production
+In 2000-s Lean was also adapted for software development by 
+Mary and Tom Poppendiecks  
+Lean was applied in the startup industry in 2008 by Eric Reis as 
+a way of developing “new products and services in 
+circumstances of extreme uncertainty.”
+
+Understanding Lean
+“Copying practices without understanding the underlying 
+principles has a long history of mediocre results. But when 
+the underlying principles are understood, it is useful to 
+copy practices that work for similar organizations and 
+modify them to fit your environmen t.”
+ Mary and Tom Poppendieck, 
+  Lean Software Development
+
+5 Principles 
+of Lean  
+1. Define Value
+▪ Understand and maximise value 
+▪ Specify value as the customer sees it
+2. Map value stream
+▪ Identify activities that contribute to the values 
+▪ Activities that do not add value == waste
+▪ Eliminate waste
+3. Create flow
+▪ Ensure that the flow of the remaining steps run 
+smoothly without interruptions/ delays
+4. Establish pull 
+▪ limit inventory and work in process (WIP) items while 
+ensuring that the requisite materials and information 
+are available for a smooth flow of work
+5. Continuous improvement ( Kaizen)
+▪ Keep changing
+
+1) 
+Define value 
+ 
+Clearly identify objectives and requirements
+Use them as acceptance criteria
+Doing the right projects right  == Satisfying the needs of all stakeholders.
+“Make things as simple as 
+possible, but not simpler.”
+–Albert Einstein
+
+2) Map the value stream
+1. Identify value stream 
+▪ all the actions required to create a product, 
+▪ the process of “manufacturing” (NOT the product data flow 
+or scenarios!)
+2. Further identify
+▪ Redundant steps
+▪ Steps that burden resources
+▪ Steps that impact risk, relationships and quality
+3. Fine-tune the process
+
+3) Create flow
+The ability of a single order or piece of work to flow smoothly across the whole 
+system without interruptions and at the maximum possible speed
+The more things you think you are doing at the same time, the less productive 
+you become (in realty, we are not as multi-tasking as we would like to be…)
+▪ Gerald Weinberg “Quality Software Management: Systems Thinking” 
+Avoid committing teams to unrealistic schedules and budgets 
+Avoid unnecessary steps and interactions
+Modelling can be involved:
+• Process Modelling 
+
+4) Establish pull
+Ensure that every project addresses a real meaningful need
+Planning and executing cycles must be reduced to the minimum possible
+  
+Limit inventory and work in process (WIP) items for each stage
+Similar idea we have in Scrum:
+• Only completed items counted towards team’s 
+productivity  
+• Started but not completed (e.g., not tested properly) 
+is seen as zero-contribution to the sprint
+5) Kaizen
+Lean skeptics will try to argue that “ perfection is impossible” or even say 
+“why do we want to be better? We are just fine now .. ..” 
+In a Lean environment, there is a perpetual state of discomfort with the 
+current state: Lean leaders will constantly push the organisation out of its 
+zone of comfort in search of a new, higher level of quality, performance, 
+and, overall, client satisfaction.
+• Keep the strategic goals in focus
+• Avoid short sighted “efficiencies” 
+• Measure performance
+• Analyse results
+• Improve the process
+• Involve all stakeholders  
+Continuous 
+improvement 
+Lean + Agile = 
+A methodology to deliver performance efficiency & effectiveness 
+• Free flowing, meaningful communication
+• No excess and no insufficiency
+• Self-managed teams 
+• Commitment to success
+• Managed change & continuous improvement 
+Widely implemented and documented by many popular organizations, e.g., 
+Microsoft’s take on Lean: [https:// msdn.microsoft.com/en-us/library/hh533841.aspx]
+
+https://realtimeboard.com/blog/choose-between-agile-lean-scrum-kanban/
+
+Implementation of Lean within Scrum
+Visual workflow management
+Sprint backlog as visual boards 
+Stand up meetings
+Retro meetings (Kaizen!)
+Risk mitigation
+Quality control
+Scrum Kanban 
+fixed length sprints a continuous flow model
+defined roles does not define any specific 
+roles for the team
+uses velocity as a key metric uses of cycle time as a key 
+metric
+https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban
+Visual tools for Lean project management 
+LeanKit
+▪
+ [https://
+resources.leankit.com
+]
+Trello 
+▪
+ [https://
+trello.com
+/]
+Interesting article to read:  
+▪
+ [https://
+docs.microsoft.com
+/
+en
+-
+us/azure/
+devops
+/learn/agile/what
+-
+is
+-
+kanban
+]
+Action time ☺
+
+Kanban 
+methodology
+21
+History of Kanban
+Derived from Japanese words Kan, meaning visual, and 
+Ban, meaning card or board.
+The person putting doors on cars only assembles 
+enough doors to meet the demand of cars
+When the inventory runs low, the person sends a 
+demand signal (Kanban card) back to the previous 
+operation that builds the doors
+The person building the doors builds only enough doors 
+to meet demand and in turn sends a demand signal for 
+more materials to build the doors.
+
+Kanban
+It is used for demand-driven processes that are very 
+reactive and difficult and/or impractical to plan:
+▪ A call centre queue for handling customer calls
+▪ Some repetitive development processes that are heavily 
+demand-driven, such as a support function that creates 
+reports for business group
+▪ An ongoing support process for providing continuous 
+ongoing development of a product that include bug fixes and 
+minor enhancements.
+Kanban is sometimes used for software application development processes 
+that need to be highly adaptive and may be difficult to plan in advance.
+Kanban: Lead Time and Cycle Time
+https://stefanroock.wordpress.com /2010/03/02/kanban-definition-of-lead-time-and-cycle-time/
+
+Kanban in Scrum: Overlapping skills
+Overlapping skills = large benefit for the team
+When only one person holds a skill set, that person becomes 
+a bottleneck in the workflow. 
+Teams employ basic best practices like code review and 
+mentoring help to spread knowledge. 
+Shared skills mean that 
+▪ team members can take on heterogeneous work, which 
+further optimises cycle time
+▪ if there is a backup of work, the entire team can swarm on 
+it to get the process flowing smoothly again
+Recap: 
+The roles in Scrum are PO, SM, and T eam. 
+(not developers, testers, BA, …)
+
+Push-system
+A push system is totally planned in advance. 
+An example would be a traditional manufacturing process: 
+• It starts with a manufacturing plan based on a forecast 
+of demand that someone thinks will take place.
+• Raw materials are ordered and held in inventory waiting 
+to go into production. 
+• Production resources are planned in advance and 
+allocated to meet the forecasted demand in the 
+manufacturing plan. 
+➔raw materials are planned and queued and pushed 
+through the manufacturing process. 
+A traditional waterfall development process works on the same push principle: 
+Requirements are forecast based on what someone thinks the customer needs, 
+work is planned in advance, and resources are scheduled against the plan.
+
+Pull-system
+A pull system is heavily demand-driven and less-planned. 
+An example would be a manufacturing process where furniture is 
+custom built to satisfy customer orders. In an ideal pull system: 
+• There may be a loosely defined plan to put capacity in place in 
+anticipation of demand but no actual work is planned or 
+scheduled until a customer order is received. 
+• Raw materials might be ordered only as needed to satisfy 
+customer orders. 
+• Production resources would be allocated to work only as needed 
+to satisfy customer orders. 
+➔ customer’s orders are queued and raw materials are pulled 
+through the process to meet actual demand
+This can be seen as the inverse of a push process ☺
+
+Kanban in Scrum: 
+Pull-model, no multitasking
+Once the team completes a work item, they pick the next work 
+item off the top of the backlog. 
+In fact, savvy Product Owners always engage the Development 
+Team when considering changes to the backlog. 
+Multitasking is discouraged as it kills efficiency.
+The more work items in flight at any given time, the more context switching, 
+which hinders their path to completion. 
+A Kanban team is only focused on the work that's actively in progress (WIP). 
+Key point of Kanban – to limit the amount of WIP. 
+WIP limits highlight bottlenecks and backups in the team's process due to 
+lack of focus, people, or skill sets.
+
+Example: Kanban WIP 
+A typical software team might have four workflow states:  
+to do, in progress, code review, and done.  
+They could choose to set a WIP limit of 2 for the code 
+review state (i.e., they limit the number of items to be ”in 
+progress” in the code review state to max. 2). 
+That might seem like a low limit, but there's good reason 
+for it: code that hasn't been reviewed not only hasn't 
+shipped yet, but may need significant re -work before it is 
+ready to ship. 
+So it's important to take action on code reviews right 
+away, and setting a WIP limit helps the team hold 
+themselves accountable to that. 
+It forces the team to complete those reviews before pulling 
+in new work.
+
+Kanban Scrum
+Continues flow model, no sprints (Kanban board 
+for Kanban → No column for Sprint Backlog)
+Work in iterations: sprints have equal length to 
+achieve cadence (Kanban board for Scrum → 
+column for Sprint Backlog)
+Items can be added to Product backlog anytime Items can be added to Product backlog anytime
+Items can be added to Sprint backlog only at the 
+Sprint Planning meeting
+Estimation of work is not a part of Kanban 
+process, but you can add it extra if you like.
+Estimation of work is key element for planning – 
+on its basis you analyse progress and decide 
+scope of a sprint. Efforts are estimated in story 
+points (Fib. numbers should be used). 
+Work in Progress (WIP) limits WIP limits is not a part of Scrum process,   Scrum 
+implements this idea indirectly (PBI can be 
+counted as completed only when it’s done in 
+terms of its DoD)
+No prescribed roles: A Kanban process can be 
+adapted to almost any kind of team structure
+Roles: Scrum Master, Product Owner, Team
+No prescribed format for requirements Requirements should be specified in user story 
+format
+Action time ☺
+
+SEPM Assignments: Can we use Val,  
+ChatGPT or other AI-based tools?
+32
+In short: yes, BUT 
+- You need to make sure that 
+you provide corresponding 
+note/reference in your 
+submission to make clear that 
+you used it (otherwise it can 
+be considered as an 
+academic misconduct)
+- The responsibility for 
+correctness of the solution is 
+on you, not on the tool.
+Let’s now play with Val 
+to see whether and 
+how it might help us… 
+Challenges of 
+teamwork 
+(and how to 
+overcome them) 
+
+Team work in 
+assignments also 
+might have 
+challenges…
+34
+Lack of 
+communication 
+/ poor 
+communication
+Conflicts 
+because of 
+criticism, lack 
+of flexibility, 
+etc.
+Mismatches 
+in the final 
+submission
+Academic 
+integrity 
+issues
+Unfair 
+workload
+Lack of 
+preparation 
+to the 
+assignment
+Lack of 
+understanding 
+of the 
+assignment 
+task
+Time-
+management 
+issues
+How to work effectively as an assignment team
+35
+
+Action time ☺
+Let’s go to www.menti.com to discuss 
+challenges in project team work and 
+how to overcome them in traditional 
+and Scrum projects ☺
+
+Questions?
+Figure from https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-
+kanban

@@ -1,0 +1,231 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+Week 6: Workshop
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+Our plan for
+this session
+Agile estimates in story points
+Trello board
+Jira Board
+T eam-based Assignment:
+Discussion
+3
+You will need to create
+Trello or Jira board in your
+Team-based assignment.
+===== Page 4 =====
+Reminder: Please check the marking criteria for A2
+(below you can see the first 2 criteria)
+===== Page 5 =====
+5
+1
+5
+1
+1
+1
+5
+1
+0.5
+1
+3
+1
+0.5
+What about
+other
+(below)
+variants of
+effort
+allocation?
+Activity 1: Agile estimates – Efforts in story points
+Let’s answer the following questions of the checklist and discuss
+required changes: Are the Efforts reasonable wrt. the PBIs?
+Duration: approx.
+10  minutes
+===== Page 6 =====
+Activity 2: Product backlog – PBI Efforts
+Open the document we discussed in Week 4
+Workshop  SEPM_Week_4_PB_WithMistakes.pdf
+in Modules → Week 4 - Lectorials and Workshops
+Let’s answer the following questions of the checklist
+and discuss required changes:
+• Are the Efforts reasonable wrt. the PBIs?
+• Is the syntax of efforts correct (Fibonacci
+numbers are used)?
+Duration: approx. 10 minutes
+===== Page 7 =====
+Let’s create now a general structure (columns) of a
+Trello board for Scrum: Go to https://trello.com/home ,
+register and start working with a board.
+7
+Activity 3: Trello board – general structure (columns)
+Duration: approx. 10 minutes
+===== Page 8 =====
+Scrum using Trello =
+Scrum + Kanban
+Columns
+▪ Product backlog  – or  – Project backlog
+▪ Sprint Backlog
+▪ In progress
+▪ Ready to present
+▪ Done – or  – Sprint 1 Done, Sprint 2 Done, ….
+Cards
+▪ Should be allocated, when ”In progress”
+▪ Labels might be useful
+Checklists
+▪ Design, Implementation, T esting (or several items for
+several types of testing), Deployment, …
+▪ Can be used to reflect DoD
+Use one board
+only!
+Note: We shared with you a
+number of videos as additional
+hints (Week 6 - Lectorials and
+Workshops):
+• Using Trello in Scrum:
+approx. 4 minutes
+• How to create Trello board:
+approx. 6 minutes
+• User Story Cards in Trello:
+approx. 9 minutes
+===== Page 9 =====
+Trello: Extra videos/ reading materials
+We shared with you in the Canvas module for this week (Week 6 -
+Lectorials and Workshops) additional learning material (videos) to help you
+with today’s activities:
+• Using Trello in Scrum (approx. 4 minutes)
+• How to create Trello board (approx. 6 minutes)
+• User Story Cards in Trello (approx. 9 minutes)
+9
+===== Page 10 =====
+Let’s discuss now how to create a Scrum project in
+Jira.
+Go to https://www.atlassian.com/software/jira ,
+register and start working with the tool: Create a
+Scrum project
+10
+Activity 4: Jira board – general structure (Scrum project)
+Duration: approx. 20 minutes
+It’s very important to
+select correct type of
+the project, as they
+have different
+structure.
+===== Page 11 =====
+Recap: What is the difference between
+Scrum and Kanban Jira boards/structures?
+11
+Standard Jira structure for Scrum:
+11
+To Do In
+Progress
+In Review Done
+Standard Jira structure for Kanban: Product backlog page
+Board for the current sprint – created when you
+select items for a sprint and starts the sprint,
+“To Do” == Sprint backlog
+To Do In
+Progress
+In Review Done
+Board for the whole project,
+“To Do” == Product backlog
+===== Page 12 =====
+Jira: Extra videos/ reading materials
+We shared with you in the Canvas module for this week (Week 6 -
+Lectorials and Workshops) additional learning material to help you with
+today’s activities:
+Video on Creating Scrum board in Jira (external video in YouTube, approx.
+20 minutes)
+Extra reading:
+• Jira view on Scrum
+• Jira Scrum Board
+12
+===== Page 13 =====
+Activity 5: Discussion on Team-based assignment
+In Week 5 Workshop we discussed Step 1 of this assessment .
+Have you checked the Notes document?
+Do you have any questions to the tutor?
+Do you know your team?
+Step 2: Based on your analysis of the above notes, create
+collaboratively the following artefacts:
+• Trello/Jira board, as it should be at the end of your
+Sprint 1 planning meeting:
+• the board should present the product backlog,
+covering all points mentioned in the above notes (with
+correct priorities, story points, etc.),
+• all items (cards) that you selected for Sprint 1, should
+be moved to Sprint 1 backlog,
+• all items (cards) that you selected for Sprint 1, should
+have their sprint tasks and acceptance criteria
+specified,
+• Sprint Planning Notes for Sprint 1.
+Duration: approx.
+20 minutes
+Don’t hesitate to ask tutor
+at the workshop if you
+have any questions.
+===== Page 14 =====
+Let’s now start creating card on your Trello/Jira board
+for the A2 assignment scenario.
+In this activity, you need to create for this case study :
+- Cards with user stories as their names,
+- Labels to present priorities and story points.
+Note: We do not recommend using paid features of Trello/Jira,
+but if you decide to use them, please make sure that the
+corresponding elements are ready for marking till the end of the
+semester.
+14
+Activity 6: Trello/Jira board – cards (external view,
+initial backlog)
+Duration: approx. 15 minutes
+You have to work in your
+assignment team.
+The tutor will make notes
+regarding your contributions
+to the team-work.
+===== Page 15 =====
+Let’s now select a set of cards for your Sprint 1 and
+move them to a Sprint backlog.
+Discuss with the tutor your approach to select the tasks
+and the selected scope of the sprint.
+Note: your expected velocity should be close to the
+ideal velocity.
+15
+Activity 7: Trello/Jira board – cards (external view,
+Sprint 1 backlog)
+Duration: approx. 10 minutes
+You have to work in your
+assignment team.
+The tutor will make notes
+regarding your contributions
+to the team-work.
+===== Page 16 =====
+Create sprint tasks for the cards you
+selected for the Sprint 1 backlog.
+Note: In Trello, use two checklists – one for
+development tasks, another for QA tasks as
+per your DoD.
+16
+Activity 8: Trello/Jira board – cards (internal view,
+sprint tasks)
+Duration: approx. 15 minutes
+You have to work in your
+assignment team.
+The tutor will make notes
+regarding your contributions
+to the team-work.

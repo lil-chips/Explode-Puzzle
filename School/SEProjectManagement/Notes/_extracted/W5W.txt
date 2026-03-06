@@ -1,0 +1,252 @@
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+ISYS 1108 / 3474
+Software Engineering 
+Project Management
+Week 5: Workshop
+Acknowledgement of Country
+RMIT University acknowledges the people of the 
+Woi wurrung and Boon wurrung language groups of 
+the eastern Kulin Nation on whose unceded lands 
+we conduct the business of the University. 
+RMIT University respectfully acknowledges their 
+Ancestors and Elders, past and present. 
+RMIT also acknowledges the Traditional Custodians 
+and their Ancestors of the lands and waters across 
+Australia where we conduct our business.
+2
+Our plan for 
+this session
+Sprint Planning Notes
+Sprint Retro Notes
+Trello Retro board
+Discussion on the results of SE 
+Challenge 1
+Discussion on T eam-based 
+assignment
+3
+Activity 1: Sprint Planning Notes and
+Sprint Retro Notes – general discussion
+Discuss with the tutor the following questions:
+• Who should create these notes and when?
+• How much time this work should take? 
+• How many pages you typically need to write?
+Duration: approx. 10  minutes
+Sprint Planning Notes
+Sprint Retro Notes 
+Who should create them and when: 
+The notes have to be written by the Scrum Master during 
+the corresponding meeting.  
+How much time this work should take: No extra time on 
+top of the meeting time, you have to create them during the 
+meeting (scribe the core points of the discussion). 
+ 
+How many pages you typically need to write: 
+The notes should be short, max 2 pages. 
+Write short simple sentences, avoid having long 
+paragraphs. Keep only necessary details. Proof-read!
+
+Sprint Planning Notes 
+1. Goal
+What is the aim that you are trying to achieve by running this sprint?
+2. Duration of the sprint
+2 weeks
+3. What is the team’s vision for this sprint?
+Which items of the product backlog will be committed to sprint backlog and why? 
+What will the potentially shippable product look like in the end? 
+What features will it have in its working form?
+4. Estimation in story points
+Team to estimate story points for each of the items. Provide some sort of justification.
+Short notes – 
+max. 2 pages
+Canvas ➔  Modules ➔ Templates, Tools, Team-allocation ➔ Useful Templates
+Sprint Retro Notes 
+1. Things That Went Well
+ What went well? What the team is happy about?
+2. Things That Could Have Gone Better
+ What could have gone better? What the team could improve?
+3. Things That Surprised Us
+ What wasn’t expected?
+4. Lessons Learned
+ What you learned from the above points?
+5. Final Thoughts
+ Things to Keep
+ Things to Change
+Short notes – max. 2 pages
+Canvas ➔  Modules ➔ Templates, Tools, Team-allocation ➔ Useful Templates
+8
+Activity 2: Sprint Planning Notes – Example 1
+SprintPlanningNotes_Sprint1_OPM.pdf
+These notes are correct. 
+Discuss them within your team and then with 
+the tutor, section by section.
+Duration: approx.  15  minutes
+9
+Correct! The meeting as at the very first day of the sprint.
+Let’s look at another correct version:
+10
+11
+
+12
+
+Activity 3: Sprint Planning Notes – Example 2
+Check the document
+SprintPlanningNotes_Sprint1_withMistakes.pdf
+ 
+What are the mistakes in these notes? 
+Discuss this within your team and then with your tutor.
+Duration: approx.  15  minutes
+Let’s discuss  SprintPlanningNotes_Sprint1_withMistakes.pdf
+✘ Scrum Master and Product Owner are the same person. 
+Either this is a typo that should be fixed, or the issue is in 
+role allocation. Scrum Master and Product Owner roles 
+should not be allocated to the same person.
+✘ This version of the goal makes no sense – you cannot 
+have high-level good-praxis rules as a goal, the goal 
+should be specific for the sprint and focusing on the 
+functionality 
+✘ Duration of a sprint cannot be 1.5 weeks – we need to 
+have 1 or 2 week(s) duration, same for all sprint.
+✘ Planning meeting should be the very first activity in the 
+sprint, but the sprint starts on 27 February and the 
+meeting was on 1 March. This is incorrect.
+✘ Justification for estimates are missing.  
+
+15
+Activity 4: Sprint Retro Notes – Example 1
+SprintRetroNotes_Sprint1_OPM.pdf
+These notes are correct. 
+Discuss them with tutor section by section.
+Duration: approx. 15 minutes
+
+
+17
+
+18
+
+Activity 5: Sprint Retro Notes – Example 2
+Check the document
+SprintRetroNotes_Sprint1_withMistakes.pdf
+What are the mistakes in these notes? 
+Discuss this within your team and then with 
+your tutor.
+Duration: approx. 20  minutes
+Let’s discuss SprintRetroNotes_Sprint1_withMistakes.pdf (1)
+✘ Date: either it’s typo, or the meeting wasn’t held at 
+the very end of the sprint, which is incorrect.
+✘ Product Owner and customers should not attend 
+the retro meeting, it should be a team-internal 
+meeting (only the team and the Scrum Master 
+should attend)
+✘ The tone of this version is aggressive, focus is on 
+blaming rather than on improving the situation
+
+✘ This version of “Things that went well (What went well)” 
+is unacceptable:
+• The first paragraph – the content is correct, but this 
+text doesn’t belong to the notes. The notes should 
+be short and focused on actual points discussed at 
+the meeting. 
+• The second and the third paragraphs: 
+aggressive/unfriendly tone, details out of scope. 
+Let’s discuss SprintRetroNotes_Sprint1_withMistakes.pdf (2)
+Let’s discuss SprintRetroNotes_Sprint1_withMistakes.pdf (3)
+✘ This version of “Things that could have gone better 
+(What went no so well)”  is unacceptable:
+• The first paragraph – the same issue as with the first 
+section. The content is correct, but this text doesn’t 
+belong to the notes. The notes should be short and 
+focused on actual points discussed at the meeting. 
+• The second paragraph: too wordy, too many 
+introductory sentences/ phrases, so many 
+unnecessary details that it’s even hard to identify 
+what was actually the point to improve. 
+• The third paragraph: too many unnecessary details, 
+aggressive tone, blame shifting 
+
+Let’s discuss SprintRetroNotes_Sprint1_withMistakes.pdf (4)
+✘  This version of “Lessons learned” is unacceptable:
+• The first and second paragraph – the same issue as with 
+the first section. The content is correct, but this text 
+doesn’t belong to the notes. The notes should be short 
+and focused on actual points discussed at the meeting. 
+• The third paragraph: too wordy, too many unnecessary 
+details. 
+• The fourth paragraph: out of scope. Even when the cloak 
+of levitation might be a real surprise, it’s out of scope 
+here.
+•  This version of “Final thoughts” is unacceptable – neither “things 
+to keep” nor “things to change” make any sense in this version.
+
+24
+There is an alternative to retro notes document –        
+a retro board, it can be created in Trello. 
+Let’s compare the document 
+SprintRetroNotes_Sprint1_OPM.pdf
+With the corresponding  Trello RETRO board
+Note: A Trello RETRO board is NOT the same as a 
+Trello board for a Scrum project (Trello Scrum board)
+Activity 6: 
+Sprint Retro Board in Trello
+Duration: approx. 15 minutes
+Easier to read:
+• visual, 
+• potentially less cognitive load,
+• Push you to be short/precise 
+in wording
+Missing information:
+• Attendance 
+• Dates
+25
+https://trello.com/b/hkaQsLWx/sprint-
+retrospective-template-trello
+Sprint Retro Board in Trello: General points
+26
+
+27
+
+28
+
+29
+
+30
+
+Activity 7: Discussion on the results of SE Challenge 1
+Have you checked your results of SE Challenge 1?
+Do you have any questions on your results?
+Duration: approx. 10 minutes
+Don’t hesitate to ask tutor at the 
+workshop if you have any questions. 
+
+Activity 8: Discussion on Team-based assignment
+Step 1: Analyse the scenario, which was inspired by a real-life problem: 
+Assume that a Scrum team is working on a software development project. 
+Sprint 1 of the project starts on 15 September. The project will be planned for 
+6 weekly sprints.
+Assume in this scenario that
+• The Scrum team consist of all members of your team.
+• Dr Maria Spichkova is the Product Owner.
+• Your workshop tutor is the Scrum Master.
+• Osheen Walawedura is the customer who requested access to the 
+information radiator.
+The goal of the project is to develop a software system for a small local 
+company producing handmade scarves, which can be picked up from their 
+small shop or delivered. Currently, they use a simple Excel spreadsheet to 
+plan their orders, but as their business is growing, they would like to automate 
+the ordering process and have a cashless payment only.For the details of 
+the required features of the system, please read the Notes made during 
+the initial requirements elicitation interviews with the stakeholders. Like 
+in a real project, these notes are not fully structured and have to be analysed 
+and organised by you: you will need to analyse the notes, identify the details of 
+the functionalities to implement, including their priorities for the project.
+Step 2: Based on your analysis of the above notes, collaboratively create the 
+following artefacts during the Week 6 and 7 workshop sessions: …
+Duration: 
+approx. 10 minutes
+Do you know who is in your team?
+Do you have any questions to the tutor?
+Have you read the assignment specification?
+Don’t hesitate to ask tutor at the workshop if 
+you have any questions! 
+Please check the marking criteria 
+(below you can see the first 2 criteria)  

@@ -1,0 +1,523 @@
+===== Page 1 =====
+Dr Maria Spichkova
+Senior Lecturer in Software Engineering
+Week 2: Lectorial
+ISYS 1108 / 3474
+Software Engineering
+Project Management
+===== Page 2 =====
+Acknowledgement of Country
+RMIT University acknowledges the people of the
+Woi wurrung and Boon wurrung language groups of
+the eastern Kulin Nation on whose unceeded lands
+we conduct the business of the University.
+RMIT University respectfully acknowledges their
+Ancestors and Elders, past and present.
+RMIT also acknowledges the Traditional Custodians
+and their Ancestors of the lands and waters across
+Australia where we conduct our business.
+2
+===== Page 3 =====
+Classes and Deadlines
+Week
+1
+Week
+2
+Week
+3
+Week 4 Week
+5
+Week
+6
+Week
+7
+Week 8 Week 9 Week
+10
+Week 11 Week 12
+Lectorials
+Workshops Team
+work
+Team
+work
+A1: SE
+Challenge
+Friday:
+Challenge 1
+10%
+Friday:
+Challenge 2
+10%
+Friday:
+Challenge 3
+10%
+A2: Team-
+based
+assignment
+Due on
+Friday:
+30%
+A3:
+Individual
+Assignment
+Due on Friday:
+40%
+Mid-semester break is between Weeks 5 and 6
+Team-based
+assignment
+activities
+===== Page 4 =====
+Our plan for this session
+Agile
+Scrum
+Product backlog
+User stories
+4
++ any questions you
+have on related
+material ☺
+===== Page 5 =====
+Agile
+===== Page 6 =====
+Agile
+It encompasses set of exciting new practices and techniques that
+make product development more cyclical (or iterative).
+It relies on lean governance (management) as opposed to more
+traditional techniques that rely on heavyweight governance.
+Agile is all about empowering the team and getting closer to what
+the customer wants.
+A framework for delivering products quickly and efficiently.
+As opposed to the standard
+requirements-gathering, plan-driven
+project development, the customer is
+continually involved in Agile.
+===== Page 7 =====
+Why Agile
+was created?
+It was a reaction against the rigid and “big upfront planning”
+approach that many software developers and business
+analysts thought stifled the development process and contact
+with the customer.
+Agile wasn’t a simple
+software developer’s revolt.
+While Agile became popular
+with software developers
+because it freed time for
+creativity and drove the
+decision-making process
+lower, the principles also
+made sense from a
+business perspective.
+===== Page 8 =====
+Good Agile
+8
+===== Page 9 =====
+The principles of Agile were in
+the air for a long time when
+they were finally put to paper in
+the Manifesto for Agile
+Software Development (aka,
+Agile Manifesto) in 2001 by its
+17 cosigners at The Lodge at
+the Snowbird ski resort in the
+Wasatch Range of mountains
+in Utah (USA).
+===== Page 10 =====
+Agile  vs. Scrum
+Scrum is a particular variant of Agile
+and the most popular variant today.
+While Agile is more a set of principles,
+Scrum puts principles into effect with well -
+designed practices and techniques:
+Agile may give you the basic orientation,
+but Scrum lets you bring Agile to your
+organisation and make it work.
+While Agile suggests a need for good communication,
+Scrum sets up rules for stand-up meetings and how they
+should be conducted.
+Where Agile discusses the need for iterative and
+incremental development, Scrum brings those terms into
+focus with well-defined sprints that represent a specific
+iteration.
+Where Agile suggests you track tasks to be performed
+with lists, Scrum has specific techniques in place for doing
+exactly that.
+===== Page 11 =====
+Scrum
+===== Page 12 =====
+Scrum
+• team-based iterative and incremental Agile methodology.
+• has its own components, such as the Scrum Team,
+backlogs, and sprints etc.
+Product
+Owner
+Scrum
+Team
+Scrum
+Master
+===== Page 13 =====
+Product owner
+• Establishes and communicates the product vision
+• Achieves initial and on-going funding for the project
+• Creates initial release plans
+• Makes decision about when to create an official release:
+it may not be desirable to release at the conclusion of
+every increment
+• Develops and maintains/prioritizes the Product Backlog,
+as well as presents and explains it to the team
+• Empowered to make decisions for all customers and users
+• May attend sprint planning meeting and sprint review
+meeting
+===== Page 14 =====
+Scrum Master
+• Responsible for the process
+• Responsible for maximising team productivity and
+removing obstacles to progress
+• Sets up and conducts meetings:
+▪ Sprint Planning Meetings, during which the team expands
+Product Backlog into Sprint Backlog
+▪ Sprint Review Meetings, during which the newly developed
+functionality is demonstrated
+▪ Short daily stand-ups
+▪ …
+• Representative to management
+• Representative to team
+===== Page 15 =====
+Scrum Team
+During an iteration, the team selects and develops the highest -priority
+features on the Product Backlog
+The team expands Product Backlog Items into more explicit tasks on a
+Sprint Backlog and then manages its own work and self -organises
+around how it desires to complete the iteration.
+✓ Typically 6 - 12 people
+✓ Cross-functional to all the necessary
+tasks to be handled (for example,
+including programmers, architect,
+designers, QA/testers, tech. writer,
+…)
+✓ Self-organised and self-directed
+✓ Owns the project
+It will only work if the team members are
+✓ Experienced
+✓ Motivated
+✓ Committed to the project
+✓ Proud of their work
+✓ Able to work well with others
+✓ Responsible
+✓ Willing to work in teams
+✓ Autonomous
+===== Page 16 =====
+===== Page 17 =====
+Questions?
+Let’s go to www.menti.com ☺
+===== Page 18 =====
+Product backlog
+===== Page 19 =====
+Scrum
+• We will discuss all these
+artefacts within this course.
+• The first one we have to create
+(on the basis of Vision &
+Scope document  or Project
+Charter) is Product backlog. –
+Let’s start with it!
+Vision & Scope Document / Project Charter
+===== Page 20 =====
+Project Management Artefacts in Scrum
+Project Charter
+or Vision & Scope Document
+Product Backlog
+Sprint Backlog (Sprint 1)
+Sprint 0
+Sprints
+1, 2, 3,
+4, 5, …
+Sprint Backlog (Sprint 2)
+Sprint Backlog (Sprint 3)
+Burn-
+down
+chart
+Sprint 1
+planning notes
+Sprint 2
+planning notes
+Sprint 3
+planning notes
+…
+Sprint 1
+retro notes
+Sprint 2
+retro notes
+Sprint 3 retro
+notes
+===== Page 21 =====
+Product Backlog
+• Requirements for a system, expressed as a prioritized list
+• Each item should have value to the users/ customers
+• Is managed and owned by a Product Owner
+• Spreadsheet, Trello board, etc.
+Can be changed and re-prioritized at the start of each sprint,
+before the Sprint Planning Meeting
+Most Product Backlog Items
+(PBIs) initially need
+refinement because they are
+too large and poorly
+understood / vague / abstract.
+===== Page 22 =====
+Product
+Backlog (in
+table format)
+22
+ID USER STORY OWNER PRIORITY EFFORT in
+story points STATUS DEFINITION OF
+DONE NOTES
+PBI1
+PBI2
+PBI3
+PBI4
+PBI5
+PBI6
+PBI7
+PBI8
+PBI9
+…
+For all functional items (== items describing functionality)
+the owner is Product Owner
+IDs should be unique and meaningful:
+In simplest case, we can use just numbers. Typically,
+also some prefixes are used in addition to numbers
+Priority:
+- depends on
+importance of the item
+(decided by Product
+Owner)
+- Typically denoted as
+Critical/ High/ Medium
+/ Low
+Status is typically denoted
+as ToDo / In Progress /
+Done
+===== Page 23 =====
+Product
+Backlog (in
+table format)
+23
+ID USER STORY OWNER PRIORITY EFFORT in
+story points STATUS DEFINITION OF
+DONE NOTES
+PBI1
+PBI2
+PBI3
+PBI4
+PBI5
+PBI6
+PBI7
+PBI8
+PBI9
+…
+Let’s now discuss what do we mean under user stories, efforts, and Definition of Done!
+===== Page 24 =====
+User story
+Role (user type)
+Activity to describe the
+required functionality
+(use VERBS!)
+Justification, why this
+functionality is needed
+===== Page 25 =====
+RE in Agile projects: User stories
+Agile:
+• Lightweight approach to requirements engineering, project
+management and other aspects of software development
+• Business Analyst is often the Developer ☺
+User stories:
+• Less detailed that “classical requirements specification”
+• But still be written and provide some product
+documentation
+• Seek to combine the strengths of written and verbal
+communication, where possible supported by a picture.
+• Written in user language
+As a [user role]
+I want to [goal action]
+So that  [reason/benefit]
+Example:
+As a registered user, I want to
+change my password so that
+I can keep it secure or make it
+easier to remember.
+===== Page 26 =====
+User Stories
+• Deliberately leave out a lot of important details: Help getting the
+high-level picture of requirements (provide a “bone” for eliciting
+during scrum meetings)
+• Product Backlog is evolving during the whole length of the project.
+• Elaborated and modified through the project based on user input
+User stories are very flexible and can range from individual
+functional requirements, scenarios, use cases, product
+features, business objectives, constraints, quality attributes,
+business rules, user interface issues, and desired
+characteristics of the product
+• Centered on the result and the benefit of the thing you're
+describing
+• User- and usage-centric requirements elicitation:
+focus on what the user wants to do, and not what the user wants
+the system to do:
+By focusing on the user’s goal and vision, you can ensure that the
+users get the functionality that they require
+Negotiable
+Independent
+Valuable
+Estimable
+Small
+T estable
+===== Page 27 =====
+User stories: Core characteristics
+• Are not a contract, not detailed specifications.
+• Are a kind of “notes” to remind the team on to discuss and collaborate
+to clarify the details near the time of development
+• High level, no details, as the goal is
+• To avoid a false impressions of precision or completeness
+• To highlight that further discussions are a part of the process
+• Should be as independent as possible
+• Dependencies might lead to difficulties with prioritizing and planning
+• Should be valuable to the user (or owner) of the product – like
+traditional req. specification  should contain only necessary requirements
+Negotiable
+Independent
+Valuable
+===== Page 28 =====
+User stories: Core characteristics
+• Need to provide enough information to estimate, without being
+too detailed.
+• Should be “small enough”: small in the sense of the feature
+scope, not in the sense “very short text”
+• Should be detailed enough for the team to start work from, and
+further details can be established and clarified at the time of
+development.
+• Generally: A team must be able to finish a user story within the
+sprint in which it starts
+• Should provide enough details of how the User Story will be
+tested.
+Estimable
+Small
+T estable
+===== Page 29 =====
+Is this story negotiable?
+As an HR staff member, I want to pay for job posting  with a credit card
+so that I can have efficient payment process.
+Note: Accept Visa, MasterCard, and American Express. Consider
+Discover. On purchases over $100, ask for card ID number from back of
+card. The system can tell what type of card it is from the first two digits
+of the card number. The system can store a card number for future use.
+Collect the expiration month and date of the card.
+How about this one?
+As an HR staff member, I want to pay for job posting  with a
+credit card so that I can have efficient payment process.
+Note: Will we accept Discover cards?
+Note for UI: Don’t have a field for card type (it can be derived
+from first two digits on the card).
+===== Page 30 =====
+Which users should you target
+while writing user stories?
+Broaden the scope from looking at one user
+Allows users to vary by
+▪ What they use the software for
+▪ How they use the software
+▪ Background
+▪ Familiarity with the software / computers
+Definition:
+A user role is a collection of defining attributes that characterize a population of
+users and their intended interactions with the system.
+===== Page 31 =====
+Which variant
+is correct?
+1) As a user, I want to have a cancellation functionality.
+2) As a user, I want to have a cancellation functionality, so that I can cancel my booking.
+3) As a user, I want to have a cancellation functionality, so that I can save on cancellation
+penalty.
+4) As a user, I want to have a “cancel booking” button, so that I can cancel my booking.
+5) As a user, I want to be able to cancel my hotel reservations, so that I can save on
+cancellation penalty.
+6) As a user, I want to cancel my hotel reservations, so that I don’t waste money on no-
+longer-needed reservations.
+7) As a user, I want to be able to cancel my hotel reservations at any time, so that I can
+save on cancellation penalty.
+8) As a Premium member, I want to cancel my hotel reservations at any time, so that I
+can save on cancellation penalty.
+Assume we need to specify a functionality
+“cancellation of hotel reservation”, which should be
+available for all users of a booking site
+===== Page 32 =====
+Which variant
+is correct?
+1) As a user, I want to have a cancellation functionality.
+2) As a user, I want to have a cancellation functionality, so that I can cancel my booking.
+3) As a user, I want to have a cancellation functionality, so that I can save on cancellation
+penalty.
+4) As a user, I want to have a “cancel booking” button, so that I can cancel my booking.
+5) As a user, I want to be able to cancel my hotel reservations, so that I can save on
+cancellation penalty.
+6) As a user, I want to cancel my hotel reservations, so that I don’t waste money on no-
+longer-needed reservations.
+7) As a user, I want to be able to cancel my hotel reservations at any time, so that I can
+save on cancellation penalty.
+8) As a Premium member, I want to cancel my hotel reservations at any time, so that I
+can save on cancellation penalty.
+Assume we need to specify a functionality
+“cancellation of hotel reservation”, which should be
+available for all users of a booking site
+===== Page 33 =====
+Which variant
+is correct?
+As a user, I want to cancel my hotel reservations, so that I
+don’t waste money on no-longer-needed reservations.
+OR
+As a user, I want to be able to cancel my hotel
+reservations, so that I don’t waste money on no-longer-
+needed reservations.
+Assume we need to specify a functionality
+“cancellation of hotel reservation”, which should be
+available for all users of a booking site
+===== Page 34 =====
+Which variant
+is correct?
+1) As a Premium member, I want to have a cancellation functionality.
+2) As a Premium member, I want to have a cancellation functionality, so that I can cancel
+my booking.
+3) As a Premium member, I want to have a cancellation functionality, so that I can save
+on cancellation penalty.
+4) As a Premium member, I want to have a “cancel booking” button, so that I can cancel
+my booking.
+5) As a user, I want to cancel my hotel reservations, so that I don’t waste money on no-
+longer-needed reservations.
+6) As a user, I want to be able to cancel my hotel reservations at any time, so that I can
+save on cancellation penalty.
+7) As a Premium member, I want to cancel my hotel reservations at any time, so that I
+can save on cancellation penalty.
+Assume we need to specify a functionality
+“cancellation of hotel reservation”, which should be
+available only for Premium members at any time – all
+other users have to pay cancellation penalty
+===== Page 35 =====
+Which variant
+is correct?
+1) As a Premium member, I want to have a cancellation functionality.
+2) As a Premium member, I want to have a cancellation functionality, so that I can cancel
+my booking.
+3) As a Premium member, I want to have a cancellation functionality, so that I can save
+on cancellation penalty.
+4) As a Premium member, I want to have a “cancel booking” button, so that I can cancel
+my booking.
+5) As a user, I want to cancel my hotel reservations, so that I don’t waste money on no-
+longer-needed reservations.
+6) As a user, I want to be able to cancel my hotel reservations at any time, so that I can
+save on cancellation penalty.
+7) As a Premium member, I want to cancel my hotel reservations at any time, so that I
+can save on cancellation penalty.
+Assume we need to specify a functionality
+“cancellation of hotel reservation”, which should be
+available only for Premium members at any time – all
+other users have to pay cancellation penalty
+===== Page 36 =====
+36
+===== Page 37 =====
+Questions?
