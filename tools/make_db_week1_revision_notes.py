@@ -59,6 +59,45 @@ def main():
         "中文：每題先看目標（Goal），自己先寫SQL；再比對『你的版本』與『進階版本』，最後背口訣與陷阱。",
     ])
 
+    # One-page front cheat sheet (very short)
+    add_h(doc, "1-page Cheat Sheet（口訣＋模板）", 1)
+    doc.add_paragraph("Use these as templates. Copy → edit literals. / 直接複製套用再改條件。")
+
+    doc.add_paragraph("Core rules / 核心規則：")
+    add_bullets(doc, [
+        "COUNT(*): counts rows; COUNT(col): counts non-NULL values. / COUNT(*)算筆數；COUNT(欄位)忽略NULL。",
+        "AND > OR precedence → always add parentheses. / AND 優先於 OR → 一律加括號。",
+        "LIKE '%x%': contains. / LIKE '%x%': 包含。",
+        "NULL check: IS NULL / IS NOT NULL (never = NULL). / NULL 用 IS NULL，不用 = NULL。",
+        "FULL LIST rule: the table you want fully listed must be on the LEFT of LEFT JOIN. / 要『全列誰』誰就放 LEFT JOIN 左邊。",
+        "Aggregates in filter → HAVING (not WHERE). / 有 SUM/AVG/COUNT 就想 HAVING。",
+    ])
+
+    doc.add_paragraph("Templates / 模板：")
+    doc.add_paragraph("1) Filter + sort / 篩選＋排序")
+    add_code(doc, "SELECT col1, col2\nFROM table\nWHERE condition\nORDER BY col; ")
+
+    doc.add_paragraph("2) AND/OR with parentheses / AND/OR 括號")
+    add_code(doc, "WHERE (condA AND condB) OR (condC)")
+
+    doc.add_paragraph("3) MAX/MIN nested query / MAX/MIN 子查詢")
+    add_code(doc, "SELECT MVTITLE, YRMDE\nFROM movie\nWHERE YRMDE = (SELECT MAX(YRMDE) FROM movie);")
+
+    doc.add_paragraph("4) GROUP BY + HAVING / 分組＋HAVING")
+    add_code(doc, "SELECT key, SUM(x) AS total\nFROM t\nGROUP BY key\nHAVING SUM(x) > 0\nORDER BY total DESC;")
+
+    doc.add_paragraph("5) LEFT JOIN full list / 全列 LEFT JOIN")
+    add_code(doc, "SELECT left.name, right.value\nFROM left\nLEFT JOIN right ON right.fk = left.pk;")
+
+    doc.add_paragraph("6) Many-to-many bridge join / 多對多橋表")
+    add_code(doc, "SELECT s.STARNAME\nFROM movie m\nJOIN movstar ms ON ms.MVNUMB = m.MVNUMB\nJOIN star s ON s.STARNUMB = ms.STARNUMB\nWHERE m.MVTITLE = 'Manhattan';")
+
+    doc.add_paragraph("7) Co-actors (IN two-step) / 同片演員（IN兩步）")
+    add_code(doc, "SELECT DISTINCT s2.STARNAME\nFROM star s2\nJOIN movstar ms2 ON ms2.STARNUMB = s2.STARNUMB\nWHERE ms2.MVNUMB IN (\n  SELECT ms1.MVNUMB\n  FROM star s1\n  JOIN movstar ms1 ON ms1.STARNUMB = s1.STARNUMB\n  WHERE s1.STARNAME LIKE '%Allen%' AND s1.STARNAME LIKE '%Woody%'\n)\nAND NOT (s2.STARNAME LIKE '%Allen%' AND s2.STARNAME LIKE '%Woody%');")
+
+    doc.add_page_break()
+
+    # Full notes below
     add_h(doc, "Quick cheat-sheet / 快速口訣", 1)
     add_bullets(doc, [
         "COUNT(*): counts rows. COUNT(col): counts non-NULL col values. / COUNT(*)算筆數；COUNT(欄位)忽略NULL。",
