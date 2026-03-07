@@ -1,0 +1,670 @@
+Victoria in
+Future 2023
+Population and household
+projections to 2051
+
+NOVEMBER 2023
+Accessible version of the document
+Authorised by the Victorian Government, Melbourne 1 Spring Street            Contents
+Melbourne Victoria 3000
+Telephone (03) 9655 6666.
+Designed and published by the Department of Transport and Planning.          Introduction........................................................................... 3
+Contact us if you need this information in an accessible format such
+                                                                             What is Victoria in Future 2023?..................................................... 3
+as large print or audio, please telephone (03) 9655 6666 or email
+community@transport.vic.gov.au                                               Data sources and presentation ...................................................... 3
+                                                                             Highlights: Victoria ................................................................................4
+© Copyright State of Victoria Department of Transport and Planning
+                                                                             Highlights: Local Government Areas ........................................... 5
+Except for any logos, emblems, trademarks, artwork and photography
+this document is made available under the terms of the Creative              Projections overview.......................................................... 6
+Commons Attribution 3.0 Australia licence.
+                                                                             Demographic assumptions:
+This publication may be of assistance to you but the State of Victoria       components of population change...............................................6
+and its employees do not guarantee that the publication is without flaw      Population growth.................................................................................. 7
+of any kind or is wholly appropriate for your particular purposes and        Population composition...................................................................... 8
+therefore disclaims all liability for any error, loss or other consequence
+                                                                             Population distribution ..................................................................... 10
+which may arise from you relying on any information in this publication.
+                                                                             Detailed data tables ......................................................... 12
+                                                                             Victoria........................................................................................................12
+                                                                             Major Regions ......................................................................................... 13
+                                                                             Local Government Areas .................................................................. 14
+
+
+
+
+2/   DEPARTMENT OF TRANSPORT AND PLANNING
+Introduction
+
+What is Victoria                                     Data sources                                                  Population in Victoria 2023-2051
+in Future 2023?                                      and presentation
+Victoria in Future 2023 (VIF2023) is the             VIF2023 makes projections based on the                                        Regional Victoria
+official state government projection of              Estimated Resident Population (ERP). This
+                                                                                                                                  1.7m           2.3m
+population and households. Projections               is the official population estimate released
+are used by decision makers in government,           by the Australian Bureau of Statistics (ABS)
+business, and the community to understand            at least once per year. The latest data used                VICTORIA
+the growing and changing population.
+Population projections are estimates of the
+                                                     here are the numbers for 30 June 2022.
+                                                     Household and dwelling data are based                       6.8m                10.3m
+                                                     on the results of 2021 Census.
+future size, distribution, and composition of
+the population. They are based on trends and         State level projections are published for
+assumptions for population change, household         every individual year and include detailed
+formation and housing development across all         demographic data from 2011 through to 2051.
+of Victoria. Projections should not be interpreted   Projections for sub-state areas are published              Metropolitan Melbourne
+as exact predictions or forecasts of the future,     for every fifth year from the most recent                      5.1m           8.0m
+nor are they targets.                                Census (2021) and extend to 2051 for major
+                                                     regions and to 2036 for Local Government
+Uncertainty about the future increases over
+                                                     Areas. (Any sub-state estimates based
+longer projection horizons and with smaller
+                                                     on 2023 figures are derived from an                              Housing in Victoria 2023-2051
+geographic areas. Different policy settings
+                                                     interpolation between 2021 and 2026.)
+and changes in the economy could result
+in changes to the expected size, distribution,       For the most detailed view of the projections
+and composition of the population.                   download the data files online.
+                                                                                                                                   +1.5m
+                                                                                                                                   Additional households
+
+
+
+
+                                                                                                                               +1.6m
+                                                                                                                      Additional dwellings
+
+
+
+
+                                                                                          VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051   / 3
+Highlights: Victoria
+                                                                                                                                          520,000
+                                                                                                                       75yrs+
+                                                                                                                                                        1,080,000
+
+                                                                                                                                                     980,000
+                                                                                                        10.3m        60-74yrs
+                                                                                                                                                                  1,470,000
+
+                                                                                  Victoria                                                                  1,220,000
+                                                                                                                     45-59yrs
+                                                                                                                                                                                1,930,000
+                                         6.8m (2023)                                                    8.0m
+                                                                                                                                                                    1,510,000
+                                                                                                                    30-44yrs
+                                                                                                                                                                                            2,270,000
+                                                                              Metropolitan
+      4.4m                                                                     Melbourne                                                                       1,360,000
+                                             5.1m (2023)                                                             15-29yrs
+                                                                                                                                                                                1,910,000
+
+      3.1m                                                                                                                                                  1,210,000
+                                                                                                        2.3m          0-14yrs
+                                                                            Regional Victoria                                                                            1,680,000
+      1.3m                                   1.7m (2023)
+
+
+     2001      2006   2011      2016    2021         2026        2031      2036         2041    2046    2051
+                                                                                                                                 2023        2051
+
+
+Figure 1 – Past and projected population by major regions 2001 to 2051.                                             Figure 3 – Population by age group, Victoria 2023 and 2051.
+
+
+
+
+                                                                                                                                                                    1.14m
+                                                                                                                   Family with
+                                                                                                                     children                                                               1.74m
+
+                                                                                                                Couple without                       690K
+
+                         2.73m BIRTHS         +1.06m                     1.67m DEATHS
+                                                                                                                      children                                   1.08m
+                                              Natural increase
+                                                                                                                  Lone person                        690K
+        6.8m                                                                                    10.3m               household
+                                                                                                                                                                     1.16m
+             2023                                                                                2051
+                       2.34m OVERSEAS         +2.47m                    0.13 INTERSTATE
+                                                                                                                  Group/other
+                                                                                                                   household
+                                                                                                                                   140K
+                                               Net migration                                                                        210K
+
+
+
+                                                                                                                                 2023         2051
+
+
+
+Figure 2 – Components of population change, Victoria 2023 to 2051.                                                  Figure 4 – Households by type, Victoria 2023 and 2051.
+
+
+
+
+4/    DEPARTMENT OF TRANSPORT AND PLANNING
+Highlights: Local Government Areas
+                                                                 Fastest projected growth: Mitchell Shire (6.0% p.a.)
+                                                                 •   Projected to add 70,100 people
+                                                                     from 2021 to 2036
+   Annual average rate
+   of change                                                     •   Most of the Shire’s growth is within
+                                                                     Metropolitan Melbourne Urban
+        6.0% or more
+                                                                     Growth Boundary
+
+        4.5% to 6.0%
+
+        3.0% to 4.5%
+
+        1.5% to 3.0%
+
+        0.0% to 1.5%
+
+        Population loss
+
+
+
+
+Figure 5 – Annual average rate of population change, Metropolitan and Regional Local Government Areas 2021 to 2036.
+
+
+
+
+                                      Metropolitan LGAs                                               Regional LGAs
+
+                         Wyndham                                      175,900      Greater Geelong                                         96,900
+                            Melton                                    168,200              Ballarat                                        31,200
+
+                             Casey                                    158,000      Greater Bendigo                                         28,300
+                             Hume                                     109,200             Baw Baw                                          21,600
+
+                         Whittlesea                                   103,600            Moorabool                                         18,900
+
+
+
+
+Figure 6 – Top five population growth, 2021 to 2036, Metropolitan and Regional Local Government Areas.
+
+
+
+
+                                                                                               VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051   / 5
+Projections overview
+
+Demographic                                          200,000
+
+
+assumptions: components                              150,000
+of population change
+                                                     100,000                                                                      Total population change
+Population projections rely on the
+‘cohort component model’ to understand                                                                                             Net overseas migration
+                                                      50,000
+population change. This is driven by assumptions
+                                                                                                                                         Natural increase
+regarding the components of population change:
+                                                           0
+Net Overseas Migration (NOM); Net Interstate                                                                                      Net interstate migration
+Migration (NIM); Natural Increase (the difference
+                                                     -50,000
+between the number of births and deaths).
+See Figure 7 for historic and projected levels.
+                                                    -100,000
+Net Overseas Migration was Victoria’s
+strongest driver of population change in
+                                                                 2001    2006     2011    2016     2021   2026    2031    2036    2041     2046      2051
+recent years, accounting for around 60 per cent
+of state growth for most of the 2010s. Permanent
+                                                    Figure 7 – Components of population change, Victoria 2001 to 2051.
+migrants arrived under the skilled, family and
+humanitarian streams of the Commonwealth            Over the longer term, however, patterns are                  VIF2023 assumes Victorian women will have,
+Migration Programme. Temporary migrants             expected to resemble the pre-COVID period                    on average, 1.5 children over their lifetime. As
+come under visa categories including students       with NOM adding between 82,000 and 84,000                    the population increases so does the number
+and temporary business migrants.                    people to the population each year.                          of births in each year. The number of births per
+However, patterns of migration were                                                                              annum in Victoria is projected to increase from
+                                                    Victoria’s NIM is expected to return to positive
+disrupted during the COVID pandemic.                                                                             78,000 in 2023 to 112,000 in 2051. Despite increases
+                                                    and gradually increase before settling at
+Victoria lost population through both overseas                                                                   in average life expectancy in the future, the
+                                                    an ongoing level of 5,100 per annum from
+and interstate migration. The rapid return of                                                                    number of deaths is also expected to increase.
+                                                    2028 onwards.
+overseas migration sees two years of elevated                                                                    Life expectancy at birth is projected to increase
+overseas arrivals and very strong NOM, followed     Natural Increase is dependent on three key                   from 82 to 86 for males and from 86 to 89 for
+by a smaller than average NOM in 2024/25            factors – fertility rates (number of children                females, yet the number of deaths increases
+due to an expected elevated level of                per woman), mortality rates and the number                   from 46,000 in 2023 to 74,000 in 2051. Natural
+departures (following the post-COVID                of people of different ages in the population                increase is projected to be between 32,000
+wave of temporary arrivals).                        (the age structure).                                         and 39,000 for most of the projection period.
+
+
+
+
+6/   DEPARTMENT OF TRANSPORT AND PLANNING
+                                                                                                                      Over the next decade Victoria’s population is
+3.0%
+                                                                                       ABS Population Estimates       projected to increase by an average of around
+ 2.5%                                                                                                                 125,000 per year, adding 1.25 million people at an
+                                                                                       VIF2023 Projections            annual growth rate of 1.7 per cent. The projected
+ 2.0%
+                                                                                                                      growth rate slows gradually over time. The level
+ 1.5%                                                                                                                 of growth is relatively consistent, but the total
+ 1.0%                                                                                                                 population is increasing. By the end of
+                                                                                                                      the projection period the projected annual
+0.5%                                                                                                                  growth rate is 1.2 per cent as Victoria’s
+0.0%                                                                                                                  population reaches 10.3 million.
+
+-0.5%                                                                                                                 As the official state projection, Victoria
+                                                                                                                      in Future presents a single series representing
+-1.0%
+                                                                                                                      likely future growth, informed by current trends.
+-1.5%                                                                                                                 This approach is considered the most useful for
+          2001     2006      2011      2016      2021   2026       2031    2036      2041     2046           2051     developing a common view to guide service and
+                                                                                                                      infrastructure planning. Conditions and trends
+Figure 8 – Annual population growth rate, Victoria 2001 to 2051.                                                      may change in the future, however, and if other
+                                                                                                                      assumptions were used, different growth levels
+Population growth                                          Victoria added around one million people over
+                                                           this period, while New South Wales added around
+                                                                                                                      would result.
+
+With a population of approximately 6.8 million             900,000.
+at 30 June 2023, Victoria has the second largest
+                                                           In the most recent financial year, 2022/23,
+population of Australia’s six states (New South
+                                                           Victoria’s population is estimated to have
+Wales population is around 8.3 million). Victoria’s
+                                                           increased by 175,000 people, or 2.6 per cent,
+population represents a fraction over 25 per cent
+                                                           representing the largest annual growth of
+of the national population. Despite losses during
+                                                           any state or territory in Australia’s history
+the COVID period, Victoria accounted for over
+                                                           (see Figure 8).
+30 per cent of Australia’s population growth over
+the previous decade.
+
+
+
+
+                                                                                                  VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051     / 7
+Population composition                             By 2051 the population will have aged
+                                                   by proportion, particularly as the large
+The composition, or characteristics, of the        ‘baby boomer’ cohort moves into the oldest                             16.6%             21.4%
+population can be just as important as the         age group. The median age is projected to
+size or the growth rate. Places with the same      have reached 40 by this stage, with almost
+population size may require different services     one fifth of the population aged 65 years or
+and infrastructure depending on the mix
+of ages and household types.
+                                                   older. The number aged 65 years and over
+                                                   almost doubles over the period (to 2 million people)
+                                                                                                                              2023
+Victoria’s population will age over time due       and the number aged 85 years and
+to the current composition of the population       over almost triples to 400,000 people.
+and expected future events. Individuals age        The absolute numbers in the younger age                                        62.0%
+every year, but the population ages when the       categories are still expected to increase strongly.
+balance changes between older people and           An additional 380,000 people are expected
+younger people. Figure 9, shows a Victorian        at school ages (5 to 17) by 2051, though this
+population which will age over time, even though   will represent a smaller proportion of the total
+there are increases across all age groups.         population than this group did in 2023.
+The median age in Victoria is 37 – young                                                                                  19.2%             19.4%
+                                                   The population of Victoria consists of many
+by standards in the developed world. Over          millions of individuals, but when these people
+60 per cent of Victoria’s population is within     occupy dwellings, they do so as a household.
+the key working ages of 18 to 64 years, while
+around one of every six Victorians is aged
+                                                   A household may be just one person (a lone
+                                                   person household) or may be made up of more
+                                                                                                                              2051
+65 years or over.                                  than one person, living together as a family
+                                                   or other living arrangement. The most common
+                                                   living arrangement in Victoria in 2023 is the
+                                                   family with children (with one or two parents).                                61.4%
+
+                                                   There are almost 1.2 million of these households
+                                                   in Victoria, or around 43 per cent of the total.
+
+                                                                                                                         Ages 0-17        Ages 18-64
+
+                                                                                                                         Ages 65 and over
+
+
+                                                                                                          Figure 9 – Population by age group,
+                                                                                                          Victoria 2023 and 2051.
+
+
+8/   DEPARTMENT OF TRANSPORT AND PLANNING
+As the population grows in the future there         The rate of household increase is accelerated
+will be increases in the number of all household    when households are expected to be smaller.                                             5.3%
+types, with the family with children remaining      Older Victorians are more likely to live in a one
+the largest in number and proportion                – or two-person household than a larger household
+(see Figure 10). Lone person households             so, as the population ages, both the number and                          26.1%
+are expected to increase at the fastest rate        the proportion of these households increase. The
+in the future, as an older population will likely
+mean more people living on their own later in
+                                                    average size of a household therefore decreases
+                                                    from 2.52 persons per household in Victoria
+                                                                                                                                       2023            42.7%
+
+life. This household type represents 26 per cent    in 2023 to 2.43 in 2051.
+of households in 2023 and will represent
+                                                    As the number of households increases so must
+28 per cent of households in 2051.                                                                                                25.9%
+                                                    the number of dwellings required to house them.
+The total number of households in Victoria is       From 2023 to 2051 Victoria will require more than
+expected to increase by approximately 1.5 million   1.6 million additional dwellings to house the extra
+over the 28 years to 2051. Over this time many      population: around 1.3 million in Metropolitan
+new households will form, and many people will      Melbourne and over 300,000 in Regional Victoria.
+change their living arrangements. The result of                                                                                             5.1%
+
+all those individual decisions as the population
+grows – the net increase in the number of
+                                                                                                                             27.6%
+households – is the key driver of the need
+for additional future housing.
+                                                                                                                                       2051            41.5%
+
+
+
+                                                                                                                                  25.7%
+
+
+
+
+                                                                                                                    Family with children       Couple without children
+
+                                                                                                                    Lone person household      Group and other household
+
+
+
+                                                                                                               Figure 10 – Household by type, Victoria 2023 and 2051.
+
+
+
+
+                                                                                          VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051           / 9
+Population distribution                                                    Inner Metropolitan Region                                                                2.2%
+Population growth is not evenly distributed across
+                                                                Inner South East Metropolitan Region                                 1.0%
+Victoria. Patterns of urban and regional population
+change reflect the likelihood of individual places                      Western Metropolitan Region                                                          2.0%
+to attract population growth and their capacity to
+                                                                       Northern Metropolitan Region                                                          1.9%
+absorb extra population. Victoria in Future takes
+account of these factors to project the levels and                       Eastern Metropolitan Region                                    1.1%
+rates of growth for Victoria’s major regions and
+                                                                       Southern Metropolitan Region                                            1.3%
+Local Government Areas (LGA).
+                                                                             Metropolitan Melbourne                                                   1.6%
+Metropolitan Melbourne accounts for
+approximately 75 per cent of Victoria’s population,                     Barwon Regional Partnership                                                   1.6%
+with the remainder in Regional Victoria. During
+                                                              Central Highlands Regional Partnership                                                  1.6%
+the COVID pandemic Melbourne’s population
+decreased as people left for overseas, interstate,                   Gippsland Regional Partnership                                  1.0%
+and other parts of Victoria. Regional Victoria’s
+                                                                      Goulburn Regional Partnership                           0.8%
+population growth patterns were relatively
+unchanged throughout this period. Some places                 Great South Coast Regional Partnership             0.2%
+in Regional Victoria grew faster than usual due
+                                                             Loddon Campaspe Regional Partnership                                      1.1%
+to extra migration out of Melbourne.
+                                                                         Mallee Regional Partnership             0.3%
+Over the medium- and long-term future, however,
+Metropolitan Melbourne will resume its former                     Ovens-Murray Regional Partnership                           0.8%
+growth patterns and account for around 80 per
+                                                      Wimmera Southern Mallee Regional Partnership       -0.2%
+cent of all future growth in Victoria. Metropolitan
+Melbourne is projected to increase its population                                  Regional Victoria                                   1.1%
+from 5.1 million in 2023 to 8.0 million in 2051.
+Regional Victoria is expected to increase from
+1.7 million to 2.3 million over the same period.      Figure 11 – Annual average rates of population change, regions of Victoria 2021 to 2051.
+
+
+
+
+10 /   DEPARTMENT OF TRANSPORT AND PLANNING
+Regional Victoria is expected to grow at an    LGA populations are reported in these projections          In Regional Victoria the fastest growing
+annual average rate of 1.1 per cent between    from 2021 to 2036. The 2021 population estimate is         LGAs are in the peri-urban area surrounding
+2023 and 2051, while Metropolitan Melbourne    used as the base as it accords with the information        Melbourne. These LGAs attract strong migration
+is expected to grow at 1.6 per cent per        from the most recent Census. Projections are               from Melbourne. The peri-urban Shire of
+annum. Within these two larger regions         completed for the population at the end of every           Moorabool is the fastest growing regional LGA
+VIF2023 makes projections to 2051 for the      fifth year due to the uncertainty of the drivers           and can expect to increase by an average of
+six Metropolitan Regions and nine Regional     of growth for any individual LGA in any                    2.7 per cent each year to 2036. There is a wide
+Partnerships (see Figure 11 on page 10).       individual year.                                           variation of growth rates among the 10 Regional
+                                                                                                          City LGAs from 2021 to 2036, ranging from the
+Within Melbourne the fastest growth            The populations of Victoria’s 79 LGAs vary
+                                                                                                          fast-growing Greater Geelong (2.1 per cent per
+to 2051 is found in the Inner Metropolitan     considerably, in size, composition and in their
+                                                                                                          annum) to the slow growth of Horsham. The
+Region. The Western and Northern regions       level and rate of growth. As at 2021 the largest
+                                                                                                          remaining regional LGAs also vary considerably
+will also see strong growth as they contain    LGA in Victoria was the City of Casey in south-east
+                                                                                                          in growth rates, including nine rural LGAs which
+most of the outer suburban Growth Areas        Melbourne, home to around 370,000 people at
+                                                                                                          can expect to lose population by 2036.
+– where there is considerable capacity to      that point. The smallest LGA by population was
+accommodate extra population. In Regional      the Borough of Queenscliffe on the Bellarine
+Victoria the strongest growth is expected      Peninsula, home to just 3,200 people.
+where the two fastest-growing major regional
+                                               The fastest growing group of LGAs is the
+centres can be found: Greater Geelong in
+                                               Metropolitan Growth Areas. The Shire of Mitchell
+Barwon and Ballarat in Central Highlands.
+                                               is the fastest growing of all LGAs. It can expect to
+Two Regional Partnerships can expect           increase by an average of 6.0 per cent per annum,
+slow growth and one (Wimmera Southern          as its population more than doubles by 2036.
+Mallee) is projected to lose population by     Melbourne’s Inner LGAs (Cities of Melbourne, Port
+2051. These regions contain many areas         Phillip, and Yarra) are also expected to grow strongly
+with ageing populations and long-term          as they provide additional housing through major
+trends of migration losses.                    urban renewal projects (e.g. Fishermans Bend).
+                                               The remainder of Melbourne’s LGAs are expected
+                                               to grow more slowly through regeneration and
+                                               redevelopment throughout the suburbs.
+
+
+
+
+                                                                                     VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051    / 11
+Detailed data tables
+Victoria
+Table 1 – Components of population change, Victoria.                              Table 2 – Population by age group, Victoria.
+
+
+                                  2023-31     2031-41     2041-51      2021-51                                    2023-31        2031-41     2041-51      2021-51
+
+            Population change 1,002,000       1,255,000   1,270,000   3,781,000                   Ages 0 to 14   1,209,000       1,295,000   1,479,000   1,677,000
+
+                         Births   678,000     960,000     1,089,000   2,879,000                  Ages 15 to 29   1,358,000       1,606,000   1,766,000   1,910,000
+
+                       Deaths     386,000     585,000     700,000     1,762,000                 Ages 30 to 44    1,510,000       1,737,000   2,011,000   2,274,000
+
+              Natural Increase    292,000     375,000     389,000     1,118,000                 Ages 45 to 59    1,220,000       1,371,000   1,691,000   1,927,000
+
+       Net Overseas Migration     683,000     830,000     830,000     2,553,000                 Ages 60 to 74     982,000        1,101,000   1,209,000   1,465,000
+
+       Net Interstate Migration   27,000       51,000      51,000      110,000                       Ages 75+     522,000        692,000     902,000     1,075,000
+
+ Annual average growth rate        2.22%       1.50%        1.32%      1.64%
+                                                                                              Education Ages
+
+                                                                                                   Ages 3 to 4
+                                                                                                                  156,000        176,000     201,000     227,000
+                                                                                               (Kindergarten)
+
+                                                                                                  Ages 5 to 11
+                                                                                                                  575,000        597,000     682,000     786,000
+                                                                                             (Primary School)
+
+                                                                                                Ages 12 to 17
+                                                                                                                  490,000        535,000     584,000     656,000
+                                                                                          (Secondary School)
+
+
+
+
+12 /   DEPARTMENT OF TRANSPORT AND PLANNING
+Major Regions
+
+Table 3 – Total population, 2021 to 2051 Metropolitan Regions.                     Table 4 – Total population, 2021 to 2051 Regional Partnerships.
+
+
+        Metropolitan Region       2021         2031         2041         2051               Regional Partnership             2021               2031       2041        2051
+
+          Inner Metropolitan                                                                     Barwon Regional
+                                348,100      466,600       576,000     700,200                                             334,100         406,900       478,500     547,500
+                     Region                                                                          Partnership
+
+           Inner South East                                                                   Central Highlands
+                                528,900      590,400      646,400      724,900                                             212,200             252,300   297,700     343,300
+        Metropolitan Region                                                                 Regional Partnership
+
+      Western Metropolitan                                                                    Gippsland Regional
+                                975,900      1,280,800    1,568,900    1,824,100                                           299,700             338,100   376,100     413,100
+                   Region                                                                            Partnership
+
+      Northern Metropolitan                                                                    Goulburn Regional
+                                1,016,300    1,265,200    1,554,600    1,834,300                                           152,200             166,900   181,500     195,300
+                    Region                                                                           Partnership
+
+       Eastern Metropolitan                                                                   Great South Coast
+                                923,800      1,023,100     1,131,200   1,292,800                                           105,300             107,800   110,500     112,600
+                    Region                                                                  Regional Partnership
+
+     Southern Metropolitan                                                                    Loddon Campaspe
+                                1,120,000    1,327,300    1,510,900    1,667,400                                           252,600         283,400       317,300     351,300
+                   Region                                                                   Regional Partnership
+
+               Metropolitan                                                                        Mallee Regional
+                                4,913,100   5,953,400     6,987,900    8,043,700                                            95,100             98,000    101,000     103,100
+                Melbourne                                                                             Partnership
+
+                                                                                         Ovens-Murray Regional
+                                                                                                                            134,100            147,100   159,600      171,500
+                                                                                                   Partnership
+
+                                                                                     Wimmera Southern Mallee
+                                                                                                                            48,400             47,600     46,900      45,800
+                                                                                        Regional Partnership
+
+                                                                                                           Regional
+                                                                                                                          1,634,800        1,849,100     2,070,100   2,284,600
+                                                                                                           Victoria*
+
+
+
+                                                                                   Note: Regional Victoria includes Unincorporated Victoria
+                                                                                         which consists of areas outside of LGA partnerships
+
+
+
+
+                                                                                             VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051             / 13
+Local Government Areas
+Table 5 – Population and population change, 2021 to 2036 Local Government Areas.
+
+
+
+
+  Local Government Area        2021            2036     2021-2036   Avg. Rate p.a.   Local Government Area    2021      2036     2021-2036   Avg. Rate p.a.
+
+                    Alpine     13,170         13,960      790           0.4%                East Gippsland   48,480    56,300      7,830         1.0%
+
+                    Ararat     11,830         12,160      330           0.2%                     Frankston   140,820   156,100    15,280         0.7%
+
+                   Ballarat   113,500         144,730    31,230         1.6%                  Gannawarra     10,620     10,180     -440          -0.3%
+
+                   Banyule    127,370         148,860    21,490         1.0%                     Glen Eira   150,640   174,890    24,250         1.0%
+
+                Bass Coast    40,680          50,960     10,290         1.5%                       Glenelg   20,060     20,170      110          0.0%
+
+                  Baw Baw      57,620         79,130      21,510        2.1%                 Golden Plains   24,890    34,040      9,140         2.1%
+
+                   Bayside    102,330         114,600    12,270         0.8%               Greater Bendigo   121,270   149,490    28,220         1.4%
+
+                   Benalla    14,440           15,110      670          0.3%            Greater Dandenong    160,100   189,890    29,790          1.1%
+
+               Boroondara     169,790         195,610    25,820         0.9%               Greater Geelong   270,930   367,670    96,730         2.1%
+
+                 Brimbank     196,630         221,990    25,360         0.8%            Greater Shepparton   68,530    78,730      10,210        0.9%
+
+                    Buloke     6,130           5,720      -410          -0.5%                     Hepburn    16,490     18,710     2,230         0.8%
+
+                Campaspe      38,560          40,820      2,260         0.4%                    Hindmarsh     5,660     5,100      -550          -0.7%
+
+                  Cardinia    119,570         178,610    59,040         2.7%                  Hobsons Bay    92,270    107,720    15,450         1.0%
+
+                    Casey     369,560         527,480    157,920        2.4%                     Horsham     20,380    21,080      700           0.2%
+
+         Central Goldfields    13,390         14,400      1,010         0.5%                        Hume     246,920   356,000    109,080        2.5%
+
+              Colac-Otway      22,310         23,910      1,600         0.5%                        Indigo   17,250    19,540      2,290         0.8%
+
+             Corangamite       16,030         15,380      -650          -0.3%                     Kingston   159,550   183,580    24,020         0.9%
+
+                   Darebin    150,300         189,180    38,880         1.5%                         Knox    160,480   177,300    16,820         0.7%
+
+
+
+
+14 /   DEPARTMENT OF TRANSPORT AND PLANNING
+Local Government Area     2021      2036     2021-2036   Avg. Rate p.a.   Local Government Area       2021         2036       2021-2036   Avg. Rate p.a.
+
+             Latrobe     77,120    84,780      7,660         0.6%                     Port Phillip   103,440      147,020      43,580          2.4%
+
+              Loddon      7,700     7,890       190          0.2%                       Pyrenees      7,620        8,240         620           0.5%
+
+     Macedon Ranges      51,600    64,950     13,350         1.5%                    Queenscliffe     3,240        3,590         350           0.7%
+
+         Manningham      125,820   144,120    18,300         0.9%                South Gippsland     30,390       35,100        4,710          1.0%
+
+            Mansfield    10,120    12,590      2,470         1.5%            Southern Grampians      16,490       16,020        -470          -0.2%
+
+         Maribyrnong     86,390    124,810    38,430         2.5%                    Stonnington     106,190      132,140       25,950         1.5%
+
+          Maroondah      116,080   133,570    17,490         0.9%                    Strathbogie      11,370       13,410       2,040          1.1%
+
+           Melbourne     153,110   242,090    88,980         3.1%                     Surf Coast     37,650       48,010        10,360         1.6%
+
+               Melton    181,350   349,390    168,040        4.5%                       Swan Hill    21,380       20,660         -720         -0.2%
+
+            Merri-bek    173,500   221,750    48,250         1.6%                        Towong       6,190        6,340         150           0.2%
+
+              Mildura    56,970    62,990      6,020         0.7%                    Wangaratta      29,750       32,260        2,510          0.5%
+
+              Mitchell   49,710    119,830    70,120         6.0%                  Warrnambool       35,430       38,580        3,150          0.6%
+
+                Moira    30,370    32,840      2,470         0.5%                     Wellington     45,470        51,070       5,600          0.8%
+
+              Monash     192,890   234,020     41,120        1.3%                 West Wimmera        3,980        3,600        -380          -0.7%
+
+        Moonee Valley    122,950   150,690    27,740         1.4%                     Whitehorse     171,080      208,290       37,210         1.3%
+
+           Moorabool     37,910    56,750     18,840         2.7%                     Whittlesea     231,830      335,370      103,540         2.5%
+
+ Mornington Peninsula    170,440   187,540     17,100        0.6%                      Wodonga       43,210       53,670        10,460         1.5%
+
+     Mount Alexander     20,110    22,780      2,670         0.8%                      Wyndham       296,320      472,120      175,800         3.2%
+
+               Moyne     17,300     19,120     1,820         0.7%                           Yarra    91,520       130,130       38,610         2.4%
+
+          Murrindindi    15,140    17,450      2,320         1.0%                   Yarra Ranges     157,420      176,510       19,090         0.8%
+
+            Nillumbik    63,450    67,420      3,970         0.4%                   Yarriambiack      6,510        5,920        -590          -0.6%
+
+  Northern Grampians     11,890     11,570     -310          -0.2%        Unincorporated Victoria     950          1,020          80           0.5%
+
+
+
+
+                                                                               VICTORIA IN FUTURE 2023 POPULATION AND HOUSEHOLD PROJECTIONS TO 2051   / 15
+DTP0552/23
+
+
+
+
+             dtp.vic.gov.au
+

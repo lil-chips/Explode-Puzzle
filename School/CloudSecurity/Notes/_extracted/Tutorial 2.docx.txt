@@ -1,0 +1,155 @@
+Tutorial #
+2
+Cloud Security INTE2401/2402
+1
+. 
+Multiple Choice Question
+s
+In classical ciphers, the order of the letters in a message is rearranged by
+A. Transposition ciphers
+B.
+ 
+S
+ubstitution ciphers
+C.
+ 
+Hill cipher
+D.
+ 
+V
+igenere
+ cipher
+The Caesar cipher is a _______cipher. 
+A. T
+ransposition
+B. Substitution
+ 
+C. Product
+D. Keyword-based
+The key size of the Shift cipher is
+ 
+A.
+ 3
+B.
+ 13
+C. 25
+ 
+D. 
+26!
+In the transposition cipher with keyword, the permutation determined by the keyword “model” is 
+A. 45123
+B. 13254
+C. 54321
+D. 32154
+ If the encryption algorithm of an affine cipher is C=5P+6, the decryption algorithm of the affine  cipher is  
+A.
+ P=3C+10
+B. P=9C+10
+C. P=21C+4
+D.
+ P=25C+20
+The key size of the affine cipher is
+A.
+ 
+25
+B. 12
+26
+C.
+ 
+13
+25
+D.
+ 
+25
+26
+The simplified 
+AES uses a _______ bit block size and a key size of _______ bits.
+A. 16; 16
+B.
+ 32; 32
+C.
+ 64; 56
+D.
+ 128; 128
+In the substitution of the simplified 
+AES, _______ bits are substituted by _______bits.   
+A. 4; 4
+B.
+ 6; 4
+C.
+ 8; 8
+D.
+ 16; 16
+In the simplified 
+AES, columns of a state matrix are mixed over the Galois Field    
+A.
+ 
+GF(
+2)
+B.
+ 
+GF(
+2
+2
+)
+C. 
+GF(
+2
+4
+)
+D.
+ 
+GF(
+2
+8
+)
+In the simplified 
+AES, _____ round keys are needed.     
+A. 
+2
+B. 3
+C. 
+4
+D. 
+5
+2. Computational Questions
+A ciphertext has been generated with an affine cipher. The most frequent letter of the ciphertext is “F”, and the second most frequent letter of the ciphertext is “C”. Break this code. 
+            
+http://en.wikipedia.org/wiki/Letter_frequency
+ 
+In the simplified AES, verify that  
+Note: The additions and multiplications are over the Galois field GF(2
+4
+).
+http://www.ece.unb.ca/cgi-bin/tervo/calc2.pl
+ 
+3. Programming 
+(HTML and Java
+S
+cript) 
+Questions
+Implement encryption and decryption algorithms of Affine cipher as shown as below
+ (website style is not important!)
+Familiar with for loop in 
+javascript
+ (hint: 
+for loop
+)
+Get length of a string (hint: 
+length
+)
+Convert a string to an integer (hint:
+ 
+parseInt
+)
+Convert a character to 
+an ASCII code number (hint: 
+charCodeAt()
+)
+Convert an ASCII code number to a character (hint:
+fromChatCode()
+)
+Potential 
+solution:  
+here
+ 

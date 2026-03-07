@@ -1,0 +1,666 @@
+
+=== slide1.xml ===
+
+Chapter 2
+Secret Key Encryption Standard
+Chapter 2.1
+Classical Encryption Principles
+
+=== slide2.xml ===
+
+Model of Conventional Encryption
+
+=== slide3.xml ===
+
+Substitution Cipher 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Substitution cipher is one in which the letters of plaintext are replaced by other letters or by numbers or symbols.
+Caesar cipher is the earliest substitution cipher.
+
+=== slide4.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none" anchor="ctr"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="102403" name="Rectangle 3"/><p:cNvSpPr><a:spLocks noGrp="1" noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr><p:ph type="title"/></p:nvPr></p:nvSpPr><p:spPr><a:xfrm><a:off x="1371600" y="247650"/><a:ext cx="7772400" cy="596900"/></a:xfrm></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Caesar Cipher 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>The famous Roman commander-in-chief and statesman 
+Juliu
+ Caesar (100-44 B.C.)
+The Caesar cipher involves replacing each letter of the alphabet with letter standing three places further down the alphabet.  
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Plain = PLEASE CONFIRM RECEIPT 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Cipher = SOHDVE FRQILUP UHFHLSW 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Plaintext:    a b c d e f g h i  j  k l m n o p q  r s  t  u v w x y z
+Ciphertext: d e f  g h i j k l m n o p q  r s  t  u v w x y  z a b c
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Key = 3 
+
+=== slide5.xml ===
+
+Shift Ciphers
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="117768" name="Text Box 8"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="1143000" y="1447800"/><a:ext cx="1295400" cy="457200"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:noFill/><a:miter lim="800000"/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Caesar
+
+=== slide6.xml ===
+
+Cryptosystem 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="457200" indent="-457200" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="2800" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>A cryptosystem is a five-
+tuple
+ (P, C, K, E, D), where the following conditions are satisfied:
+P is a finite set of possible plaintexts
+C is a finite set of possible 
+ciphertexts
+K, the 
+keyspace
+, is a finite set of possible keys
+For each K, there is an encryption rule 
+e
+K
+  in E and a corresponding decryption rule 
+d
+K
+ 
+in D.  
+e
+K
+ : P 
+
+ C and 
+d
+K
+ : C 
+
+P are function such that 
+d
+K
+ (
+e
+K
+ (x)) = x for every plaintext x in P.
+
+=== slide7.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none" anchor="ctr"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="122883" name="Rectangle 3"/><p:cNvSpPr><a:spLocks noGrp="1" noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr><p:ph type="title"/></p:nvPr></p:nvSpPr><p:spPr><a:xfrm><a:off x="1143000" y="0"/><a:ext cx="8001000" cy="1276350"/></a:xfrm></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Mathematical Representation of Shift Cipher
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>P= Z
+26
+, C= Z
+26
+, K={0,1,2, …,25}
+Encryption: c=E(p)=p+k (mod 26)
+Decryption: p=D(c)=c-k (mod 26)   
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t> A   B  C  D E  F  G  H  I  J   K   L   M  N   O    P   Q   R   S   T    U  V   W  X   Y   Z 
+  0   1  2   3  4   5   6  7   8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25
+ 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none" anchor="ctr"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="122887" name="Text Box 7"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="0" y="1371600"/><a:ext cx="9144000" cy="457200"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:noFill/><a:miter lim="800000"/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Corresponding table between alphabetic and natural number
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Z
+26
+={0,1,2,…,25}
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>      D(c)=c-k=(p+k)-k=p 
+ D(E(p))=p
+ 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>    Caesar Cipher is a shift cipher with k=3. 
+
+=== slide8.xml ===
+
+Modular Arithmetic
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Definition:
+x (mod n) = the remainder of x divided by n.
+For example, 34 (mod 26) = 8
+
+=== slide9.xml ===
+
+Example of Caesar Cipher
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>p=“y”=24, 
+Encryption:
+        c=p+3=24+3=27=26+1=1 (mod 26)=“b”
+c=“b”=1, 
+Decryption:
+p=c-3=1-3=-2=-2+26=24 (mod 26)=“y”
+
+=== slide10.xml ===
+
+Example of Shift Cipher
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>k=5
+Plaintext=“security” 
+(18,4,2,20,17,8,19,24)
+c=E(p)=p+5 (mod 26)
+E: 
+(18,4,2,20,17,8,19,24) +(5,5,5,5,5,5,5)
+      (23,9,7,25,22,13,24,3) (mod 26)
+p=D(c )=c-5 (mod 26)
+D: 
+(23,9,7,25,22,13,24,3)-
+(5,5,5,5,5,5,5)
+      (18,4,2,20,17,8,19,24) (mod 26)
+         s  e c  u   r   i  t   y
+
+=== slide11.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4400" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Question
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:solidFill><a:srgbClr val="99FF33"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>   Is it difficult to decrypt the shift cipher without knowing key? Decrypt the following  shift ciphertext?
+   
+fev
+ 
+gfleu
+ 
+fw
+ 
+cvriezex
+ 
+ivhlzivj
+ 
+kve
+ 
+gfleuj
+ 
+fw
+ 
+tfddfe
+ 
+jvejv
+ 
+kf
+ 
+rggcp
+ 
+zk
+
+=== slide12.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4400" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Answer
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>P: a b c d e  f  g h 
+i
+  j k  l  m n o p q  r s t u v  w x y z
+C: r s  t  u v w x y z a b  c d  e  f g  h 
+i
+  j k l m n o p q 
+P: one pound of learning requires ten pounds of 
+     common sense to apply it
+C: 
+fev
+ 
+gfleu
+ 
+fw
+ 
+cvriezex
+ 
+ivhlzivj
+ 
+kve
+ 
+gfleuj
+ 
+fw
+ 
+     
+tfddfe
+ 
+jvejv
+ 
+kf
+ 
+rggcp
+ 
+zk
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="square"><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Comment:  
+Shift cipher is insecure!
+
+=== slide13.xml ===
+
+Affine Cipher
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>P=C=Z
+26
+ 
+K={(k
+1
+,k
+2
+)| k
+1
+,k
+2
+ 
+ 
+Z
+26
+, 
+gcd
+(k
+1
+,26)=1}
+E:   c=E(p)=k
+1
+p+k
+2
+ (mod 26)
+D:   p=D(c )=k
+1
+-1
+(c-k
+2
+) (mod 26)
+D(c )=k
+1
+-1
+(c-k
+2
+)=k
+1
+-1
+(k
+1
+p+k
+2
+-k
+2
+)=p
+Note 1: 
+gcd
+ means greatest common divisor 
+Note 2: 
+gcd
+(k
+1
+,26)=1 
+
+ k
+1
+ 
+
+{1,3,5,7,9,11,15, 17,19,21,23,25}
+Note 3:  k
+1
+ 
+k
+1
+-1 
+=1 (mod 26), for example, 3*9=27=1 (mod 26)
+              (1,1), (3,9), (5,21), (7,15), (11,19), (17,23), (25,25)
+Note 4:  k
+1
+=1, k
+2
+=0 should be avoided because p=c in this case.
+
+=== slide14.xml ===
+
+Example of Affine Cipher 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>k
+1
+=5, k
+2
+=3
+p=“y”=24, 
+Encryption:
+        c=5p+3=5*24+3=123=19 (mod 26)=“t”
+c=“t”=19, 
+Decryption:
+p=5
+-1
+(c-3)=21(19-3)=21*16=24(mod 26)=“y”
+5*21=105=1 (mod 26)
+
+=== slide15.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4400" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Question
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:solidFill><a:srgbClr val="99FF33"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>   Is it difficult to decrypt the affine cipher without knowing keys? How many possible affine ciphers are there? 
+
+=== slide16.xml ===
+
+Number of Affine Ciphers
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>K={(k
+1
+,k
+2
+)| k
+1
+,k
+2
+ 
+ 
+Z
+26
+, 
+gcd
+(k
+1
+,26)=1} 
+k
+1
+ 
+
+{1,3,5,7,9,11,15, 17,19,21,23,25}
+N=12*26=312
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="square"><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Comments: 
+Affine cipher is insecure!
+
+=== slide17.xml ===
+
+Example of Breaking Affine Cipher 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr marL="457200" indent="-457200" algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Given ciphertext:
+fmxvedkaphferbndkrxrsrefmorudkvshvufedkaprkdlyevlrhhrh
+                                     k
+1
+= 3, k
+2
+=5
+algoritmsarequitegeneraldefinitionsofarithmeticprocess
+Resulting plaintext
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="134149" name="Text Box 5"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="2590800" y="3124200"/><a:ext cx="1828800" cy="579438"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:noFill/><a:miter lim="800000"/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Decrypt
+
+=== slide18.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" b="1"><a:cs typeface="Times New Roman" charset="0"/></a:rPr><a:t>In an affine cipher, suppose that (P,R) and (G,Y) are two pairs of plaintext letters and ciphertext letters. Break the cipher.
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000" b="1" dirty="0"/><a:t>Answer:     c=k1*p+k2
+      P
+
+15,  R
+
+17,  G
+
+6,  Y
+
+24
+     17=15*k1+k2 (mod 26)
+      24=6*k1+k2 (mod 26)
+      -7=9*k1 (mod 26)
+       -7*3=9*3*k1 (mod 26)
+       5=k1 (mod 26)
+        k2=24-6*k1=24-30= -6 (mod 26) 
+        c=5p-6 
+c+6=5p21(c+6)=21*5pp=21c+126=21c+22
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t> A   B  C  D E  F  G  H  I  J   K   L   M  N   O    P   Q   R   S   T    U  V   W  X   Y   Z 
+  0   1  2   3  4   5   6  7   8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25
+ 
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4000" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Cont. 
+
+=== slide19.xml ===
+
+Transposition Cipher
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Transposition cipher is one in which the letters of plaintext remain what they are, but not where they were.
+Transposition cipher only alters the order of the letters of the plaintext.
+The Scytale is the prototype of a transposition cipher. 
+
+=== slide20.xml ===
+
+Transposition Cipher
+ Based on Key Word
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Key Word = 
+STOCK
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>The ciphertext is obtained by changing the column of the plaintext according to the alphabetic order of the letters of a key word.
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Plaintext=
+THE MEETING HAS BEEN POSTPONED UNTIL NEXT MONTH
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>S, T, O, C, K
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t> 4,  5,  3, 1,  2
+
+=== slide21.xml ===
+
+Encryption and Decryption
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="2800" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Plaintext
+THEME       
+ETING
+HASBE
+ENPOS
+TPONE
+DUNTI
+LNEXT
+MONTH
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="2800" b="1" dirty="0"><a:solidFill><a:srgbClr val="CCCC00"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>1  2  3  4  5
+T H E M E
+E T  I  N G
+H A S  B E
+E  N P O S
+T  P O N E
+D  U N T I
+L  N E X T
+M O N T H
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="2800" b="1" dirty="0"><a:solidFill><a:srgbClr val="FF3300"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>4   5  3  1  2
+T H E M E
+E T  I  N G
+H A S  B E
+E  N P O S
+T  P O N E
+D  U N T I
+L  N E X T
+M O N T H
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="28685" name="Line 13"/><p:cNvSpPr><a:spLocks noChangeShapeType="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="3352800" y="1035050"/><a:ext cx="0" cy="4876800"/></a:xfrm><a:prstGeom prst="line"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:round/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="28687" name="Line 15"/><p:cNvSpPr><a:spLocks noChangeShapeType="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="5410200" y="1035050"/><a:ext cx="0" cy="4876800"/></a:xfrm><a:prstGeom prst="line"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:round/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="28688" name="Line 16"/><p:cNvSpPr><a:spLocks noChangeShapeType="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="7620000" y="1035050"/><a:ext cx="0" cy="4876800"/></a:xfrm><a:prstGeom prst="line"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:round/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="none"/><a:lstStyle/><a:p><a:endParaRPr lang="en-US"/></a:p></p:txBody></p:sp><p:sp><p:nvSpPr><p:cNvPr id="28689" name="Text Box 17"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="1143000" y="5911850"/><a:ext cx="8000999" cy="954107"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq"><a:noFill/><a:miter lim="800000"/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr wrap="square"><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2800" b="1" dirty="0"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Ciphertext=
+ MNBONTXT EGESEITH EISPONEN TEHETDLM HTANPUNO
+
+=== slide22.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4400" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Question
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1" dirty="0"><a:solidFill><a:srgbClr val="99FF33"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Is it difficult to decrypt the transposition cipher with key word without knowing key word? How to decrypt the following  
+ciphertext
+ obtained by a transposition cipher with 4 letters key word?
+iukrfneul
+ 
+yooeolysu
+ 
+fwysdsprf
+ 
+orulweoep
+
+=== slide23.xml ===
+
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr anchor="ctr"/><a:lstStyle/><a:p><a:pPr algn="l"/><a:r><a:rPr lang="en-US" sz="4400" b="1"><a:solidFill><a:schemeClr val="tx2"/></a:solidFill><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Answer
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr marL="457200" indent="-457200" algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000" u="sng" dirty="0"/><a:t>1 3  2  4
+             
+i
+  f   y  o 
+u w  o  r
+k y  o  u
+r  s  e   l 
+f  d  o w
+n  s  l  e 
+e  p  y o
+u  r  s  e 
+l  f  u  p  
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000" dirty="0"/><a:t>Permutation of 1,2,3,4
+1234, 1243, 
+1324
+, 1342, 1423, 1432
+2134, 2143, 2314, 2341, 2413, 2431
+3124, 3142, 3214, 3241, 3412, 3421
+4123, 4143, 4213, 4231, 4312, 4321
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr algn="l"><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US" sz="2000"/><a:t>Plaintext: if you work yourself down sleep yourself up
+Key: 1324
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US"/><a:t>ciphertext
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:pPr><a:spcBef><a:spcPct val="50000"/></a:spcBef></a:pPr><a:r><a:rPr lang="en-US"/><a:t>plaintext
+
+=== slide24.xml ===
+
+Comments
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:pPr marL="342900" indent="-342900" algn="l"><a:spcBef><a:spcPct val="20000"/></a:spcBef><a:buClr><a:schemeClr val="tx2"/></a:buClr><a:buSzPct val="90000"/><a:buFontTx/><a:buChar char="•"/></a:pPr><a:r><a:rPr lang="en-US" sz="3200" b="1"><a:effectLst><a:outerShdw blurRad="38100" dist="38100" dir="2700000" algn="tl"><a:srgbClr val="000000"/></a:outerShdw></a:effectLst></a:rPr><a:t>Key Word = m
+ 
+distinct letters
+Permutation of 1,2,…,m
+The total number=m! possibilities
+Test each possibility to determine key
+It is insecure when m is small
+
+=== slide25.xml ===
+
+Chapter 2
+Secret Key Encryption Standard
+Chapter 2.2
+Simplified Advanced Encryption Standard
+
+=== slide26.xml ===
+
+Advanced Encryption Standard
+DES cracked, Triple-DES slow:  what next?
+1997:  NIST AES announced, call for algorithms
+August 1998:  15 candidate algorithms
+August 1999:  5 finalists
+October 2000:  
+Rijndael
+ selected
+Two Belgians:  Joan 
+Daemen
+, Vincent 
+Rijmen
+May 2001:  Comment period ended
+Summer 2001:  Finalized, certified until ‘06
+
+=== slide27.xml ===
+
+AES vs. DES
+Similar to DES:  block cipher (with different modes), but 128-bit blocks
+128-bit, 192-bit, or 256-bit key
+Mix of permutations, “S-boxes”
+S-boxes based on modular arithmetic with polynomials.
+
+=== slide28.xml ===
+
+</a:ln></p:spPr></p:pic><p:sp><p:nvSpPr><p:cNvPr id="8" name="Rectangle 7"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr bwMode="auto"><a:xfrm><a:off x="3505200" y="1238119"/><a:ext cx="762000" cy="304800"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="12700" cap="sq" cmpd="sng" algn="ctr"><a:noFill/><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="sm" len="sm"/><a:tailEnd type="none" w="sm" len="sm"/></a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr vert="horz" wrap="none" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" rtlCol="0" anchor="t" anchorCtr="0" compatLnSpc="1"><a:prstTxWarp prst="textNoShape"><a:avLst/></a:prstTxWarp></a:bodyPr><a:lstStyle/><a:p><a:pPr marL="0" marR="0" indent="0" algn="l" defTabSz="914400" rtl="0" eaLnBrk="1" fontAlgn="base" latinLnBrk="0" hangingPunct="1"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc><a:spcBef><a:spcPct val="0"/></a:spcBef><a:spcAft><a:spcPct val="0"/></a:spcAft><a:buClrTx/><a:buSzTx/><a:buFontTx/><a:buNone/><a:tabLst/></a:pPr><a:r><a:rPr kumimoji="0" lang="en-AU" sz="1600" b="0" i="0" u="none" strike="noStrike" cap="none" normalizeH="0" baseline="0" dirty="0"><a:ln><a:noFill/></a:ln><a:solidFill><a:schemeClr val="bg2"/></a:solidFill><a:effectLst/><a:latin typeface="Times New Roman" pitchFamily="18" charset="0"/></a:rPr><a:t>16 bits
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr vert="horz" wrap="none" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" rtlCol="0" anchor="t" anchorCtr="0" compatLnSpc="1"><a:prstTxWarp prst="textNoShape"><a:avLst/></a:prstTxWarp></a:bodyPr><a:lstStyle/><a:p><a:pPr marL="0" marR="0" indent="0" algn="l" defTabSz="914400" rtl="0" eaLnBrk="1" fontAlgn="base" latinLnBrk="0" hangingPunct="1"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc><a:spcBef><a:spcPct val="0"/></a:spcBef><a:spcAft><a:spcPct val="0"/></a:spcAft><a:buClrTx/><a:buSzTx/><a:buFontTx/><a:buNone/><a:tabLst/></a:pPr><a:r><a:rPr kumimoji="0" lang="en-AU" sz="1600" b="0" i="0" u="none" strike="noStrike" cap="none" normalizeH="0" baseline="0" dirty="0"><a:ln><a:noFill/></a:ln><a:solidFill><a:schemeClr val="bg2"/></a:solidFill><a:effectLst/><a:latin typeface="Times New Roman" pitchFamily="18" charset="0"/></a:rPr><a:t>16 bits
+</a:ln><a:effectLst/></p:spPr><p:txBody><a:bodyPr vert="horz" wrap="none" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" rtlCol="0" anchor="t" anchorCtr="0" compatLnSpc="1"><a:prstTxWarp prst="textNoShape"><a:avLst/></a:prstTxWarp></a:bodyPr><a:lstStyle/><a:p><a:pPr marL="0" marR="0" indent="0" algn="l" defTabSz="914400" rtl="0" eaLnBrk="1" fontAlgn="base" latinLnBrk="0" hangingPunct="1"><a:lnSpc><a:spcPct val="100000"/></a:lnSpc><a:spcBef><a:spcPct val="0"/></a:spcBef><a:spcAft><a:spcPct val="0"/></a:spcAft><a:buClrTx/><a:buSzTx/><a:buFontTx/><a:buNone/><a:tabLst/></a:pPr><a:r><a:rPr kumimoji="0" lang="en-AU" sz="1600" b="0" i="0" u="none" strike="noStrike" cap="none" normalizeH="0" baseline="0" dirty="0"><a:ln><a:noFill/></a:ln><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:effectLst/><a:latin typeface="Times New Roman" pitchFamily="18" charset="0"/></a:rPr><a:t>16 bits
+Simplified AES
+
+=== slide29.xml ===
+
+State Matrix and Round Keys
+
+=== slide30.xml ===
+
+</a:ln></p:spPr></p:pic><p:sp><p:nvSpPr><p:cNvPr id="4" name="Rectangle 2"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="97685" y="267097"/><a:ext cx="9046315" cy="1143000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr><p:txBody><a:bodyPr vert="horz" lIns="91440" tIns="45720" rIns="91440" bIns="45720" rtlCol="0" anchor="ctr"><a:normAutofit/></a:bodyPr><a:lstStyle><a:lvl1pPr algn="ctr" defTabSz="457200" rtl="0" eaLnBrk="1" latinLnBrk="0" hangingPunct="1"><a:spcBef><a:spcPct val="0"/></a:spcBef><a:buNone/><a:defRPr sz="4400" kern="1200"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:latin typeface="+mj-lt"/><a:ea typeface="+mj-ea"/><a:cs typeface="+mj-cs"/></a:defRPr></a:lvl1pPr></a:lstStyle><a:p><a:r><a:rPr lang="en-US" altLang="en-US" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:latin typeface="+mn-lt"/></a:rPr><a:t>Add Round Key
+
+=== slide31.xml ===
+
+Encryption Round
+
+=== slide32.xml ===
+
+</a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="3075" name="Picture 3"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId4" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="2596852" y="4953000"/><a:ext cx="4615841" cy="838200"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:sp><p:nvSpPr><p:cNvPr id="6" name="Rectangle 2"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="97685" y="29832"/><a:ext cx="9046315" cy="1143000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr><p:txBody><a:bodyPr vert="horz" lIns="91440" tIns="45720" rIns="91440" bIns="45720" rtlCol="0" anchor="ctr"><a:normAutofit/></a:bodyPr><a:lstStyle><a:lvl1pPr algn="ctr" defTabSz="457200" rtl="0" eaLnBrk="1" latinLnBrk="0" hangingPunct="1"><a:spcBef><a:spcPct val="0"/></a:spcBef><a:buNone/><a:defRPr sz="4400" kern="1200"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:latin typeface="+mj-lt"/><a:ea typeface="+mj-ea"/><a:cs typeface="+mj-cs"/></a:defRPr></a:lvl1pPr></a:lstStyle><a:p><a:r><a:rPr lang="en-US" altLang="en-US" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:latin typeface="+mn-lt"/></a:rPr><a:t>Substitution 
+
+=== slide33.xml ===
+
+</a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="4099" name="Picture 3"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId4" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="2743200" y="5029200"/><a:ext cx="3842766" cy="781050"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="6" name="Picture 3"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId5" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="2209800" y="1143000"/><a:ext cx="4615841" cy="838200"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:sp><p:nvSpPr><p:cNvPr id="7" name="Rectangle 2"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="97685" y="29832"/><a:ext cx="9046315" cy="1143000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr><p:txBody><a:bodyPr vert="horz" lIns="91440" tIns="45720" rIns="91440" bIns="45720" rtlCol="0" anchor="ctr"><a:normAutofit/></a:bodyPr><a:lstStyle><a:lvl1pPr algn="ctr" defTabSz="457200" rtl="0" eaLnBrk="1" latinLnBrk="0" hangingPunct="1"><a:spcBef><a:spcPct val="0"/></a:spcBef><a:buNone/><a:defRPr sz="4400" kern="1200"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:latin typeface="+mj-lt"/><a:ea typeface="+mj-ea"/><a:cs typeface="+mj-cs"/></a:defRPr></a:lvl1pPr></a:lstStyle><a:p><a:r><a:rPr lang="en-US" altLang="en-US" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:latin typeface="+mn-lt"/></a:rPr><a:t>Shift Rows 
+
+=== slide34.xml ===
+
+</a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="9217" name="Picture 1"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId3" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="1524000" y="3352800"/><a:ext cx="6086475" cy="838200"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="9218" name="Picture 2"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId4" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="1219200" y="4267200"/><a:ext cx="3848100" cy="1504950"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="9219" name="Picture 3"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId5" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="1219200" y="5791200"/><a:ext cx="3743325" cy="923925"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="9220" name="Picture 4"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId6" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="5162550" y="4267200"/><a:ext cx="3695700" cy="1190625"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:pic><p:nvPicPr><p:cNvPr id="9221" name="Picture 5"/><p:cNvPicPr><a:picLocks noChangeAspect="1" noChangeArrowheads="1"/></p:cNvPicPr><p:nvPr/></p:nvPicPr><p:blipFill><a:blip r:embed="rId7" cstate="print"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></p:blipFill><p:spPr bwMode="auto"><a:xfrm><a:off x="5105400" y="5715000"/><a:ext cx="3752850" cy="952500"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/><a:miter lim="800000"/><a:headEnd/><a:tailEnd/></a:ln></p:spPr></p:pic><p:sp><p:nvSpPr><p:cNvPr id="9" name="Rectangle 2"/><p:cNvSpPr txBox="1"><a:spLocks noChangeArrowheads="1"/></p:cNvSpPr><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="97685" y="29832"/><a:ext cx="9046315" cy="1143000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr><p:txBody><a:bodyPr vert="horz" lIns="91440" tIns="45720" rIns="91440" bIns="45720" rtlCol="0" anchor="ctr"><a:normAutofit/></a:bodyPr><a:lstStyle><a:lvl1pPr algn="ctr" defTabSz="457200" rtl="0" eaLnBrk="1" latinLnBrk="0" hangingPunct="1"><a:spcBef><a:spcPct val="0"/></a:spcBef><a:buNone/><a:defRPr sz="4400" kern="1200"><a:solidFill><a:schemeClr val="tx1"/></a:solidFill><a:latin typeface="+mj-lt"/><a:ea typeface="+mj-ea"/><a:cs typeface="+mj-cs"/></a:defRPr></a:lvl1pPr></a:lstStyle><a:p><a:r><a:rPr lang="en-US" altLang="en-US" dirty="0"><a:solidFill><a:schemeClr val="accent1"/></a:solidFill><a:latin typeface="+mn-lt"/></a:rPr><a:t>Mix Columns
+
+=== slide35.xml ===
+
+Galois Field 
+Évariste
+ Galois (French: [
+evaʁist
+ 
+ɡalwa
+]) (25 Oct. 1811 – 31 May 1832) was a French mathematician born in Bourg-la-
+Reine
+. While still in his teens, he was able to determine a necessary and sufficient condition for a polynomial to be solvable by radicals, thereby solving a long-standing problem. His work laid the foundations for Galois theory and group theory, two major branches of abstract algebra, and the subfield of Galois connections. He was the first to use the word “group” (French: 
+groupe
+) as a technical term in mathematics to represent a group of permutations. A radical Republican during the monarchy of Louis Philippe in France, he died from wounds suffered in a duel under questionable circumstances at the age of twenty.
+
+=== slide36.xml ===
+
+GF(16)
+ GF(16)={0, 1, 2, …, 15}
+ Polynomial representation
+    0, 1, 2=x, 3=x+1, …, 15=x
+3
++x
+2
++x+1, modulo x
+4
++x+1 
+ Addition
+     a + b = a XOR b, e.g., 1 + 3 = 01 XOR 11 = 10 = 2 
+     a XOR a=0 
+ a = -a
+ Multiplication
+     
+a*b = polynomial of a * polynomial of b (mod x
+4
++x+1)
+     e.g., 4*14=x
+2
+*(x
+3
++x
+2
++x)= x
+5
++x
+4
++x
+3
+                               
+=(x+1)(x
+4
++x+1)+(x
+3
++x
+2
++1)=0+13=13
+
+=== slide37.xml ===
+
+Addition and Multiplication over GF(16)
+Addition: 1 + 3 = 01 XOR 11 = 10 = 2 
+Multiplication: 3*14 (mod 10011) = ? 
+3*14=11 x 1110 = 
+10010
+ (mod 
+10011
+) = 
+1
+ = 0001
+ 
+x
+4
++x+1=10011
+      1110                              ____
+1_
+       
+x        11   
+             10011   / 10010
+      1110                               
+10011 
+ 
++  1110__ 
+                                    
+1
+ 
+    
+10010
+
+=== slide38.xml ===
+
+Matrix Multiplication over GF(16)
+                                     =
+1x0010+4x1110 (mod 10011) = 0010+
+1101
+=1111 
+4*1110=100 x 1110 = 
+111000
+ (mod 10011) = 
+1101
+                    
+     1110                             ____
+11
+       
+X     100   
+         10011   / 111000
+      0000                            
+10011
+    0000                                11110  
++1110__ 
+                             
+10011
+ 
+  
+111000                                 1101
+<a:tblPr><a:tableStyleId>{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}</a:tableStyleId></a:tblPr><a:tblGrid><a:gridCol w="359466"><a:extLst><a:ext uri="{9D8B030D-6E8A-4147-A177-3AD203B41FA5}"><a16:colId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="20000"/></a:ext></a:extLst></a:gridCol><a:gridCol w="359466"><a:extLst><a:ext uri="{9D8B030D-6E8A-4147-A177-3AD203B41FA5}"><a16:colId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="20001"/></a:ext></a:extLst></a:gridCol></a:tblGrid><a:tr h="370840"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>1
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>4
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:extLst><a:ext uri="{0D108BD9-81ED-4DB2-BD59-A6C34878D82A}"><a16:rowId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="10000"/></a:ext></a:extLst></a:tr><a:tr h="370840"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>4
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>1
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:extLst><a:ext uri="{0D108BD9-81ED-4DB2-BD59-A6C34878D82A}"><a16:rowId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="10001"/></a:ext></a:extLst></a:tr></a:tbl></a:graphicData></a:graphic></p:graphicFrame><p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="4" name="Table 3"/><p:cNvGraphicFramePr><a:graphicFrameLocks noGrp="1"/></p:cNvGraphicFramePr><p:nvPr/></p:nvGraphicFramePr><p:xfrm><a:off x="2367352" y="1334922"/><a:ext cx="718933" cy="731520"/></p:xfrm><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table"><a:tbl><a:tblPr firstRow="1" bandRow="1"><a:tableStyleId>{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}</a:tableStyleId></a:tblPr><a:tblGrid><a:gridCol w="718933"><a:extLst><a:ext uri="{9D8B030D-6E8A-4147-A177-3AD203B41FA5}"><a16:colId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="20000"/></a:ext></a:extLst></a:gridCol></a:tblGrid><a:tr h="344965"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>0010
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:extLst><a:ext uri="{0D108BD9-81ED-4DB2-BD59-A6C34878D82A}"><a16:rowId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="10000"/></a:ext></a:extLst></a:tr><a:tr h="344965"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>1110
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:extLst><a:ext uri="{0D108BD9-81ED-4DB2-BD59-A6C34878D82A}"><a16:rowId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="10001"/></a:ext></a:extLst></a:tr></a:tbl></a:graphicData></a:graphic></p:graphicFrame><p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="7" name="Table 6"/><p:cNvGraphicFramePr><a:graphicFrameLocks noGrp="1"/></p:cNvGraphicFramePr><p:nvPr/></p:nvGraphicFramePr><p:xfrm><a:off x="3560148" y="1334923"/><a:ext cx="718933" cy="731520"/></p:xfrm><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table"><a:tbl><a:tblPr firstRow="1" bandRow="1"><a:tableStyleId>{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}</a:tableStyleId></a:tblPr><a:tblGrid><a:gridCol w="718933"><a:extLst><a:ext uri="{9D8B030D-6E8A-4147-A177-3AD203B41FA5}"><a16:colId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="20000"/></a:ext></a:extLst></a:gridCol></a:tblGrid><a:tr h="344965"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>1111
+<a:lnL w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnL><a:lnR w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnR><a:lnT w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnT><a:lnB w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:scrgbClr r="0" g="0" b="0"/></a:solidFill><a:prstDash val="solid"/><a:round/><a:headEnd type="none" w="med" len="med"/><a:tailEnd type="none" w="med" len="med"/></a:lnB></a:tcPr></a:tc><a:extLst><a:ext uri="{0D108BD9-81ED-4DB2-BD59-A6C34878D82A}"><a16:rowId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" val="10000"/></a:ext></a:extLst></a:tr><a:tr h="344965"><a:tc><a:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0"/><a:t>0011
+
+=== slide39.xml ===
+
+Key Expansion
+
+=== slide40.xml ===
+
+Example
