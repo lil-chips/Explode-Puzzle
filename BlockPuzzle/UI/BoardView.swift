@@ -45,12 +45,20 @@ struct BoardView: View {
     var body: some View {
         GeometryReader { geo in
             let side = min(geo.size.width, geo.size.height)
-            let cellSide = (side - gridSpacing * CGFloat(gameState.board.width - 1)) / CGFloat(gameState.board.width)
+            let w = gameState.board.width
+            let h = gameState.board.height
+
+            // Use the larger dimension to size cells so the board always fits inside a square.
+            let maxDim = max(w, h)
+            let cellSide = (side - gridSpacing * CGFloat(maxDim - 1)) / CGFloat(maxDim)
+
+            let gridWidth = cellSide * CGFloat(w) + gridSpacing * CGFloat(max(0, w - 1))
+            let gridHeight = cellSide * CGFloat(h) + gridSpacing * CGFloat(max(0, h - 1))
 
             VStack(spacing: gridSpacing) {
-                ForEach(0..<gameState.board.height, id: \.self) { y in
+                ForEach(0..<h, id: \.self) { y in
                     HStack(spacing: gridSpacing) {
-                        ForEach(0..<gameState.board.width, id: \.self) { x in
+                        ForEach(0..<w, id: \.self) { x in
                             cellView(x: x, y: y)
                                 .frame(width: cellSide, height: cellSide)
                         }
@@ -58,7 +66,7 @@ struct BoardView: View {
                 }
             }
             .accessibilityIdentifier("board.grid")
-            .frame(width: side, height: side, alignment: .center)
+            .frame(width: gridWidth, height: gridHeight, alignment: .center)
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
         .aspectRatio(1, contentMode: .fit)
