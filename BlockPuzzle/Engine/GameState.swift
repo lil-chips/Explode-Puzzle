@@ -18,7 +18,7 @@ struct GameState: Codable, Hashable {
         self.score = score
     }
 
-    mutating func refillPiecesIfNeeded(random: inout RandomNumberGenerator) {
+    mutating func refillPiecesIfNeeded<R: RandomNumberGenerator>(random: inout R) {
         guard currentPieces.isEmpty else { return }
         currentPieces = (0..<3).map { _ in
             Piece.starterPool.randomElement(using: &random) ?? Piece.starterPool[0]
