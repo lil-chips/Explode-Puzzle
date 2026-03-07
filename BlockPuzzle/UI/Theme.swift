@@ -17,6 +17,9 @@ enum Theme {
         static let slotFill = Color(red: 0.92, green: 0.86, blue: 0.77)
         static let slotStroke = Color(red: 0.74, green: 0.63, blue: 0.52)
 
+        /// Slightly stronger separators every 5 cells (10x10 board feels like 2x2 sub-grids).
+        static let subgridStroke = Color.black.opacity(0.18)
+
         /// Filled blocks (stained wood / lacquer).
         static let blockPalette: [Color] = [
             Color(red: 0.69, green: 0.33, blue: 0.22), // redwood

@@ -55,17 +55,29 @@ struct BoardView: View {
             let gridWidth = cellSide * CGFloat(w) + gridSpacing * CGFloat(max(0, w - 1))
             let gridHeight = cellSide * CGFloat(h) + gridSpacing * CGFloat(max(0, h - 1))
 
-            VStack(spacing: gridSpacing) {
-                ForEach(0..<h, id: \.self) { y in
-                    HStack(spacing: gridSpacing) {
-                        ForEach(0..<w, id: \.self) { x in
-                            cellView(x: x, y: y)
-                                .frame(width: cellSide, height: cellSide)
+            ZStack {
+                VStack(spacing: gridSpacing) {
+                    ForEach(0..<h, id: \.self) { y in
+                        HStack(spacing: gridSpacing) {
+                            ForEach(0..<w, id: \.self) { x in
+                                cellView(x: x, y: y)
+                                    .frame(width: cellSide, height: cellSide)
+                            }
                         }
                     }
                 }
+                .accessibilityIdentifier("board.grid")
+
+                // Emphasize 5x5 sub-grid boundaries (classic wood block puzzle look).
+                subgridOverlay(
+                    width: w,
+                    height: h,
+                    cellSide: cellSide,
+                    gridSpacing: gridSpacing
+                )
+                .allowsHitTesting(false)
+                .accessibilityHidden(true)
             }
-            .accessibilityIdentifier("board.grid")
             .frame(width: gridWidth, height: gridHeight, alignment: .center)
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
         }
@@ -81,6 +93,39 @@ struct BoardView: View {
         // Fallback (shouldn't happen for occupied cells).
         let idx = abs((x &* 31) &+ y) % filledPalette.count
         return filledPalette[idx]
+    }
+
+    private func subgridOverlay(
+        width: Int,
+        height: Int,
+        cellSide: CGFloat,
+        gridSpacing: CGFloat
+    ) -> some View {
+        // Boundaries between 5-wide groups. For a 10x10: one vertical + one horizontal line.
+        let verticalBoundaries = stride(from: 5, to: width, by: 5).map { $0 }
+        let horizontalBoundaries = stride(from: 5, to: height, by: 5).map { $0 }
+
+        return Path { path in
+            func boundaryPosition(_ idx: Int) -> CGFloat {
+                // Line centered in the spacing gap between (idx-1) and idx.
+                // After `idx` cells there are `idx-1` gaps before the boundary gap.
+                let beforeGaps = max(0, idx - 1)
+                return CGFloat(idx) * cellSide + CGFloat(beforeGaps) * gridSpacing + gridSpacing / 2
+            }
+
+            for x in verticalBoundaries {
+                let xpos = boundaryPosition(x)
+                path.move(to: CGPoint(x: xpos, y: 0))
+                path.addLine(to: CGPoint(x: xpos, y: CGFloat(height) * cellSide + CGFloat(max(0, height - 1)) * gridSpacing))
+            }
+
+            for y in horizontalBoundaries {
+                let ypos = boundaryPosition(y)
+                path.move(to: CGPoint(x: 0, y: ypos))
+                path.addLine(to: CGPoint(x: CGFloat(width) * cellSide + CGFloat(max(0, width - 1)) * gridSpacing, y: ypos))
+            }
+        }
+        .stroke(Theme.Wood.subgridStroke, style: StrokeStyle(lineWidth: max(2, gridSpacing), lineCap: .round))
     }
 
     @ViewBuilder
