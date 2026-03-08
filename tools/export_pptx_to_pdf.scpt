@@ -11,11 +11,15 @@ on run argv
 	set inFile to POSIX file inPosix
 	set outFile to POSIX file outPosix
 
-	tell application "Microsoft PowerPoint"
-		activate
-		open inFile
-		set pres to active presentation
-		save pres in outFile as save as PDF
-		close pres saving no
-	end tell
+	-- Avoid AppleEvent timeout on big decks
+	with timeout of 600 seconds
+		tell application "Microsoft PowerPoint"
+			activate
+			open inFile
+			set pres to active presentation
+			save pres in outFile as save as PDF
+			close pres saving no
+			quit
+		end tell
+	end timeout
 end run
