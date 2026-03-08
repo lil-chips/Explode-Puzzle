@@ -8,6 +8,24 @@ struct GameState: Codable, Hashable {
         let colsCleared: Int
     }
 
+    static func clearBonus(for linesCleared: Int) -> Int {
+        // Reward curve: make multi-line clears feel much more valuable.
+        // 0: 0
+        // 1: 100
+        // 2: 250
+        // 3: 450
+        // 4: 700
+        // 5+: 1000 + extra per additional line
+        switch linesCleared {
+        case ..<1: return 0
+        case 1: return 100
+        case 2: return 250
+        case 3: return 450
+        case 4: return 700
+        default: return 1000 + (linesCleared - 5) * 250
+        }
+    }
+
     var board: Board
     var currentPieces: [Piece]
     var score: Int
@@ -45,7 +63,8 @@ struct GameState: Codable, Hashable {
         let cleared = board.clearFullLines()
         let afterClear = board.occupiedCells
 
-        let clearBonus = (cleared.rows + cleared.cols) * 100
+        let linesCleared = cleared.rows + cleared.cols
+        let clearBonus = GameState.clearBonus(for: linesCleared)
         score += clearBonus
 
         let removedPoints = Set(beforeClear.keys).subtracting(afterClear.keys)
