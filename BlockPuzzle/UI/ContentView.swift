@@ -1,9 +1,22 @@
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    let mode: GameMode
+    let boardSize: BoardSize
+    let fastTime: FastTimeLimit?
+
     // Playable state (drag/drop + refill).
-    @State private var gameState = GameState(board: Board(), currentPieces: [], score: 0)
+    @State private var gameState: GameState
     @State private var rng = SystemRandomNumberGenerator()
+
+    init(mode: GameMode = .classic, boardSize: BoardSize = .ten, fastTime: FastTimeLimit? = nil) {
+        self.mode = mode
+        self.boardSize = boardSize
+        self.fastTime = fastTime
+        _gameState = State(initialValue: GameState(board: Board(width: boardSize.rawValue, height: boardSize.rawValue), currentPieces: [], score: 0))
+        _remainingSeconds = State(initialValue: (mode == .fast ? (fastTime?.seconds ?? 0) : 0))
+    }
 
     // Best score persistence.
     @AppStorage("blockpuzzle.bestScore") private var bestScore: Int = 0
@@ -15,8 +28,12 @@ struct ContentView: View {
     @State private var draggingPieceIndex: Int? = nil
     @State private var dragLocation: CGPoint? = nil
 
+    // Fast mode timer.
+    @State private var remainingSeconds: Int
+
     // Game over UI.
     @State private var showGameOver: Bool = false
+    @State private var gameOverTitle: String = "Game Over"
 
     private let piecePalette: [Color] = Theme.Wood.blockPalette
 
@@ -26,7 +43,17 @@ struct ContentView: View {
 
     private func startNewGame() {
         showGameOver = false
-        gameState = GameState(board: Board(), currentPieces: [], score: 0)
+        gameOverTitle = "Game Over"
+
+        if mode == .fast {
+            remainingSeconds = fastTime?.seconds ?? 60
+        }
+
+        gameState = GameState(
+            board: Board(width: boardSize.rawValue, height: boardSize.rawValue),
+            currentPieces: [],
+            score: 0
+        )
         gameState.refillPiecesIfNeeded(random: &rng)
     }
 
@@ -86,13 +113,24 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                     }
 
-                    VStack(spacing: 2) {
-                        Text("BEST")
-                            .font(.system(size: 11, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.7))
-                        Text("\(bestScore)")
-                            .font(.system(size: 22, weight: .heavy, design: .rounded))
-                            .foregroundStyle(.white)
+                    if mode == .fast {
+                        VStack(spacing: 2) {
+                            Text("TIME")
+                                .font(.system(size: 11, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white.opacity(0.7))
+                            Text(timeString(remainingSeconds))
+                                .font(.system(size: 22, weight: .heavy, design: .rounded))
+                                .foregroundStyle(remainingSeconds <= 10 ? .red.opacity(0.95) : .white)
+                        }
+                    } else {
+                        VStack(spacing: 2) {
+                            Text("BEST")
+                                .font(.system(size: 11, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white.opacity(0.7))
+                            Text("\(bestScore)")
+                                .font(.system(size: 22, weight: .heavy, design: .rounded))
+                                .foregroundStyle(.white)
+                        }
                     }
                 }
                 .padding(.bottom, 2)
@@ -162,7 +200,10 @@ struct ContentView: View {
                                                 bestScore = gameState.score
                                             }
 
-                                            showGameOver = gameState.isGameOver()
+                                            if gameState.isGameOver() {
+                                                gameOverTitle = "No Moves"
+                                                showGameOver = true
+                                            }
                                         }
                                     }
                             )
@@ -199,6 +240,22 @@ struct ContentView: View {
         .onAppear {
             gameState.refillPiecesIfNeeded(random: &rng)
         }
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+            guard mode == .fast else { return }
+            guard !showGameOver else { return }
+            guard remainingSeconds > 0 else { return }
+
+            remainingSeconds -= 1
+            if remainingSeconds <= 0 {
+                gameOverTitle = "Time Up"
+                showGameOver = true
+            }
+        }
+    }
+
+    private func timeString(_ seconds: Int) -> String {
+        let s = max(0, seconds)
+        return String(format: "%d:%02d", s / 60, s % 60)
     }
 
     private var gameOverOverlay: some View {
@@ -206,7 +263,7 @@ struct ContentView: View {
             Color.black.opacity(0.55).ignoresSafeArea()
 
             VStack(spacing: 12) {
-                Text("Game Over")
+                Text(gameOverTitle)
                     .font(.system(size: 28, weight: .heavy, design: .rounded))
                     .foregroundStyle(.white)
 

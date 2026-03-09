@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // MVP: switch the template SpriteKit root over to SwiftUI.
         // Keep it in AppDelegate for now (no SceneDelegate) to minimize project churn.
-        let root = ContentView()
+        let root = MainMenuView()
         if window == nil {
             window = UIWindow(frame: UIScreen.main.bounds)
         }
