@@ -27,5 +27,5 @@ fastlane/test_output
 .env.*
 
 # Nested repos / local projects
-# Track the project files, but ignore its nested git directory (avoid repo-in-repo noise).
-Projects/BlockPuzzle/BlockPuzzle/.git/
+# BlockPuzzle is now tracked in its own GitHub repo (B1). Ignore it in this workspace repo.
+Projects/BlockPuzzle/BlockPuzzle/
