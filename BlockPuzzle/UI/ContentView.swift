@@ -1,6 +1,8 @@
 import SwiftUI
 import Combine
 
+// Fast mode: combo + result breakdown UI lives here (engine stays simple for MVP).
+
 struct ContentView: View {
     let mode: GameMode
     let boardSize: BoardSize
@@ -31,9 +33,20 @@ struct ContentView: View {
     // Fast mode timer.
     @State private var remainingSeconds: Int
 
+    // Fast mode combo + popup.
+    @State private var combo: Int = 0
+    @State private var scorePopupText: String? = nil
+
     // Game over UI.
     @State private var showGameOver: Bool = false
     @State private var gameOverTitle: String = "Game Over"
+
+    // Fast mode: end-of-run breakdown.
+    @State private var finalComboAtEnd: Int = 0
+    @State private var endEmptyCells: Int = 0
+    @State private var endComboBonus: Int = 0
+    @State private var endCleanBonus: Int = 0
+    @State private var endTotalScore: Int = 0
 
     private let piecePalette: [Color] = Theme.Wood.blockPalette
 
@@ -44,6 +57,14 @@ struct ContentView: View {
     private func startNewGame() {
         showGameOver = false
         gameOverTitle = "Game Over"
+        scorePopupText = nil
+
+        combo = 0
+        finalComboAtEnd = 0
+        endEmptyCells = 0
+        endComboBonus = 0
+        endCleanBonus = 0
+        endTotalScore = 0
 
         if mode == .fast {
             remainingSeconds = fastTime?.seconds ?? 60
@@ -99,9 +120,26 @@ struct ContentView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 14) {
-                Text("BlockPuzzle")
+                Text("Explode Puzzle")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90))
+
+                if mode == .fast, combo > 0 {
+                    Text("COMBO x\(combo)")
+                        .font(.system(size: 14, weight: .heavy, design: .rounded))
+                        .foregroundStyle(.white.opacity(0.95))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(.white.opacity(0.14))
+                        )
+                        .overlay(
+                            Capsule(style: .continuous)
+                                .stroke(.white.opacity(0.18), lineWidth: 1)
+                        )
+                        .transition(.scale.combined(with: .opacity))
+                }
 
                 HStack(spacing: 18) {
                     VStack(spacing: 2) {
@@ -189,11 +227,41 @@ struct ContentView: View {
 
                                         guard !showGameOver, let origin = ghostOrigin else { return }
 
-                                        if gameState.tryPlacePiece(
+                                        if let result = gameState.tryPlacePiece(
                                             at: index,
                                             origin: origin,
                                             colorIndex: index % piecePalette.count
-                                        ) != nil {
+                                        ) {
+                                            let linesCleared = result.rowsCleared + result.colsCleared
+
+                                            if mode == .fast {
+                                                if linesCleared > 0 {
+                                                    combo += 1
+
+                                                    // Combo multiplier (Option A): multiply clear bonus only.
+                                                    // GameState already added `clearBonus` once; add extra bonus for xN.
+                                                    let extra = result.clearBonus * max(0, combo - 1)
+                                                    if extra > 0 {
+                                                        gameState.score += extra
+                                                    }
+
+                                                    var parts: [String] = []
+                                                    parts.append("+\(result.clearBonus + extra)")
+                                                    if combo > 1 { parts.append("(x\(combo))") }
+                                                    scorePopupText = parts.joined(separator: " ")
+
+                                                    withAnimation(.easeOut(duration: 0.18)) { }
+
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                                                        withAnimation(.easeOut(duration: 0.18)) {
+                                                            scorePopupText = nil
+                                                        }
+                                                    }
+                                                } else {
+                                                    combo = 0
+                                                }
+                                            }
+
                                             gameState.refillPiecesIfNeeded(random: &rng)
 
                                             if gameState.score > bestScore {
@@ -202,6 +270,7 @@ struct ContentView: View {
 
                                             if gameState.isGameOver() {
                                                 gameOverTitle = "No Moves"
+                                                finalComboAtEnd = combo
                                                 showGameOver = true
                                             }
                                         }
@@ -233,6 +302,27 @@ struct ContentView: View {
             }
             .padding(.vertical, 20)
 
+            if let popup = scorePopupText {
+                VStack {
+                    Text(popup)
+                        .font(.system(size: 18, weight: .heavy, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 10)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(.black.opacity(0.28))
+                        )
+                        .overlay(
+                            Capsule(style: .continuous)
+                                .stroke(.white.opacity(0.16), lineWidth: 1)
+                        )
+                        .padding(.top, 18)
+                    Spacer()
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
+
             if showGameOver {
                 gameOverOverlay
             }
@@ -248,6 +338,23 @@ struct ContentView: View {
             remainingSeconds -= 1
             if remainingSeconds <= 0 {
                 gameOverTitle = "Time Up"
+
+                // End-of-run bonuses (Fast only): final combo + clean board.
+                finalComboAtEnd = combo
+                let totalCells = boardSize.rawValue * boardSize.rawValue
+                endEmptyCells = max(0, totalCells - gameState.board.occupiedCells.count)
+
+                // Tune these two values later for feel.
+                endComboBonus = finalComboAtEnd * 200
+                endCleanBonus = endEmptyCells * 2
+
+                endTotalScore = gameState.score + endComboBonus + endCleanBonus
+
+                // Keep bestScore consistent with what we show as final.
+                if endTotalScore > bestScore {
+                    bestScore = endTotalScore
+                }
+
                 showGameOver = true
             }
         }
@@ -256,6 +363,18 @@ struct ContentView: View {
     private func timeString(_ seconds: Int) -> String {
         let s = max(0, seconds)
         return String(format: "%d:%02d", s / 60, s % 60)
+    }
+
+    private func row(_ left: String, _ right: String, strong: Bool = false) -> some View {
+        HStack {
+            Text(left)
+                .font(.system(size: strong ? 16 : 13, weight: strong ? .heavy : .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(strong ? 0.95 : 0.78))
+            Spacer()
+            Text(right)
+                .font(.system(size: strong ? 16 : 13, weight: strong ? .heavy : .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(strong ? 0.95 : 0.90))
+        }
     }
 
     private var gameOverOverlay: some View {
@@ -267,13 +386,31 @@ struct ContentView: View {
                     .font(.system(size: 28, weight: .heavy, design: .rounded))
                     .foregroundStyle(.white)
 
-                Text("Score: \(gameState.score)")
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.95))
+                Group {
+                    if mode == .fast, gameOverTitle == "Time Up" {
+                        VStack(spacing: 6) {
+                            row("Score", "\(gameState.score)")
+                            row("Final Combo", "x\(finalComboAtEnd)")
+                            row("Combo Bonus", "+\(endComboBonus)")
+                            row("Empty Cells", "\(endEmptyCells)")
+                            row("Clean Bonus", "+\(endCleanBonus)")
 
-                Text("Best: \(bestScore)")
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.85))
+                            Divider().overlay(.white.opacity(0.18))
+                                .padding(.top, 4)
+
+                            row("TOTAL", "\(endTotalScore)", strong: true)
+                        }
+                        .padding(.top, 2)
+                    } else {
+                        Text("Score: \(gameState.score)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundStyle(.white.opacity(0.95))
+
+                        Text("Best: \(bestScore)")
+                            .font(.system(size: 16, weight: .bold, design: .rounded))
+                            .foregroundStyle(.white.opacity(0.85))
+                    }
+                }
 
                 Button {
                     startNewGame()
