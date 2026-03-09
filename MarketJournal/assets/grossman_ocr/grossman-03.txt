@@ -1,0 +1,120 @@
+394 THE AMERICAN ECONOMIC REVIEW
+
+will depend only on P, but we shall assume
+that they have rational expectations; they
+learn the relationship between the distribu-
+tion of return and the price, and use this in
+deriving their demand for the risky assets. If
+x denotes the supply of the risky asset, an
+equilibrium when a given percentage, A, of
+traders are informed, is thus a price function
+P,(@,x) such that, when demands are for-
+mulated in the way described, demand
+equals supply. We assume that uninformed
+traders do not observe x. Uninformed
+traders are prevented from learning 6 via
+observations of P,(0,x) because they can-
+not distinguish variations in price due to
+changes in the informed trader’s informa-
+tion from variations in price due to changes
+in aggregate supply. Clearly, P,(0,x) reveals
+some of the informed trader’s information
+to the uninformed traders.
+
+We can calculate the expected utility of
+the informed and the expected utility of the
+uninformed. If the former is greater than the
+latter (taking account of the cost of infor-
+mation), some individuals switch from being
+uninformed to being informed (and con-
+versely). An overall equilibrium requires the
+two to have the same expected utility. As
+more individuals become informed, the ex-
+pected utility of the informed falls relative
+to the uninformed for two reasons:
+
+(a) The price system becomes more in-
+formative because variations in 6 have a
+greater effect on aggregate demand and thus
+on price when more traders observe 8. Thus,
+more of the information of the informed is
+available to the uninformed. Moreover, the
+informed gain more from trade with the
+uninformed than do the uninformed. The
+informed, on average, buy securities when
+they are “underpriced” and sell them when
+they are “overpriced” (relative to what
+they would have been if information were
+equalized). As the price system becomes
+more informative, the difference in their in-
+formation—and hence the magnitude by
+
+?The framework described herein does not explicitly
+model the effect of variations in supply, i.e, x on
+commodity storage. The effect of futures markets and
+storage capabilities on the informativeness of the price
+system was studied by Grossman (1975, 1977).
+
+JUNE 1980
+
+which the informed can gain relative to the
+uninformed—is reduced.
+
+(b) Even if the above effect did not
+occur, the increase in the ratio of informed
+to uninformed means that the relative gains
+of the informed, on a per capita basis, in
+trading with the uninformed will be smaller.
+
+We summarize the above characterization
+of the equilibrium of the economy in the
+following two conjectures:
+
+Conjecture 1: The more individuals who
+are informed, the more informative is the
+price system.
+
+Conjecture 2: The more individuals who
+are informed, the lower the ratio of expected
+utility of the informed to the uninformed.
+
+(Conjecture 1 obviously requires a defini-
+tion of “more informative”; this is given in
+the next section and in fn. 7.)
+
+The equilibrium number of informed and
+uninformed individuals in the economy will
+depend on a number of critical parameters:
+the cost of information, how informative the
+price system is (how much noise there is to
+interfere with the information conveyed by
+the price system), and how informative the
+information obtained by an informed indi-
+vidual is.
+
+Conjecture 3: The higher the cost of
+information, the smaller will be the equi-
+librium percentage of individuals who are
+informed.
+
+Conjecture 4: If the quality of the in-
+formed trader’s information increases, the
+more their demands will vary with their
+information and thus the more prices will
+vary with 9. Hence, the price system be-
+comes more informative. The equilibrium
+proportion of informed to uninformed may
+be either increased or decreased, because
+even though the value of being informed has
+increased due to the increased quality of 6,
+the value of being uninformed has also in-
+creased because the price system becomes
+more informative.
+
+Conjecture 5: The greater the magni-
+tude of noise, the less informative will the
+price system be, and hence the lower the .
+expected utility of uninformed individuals.
+Hence, in equilibrium the greater the magni-
+tude of noise, the larger the proportion of
+informed individuals.

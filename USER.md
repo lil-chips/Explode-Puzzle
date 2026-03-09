@@ -1,17 +1,53 @@
-# USER.md - About Your Human
+# USER.md — About the Human
 
-*Learn about the person you're helping. Update this as you go.*
-
-- **Name:** 
-- **What to call them:** 
-- **Pronouns:** *(optional)*
-- **Timezone:** 
-- **Notes:** 
-
-## Context
-
-*(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)*
+Basic information about the person this assistant serves.
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+Name: Edward
+
+What to call them: Edward
+
+Pronouns: Alpha male
+
+Timezone: flexible / not critical
+
+---
+
+## Context
+
+Edward is building and customizing a personal AI assistant using OpenClaw.
+
+He is interested in:
+
+- artificial intelligence
+- finance and investing
+- cryptocurrency
+- programming
+- strategic thinking
+- system design
+
+Edward values:
+
+- efficiency
+- clear reasoning
+- security and privacy
+- practical solutions
+
+The assistant's role is to help Edward:
+
+- think through complex problems
+- design systems
+- analyze ideas
+- improve knowledge and capability.
+
+---
+
+## Interaction Style
+
+Edward prefers:
+
+- clear and structured explanations
+- concise responses
+- logical reasoning
+- minimal filler language

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1772968151782
+    },
+    "auto-updater": {
+      "version": "1.0.0",
+      "installedAt": 1772968160896
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1772968163500
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1772968166084
+    }
+  }
+}

@@ -1,0 +1,278 @@
+Database Applications — Victoria in Future 2023 (VIF2023)
+VERY Detailed Study Notes (EN+ZH interleaved) — Part 2/2: How to Model + Query This Data in SQL (Teaching Guide)
+
+Source:
+- /Users/edwardedward/Desktop/ai-ding/School/DatabaseApplications/PDF/DTP0552-Victori-in-Future-2023-report.PDF
+
+====================================================================
+0) Goal of Part 2
+====================================================================
+
+EN: This part turns the report into a database-style task: design tables, load data, write queries, and avoid interpretation pitfalls.
+ZH: 第 2 部分把报告转换成数据库任务：表设计、数据导入、SQL 查询，以及避免解读陷阱。
+
+====================================================================
+1) What data you likely have (or will download)
+====================================================================
+
+EN: The report says “download the data files online” for the most detailed view. In practice you’ll get tables for:
+- geography (state/region/LGA)
+- year (or 5-year steps)
+- population counts (total, by age group)
+- household counts and household types
+- components of change (births, deaths, NOM, NIM)
+ZH: 报告提到可下载数据文件。实际常见表包括：
+- 地理（州/区域/LGA）
+- 年份（或 5 年步长）
+- 人口数量（总数/按年龄组）
+- 住户数量与住户类型
+- 变化构成（出生、死亡、NOM、NIM）
+
+DB note
+EN: Treat this as a star schema / dimensional model problem.
+ZH: 把它当成星型模型/维度建模问题来做。
+
+====================================================================
+2) Recommended schema (dim/fact)
+====================================================================
+
+2.1 Dimension tables
+EN: dim_geography
+- geo_id (PK)
+- geo_type (STATE | MAJOR_REGION | LGA)
+- geo_name
+- parent_geo_id (FK to dim_geography)  (e.g., LGA→region→state)
+- abs_code (nullable but ideal)
+- valid_from, valid_to (optional, for name changes)
+ZH: 地理维度表 dim_geography：
+- geo_id 主键
+- geo_type（州/区域/LGA）
+- geo_name 名称
+- parent_geo_id（层级关系）
+- abs_code（最好有）
+- valid_from/to（可选，处理改名）
+
+EN: dim_time
+- year (PK)  (or date_id)
+- census_period_flag (optional)
+- is_projection (boolean)
+- projection_version (e.g., VIF2023)
+ZH: 时间维度 dim_time：
+- year 主键（或 date_id）
+- is_projection
+- projection_version（例如 VIF2023）
+
+2.2 Fact tables
+EN: fact_population
+- geo_id, year
+- population_total
+- population_0_14, population_15_29, ... (or store age_group in a separate dimension)
+ZH: 人口事实表 fact_population：
+- geo_id, year
+- total，以及按年龄组字段（或用 age_group 维度行存）
+
+EN: fact_components_of_change
+- geo_id, year
+- births, deaths, natural_increase
+- nom, nim, net_migration
+ZH: 人口变化构成 fact_components_of_change：
+- births/deaths/natural_increase
+- nom/nim/net_migration
+
+EN: fact_households
+- geo_id, year
+- households_total
+- households_by_type (either columns, or (household_type_id, count))
+- dwellings_total (if provided)
+ZH: 住户事实表 fact_households：
+- households_total
+- households_by_type（列或行）
+- dwellings_total
+
+Normalization tip
+EN: If you need flexible grouping (age groups or household types can change), use a dim_age_group / dim_household_type and store counts long-form:
+fact_population_by_age(geo_id, year, age_group_id, population)
+ZH: 若希望灵活（年龄组/住户类型可能变），建议用维度表并采用长表：
+fact_population_by_age(geo_id,year,age_group_id,population)。
+
+====================================================================
+3) Data loading pitfalls (very common marks-loser)
+====================================================================
+
+EN: Pitfall 1 — Time grain mismatch.
+- State tables may be annual 2011–2051.
+- LGA may be every 5 years and may stop at 2036.
+If you join without checking, you’ll create duplicates or missing years.
+ZH: 坑1——时间粒度不一致。
+州级可能按年；LGA 可能每 5 年且只到 2036。不检查直接 join 会重复或缺失。
+
+EN: Pitfall 2 — Mixed observed + projected in one column without labeling.
+Always keep flags (observed vs projected) or separate tables.
+ZH: 坑2——历史观测与预测混在一起却不标记。务必加标记或分表。
+
+EN: Pitfall 3 — Names as keys.
+If you store “Wyndham” only as text and later the name changes, joins break. Use codes/IDs.
+ZH: 坑3——用名称当主键。改名会导致 join 崩掉。用 code/ID。
+
+EN: Pitfall 4 — Units.
+Report shows “m” (millions) and “K” (thousands). Source data files usually store absolute numbers, but don’t assume: check.
+ZH: 坑4——单位。报告用 m/K。数据文件可能是绝对值，但不能想当然，必须确认。
+
+====================================================================
+4) Query patterns you should be able to write
+====================================================================
+
+4.1 Growth between two years
+EN: Example: Victoria total population growth 2023→2051.
+SQL pattern (assuming total stored in fact_population):
+
+SELECT
+  p2051.population_total - p2023.population_total AS growth
+FROM fact_population p2023
+JOIN fact_population p2051
+  ON p2023.geo_id = p2051.geo_id
+WHERE p2023.geo_id = (SELECT geo_id FROM dim_geography WHERE geo_type='STATE' AND geo_name='Victoria')
+  AND p2023.year = 2023
+  AND p2051.year = 2051;
+
+ZH: 两年差值的 SQL 模板如上。
+
+4.2 Average annual growth rate (CAGR style)
+EN: CAGR = (end/start)^(1/n) − 1.
+SQL (Postgres-ish):
+
+SELECT
+  POWER(p2051.population_total::numeric / p2023.population_total, 1.0/28) - 1 AS cagr
+FROM ...
+
+ZH: 年均复合增长率：POWER(end/start,1/n)-1。
+
+Exam trap
+EN: If asked “annual average rate of change” for 2021–2036, it might be arithmetic average change per year OR CAGR; clarify from context.
+ZH: 「年均变化率」有时是算术平均，有时是复合增长率（CAGR）。要看题目语境。
+
+4.3 Top-N LGAs by growth
+EN: Using LGA projections 2021→2036:
+
+WITH base AS (
+  SELECT geo_id,
+         MAX(CASE WHEN year=2021 THEN population_total END) AS pop_2021,
+         MAX(CASE WHEN year=2036 THEN population_total END) AS pop_2036
+  FROM fact_population
+  WHERE geo_id IN (SELECT geo_id FROM dim_geography WHERE geo_type='LGA')
+    AND year IN (2021,2036)
+  GROUP BY geo_id
+)
+SELECT g.geo_name,
+       (pop_2036 - pop_2021) AS growth
+FROM base b
+JOIN dim_geography g USING (geo_id)
+ORDER BY growth DESC
+LIMIT 10;
+
+ZH: Top-N 查询结构：先 pivot 成两年，再排序。
+
+4.4 Percentage contribution of migration vs natural increase
+EN: For Victoria 2023–2051, you may compute total contributions (if totals are provided per year, sum them; if already aggregated in a single record, use that).
+If using yearly components:
+
+SELECT
+  SUM(nom + nim) AS net_migration,
+  SUM(births - deaths) AS natural_increase,
+  (SUM(nom + nim))::numeric / NULLIF(SUM((nom+nim) + (births - deaths)),0) AS migration_share
+FROM fact_components_of_change
+WHERE geo_id = ... AND year BETWEEN 2023 AND 2051;
+
+ZH: 迁移占比：用 SUM 汇总后再除。
+
+Pitfall
+EN: Don’t double-count if natural_increase column already exists (births-deaths). Either compute or use provided, not both.
+ZH: 若表里已有 natural_increase，就不要再 births-deaths 叠加重复计算。
+
+====================================================================
+5) Turning report statements into “data validation tests”
+====================================================================
+
+EN: Report states: Victoria 6.8m (2023) to 10.3m (2051). If your data is absolute persons, that means ~6,800,000 and ~10,300,000.
+Create a sanity check query and ensure it matches within rounding.
+ZH: 报告说 680 万到 1030 万。若数据是人数，应约等于 6,800,000 与 10,300,000。写 sanity check 验证，允许四舍五入误差。
+
+EN: Report states NOM ~82k–84k per year long term. If you have yearly NOM, compute average for e.g. 2030–2051.
+ZH: 报告说 NOM 长期每年 8.2–8.4 万。可取 2030–2051 求平均验证。
+
+====================================================================
+6) “Exam traps” when writing SQL answers about projections
+====================================================================
+
+EN: Trap 1 — Treating projections as ground truth. You should write language like “projected/assumed”.
+ZH: 陷阱1——把预测当事实。表达应写 projected/assumed。
+
+EN: Trap 2 — Comparing different geographic levels directly (e.g., sum of LGAs vs metro region) without ensuring boundaries align.
+ZH: 陷阱2——不同地理层级直接比较/求和而不保证边界一致。
+
+EN: Trap 3 — Ignoring that some LGA projection series is derived by interpolation (report mentions interpolation between 2021 and 2026 for 2023 figures in sub-state estimates).
+ZH: 陷阱3——忽略插值：报告提到子州级 2023 可能由 2021 与 2026 插值而来。
+
+====================================================================
+7) Mini flashcards (10)
+====================================================================
+
+1.
+EN: What is the primary key of a fact table typically?
+ZH: 事实表主键通常是什么？
+EN: Combination of foreign keys to dimensions (e.g., geo_id + year + category).
+ZH: 多个维度外键组合（如 geo_id+year+分类）。
+
+2.
+EN: Why use a geography dimension instead of storing names in facts?
+ZH: 为什么用地理维度而非事实表里写名称？
+EN: Stability, hierarchy support, and name-change handling.
+ZH: 稳定性、层级关系、处理改名。
+
+3.
+EN: What does “grain” mean?
+ZH: grain（粒度）是什么意思？
+EN: The level of detail of a table (e.g., one row per geo-year-agegroup).
+ZH: 表的最小单位（例如 每 地区-年-年龄组 一行）。
+
+4.
+EN: How to avoid negative modulo issues in SQL/JS?
+ZH: 如何避免负数取模问题？
+EN: Use ((x % n) + n) % n.
+ZH: 用 ((x%n)+n)%n。
+
+5.
+EN: If LGA data is every 5 years, how do you compute annual growth?
+ZH: 每 5 年数据如何算年增长？
+EN: Either compute over the interval (CAGR over 5 years) or interpolate carefully (state assumptions).
+ZH: 计算区间增长（如 5 年 CAGR）或谨慎插值并说明假设。
+
+6.
+EN: What is a sanity check for loaded projection totals?
+ZH: 导入后怎么做 sanity check？
+EN: Compare derived aggregates with headline numbers in the report.
+ZH: 用汇总结果对照报告的 headline。
+
+7.
+EN: NOM stands for?
+ZH: NOM 是什么？
+EN: Net Overseas Migration.
+ZH: 海外净迁移。
+
+8.
+EN: NIM stands for?
+ZH: NIM 是什么？
+EN: Net Interstate Migration.
+ZH: 州际净迁移。
+
+9.
+EN: Natural increase equals?
+ZH: 自然增长等于？
+EN: Births − deaths.
+ZH: 出生−死亡。
+
+10.
+EN: Why keep “projection_version” in the schema?
+ZH: 为什么存 projection_version？
+EN: Different releases/scenarios can disagree; you must track provenance.
+ZH: 不同版本/情景可能不同，必须追踪来源。

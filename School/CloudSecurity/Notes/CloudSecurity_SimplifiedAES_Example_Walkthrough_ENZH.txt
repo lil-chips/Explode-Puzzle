@@ -1,0 +1,293 @@
+Cloud Security — Simplified AES (S-AES) Example Walkthrough (EN+ZH Interleaved, VERY Detailed)
+
+Source:
+- /Users/edwardedward/Desktop/ai-ding/School/CloudSecurity/PDF/simplified-aes-example.pdf
+
+====================================================================
+0) What this document is
+====================================================================
+
+EN: This PDF is a complete worked example of Simplified AES (S-AES): key expansion, encryption (AddRoundKey, Round 1, Final Round), and decryption (inverse operations). Your job in tutorials/exams is usually to reproduce steps like this, not to memorise outputs.
+ZH: 这份 PDF 给了 S-AES 的完整算例：密钥扩展、加密（初始轮密钥加、第一轮、最终轮）以及解密（逆操作）。考试/习题通常要求你能复现步骤，而不是死记最后结果。
+
+====================================================================
+1) S-AES essentials (the mental model)
+====================================================================
+
+1.1 Block + key sizes
+EN: S-AES uses 16-bit plaintext blocks and a 16-bit key.
+ZH: S-AES 使用 16 位明文分组和 16 位密钥。
+
+1.2 State representation
+EN: Treat 16 bits as four 4-bit nibbles. Often arranged as a 2x2 “state matrix” of nibbles.
+ZH: 把 16 位看成 4 个半字节（4-bit）。通常把它排成 2x2 的「状态矩阵」。
+
+1.3 Round structure
+EN: The example uses: Initial AddRoundKey (Round 0), then Round 1 (SubNib + ShiftRow + MixColumns + AddRoundKey), then Final Round (SubNib + ShiftRow + AddRoundKey). MixColumns is NOT applied in the final round.
+ZH: 该算例结构：初始轮密钥加（Round0），再 Round1（SubNib→ShiftRow→MixColumns→AddRoundKey），最后 Final Round（SubNib→ShiftRow→AddRoundKey）。最终轮不做 MixColumns。
+
+1.4 Field arithmetic
+EN: MixColumns multiplications/additions are over GF(2^4). Addition is XOR. Multiplication uses polynomial reduction (often done via table in class).
+ZH: MixColumns 在 GF(2^4) 上运算。加法就是 XOR；乘法需要多项式约简（课上常给查表）。
+
+====================================================================
+2) Given inputs (from the PDF)
+====================================================================
+
+EN: Plaintext P = 1101 0111 0010 1000
+EN: Key K       = 0100 1010 1111 0101
+ZH: 明文 P 与密钥 K 如上（每 4 位一组）。
+
+====================================================================
+3) Key Expansion / Key Generation (w0..w5)
+====================================================================
+
+3.1 Split key into words
+EN: Split 16-bit key into two 8-bit words:
+- w0 = 0100 1010
+- w1 = 1111 0101
+Key0 = w0 || w1 (i.e., the original key)
+ZH: 16 位密钥拆成两个 8 位字：
+- w0=0100 1010
+- w1=1111 0101
+Key0 就是 w0||w1（原密钥）。
+
+3.2 Core operations used
+EN: RotNib(x): swap the left nibble and right nibble of an 8-bit word.
+ZH: RotNib：把 8 位字的左右两个半字节交换。
+
+EN: SubNib(x): apply the encryption S-Box to each nibble.
+ZH: SubNib：对每个半字节做加密 S-Box 替换。
+
+EN: XOR with round constants: the example uses constants 1000 0000 and 0011 0000 in the expansion.
+ZH: 轮常量：算例里在扩展中 XOR 了 1000 0000 与 0011 0000。
+
+3.3 Compute w2
+EN (from PDF):
+w2 = w0 XOR 10000000 XOR SubNib(RotNib(w1))
+RotNib(w1)=0101 1111
+SubNib(0101 1111)=0001 0111
+So w2 = 0100 1010 XOR 1000 0000 XOR 0001 0111
+First XOR: 0100 1010 XOR 1000 0000 = 1100 1010
+Then: 1100 1010 XOR 0001 0111 = 1101 1101
+ZH: 按 PDF 步骤：
+RotNib(w1)=0101 1111；SubNib 后=0001 0111。
+w2 = w0 XOR 1000 0000 XOR 0001 0111 → 1101 1101。
+
+3.4 Compute w3
+EN: w3 = w2 XOR w1 = 1101 1101 XOR 1111 0101 = 0010 1000
+ZH: w3 = w2 XOR w1 = 0010 1000。
+
+3.5 Compute w4
+EN: w4 = w2 XOR 0011 0000 XOR SubNib(RotNib(w3))
+RotNib(w3)=1000 0010
+SubNib(1000 0010)=0110 1010
+Then w4 = 1101 1101 XOR 0011 0000 = 1110 1101
+Finally 1110 1101 XOR 0110 1010 = 1000 0111
+ZH: w4 的计算同理：
+RotNib(w3)=1000 0010；SubNib=0110 1010。
+w4 = 1101 1101 XOR 0011 0000 XOR 0110 1010 → 1000 0111。
+
+3.6 Compute w5
+EN: w5 = w4 XOR w3 = 1000 0111 XOR 0010 1000 = 1010 1111
+ZH: w5 = w4 XOR w3 = 1010 1111。
+
+3.7 Round keys summary
+EN: Key0 = w0||w1 = 0100 1010 1111 0101
+EN: Key1 = w2||w3 = 1101 1101 0010 1000
+EN: Key2 = w4||w5 = 1000 0111 1010 1111
+ZH: 三个轮密钥 Key0/Key1/Key2 如上。
+
+Common mistakes (key expansion)
+EN: Forgetting RotNib before SubNib, or applying SubNib with the wrong S-Box (encryption vs inverse).
+ZH: 常见错误：忘记先 RotNib 再 SubNib，或用错 S-Box（加密/逆）。
+
+====================================================================
+4) Encryption Walkthrough
+====================================================================
+
+4.1 Add Round 0 Key (initial AddRoundKey)
+EN: XOR plaintext with Key0.
+PDF computes:
+1101 0111 0010 1000
+XOR 0100 1010 1111 0101
+=   1001 1101 1101 1101
+ZH: 初始轮：明文 XOR Key0 得到 1001 1101 1101 1101。
+
+4.2 Round 1
+
+4.2.1 SubNib (Nibble substitution)
+EN: Apply encryption S-Box to each nibble.
+Input : 1001 1101 1101 1101
+Output: 0010 1110 1110 1110
+ZH: 对每个半字节做 S-Box：得到 0010 1110 1110 1110。
+
+4.2.2 ShiftRow
+EN: In 2x2 state, ShiftRow swaps the 2nd and 4th nibbles (per this teaching version). In this example they are equal so it looks unchanged.
+ZH: ShiftRow（教学版）交换第 2 与第 4 个半字节。本例两者相同所以看起来不变。
+
+4.2.3 MixColumns (core GF(2^4) step)
+EN: Multiply state by constant matrix Me over GF(2^4):
+Me = [1 4; 4 1]
+The PDF shows the state as:
+S = [0010 1110; 1110 1110]
+Then computes each output nibble like:
+S00' = 0010 XOR (4 × 1110) = 0010 XOR D = 1111
+S10' = (4 × 0010) XOR 1110 = 1000 XOR 1110 = 0110
+S01' = 1110 XOR (4 × 1110) = 1110 XOR 1101 = 0011
+S11' = (4 × 1110) XOR 1110 = 1101 XOR 1110 = 0011
+So output = 1111 0110 0011 0011
+ZH: 列混合：用 Me=[1 4;4 1] 在 GF(2^4) 上乘。
+PDF 逐项算出输出为 1111 0110 0011 0011。
+
+EN: Interpretation: “4×E = D” etc are GF multiplications. In exams you either use the provided table or do polynomial reduction.
+ZH: 解释：像 4×E=D 是 GF(2^4) 的乘法结果。考试一般给查表或要求会做多项式约简。
+
+4.2.4 Add Round 1 Key
+EN: XOR with Key1:
+1111 0110 0011 0011
+XOR 1101 1101 0010 1000
+=   0010 1011 0001 1011
+ZH: 与 Key1 异或得到 0010 1011 0001 1011。
+
+4.3 Final Round
+
+4.3.1 SubNib
+EN: PDF output after substitution:
+0010 1011 0001 1011 → 1010 0011 0100 0011
+ZH: 最终轮先 SubNib：得到 1010 0011 0100 0011。
+
+4.3.2 ShiftRow
+EN: Swap 2nd and 4th nibble; in this specific value it remains the same.
+ZH: ShiftRow 后本例不变。
+
+4.3.3 Add Round 2 Key
+EN: XOR with Key2:
+1010 0011 0100 0011
+XOR 1000 0111 1010 1111
+=   0010 0100 1110 1100
+Ciphertext = 0010 0100 1110 1100.
+ZH: XOR Key2 得密文 0010 0100 1110 1100。
+
+Exam traps (encryption)
+EN: Do not apply MixColumns in the final round.
+ZH: 最终轮不要做 MixColumns。
+
+EN: Keep careful nibble grouping; one-bit shift mistakes cascade.
+ZH: 半字节分组要严谨，错一位会连锁崩盘。
+
+====================================================================
+5) Decryption Walkthrough (inverse operations)
+====================================================================
+
+EN: Decryption reverses the steps using the *same round keys* (derived from the master key) and inverse operations.
+ZH: 解密用同一组轮密钥，并用逆操作把步骤倒过来。
+
+5.1 Add Round 2 Key
+EN: Ciphertext XOR Key2 returns to the state before final AddRoundKey:
+0010 0100 1110 1100 XOR 1000 0111 1010 1111 = 1010 0011 0100 0011
+ZH: 密文 XOR Key2 得到 1010 0011 0100 0011。
+
+5.2 Inverse ShiftRow
+EN: In 2x2 S-AES, inverse shift is same as shift (swap 2nd and 4th).
+ZH: 2x2 的 ShiftRow 自逆，因此逆移位与正移位一样。
+
+5.3 Inverse SubNib
+EN: Apply inverse S-Box to each nibble; PDF gets 0010 1011 0001 1011.
+ZH: 用逆 S-Box 得到 0010 1011 0001 1011。
+
+5.4 Add Round 1 Key
+EN: XOR with Key1 returns to state after MixColumns:
+0010 1011 0001 1011 XOR 1101 1101 0010 1000 = 1111 0110 0011 0011
+ZH: XOR Key1 得 1111 0110 0011 0011。
+
+5.5 Inverse MixColumns
+EN: Multiply by inverse matrix (often [9 2; 2 9] in S-AES teaching version). PDF shows formulas like:
+S00' = 9×S00 XOR 2×S10, etc.
+ZH: 逆列混合：用逆矩阵（教学版常为 [9 2;2 9]）。PDF 给了逐项公式。
+
+EN: Again, multiplication is in GF(2^4).
+ZH: 乘法仍在 GF(2^4)。
+
+5.6 Inverse ShiftRow + Inverse SubNib + AddRoundKey0
+EN: Continue reversing: invShiftRow, invSubNib, then XOR with Key0 to recover plaintext.
+ZH: 继续倒序：逆移位、逆替换、再 XOR Key0，还原明文。
+
+====================================================================
+6) Practical study strategy (how to get fast)
+====================================================================
+
+EN: Drill plan:
+1) Memorise the pipeline order (where MixColumns appears).
+2) Practise key expansion until you can produce Key0/Key1/Key2 with no hesitation.
+3) Practise one full encryption by hand; then do decryption to verify you return to original plaintext.
+4) Build a personal “GF multiply cheat sheet” for {2,4,9}×{0..F} if allowed.
+ZH: 练习策略：
+1) 先背流程顺序（MixColumns 在哪一轮）。
+2) 反复练密钥扩展，看到 K 就能写出 Key0/1/2。
+3) 手算一遍完整加密，再手算解密验证回到明文。
+4) 自制 GF 乘法速查表（若允许）。
+
+====================================================================
+7) Flashcards (10)
+====================================================================
+
+1.
+EN: What are the block and key sizes of S-AES (teaching version)?
+ZH: S-AES（教学版）分组/密钥长度？
+EN: 16-bit block, 16-bit key.
+ZH: 16 位分组、16 位密钥。
+
+2.
+EN: What is a nibble?
+ZH: 什么是 nibble（半字节）？
+EN: 4 bits.
+ZH: 4 位。
+
+3.
+EN: How many round keys in 2-round S-AES?
+ZH: 2 轮 S-AES 有多少轮密钥？
+EN: 3 (Key0, Key1, Key2).
+ZH: 3 个。
+
+4.
+EN: Order of operations in Round 1 (encryption)?
+ZH: 第一轮加密顺序？
+EN: SubNib → ShiftRow → MixColumns → AddRoundKey.
+ZH: 替换→移位→列混合→轮密钥加。
+
+5.
+EN: Is MixColumns used in the final round?
+ZH: 最终轮做列混合吗？
+EN: No.
+ZH: 不做。
+
+6.
+EN: In GF(2^4), what is addition?
+ZH: GF(2^4) 的加法是什么？
+EN: XOR.
+ZH: 异或。
+
+7.
+EN: What does RotNib do?
+ZH: RotNib 做什么？
+EN: Swaps the two nibbles in an 8-bit word.
+ZH: 交换 8 位字的两个半字节。
+
+8.
+EN: Why must a have an inverse in affine-like modular systems (analogy)?
+ZH: 类比：为什么要有逆元？
+EN: Because decryption needs to invert encryption uniquely.
+ZH: 因为解密必须能唯一逆回。
+
+9.
+EN: Common cause of S-AES hand-calculation failure?
+ZH: 手算失败常见原因？
+EN: Losing track of nibble grouping / wrong S-Box / using MixColumns in final round.
+ZH: 半字节分组乱、S-Box 用错、最终轮误用列混合。
+
+10.
+EN: How do you check your work quickly?
+ZH: 如何快速自检？
+EN: Decrypt your computed ciphertext and see if you recover the original plaintext.
+ZH: 用你算出的密文做解密，能否回到原明文。

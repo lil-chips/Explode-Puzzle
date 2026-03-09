@@ -1,0 +1,310 @@
+Cloud Security (INTE2401/2402) — Tutorial 2 Walkthrough (VERY Detailed, EN+ZH Interleaved)
+
+Source:
+- /Users/edwardedward/Desktop/ai-ding/School/CloudSecurity/PDF/Tutorial 2.docx
+
+How to use these notes
+EN: Read each concept block in English first, then immediately read the Chinese line under it. Do NOT skip the “common mistakes” and “exam traps” — they are where marks are lost.
+ZH: 先看每段英文概念，再立刻看下一行中文。不要跳过「常见错误」和「考试陷阱」——丢分通常就发生在那里。
+
+====================================================================
+1) Classical ciphers overview (Substitution vs Transposition)
+====================================================================
+
+1.1 Core concept
+EN: Classical encryption (before modern block ciphers/public key crypto) often relies on simple transformations of letters: either changing the *identity* of letters (substitution) or changing the *order/positions* of letters (transposition).
+ZH: 古典密码（现代分组密码/公钥密码之前）通常依赖对字母做简单变换：要么改变字母的「身份」（替换），要么改变字母的「顺序/位置」（置换）。
+
+EN: Many “named ciphers” are variants or combinations of these two ideas.
+ZH: 很多「有名字的密码」本质上就是这两类思想的变体或组合。
+
+1.2 Intuition
+EN: If you only reorder letters (transposition), you keep letter frequencies but scramble patterns. If you only substitute letters (substitution), you preserve positions but change frequency mapping. Both leak structure.
+ZH: 只做置换（重排字母）会保留字母频率但打乱模式；只做替换会保留位置但改变频率映射。两者都会泄露结构信息。
+
+1.3 Steps / recognition checklist
+EN: Identify cipher type quickly:
+- If ciphertext has exactly the same letters as plaintext but rearranged → likely transposition.
+- If ciphertext letters look “shifted” or mapped (A→D, B→E, …) → substitution.
+- If key is a word that implies a permutation (e.g., keyword transposition) → transposition with keyword.
+ZH: 快速判断类型：
+- 密文包含与明文相同的字母但顺序被打乱 → 很可能是置换。
+- 密文字母像被整体「平移」或映射（A→D, B→E, …）→ 替换。
+- 密钥是一个单词并决定排列（关键词置换）→ 关键词置换。
+
+1.4 Common mistakes
+EN: Students often confuse “Hill cipher” with transposition because it uses matrices. Hill is still a *substitution cipher* (polygraphic substitution): it substitutes blocks of letters via linear algebra.
+ZH: 很多人因为 Hill 用矩阵就把它当置换。其实 Hill 仍是「替换密码」（多字母/分组替换）：用线性代数把字母块替换掉。
+
+EN: Vigenère is substitution (polyalphabetic), not transposition.
+ZH: 维吉尼亚是替换（多表替换），不是置换。
+
+1.5 Exam traps
+EN: Multiple-choice often includes “product cipher” as a distractor. Product cipher means combining multiple transformations (often substitution+transposition) — classical named examples are limited; modern ciphers are product ciphers.
+ZH: 选择题常用「乘积密码/组合密码」误导。它指组合多种变换（常见替换+置换）；现代密码普遍属于 product cipher。
+
+====================================================================
+2) Caesar / Shift cipher
+====================================================================
+
+2.1 Concept
+EN: Caesar cipher is a special case of the shift cipher with fixed key k=3. Shift cipher uses key k ∈ {0..25} and encrypts by C = (P + k) mod 26.
+ZH: 凯撒密码是移位密码的特例，固定密钥 k=3。移位密码密钥 k ∈ {0..25}，加密为 C = (P + k) mod 26。
+
+2.2 Intuition
+EN: Think of the alphabet on a circle. You rotate by k. Decryption rotates back by k.
+ZH: 把字母表想成一个圆环，加密就是旋转 k；解密就是反向旋转 k。
+
+2.3 Steps (how to compute)
+EN: Standard mapping used in many lectures: A=0, B=1, ..., Z=25. Then:
+- Encrypt: c = (p + k) mod 26
+- Decrypt: p = (c − k) mod 26 (add 26 if negative)
+ZH: 常用映射：A=0, B=1, …, Z=25。
+- 加密：c = (p + k) mod 26
+- 解密：p = (c − k) mod 26（若为负数就加 26）
+
+EN: Example style you should be able to do fast: p='y'=24, k=3 → c=(24+3)=27 mod 26=1 → 'b'.
+ZH: 你要能快速算：p='y'=24, k=3 → c=(24+3)=27 mod 26=1 → 'b'。
+
+2.4 Security reality
+EN: Shift cipher is insecure because keyspace is tiny (26 keys). Brute force is immediate, and frequency patterns also help.
+ZH: 移位密码不安全，因为密钥空间太小（26）。暴力破解几乎瞬间完成，且频率信息也能辅助。
+
+2.5 Common mistakes
+EN: Off-by-one in letter-number mapping (some people set A=1). Use the mapping expected by the course/lecture.
+ZH: 常见错误是字母编号偏移（有人用 A=1）。要用课程/讲义要求的映射。
+
+EN: Forgetting mod when crossing Z → A wrap-around.
+ZH: 忘记取模导致 Z 后不回到 A。
+
+====================================================================
+3) Transposition cipher with keyword (permutation from a keyword)
+====================================================================
+
+3.1 Concept
+EN: A keyword transposition cipher typically orders columns according to alphabetical order of the keyword’s letters (with tie-breaking rules if repeated letters). This produces a permutation like 45123 etc.
+ZH: 关键词置换通常按关键词字母的字典序对列排序（若有重复字母需规定打破平局的规则），从而得到类似 45123 的排列。
+
+3.2 How to derive the permutation (method)
+EN: Given keyword (e.g., “model”):
+Step 1: Write the letters with their original positions: m(1) o(2) d(3) e(4) l(5)
+Step 2: Sort letters alphabetically: d, e, l, m, o
+Step 3: Convert to permutation “rank” mapping: d came from position 3 → first; e from 4 → second; l from 5 → third; m from 1 → fourth; o from 2 → fifth.
+So the column read-out order is 3,4,5,1,2 (depending on convention).
+ZH: 用关键词（如 model）：
+步骤1：写字母及原位置：m(1) o(2) d(3) e(4) l(5)
+步骤2：按字典序排序：d, e, l, m, o
+步骤3：把排序结果映射回原位置，得到读取/排列顺序：3,4,5,1,2（具体是“读出顺序”还是“重排后的编号”取决于题目约定）。
+
+EN: IMPORTANT: The multiple choice answers (45123 / 13254 / …) depend heavily on which convention the lecturer uses. Always check the course’s worked example if provided.
+ZH: 重要：选择题给的 45123/13254 等非常依赖课程约定。一定要对照讲义的例题。
+
+3.3 Exam traps
+EN: Repeated letters in keyword (e.g., “letter”) require tie-breaking. If the course did not mention it, avoid assuming; but if forced, tie-break by left-to-right order.
+ZH: 关键词含重复字母时要规定规则。如果课程没讲，不要乱猜；若必须选，一般按从左到右打破平局。
+
+====================================================================
+4) Affine cipher (encryption/decryption, key size, breaking with frequency)
+====================================================================
+
+4.1 Concept
+EN: Affine cipher is a substitution cipher defined over Z26:
+C = (aP + b) mod 26,
+where gcd(a,26)=1 so that a has a multiplicative inverse modulo 26.
+ZH: 仿射密码是定义在 Z26 上的替换密码：
+C = (aP + b) mod 26，其中 gcd(a,26)=1，保证 a 在模 26 下有乘法逆元。
+
+4.2 Intuition
+EN: It’s like a “scaled shift”: multiply then add, both modulo 26. Multiplication scrambles spacing between letters more than a simple shift.
+ZH: 它像「带缩放的移位」：先乘再加，都是模 26。乘法比简单移位更能打散字母间距。
+
+4.3 Decryption derivation (VERY exam-relevant)
+EN: Start from C = aP + b (mod 26). Subtract b:
+C − b = aP (mod 26).
+Multiply by a^{-1}:
+P = a^{-1}(C − b) mod 26.
+So decryption is P = a^{-1}C + (−a^{-1}b) mod 26.
+ZH: 从 C = aP + b (mod 26) 推：减 b 得 C−b=aP；再乘 a^{-1} 得
+P = a^{-1}(C − b) mod 26。
+因此 P = a^{-1}C + (−a^{-1}b) mod 26。
+
+EN: Example from the tutorial MCQ: if C = 5P + 6, then a=5, b=6. Find inverse of 5 mod 26: 5×21=105=1 (mod 26) so a^{-1}=21.
+Then P = 21(C − 6) = 21C − 126.
+Reduce −126 mod 26: 126 mod 26 = 22 (since 26×4=104, remainder 22). So −126 ≡ −22 ≡ 4 (mod 26).
+Therefore P = 21C + 4 (mod 26).
+ZH: 例：C = 5P + 6，a=5, b=6。求 5 在模 26 下逆元：5×21=105≡1，所以 a^{-1}=21。
+P = 21(C−6)=21C−126。
+把 −126 取模：126 mod 26=22，所以 −126 ≡ −22 ≡ 4。
+因此 P = 21C + 4 (mod 26)。
+
+4.4 Key size (what “key size” means here)
+EN: Key is the pair (a,b). a must be coprime with 26. There are φ(26)=12 possible a values. For each a, b can be any of 26 values. So total keys = 12×26 = 312.
+ZH: 密钥是 (a,b)。a 必须与 26 互素。可选 a 的数量是 φ(26)=12。每个 a 对应 b 有 26 种，所以总密钥数 12×26=312。
+
+4.5 Breaking affine cipher with frequency (computational question)
+EN: Given ciphertext where most frequent letter is F and second most frequent is C, we assume they correspond to common English letters. Typically: 'E' is most frequent, 'T' is second. Sometimes 'A'/'O' are high too.
+ZH: 若密文最频繁 F、次频 C，常假设对应英文高频字母：通常 E 最多、T 第二（有时 A/O 也很高）。
+
+EN: Approach (two-letter mapping):
+Step 1: Convert letters to numbers (A=0..Z=25). Let c1=F=5, c2=C=2.
+Step 2: Assume plaintext letters p1=E=4, p2=T=19 (or try E/A etc if fails).
+Step 3: Use equations:
+  c1 ≡ a p1 + b (mod 26)
+  c2 ≡ a p2 + b (mod 26)
+Subtract to eliminate b:
+  c1−c2 ≡ a(p1−p2) (mod 26)
+Solve for a by multiplying inverse of (p1−p2) mod 26, if invertible.
+Then solve b = c1 − a p1 (mod 26).
+Step 4: Decrypt and check if plaintext makes sense.
+ZH: 破译方法（两点定线）：
+1) 字母转数字：F=5, C=2。
+2) 假设明文字母：E=4, T=19（若不行就换假设）。
+3) 建方程并相减消 b：c1−c2 ≡ a(p1−p2) (mod 26)，求出 a，再求 b。
+4) 解密并检查是否有意义。
+
+EN: Key pitfall: (p1−p2) must be invertible mod 26 (i.e., gcd(p1−p2,26)=1). If not, your assumption pair won’t work; try another frequency pairing.
+ZH: 关键坑： (p1−p2) 必须在模 26 下可逆（与 26 互素）。否则这对假设无法解出 a，需要换另一对字母假设。
+
+====================================================================
+5) Simplified AES (S-AES) — MCQ essentials
+====================================================================
+
+5.1 Block size & key size
+EN: Simplified AES used in teaching typically uses 16-bit block size and 16-bit key size.
+ZH: 教学用的简化 AES 通常是 16-bit 分组，16-bit 密钥。
+
+5.2 Substitution granularity
+EN: In S-AES, substitution is nibble-based: 4 bits substituted by 4 bits via an S-Box.
+ZH: S-AES 的替换以半字节为单位：4 位替换成 4 位（S-Box）。
+
+5.3 GF field used in MixColumns
+EN: S-AES MixColumns typically operates over GF(2^4) because state elements are 4-bit nibbles.
+ZH: S-AES 的列混合通常在 GF(2^4) 上运算，因为状态元素是 4-bit 半字节。
+
+5.4 Number of round keys
+EN: S-AES with 2 rounds uses 3 round keys: Key0 (initial), Key1 (round 1), Key2 (final).
+ZH: 2 轮的 S-AES 需要 3 个轮密钥：Key0（初始）、Key1（第一轮）、Key2（最终轮）。
+
+====================================================================
+6) Programming task: implement Affine cipher (HTML + JavaScript)
+====================================================================
+
+6.1 Goal
+EN: Implement affine cipher encryption/decryption for alphabetic text (likely A–Z). You must handle looping through characters and converting between characters and numeric codes.
+ZH: 用 HTML+JS 实现仿射密码加/解密（通常针对 A–Z）。核心是遍历字符、字符与数字互转。
+
+6.2 Steps (algorithmic)
+EN: Encryption function (inputs: plaintext string, a, b):
+1) Normalize text: uppercase, remove/keep spaces depending on spec.
+2) For each character ch:
+   - If ch not A–Z: keep as is (or skip) depending on requirements.
+   - Map: p = ch.charCodeAt(0) − 'A'.charCodeAt(0)
+   - Compute: c = (a*p + b) % 26
+   - Convert back: outCh = String.fromCharCode(c + 'A'.charCodeAt(0))
+3) Return ciphertext.
+ZH: 加密函数：
+1) 规范化：大写；空格/标点按题意保留或移除。
+2) 遍历字符：
+   - 非 A–Z：按题意保留/跳过。
+   - 映射：p = charCodeAt − 'A'
+   - 计算：c = (a*p + b) % 26
+   - 转回字符：String.fromCharCode(c+'A')
+3) 返回密文。
+
+EN: Decryption requires a^{-1} mod 26:
+- Precompute invA using extended Euclid or brute force (try i=1..25, if (a*i)%26==1 then invA=i).
+- Then p = invA*(c − b) mod 26.
+ZH: 解密需要 a 的模逆：
+- 可用扩展欧几里得；或暴力枚举 i=1..25 找 (a*i)%26==1。
+- 再用 p = invA*(c − b) mod 26。
+
+6.3 Common mistakes (JS)
+EN: String.fromChatCode() is a typo — correct function is String.fromCharCode().
+ZH: fromChatCode() 是拼写错误，正确是 String.fromCharCode()。
+
+EN: parseInt without radix can be dangerous. Use parseInt(str, 10).
+ZH: parseInt 不写进制可能有坑，建议 parseInt(str, 10)。
+
+EN: Negative modulo in JS: ((x % 26) + 26) % 26 ensures non-negative.
+ZH: JS 的 % 可能得到负值，用 ((x%26)+26)%26 保证非负。
+
+====================================================================
+7) Flashcards (short Q&A, 10)
+====================================================================
+
+1.
+EN: What’s the difference between substitution and transposition ciphers?
+ZH: 替换与置换密码的区别？
+EN: Substitution changes symbols; transposition reorders symbols.
+ZH: 替换改变符号本身；置换只改变符号顺序。
+
+2.
+EN: Caesar cipher is a special case of which cipher?
+ZH: 凯撒密码是哪种密码的特例？
+EN: Shift cipher with k=3.
+ZH: 移位密码，k=3。
+
+3.
+EN: Shift cipher keyspace size?
+ZH: 移位密码密钥空间大小？
+EN: 26 keys (0..25).
+ZH: 26（0..25）。
+
+4.
+EN: Affine cipher formula?
+ZH: 仿射密码公式？
+EN: C=(aP+b) mod 26 with gcd(a,26)=1.
+ZH: C=(aP+b) mod 26 且 gcd(a,26)=1。
+
+5.
+EN: How many keys does affine cipher have?
+ZH: 仿射密码有多少密钥？
+EN: φ(26)*26 = 12*26 = 312.
+ZH: 12*26=312。
+
+6.
+EN: Decryption of affine cipher?
+ZH: 仿射解密？
+EN: P=a^{-1}(C−b) mod 26.
+ZH: P=a^{-1}(C−b) mod 26。
+
+7.
+EN: S-AES block size and key size in teaching version?
+ZH: 教学版 S-AES 分组与密钥长度？
+EN: 16-bit block, 16-bit key.
+ZH: 16 位分组，16 位密钥。
+
+8.
+EN: In S-AES, substitution operates on how many bits?
+ZH: S-AES 的替换操作处理多少位？
+EN: 4-bit nibble → 4-bit nibble.
+ZH: 4 位→4 位。
+
+9.
+EN: Which field is used for MixColumns in S-AES?
+ZH: S-AES 列混合在哪个域？
+EN: GF(2^4).
+ZH: GF(2^4)。
+
+10.
+EN: Why is shift cipher insecure?
+ZH: 为什么移位密码不安全？
+EN: Tiny keyspace and strong statistical leakage.
+ZH: 密钥空间太小且统计特征明显。
+
+====================================================================
+8) Quick checklist before submitting Tutorial 2
+====================================================================
+
+EN:
+- [ ] I can classify: substitution vs transposition.
+- [ ] I can derive affine decryption using modular inverse.
+- [ ] I can compute affine key count (φ(26)*26).
+- [ ] I understand S-AES: 16-bit, nibble substitution, GF(2^4), 3 round keys.
+- [ ] My JS handles modulo negatives correctly.
+ZH:
+- [ ] 我能区分：替换 vs 置换。
+- [ ] 我能用模逆推导仿射解密。
+- [ ] 我会算仿射密钥数量（φ(26)*26）。
+- [ ] 我理解 S-AES：16 位、半字节替换、GF(2^4)、3 个轮密钥。
+- [ ] 我的 JS 正确处理负数取模。

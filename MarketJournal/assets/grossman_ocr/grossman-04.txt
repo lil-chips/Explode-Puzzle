@@ -1,0 +1,114 @@
+VOL. 70 NO. 3
+
+Conjecture 6: In the limit, when there is
+no noise, prices convey all information, and
+there is no incentive to purchase informa-
+tion. Hence, the only possible equilibrium is
+one with no information. But if everyone is
+uninformed, it clearly pays some individual
+to become informed.? Thus, there does not
+exist a competitive equilibrium.*
+
+Trade among individuals occurs either be-
+cause tastes (risk aversions) differ, endow-
+ments differ, or beliefs differ. This paper
+focuses on the last of these three. An inter-
+esting feature of the equilibrium is that be-
+liefs may be precisely identical in either one
+of two situations: when all individuals are
+informed or when all individuals are unin-
+formed. This gives rise to:
+
+Conjecture 7: That, other things being
+equal, markets will be thinner under those
+conditions in which the percentage of indi-
+viduals who are informed (A) is either near
+zero or near unity. For example, markets
+will be thin when there is very little noise in
+the system (so A is near zero), or when costs
+of information are very low (so A is near
+unity).
+
+In the last few paragraphs, we have pro-
+vided a number of conjectures describing
+the nature of the equilibrium when prices
+convey information. Unfortunately, we have
+not been able to obtain a general proof of
+any of these propositions. What we have
+been able to do is to analyze in detail an
+interesting example, entailing constant ab-
+solute risk-aversion utility functions ard
+normally distributed random variables. In
+this example, the equilibrium price distribu-
+tion can actually be calculated, and all of
+
+3That is, with no one informed, an individual can
+only get information by paying c dollars, since no
+information is revealed by the price system. By paying
+¢ dollars an individual will be able to predict better
+than the market when it is optimal to hold the risky
+asset as opposed to the risk-free asset. Thus his ex-
+pected utility will be higher than an uninformed person
+gross of information costs. Thus for c sufficiently low
+all uninformed people will desire to be informed.
+
+4See Grossman (1975, 1977) for a formal example of
+this phenomenon in futures markets. See Stiglitz (1971,
+1974) for a general discussion of information and the
+possibility of nonexistence of equilibrium in capital
+markets.
+
+GROSSMAN AND STIGLITZ: EFFICIENT MARKETS 395
+
+the conjectures provided above can be veri-
+fied. The next sections are devoted to solv-
+ing for the equilibrium in this particular
+example.°
+
+II. Constant Absolute Risk-Aversion Model
+A. The Securities
+
+The ith trader is assumed to be endowed
+with stocks of two types of securities: M,,
+the riskless asset, and X;, a risky asset. Let P
+be the current price of risky assets and set
+the price of risk free assets equal to unity.
+The ith trader’s budget constraint is
+
+(2) PX,+ M,= Wo, =M,+ PX,
+
+Each unit of the risk free asset pays R
+“dollars” at the end of the period, while
+each unit of the risky asset pays u dollars. If
+at the end of the period, the ith trader holds
+a portfolio (M,,X;), his wealth will be
+
+(3) W,,= RM, + uX,
+B. Individual’s Utility Maximization
+
+Each individual has a utility function
+V,W,,;). For simplicity, we assume all indi-
+viduals have the same utility function and
+so drop the subscripts i. Moreover, we
+assume the utility function is exponential,
+ie,
+
+VM )=-e™, a >0
+
+where a is the coefficient of absolute risk
+aversion. Each trader desires to maximize
+expected utility, using whatever information
+is available to him, and to decide on what
+information to acquire on the basis of the
+consequences to his expected utility.
+
+Assume that in equation (1) @ and e have
+a multivariate normal distribution, with
+
+(4) Ee=0
+(5) Ebe=0
+(6) Var(u*|0) = Vare*=02>0
+
+5The informational equilibria discussed here may
+not, in general, exist. See Green (1977). Of course, for
+the utility function we choose equilibrium does exist.

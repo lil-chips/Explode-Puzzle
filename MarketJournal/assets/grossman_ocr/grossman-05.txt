@@ -1,0 +1,104 @@
+396 THE AMERICAN ECONOMIC REVIEW
+
+since 6 and e are uncorrelated. Throughout
+this paper we will put a * above a symbol to
+emphasize that it is a random variable.
+Since W,, is a linear function of e, for a
+given portfolio allocation, and a linear func-
+tion of a normally distributed random vari-
+able is normally distributed, it follows that
+W,, is normal conditional on 8. Then, using
+(2) and (3) the expected utility of the in-
+formed trader with information @ can be
+written
+
+(7) E(V(W3)|0)=
+~exp(—af £[ Wil] =a Var[ w0}})
+= —exp(—a] RWo,+ X/{E(u*|0)— RP}
+
+a
+
+3 X? var(u*|0)])
+
+= ~exp( =a] RW, +X;(0— RP)
+- 3X70)
+
+where X, is an informed individual’s de-
+mand for the risky security. Maximizing (7)
+with respect to X, yields a demand function
+for risky assets:
+
+0—RP
+2
+
+e
+
+(8) X,(P,8)=
+ao,
+
+The right-hand side of (8) shows the familiar
+result that with constant absclute risk aver-
+sion, a trader’s demand does not depend on
+wealth; hence the subscript i is not on the
+left-hand side of (8).
+
+We now derive the demand function for
+the uninformed. Let us assume the only
+source of “noise” is the per capita supply of
+the risky security x.
+
+Let P*(-) be some particular price func-
+tion of (8,x) such that u* and P* are jointly
+normally distributed. (We will prove that
+this exists below.)
+
+JUNE 1980
+
+Then, we can write for the uninformed
+individual
+
+(7) E(V(W4)IP*)= ~exp| — af EL WHIP F]
+
+- $Var| walPr)} |
+
+= — exp] —a{ RW,,+X,(E[u*|P*] — RP)
+
+a
+
+2 xe Var[u|Pr}} |
+
+The demands of the uninformed will thus be
+a function of the price function P* and the
+actual price P.
+
+(8’) Xy(P; P*)
+_ El u*|P*(0,x)= P]— RP
+~ aVar[ u*|P*(0,x) =P]
+
+C. Equilibrium Price Distribution
+
+If A is some particular fraction of traders
+who decide to become informed, then define
+an equilibrium price system as a function of
+(9,x), P,(8,x), such that for all (0,x) per
+capita demands for the risky assets equal
+supplies:
+
+(9) AX,(P,(8,x),8)
+
++(1-A)Xy(P, (8, x); P*) =x
+
+The function P,(6,x) is a_ statistical
+equilibrium in the following sense. If over
+time uninformed traders observe many re-
+alizations of (u*,P*), then they learn the
+joint distribution of (u*, P*). After all learn-
+ing about the joint distribution of (u*, P¥)
+ceases, all traders will make allocations and
+form expectations such that this joint dis-
+tribution persists over time. This follows
+from (8), (8’), and (9), where the market-
+clearing price that comes about is the one
+which takes into account the fact that unin-
+formed traders have learned that it contains
+information.

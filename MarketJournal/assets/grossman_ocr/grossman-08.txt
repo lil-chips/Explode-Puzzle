@@ -1,0 +1,125 @@
+VOL. 70 NO. 3
+
+as A rises, the expected utility of informed
+traders does go down relative to uninformed
+traders.
+
+Note that the function y(0)=e%(Var(u*|
+0)/Var u*)'/?, Figure 1 illustrates the de-
+termination of the equilibrium 4. The figure
+assumes that y(0)<1<y(1).
+
+G. Characterization of Equilibrium
+
+We wish to provide some further char-
+acterization of the equilibrium. Let us define
+
+( aoz o
+m= Sx
+
+2
+X}
+
+2
+(16b) n=
+oO,
+
+(16a)
+
+Note that m is inversely related to the
+informativeness of the price system since the
+squared correlation coefficient between P¥
+and 6*, p? is given by
+
+1
+(17) 05
+
+~T+m
+
+Similarly, n is directly related to the quality
+of the informed trader’s information be-
+cause n/(1+n) is the squared correlation
+coefficient between 9* and u*.
+
+Equations (14) and (15) show that the
+cost of information c, determines the equi-
+librium ratio of information quality be-
+tween informed and uninformed traders
+(Var(u*|9))/ Var(u*|w,). From (1), (A11) of
+Appendix A, and (16), this can be written as
+
+(18)
+
+Var(u*|0) = l+m nm \~!
+Var(u*|w,) — 1+m+nm ( itm)
+
+Substituting (18) into (14) and using (15)
+we obtain, for 0<A <1, in equilibrium
+
+ere]
+19a m= ——
+(19) l+n—e%*
+or
+
+2ac
+(196) 1-p3=
+
+GROSSMAN AND STIGLITZ: EFFICIENT MARKETS 399
+
+eviw)
+
+x
+Ev(we) yr)
+
+eac /var(u*le)
+jr
+
+var u'
+
+P| SOS SOOO
+
+Ficure |
+
+Note that (19) holds for y(0) < 1<y(1), since
+these conditions insure that the equilibrium
+\ is between zero and one. Equation (19b)
+shows that the equilibrium informativeness
+of the price system is determined completely
+by the cost of information c, the quality of
+the informed trader’s information n, and the
+degree of risk aversion a.
+
+H. Comparative Statics
+
+From equation (19b), we immediately ob-
+tain some basic comparative statics results:
+
+1) An increase in the quality of infor-
+mation (n) increases the informativeness of
+the price system.
+
+2) A decrease in the cost of information
+increases the informativeness of the price
+system.
+
+3) A decrease in risk aversion leads
+informed individuals to take larger posi-
+tions, and this increases the informativeness
+of the price system.
+
+Further, all other changes in parameters,
+such that n, a, and c remain constant,
+do not change the equilibrium degree of in-
+formativeness of the price system; other
+changes lead only to particular changes in A
+of a magnitude to exactly offset them. For
+example:
+
+4) An increase in noise (02) increases
+the proportion of informed traders. At any
+given A, an increase in noise reduces the
+informativeness of the price system; but it
+increases the returns to information and
+leads more individuals to become informed;
+the remarkable result obtained above estab-
+lishes that the two effects exactly offset each

@@ -1,0 +1,108 @@
+398 THE AMERICAN ECONOMIC REVIEW
+
+E. Equilibrium in the Information Market
+
+What we have characterized so far is the
+equilibrium price distribution for given A.
+We now define an overall equilibrium to be
+a pair (A, P¥) such that the expected utility
+of the informed is equal to that of the unin-
+formed if O0<A<1; A=0 if the expected
+utility of the informed is less than that of
+the uninformed at P}; A=1 if the expected
+utility of the informed is greater than the
+uninformed at P}. Let
+
+(12a) WA=R(W,-¢)
++[u—RP,(0,x)]X,(P,(8,x),9)
+(12b) W},=RW),
++[u— RP,(8,x)]Xy(P,(8,x); PX)
+
+where c is the cost of observing a realization
+of 6*. Equation (12a) gives the end of period
+wealth of a trader if he decides to become
+informed, while (12b) gives his wealth if he
+decides to be uninformed. Note that end of
+period wealth is random due to the random-
+ness of Wo,, u, 0, and x.
+
+In evaluating the expected utility of W},
+we do not assume that a trader knows which
+realization of 6* he gets to observe if he
+pays c dollars. A trader pays c dollars and
+then gets to observe some realization of 0*.
+The overall expected utility of W} averages
+over all possible 6*, e*, x*, and W,;. The
+variable Wo; is random for two reasons.
+First from (2) it depends on P,(8,x), which
+is random as (6,x) is random. Secondly, in
+what follows we will assume that X, is ran-
+dom.
+
+We will show below that EV(W})/
+EV(W),) is independent of i, but is a func-
+tion of A, a, c, and o2. More precisely, in
+Appendix B we prove
+
+THEOREM 2: Under_ the assumptions of
+
+Theorem 1, and if X, is independent of
+(u*,0*,x*) then
+
+EV(Wa) _ vey | Var 2)
+(13) EV(Ws) ° Variu*|w,
+
+JUNE 1980
+
+F. Existence of Overall Equilibrium
+
+Theorem 2 is useful, both in proving the
+uniqueness of overall equilibrium and in
+analyzing comparative statics. Overall equi-
+librium, it will be recalled, requires that for
+0<A<1, EV(W))/EV(W3)=1. But from
+(13)
+
+aa EVA)
+
+EV(Wii)
+
+=e") | Var(u*|o)  _
+“e Var(u*|w,) =r)
+
+Hence overall equilibrium simply requires,
+for 0<A<1,
+
+(15) yA)=1
+More precisely, we now prove
+
+THEOREM 3: If 0<A<1, y(A)=1, and P¥
+is given by (A10) in Appendix B, then (X, P*)
+is an overall equilibrium. If y(1)<1, then
+(1, Pf) is an overall equilibrium. If y(0)>1,
+then (0, P§) is an overall equilibrium. For all
+price equilibria P, which are monotone func-
+tions of w,, there exists a unique overall
+equilibrium (A, P¥).
+
+PROOF:
+
+The first three sentences follow im-
+mediately from the definition of overall
+equilibrium given above equation (12), and
+Theorems | and 2. Uniqueness follows from
+the monotonicity of y(-) which follows from
+(All) and (14). The last two sentences in
+the statement of the theorem follow im-
+mediately.
+
+In the process of proving Theorem 3, we
+have noted
+
+COROLLARY 1:  y(A) is a strictly mono-
+tone increasing function of A.
+
+This looks paradoxical; we expect the
+ratio of informed to uninformed expected
+utility to be a decreasing function of A. But,
+we have defined utility as negative. Therefore

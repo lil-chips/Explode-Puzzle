@@ -1,0 +1,120 @@
+400 THE AMERICAN ECONOMIC REVIEW
+
+other so that the equilibrium informative-
+ness of the price system is unchanged. This
+can be illustrated diagrammatically if we
+note from (16a) that for a given A, an in-
+crease in o? raises m which from (18) lowers
+(Var(u*|0))/ Var(u*|w,). Thus from (14) a
+rise in 0? leads to a vertical downward shift
+of the y(A) curve in Figure 1, and thus a
+higher value of A°.
+
+5) Similarly an increase in o? for
+a constant n (equivalent to an increase in
+the variance of u since n is constant) leads
+to an increased proportion of individuals
+becoming informed—and indeed again just
+enough to offset the increased variance, so
+that the degree of informativeness of the
+price system remains unchanged. This can
+also be seen from Figure 1 if (16) is used to
+note that an increase in o? with n held
+constant by raising of leads to an increase in
+m for a given A. From (18) and (14) this
+leads to a vertical downward shift of the
+y(A) curve and thus a higher value of A°.
+
+6) It is more difficult to determine what
+happens if, say of increases, keeping a2 con-
+stant (implying a fall in o2), that is, the
+information obtained is more informative.
+This leads to an increase in n, which from
+(19b) implies that the equilibrium infor-
+mativeness of the price system rises. From
+(16) it is clear that m and nm both fall when
+oj rises (keeping 02 = 0; +o? constant). This
+implies that the y(A) curve may shift up or
+down depending on the precise values of c,
+a, and n.® This ambiguity arises because an
+
+8From (14) and (18) it is clear that A rises if and only
+if Var(u*|@)+ Var(u*|w,) falls due to the rise in of for
+a given X. This occurs if and only if nm/(1 +m) rises.
+Using (16) to differentiate nm/(1+m) with respect to
+o2 subject to the constraint that do2=0 (i.e., dog=
+—do2), we find that the sign of
+
+d nm n+l
+eg (Tem) =e "( )-]
+
+- (5)()-]
+
+where y=e?—1 and the last equality follows from
+equation (19a). Thus for n very large the derivative is
+negative so that A falls due to an increase in the
+precision of the informed trader’s information. Simi-
+larly if n is sufficiently small, the derivative is positive
+and thus 2 rises.
+
+JUNE 1980
+
+improvement in the precision of informed
+traders’ information, with the cost of the
+information fixed, increases the benefit of
+being informed. However, some of the im-
+proved information is transmitted, via a
+more informative price system, to the unin-
+formed; this increases the benefits of being
+uninformed. If n is small, both the price
+system m is not very informative and the
+marginal value of information to informed
+traders is high. Thus the relative benefits of
+being informed rises when n rises; implying
+that the equilibrium A rises. Conversely
+when n is large the price system is very
+informative and the marginal value of infor-
+mation is low to informed traders so the
+relative benefits of being uninformed rises.
+7) From (14) it is clear that an increase
+
+in the cost of information c shifts the y(A)
+curve up and thus decreases the percentage
+of informed traders.
+
+The above results are summarized in the
+following theorem.
+
+THEOREM 4: For equilibrium such that
+0<A<I1:
+
+A. The equilibrium informativeness of the
+price system, pj}, rises if n rises, c falls, or a
+falls.
+
+B. The equilibrium informativeness of the
+price system is unchanged if 0? changes, or if
+2 changes with n fixed.
+
+C. The equilibrium percentage of informed
+traders will rise if 02 rises, 02 rises for a fixed
+n, or c falls.
+
+D. If a satisfies (ew —1)/(A—(e? — 1) =
+n/(a+1), then n SF implies that } falls
+(rises) due to an increase in n.
+
+PROOF:
+Parts A—C are proved in the above re-
+marks. Part D is proved in footnote 8.
+
+I. Price Cannot Fully Reflect Costly
+Information
+
+We now consider certain limiting cases,
+for y(0)<1<y(1), and show that equi-
+librium does not exist if c>0 and price is
+fully informative.
+
+1) As the cost of information goes to
+zero, the price system becomes more infor-

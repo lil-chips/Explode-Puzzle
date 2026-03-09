@@ -1,0 +1,117 @@
+402 THE AMERICAN ECONOMIC REVIEW
+
+In the next section we show that the non-
+existence of competitive equilibrium can be
+thought of as the breakdown of competitive
+markets due to lack of trade. That is, we will
+show that as o2 gets very small, trade goes
+to zero and markets serve no function. Thus
+competitive markets close for lack of trade
+“before” equilibrium ceases to exist at
+o, =0.
+
+III. On the Thinness of Speculative Markets
+
+In general, trade takes place because
+traders differ in endowments, preferences,
+or beliefs. Grossman (1975, 1977, 1978) has
+argued that differences in preferences are
+not a major factor in explaining the magni-
+tude of trade in speculative markets. For
+this reason the model in Section IT gave all
+traders the same risk preferences (note that
+none of the results in Section II are affected
+by letting traders have different coefficients
+of absolute risk aversion). In this section we
+assume that trade requires differences in
+endowments or beliefs and dispense with
+differences in risk preference as an explana-
+tory variable.”
+
+There is clearly some fixed cost in operat-
+ing a competitive market. If traders have to
+bear this cost, then trade in the market must
+be beneficial. Suppose traders have the same
+endowments and beliefs. Competitive equi-
+librium will leave them with allocations
+which are identical with their initial endow-
+ments. Hence, if it is costly to enter such a
+competitive market, no trader would ever
+enter. We will show below that in an im-
+portant class of situations, there is continu-
+ity in the amount of net trade. That is, when
+initial endowments are the same and peo-
+
+In the model described in Section II it was assumed
+that an individual’s endowment X; is independent of
+the market’s per capita endowment x*. This was done
+primarily so there would not be useful information in
+an individual’s endowment about the total market en-
+dowment. Such information would be useful in equi-
+librium because an individual observes P,(0,x). If due
+to observing X,, he knows something about x, then by
+observing P,(8,x), X; is valuable in making inferences
+about @. To take this into account is possible, but
+would add undue complication to a model already
+overburdened with computations.
+
+JUNE 1980
+
+ples’ beliefs differ slightly, then the competi-
+tive equilibrium allocation that an individ-
+ual gets will be only slightly different from
+his initial endowment. Hence, there will
+only be a slight benefit to entering the com-
+petitive market. This could, for sufficiently
+high operating costs, be outweighed by the
+cost of entering the market.
+
+The amount of trade occurring at any
+date is a random variable; a function of 6
+and x. It is easy to show that it is a normally
+distributed random variable. Since one of
+the primary determinants of the size of
+markets is differences in beliefs, one might
+have conjectured that markets will be thin,
+in some sense, if almost all traders are either
+informed or uninformed. This is not, how-
+ever, obvious, since the amount of trade by
+any single trader may be a function of A as
+well, and a few active traders can do the job
+of many small traders. In our model, there is
+a sense, however, in which our conjecture is
+correct.
+
+We first calculate the magnitude of trades
+as a function of the exogenous parameters, 0
+and x. Let h=o?, x=Ex*, and 0 =E6*.
+(The actual trades will depend on the dis-
+tribution of random endowments across all
+of the traders, but these we shall net out.)
+Per capita net trade is '°
+
+(22) X,—x=(1-2)] (nm SB )u-¥
+
++ [(m+ 1)n—1](0-8) + nm]
++[l+m+ dum]
+
+‘Calculation of distribution of net trades
+A
+Ao RP)
+(| F- RP) + mnt -9— Fo-9)]
+
+a =
+ah(1+m+nm)n *
+
+OH RFD (n4 CAXt+) )
+
+ah l+m+nm
+
+- (5) l+m+Anm
+ah ( meu)
+
+(1=A)({(m+ 1) 10-8) + F-9)
+
+=xt
+* ah(1+m+dnm)n
+

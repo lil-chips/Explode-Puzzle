@@ -1,0 +1,104 @@
+VOL. 70 NO. 3
+
+We shall now prove that there exists an
+equilibrium price distribution such that P*
+and u* are jointly normal. Moreover, we
+shall be able to characterize the price dis-
+tribution. We define
+
+2
+(10a) ,(8,x)=6— SE (x Ex*)
+
+for A>0, and define w)(9,x) as the number:
+
+(10b)  w(8,x) =x for all (,x)
+
+where w, is just the random variable 6, plus
+noise.© The magnitude of the noise is in-
+versely proportional to the proportion of
+informed traders, but is proportional to the
+variance of e. We shall prove that the
+equilibrium price is just a linear function of
+w,. Thus, if A>0, the price system conveys
+information about 6, but it does so imper-
+fectly.
+
+D. Existence of Equilibrium and
+a Characterization Theorem
+
+THEOREM 1: Jf (0*,e*,x*) has a nonde-
+generate joint normal distribution such that
+0*, e*, and x* are mutually independent, then
+there exists a solution to (9) which has the
+form P,(0,x)= a, + a,w,(0,x), where a, and
+a, are real numbers which may depend on i,
+such that a,>0. (If X=0, the price contains
+no information about 0.) The exact form of
+P,(8,x) is given in equation (A10) in Appen-
+dix B. The proof of this theorem is also in
+Appendix B.
+
+The importance of Theorem 1 rests in the
+simple characterization of the information
+in the equilibrium price system: P¥ is infor-
+mationally equivalent to w¥. From (10) w¥
+is a “mean-preserving spread” of 6; ie.,
+E[w|0]= 6 and
+
+a’o!
+ql) ANA lessee Ure
+
+If y’=y+Z, and E[Z|y]=0, then y’ is just y plus
+noise.
+
+GROSSMAN AND STIGLITZ: EFFICIENT MARKETS 397
+
+For each replication of the economy, @ is
+the information that uninformed traders
+would like to know. But the noise x*
+prevents w¥ from revealing 6. How well-
+informed uninformed traders can become
+from observing Px (equivalently w*) is
+measured by Var[w|0]. When Var[w¥|0] is
+zero, w* and @ are perfectly correlated.
+Hence when uninformed firms observe w¥,
+this is equivalent to observing 8. On the
+other hand, when Var[w¥|6] is very large,
+there are “many” realizations of w¥ that are
+associated with a given 9. In this case the
+observation of a particular w¥ tells very
+little about the actual 9 which generated it.’
+
+From equation (11) it is clear that large
+noise (high Varx*) leads to an imprecise
+price system. The other factor which de-
+termines the precision of the price system
+(a’o*/d?) is more subtle. When a is small
+(the individual is not very risk averse) or 02
+is small (the information is very precise), an
+informed trader will have a demand for
+risky assets which is very responsive to
+changes in 9. Further, the larger ) is, the
+more responsive is the total demand of in-
+formed traders. Thus small (a2o*/?) means
+that the aggregate demand of informed
+traders is very responsive to 9. For a fixed
+amount of noise (ie. fixed Varx*) the
+larger are the movements in aggregate de-
+mand which are due to movements in 6, the
+more will price movements be due to move-
+ments in 6. That is, x* becomes less im-
+portant relative to @ in determining Price
+movements. Therefore, for small (a*of/A)
+uninformed traders are able to confidently
+know that price is, for example, unusually
+high due to 6 being high. In this way infor-
+mation from informed traders is transferred
+to uninformed traders.
+
+"Formally, w* is an experiment in the sense of
+Blackwell which gives information about 8. It is easy to
+show that, ceteris paribus, the smaller Var(wx|@) the
+more “informative” (or sufficient) in the sense of
+Blackwell, is the experiment; see Grossman, Kihlstrom,
+and Mirman (p. 539).

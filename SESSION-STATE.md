@@ -1,13 +1,42 @@
 # SESSION-STATE.md
 
-> Working memory for the *current* task. Treat chat as a buffer, not storage.
-> Update this file **before responding** when the user provides corrections, decisions, preferences, names, dates, IDs, URLs, or specific values.
+Working memory for the current task.
 
-## Current focus
-- Consolidate learning from papers into reusable playbooks (not skills yet).
+---
 
-## Decisions / preferences (active)
-- Learning should be captured in playbooks first; convert to a Skill later when mature.
+## Current Focus
 
-## Next actions
-- Commit the new playbook file to the workspace repo.
+Designing and refining the OpenClaw AI assistant architecture.
+
+Current work includes reviewing and improving system files:
+
+- IDENTITY.md
+- SOUL.md
+- AGENTS.md
+- TOOLS.md
+- SECURITY.md
+- THINKING.md
+- MEMORY.md
+- USER.md
+
+Goal: build a secure, high-quality AI assistant.
+
+---
+
+## Decisions / Preferences (Active)
+
+Key system priorities:
+
+- security-first architecture
+- no external APIs
+- no autonomous internet access
+- structured reasoning
+- efficient responses
+
+---
+
+## Next Actions
+
+- Review system files for improvements
+- ensure consistency across agent configuration
+- refine workspace structure if needed

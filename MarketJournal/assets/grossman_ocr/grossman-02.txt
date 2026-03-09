@@ -1,0 +1,103 @@
+On the Impossibility of Informationally
+Efficient Markets
+
+By SANFORD J. GROSSMAN AND JOSEPH E. STIGLITZ*
+
+If competitive equilibrium is defined as a
+situation in which prices are such that all
+arbitrage profits are eliminated, is it possible
+that a competitive economy always be in
+equilibrium? Clearly not, for then those who
+arbitrage make no (private) return from
+their (privately) costly activity. Hence the
+assumptions that all markets, including that
+for information, are always in equilibrium
+and always perfectly arbitraged are incon-
+sistent when arbitrage is costly.
+
+We propose here a model in which there
+is an equilibrium degree of disequilibrium:
+prices reflect the information of informed
+individuals (arbitrageurs) but only partially,
+so that those who expend resources to ob-
+tain information do receive compensation.
+How informative the price system is de-
+pends on the number of individuals who are
+informed; but the number of individuals
+who are informed is itself an endogenous
+variable in the model.
+
+The model is the simplest one in which
+prices perform a well-articulated role in con-
+veying information from the informed to the
+uninformed. When informed individuals ob-
+serve information that the return to a secur-
+ity is going to be high, they bid its price up,
+and conversely when they observe informa-
+tion that the return is going to be low. Thus
+the price system makes publicly available
+the information obtained by informed indi-
+viduals to the uniformed. In general, how-
+ever, it does this imperfectly; this is perhaps
+lucky, for were it to do it perfectly, an
+equilibrium would not exist.
+
+In the introduction, we shall discuss the
+general methodology and present some con-
+
+*University of Pennsylvania and Princeton Univer-
+sity, respectively. Research support under National Sci-
+ence Foundation grants SOC76-18771 and SOC77-
+15980 is gratefully acknowledged. This is a revised
+version of a paper presented at the Econometric
+Society meetings, Winter 1975, at Dallas, Texas.
+
+393
+
+jectures concerning certain properties of the
+equilibrium. The remaining enalytic sections
+of the paper are devoted to analyzing in
+detail an important example of our general
+model, in which our conjectures concerning
+the nature of the equilibrium can be shown
+to be correct. We conclude with a discussion
+of the implications of our approach and
+results, with particular emphasis on the rela-
+tionship of our results to the literature on
+“efficient capital markets.”
+
+I. The Model
+
+Our model can be viewed as an extension
+of the noisy rational expectations model in-
+troduced by Robert Lucas and applied to
+the study of information flows between
+traders by Jerry Green (1973); Grossman
+(1975, 1976, 1978); and Richard Kihlstrom
+and Leonard Mirman. There are two assets:
+a safe asset yielding a return R, and a risky
+asset, the return to which, u, varies ran-
+domly from period to period. The variable u
+consists of two parts,
+
+(1)
+
+where @ is observable at a cost c, and ¢ is
+unobservable.'! Both @ and ¢ are random
+variables. There are two types of individu-
+als, those who observe @ (informed traders),
+and those who observe only price (unin-
+formed traders). In our simple model, all
+individuals are, ex ante, identical; whether
+they are informed or uninformed just de-
+pends on whether they have spent c to ob-
+tain information. Informed traders’ de-
+mands will depend on @ and the price of the
+risky asset P. Uninformed traders’ demands
+
+u=O+e
+
+‘An alternative interpretation is that @ is a “mea-
+surement” of u with error. The mathematics of this
+alternative interpretation differ slightly, but the results
+are identical.

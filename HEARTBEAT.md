@@ -1,5 +1,14 @@
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+Use heartbeat for lightweight maintenance.
 
-# Add tasks below when you want the agent to check something periodically.
+Tasks:
+
+1. Review recent memory files
+2. Update MEMORY.md if needed
+3. Check system files remain unchanged
+4. Look for unfinished work
+
+If nothing requires attention:
+
+HEARTBEAT_OK

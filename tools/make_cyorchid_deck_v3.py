@@ -34,7 +34,7 @@ from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "麒悅"
+BASE = ROOT / "Projects" / "麒悅"
 OUTDIR = BASE / "DeckV3"
 OUTDIR.mkdir(parents=True, exist_ok=True)
 

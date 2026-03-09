@@ -1,0 +1,117 @@
+VOL. 70 NO. 3
+
+mative, but at a positive value of c, say ¢, all
+traders are informed. From (14) and (15) é
+
+satisfies
+ew Var(u*|0) =1
+Var(u*|w
+
+2) From (19a) as the precision of the
+informed trader’s information n goes to in-
+finity, i.e. 020 and oj 02, o2 held fixed,
+the price system becomes perfectly informa-
+tive. Moreover the percentage of informed
+traders goes to zero! This can be seen from
+(18) and (15). That is, as 670, nm/(1+m)
+must stay constant for equilibrium to be
+maintained. But from (19b) and (17), m
+falls as 02 goes to zero. Therefore nm must
+fall, but nm must not go to zero or else nm/
+(1+m) would not be constant. From (16)
+nm=(a/h)’o20?, and thus A must go to zero
+to prevent nm from going to zero as 07-0.
+
+3) From (16a) and (19a) it is clear that
+as noise of goes to zero, the percentage of
+informed traders goes to zero. Further, since
+(19a) implies that m does not change as o2
+changes, the informativeness of the price
+system is unchanged as 02-0.
+
+Assume that c is small enough so that it ts
+worthwhile for a trader to become informed
+when no other trader is informed. Then if
+o2=0 or o?=0, there exists no competitive
+equilibrium. To see this, note that equi-
+librium requires either that the ratio of ex-
+pected utility of the informed to the unin-
+formed be equal to unity, or that if the ratio
+is larger than unity, no one be informed. We
+shall show that when no one is informed, it
+is less than unity so that A=O cannot be an
+equilibrium; but when A>0, it is greater
+than unity. That is, if o2=0 or o?=0, the
+ratio of expected utilities is not a continuous
+function of A at A=0.
+
+This follows immediately from observing
+that at A=0, Var(u*|wo)= Varu*, and thus
+by (14)
+
+EV(we 2
+(20) (Wi) ese |_ 8
+EV(W3;) 0; + 05
+1
+as l+n
+
+GROSSMAN AND STIGLITZ: EFFICIENT MARKETS 401
+
+while if A>0, by (18)
+EV(Wh) 1
+EV(Wi) | m
+( bi) It+a7
+
+But if o2=0 or o2=0, then m=0, nm=0 for
+A> 0, and hence
+
+EV(Wi)
+im ——~—~ =
+0 EV(Wei)
+
+ac
+
+(21)
+
+It immediately follows that
+
+THEOREM 5: (a) Jf there is no noise (o2=
+0), an overall equilibrium does not exist if
+(and only if) e*<V1+n. (b) If information
+is perfect (02 =0,n= 00), there never exists an
+equilibrium.
+
+PROOF:
+
+(a) If e*<V1+n, then by (20) and (21),
+y(A) is discontinuous at A=0; A=0 is not an
+equilibrium since by (20) y(0)<1; A>0 is
+not an equilibrium since by (21) y(A)>1.
+
+(b) If o?=0 and o7=o0? so that informa-
+tion is perfect, then for A>0, nm=0 by (16)
+and hence y(A)> 1 by (21). From (20) y(0)=
+0<il.
+
+If there is no noise and some traders be-
+come informed, then all their information is
+transmitted to the uninformed by the price
+system. Hence each informed trader acting
+as a price taker thinks the informativeness
+of the price system will be unchanged if he
+becomes uninformed, so A>0O is not an
+equilibrium. On the other hand, if no
+traders are informed, then each uninformed
+trader learns nothing from the price system,
+and thus he has a desire to become in-
+formed (if e%<(1+n)'/). Similarly if the
+informed traders get perfect information,
+then their demands are very sensitive to
+their information, so that the market-clear-
+ing price becomes very sensitive to their
+information and thus reveals @ to the unin-
+formed. Hence all traders desire to be un-
+informed. But if all traders are uninformed,
+each trader can eliminate the risk of his
+portfolio by the purchase of information, so
+each trader desires to be infcrmed.
