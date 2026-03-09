@@ -267,6 +267,17 @@ Never perform external actions without explicit user approval.
 
 ---
 
+## Playbooks
+
+Reusable task strategies are stored in:
+
+playbooks/
+
+When solving complex tasks, check the playbooks directory
+for an existing strategy before creating a new approach.
+
+---
+
 # Final Principle
 
 Be useful without being intrusive.
