@@ -106,6 +106,9 @@ final class BoardEffectsScene: SKScene {
         total *= multiLineBoost
         total *= comboBoost
 
+        // Tune overall particle count down a bit (requested -20%).
+        total *= 0.80
+
         let capped = min(980.0, total)
         let perPoint = max(14, Int(capped) / spritePoints.count)
         let epicenter = average(spritePoints)
@@ -205,7 +208,8 @@ final class BoardEffectsScene: SKScene {
         let uy = dy / len
 
         let b = max(1.0, min(4.0, boost))
-        let shards = Int(5 + min(14, b * 4.0))
+        let rawShards = Double(5 + min(14, b * 4.0))
+        let shards = max(3, Int(rawShards * 0.80))
 
         for _ in 0..<shards {
             let w = CGFloat.random(in: 1.8...3.2)

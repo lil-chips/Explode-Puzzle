@@ -456,7 +456,7 @@ struct ContentView: View {
         let side = min(gridRect.width, gridRect.height)
         let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
         let step = cellSide + gridSpacing
-        let yNudge = step * 0.5
+        let yNudge = step * 0.75
 
         return CGPoint(x: gridRect.midX, y: gridRect.midY + yNudge)
     }
@@ -471,8 +471,8 @@ struct ContentView: View {
         let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
         let step = cellSide + gridSpacing
 
-        // Nudge effects downward on screen by ~50% of a cell (tuning).
-        let yNudge = step * 0.5
+        // Nudge effects downward on screen by ~75% of a cell (tuning).
+        let yNudge = step * 0.75
 
         // BoardView draws y=0 at the top (VStack order).
         return points.map { p in
