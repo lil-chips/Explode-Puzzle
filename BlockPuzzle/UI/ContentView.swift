@@ -24,8 +24,9 @@ struct ContentView: View {
         _fastStartDate = State(initialValue: (mode == .fast ? Date() : nil))
     }
 
-    // Best score persistence.
-    @AppStorage("blockpuzzle.bestScore") private var bestScore: Int = 0
+    private var bestScore: Int {
+        BestScoreStore.value(mode: mode, boardSize: boardSize)
+    }
 
     // Board frame in global coordinates (for hit-testing finger location).
     @State private var boardFrame: CGRect = .zero
@@ -97,6 +98,12 @@ struct ContentView: View {
             score: 0
         )
         gameState.refillPiecesIfNeeded(random: &rng)
+    }
+
+    private func updateBestScoreIfNeeded(_ score: Int) {
+        if score > bestScore {
+            BestScoreStore.set(score, mode: mode, boardSize: boardSize)
+        }
     }
 
     private var ghostOrigin: BlockPuzzlePoint? {
@@ -269,7 +276,7 @@ struct ContentView: View {
         }
 
         gameState.refillPiecesIfNeeded(random: &rng)
-        if gameState.score > bestScore { bestScore = gameState.score }
+        updateBestScoreIfNeeded(gameState.score)
 
         if gameState.isGameOver() {
             gameOverTitle = "No Moves"
@@ -419,9 +426,7 @@ struct ContentView: View {
                 endTotalScore = gameState.score + endComboBonus + endCleanBonus
 
                 // Keep bestScore consistent with what we show as final.
-                if endTotalScore > bestScore {
-                    bestScore = endTotalScore
-                }
+                updateBestScoreIfNeeded(endTotalScore)
 
                 showGameOver = true
             }

@@ -1,7 +1,10 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @AppStorage("blockpuzzle.bestScore") private var bestScore: Int = 0
+    private let classic7 = BestScoreStore.value(mode: .classic, boardSize: .seven)
+    private let classic10 = BestScoreStore.value(mode: .classic, boardSize: .ten)
+    private let fast7 = BestScoreStore.value(mode: .fast, boardSize: .seven)
+    private let fast10 = BestScoreStore.value(mode: .fast, boardSize: .ten)
 
     var body: some View {
         NavigationStack {
@@ -61,17 +64,17 @@ struct MainMenuView: View {
     }
 
     private var bestScoreCard: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 2) {
-                Text("BEST SCORE")
-                    .font(.system(size: 11, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.7))
-                Text("\(bestScore)")
-                    .font(.system(size: 22, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
+        VStack(alignment: .leading, spacing: 10) {
+            Text("BEST SCORES")
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(0.7))
+
+            HStack(spacing: 12) {
+                bestColumn(title: "Classic", seven: classic7, ten: classic10)
+                bestColumn(title: "Fast", seven: fast7, ten: fast10)
             }
-            Spacer()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(14)
         .background(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
@@ -81,6 +84,21 @@ struct MainMenuView: View {
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .stroke(.white.opacity(0.14), lineWidth: 1)
         )
+    }
+
+    private func bestColumn(title: String, seven: Int, ten: Int) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.system(size: 16, weight: .heavy, design: .rounded))
+                .foregroundStyle(.white)
+            Text("7×7  \(seven)")
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(0.82))
+            Text("10×10  \(ten)")
+                .font(.system(size: 12, weight: .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(0.82))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
