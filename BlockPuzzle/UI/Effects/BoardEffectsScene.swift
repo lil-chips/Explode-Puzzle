@@ -11,6 +11,13 @@ final class BoardEffectsScene: SKScene {
     private let flashNode = SKSpriteNode(color: .white, size: .zero)
     private static var _glowTex: SKTexture? = nil
 
+    // SwiftUI/UIView coordinate space has origin at top-left (y down).
+    // SpriteKit scene space has origin at bottom-left (y up).
+    // Convert incoming points (from SwiftUI) into SpriteKit space.
+    private func toSprite(_ p: CGPoint) -> CGPoint {
+        CGPoint(x: p.x, y: size.height - p.y)
+    }
+
     override func didMove(to view: SKView) {
         backgroundColor = .clear
         anchorPoint = CGPoint(x: 0, y: 0)
@@ -42,7 +49,7 @@ final class BoardEffectsScene: SKScene {
     func ring(at point: CGPoint, strength: CGFloat, thick: Bool = false) {
         let s = max(0.4, min(2.2, strength))
         let node = SKShapeNode(circleOfRadius: 10)
-        node.position = point
+        node.position = toSprite(point)
         node.strokeColor = UIColor.white.withAlphaComponent(0.62)
         node.lineWidth = thick ? 3.8 : 2.2
         node.fillColor = .clear
@@ -61,7 +68,7 @@ final class BoardEffectsScene: SKScene {
         let s = max(0.4, min(2.2, strength))
         let tex = glowTexture()
         let sprite = SKSpriteNode(texture: tex)
-        sprite.position = point
+        sprite.position = toSprite(point)
         sprite.zPosition = 55
         sprite.alpha = 0
         sprite.setScale(0.32)
@@ -78,6 +85,7 @@ final class BoardEffectsScene: SKScene {
 
     func burst(at points: [CGPoint], colors: [UIColor], combo: Int, linesCleared: Int) {
         guard !points.isEmpty else { return }
+        let spritePoints = points.map(toSprite)
 
         let lc = max(1, linesCleared)
         let multiLineBoost = (lc >= 2) ? 2.2 : 1.0
@@ -99,10 +107,10 @@ final class BoardEffectsScene: SKScene {
         total *= comboBoost
 
         let capped = min(980.0, total)
-        let perPoint = max(14, Int(capped) / points.count)
-        let epicenter = average(points)
+        let perPoint = max(14, Int(capped) / spritePoints.count)
+        let epicenter = average(spritePoints)
 
-        for (i, p) in points.enumerated() {
+        for (i, p) in spritePoints.enumerated() {
             let count = (i == 0) ? perPoint + (Int(capped) % points.count) : perPoint
             spawnConfetti(at: p, count: count, palette: colors, comboBoost: comboBoost)
             // Add "block shards" that fly outwards from the cleared line.

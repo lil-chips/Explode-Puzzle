@@ -18,7 +18,10 @@ struct ContentView: View {
         self.boardSize = boardSize
         self.fastTime = fastTime
         _gameState = State(initialValue: GameState(board: Board(width: boardSize.rawValue, height: boardSize.rawValue), currentPieces: [], score: 0))
-        _remainingSeconds = State(initialValue: (mode == .fast ? (fastTime?.seconds ?? 0) : 0))
+        let limit = (mode == .fast ? (fastTime?.seconds ?? 0) : 0)
+        _remainingSeconds = State(initialValue: limit)
+        _fastTimeLimitSeconds = State(initialValue: limit)
+        _fastStartDate = State(initialValue: (mode == .fast ? Date() : nil))
     }
 
     // Best score persistence.
@@ -46,6 +49,8 @@ struct ContentView: View {
 
     // Fast mode timer.
     @State private var remainingSeconds: Int
+    @State private var fastStartDate: Date? = nil
+    @State private var fastTimeLimitSeconds: Int = 0
 
     // Fast mode combo + popup.
     @State private var combo: Int = 0
@@ -81,7 +86,9 @@ struct ContentView: View {
         endTotalScore = 0
 
         if mode == .fast {
-            remainingSeconds = fastTime?.seconds ?? 60
+            fastTimeLimitSeconds = fastTime?.seconds ?? 60
+            remainingSeconds = fastTimeLimitSeconds
+            fastStartDate = Date()
         }
 
         gameState = GameState(
@@ -391,9 +398,12 @@ struct ContentView: View {
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
             guard mode == .fast else { return }
             guard !showGameOver else { return }
-            guard remainingSeconds > 0 else { return }
+            guard fastTimeLimitSeconds > 0 else { return }
+            guard let start = fastStartDate else { return }
 
-            remainingSeconds -= 1
+            let elapsed = Int(Date().timeIntervalSince(start))
+            remainingSeconds = max(0, fastTimeLimitSeconds - elapsed)
+
             if remainingSeconds <= 0 {
                 gameOverTitle = "Time Up"
 
