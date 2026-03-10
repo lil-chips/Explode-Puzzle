@@ -50,10 +50,18 @@ struct BoardView: View {
 
             // Use the larger dimension to size cells so the board always fits inside a square.
             let maxDim = max(w, h)
-            let cellSide = (side - gridSpacing * CGFloat(maxDim - 1)) / CGFloat(maxDim)
+            // Guard against transient layout states (side=0) and small containers.
+            let rawCellSide = (side - gridSpacing * CGFloat(maxDim - 1)) / CGFloat(maxDim)
+            let cellSide = max(0, rawCellSide)
 
-            let gridWidth = cellSide * CGFloat(w) + gridSpacing * CGFloat(max(0, w - 1))
-            let gridHeight = cellSide * CGFloat(h) + gridSpacing * CGFloat(max(0, h - 1))
+            let gridWidth = max(0, cellSide * CGFloat(w) + gridSpacing * CGFloat(max(0, w - 1)))
+            let gridHeight = max(0, cellSide * CGFloat(h) + gridSpacing * CGFloat(max(0, h - 1)))
+
+            if cellSide == 0 {
+                // Avoid invalid/negative frame dimensions while SwiftUI is sizing.
+                Color.clear
+                    .preference(key: BoardGridRectPreferenceKey.self, value: .zero)
+            } else {
 
             ZStack {
                 VStack(spacing: gridSpacing) {
@@ -87,6 +95,7 @@ struct BoardView: View {
                         .preference(key: BoardGridRectPreferenceKey.self, value: g.frame(in: .local))
                 }
             )
+            }
         }
         .aspectRatio(1, contentMode: .fit)
         .accessibilityIdentifier("board")
