@@ -107,7 +107,7 @@ final class BoardEffectsScene: SKScene {
         total *= comboBoost
 
         // Tune overall particle count down a bit (requested -20% again).
-        total *= 0.64
+        total *= 0.512
 
         let capped = min(980.0, total)
         let perPoint = max(14, Int(capped) / spritePoints.count)
@@ -209,7 +209,7 @@ final class BoardEffectsScene: SKScene {
 
         let b = max(1.0, min(4.0, boost))
         let rawShards = Double(5 + min(14, b * 4.0))
-        let shards = max(3, Int(rawShards * 0.64))
+        let shards = max(3, Int(rawShards * 0.512))
 
         for _ in 0..<shards {
             let w = CGFloat.random(in: 1.8...3.2)
