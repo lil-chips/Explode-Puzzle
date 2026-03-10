@@ -449,7 +449,16 @@ struct ContentView: View {
 
     private func boardCenterInOverlay() -> CGPoint? {
         guard gridRect != .zero else { return nil }
-        return CGPoint(x: gridRect.midX, y: gridRect.midY)
+
+        // Nudge effects downward on screen by ~50% of a cell (tuning).
+        let gridSpacing: CGFloat = 2
+        let w = gameState.board.width
+        let side = min(gridRect.width, gridRect.height)
+        let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
+        let step = cellSide + gridSpacing
+        let yNudge = step * 0.5
+
+        return CGPoint(x: gridRect.midX, y: gridRect.midY + yNudge)
     }
 
     private func clearedCellCentersInOverlay(points: [BlockPuzzlePoint]) -> [CGPoint] {
@@ -462,11 +471,14 @@ struct ContentView: View {
         let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
         let step = cellSide + gridSpacing
 
+        // Nudge effects downward on screen by ~50% of a cell (tuning).
+        let yNudge = step * 0.5
+
         // BoardView draws y=0 at the top (VStack order).
         return points.map { p in
             CGPoint(
                 x: gridRect.minX + (CGFloat(p.x) + 0.5) * step,
-                y: gridRect.minY + (CGFloat(p.y) + 0.5) * step
+                y: gridRect.minY + (CGFloat(p.y) + 0.5) * step + yNudge
             )
         }
     }
