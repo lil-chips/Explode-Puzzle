@@ -15,12 +15,16 @@ final class BoardEffectsController: ObservableObject {
         scene?.setCanvasSize(size)
     }
 
-    func burst(at points: [CGPoint], colors: [Color], combo: Int) {
-        scene?.burst(at: points, colors: colors.map { UIColor($0) }, combo: combo)
+    func burst(at points: [CGPoint], colors: [Color], combo: Int, linesCleared: Int) {
+        scene?.burst(at: points, colors: colors.map { UIColor($0) }, combo: combo, linesCleared: linesCleared)
     }
 
-    func ring(at point: CGPoint, strength: CGFloat) {
-        scene?.ring(at: point, strength: strength)
+    func glowWave(at point: CGPoint, strength: CGFloat) {
+        scene?.glowWave(at: point, strength: strength)
+    }
+
+    func ring(at point: CGPoint, strength: CGFloat, thick: Bool = false) {
+        scene?.ring(at: point, strength: strength, thick: thick)
     }
 
     func flash(strength: CGFloat) {

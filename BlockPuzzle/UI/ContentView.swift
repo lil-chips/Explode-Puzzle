@@ -121,6 +121,150 @@ struct ContentView: View {
         return (cells: cells, color: pieceColor(for: idx), valid: valid)
     }
 
+    private var boardSection: some View {
+        ZStack {
+            BoardView(
+                gameState: gameState,
+                ghostCells: ghost?.cells,
+                ghostColor: ghost?.color,
+                ghostValid: ghost?.valid ?? true,
+                clearOverlay: clearOverlay,
+                clearFadeOut: clearFadeOut
+            )
+            .animation(.spring(response: 0.18, dampingFraction: 0.65), value: boardShake)
+            .offset(x: boardShake)
+
+            BoardEffectsOverlayView(controller: effects)
+                .allowsHitTesting(false)
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Theme.Wood.frameFill)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(Theme.Wood.frameStroke, lineWidth: 3)
+        )
+        .padding(.horizontal, 20)
+        .background(
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear { boardFrame = geo.frame(in: .global) }
+                    .onChange(of: geo.frame(in: .global)) { _, newValue in boardFrame = newValue }
+            }
+        )
+    }
+
+    private var pieceTray: some View {
+        HStack(spacing: 12) {
+            ForEach(Array(gameState.currentPieces.enumerated()), id: \.offset) { index, piece in
+                PieceView(piece: piece, fillColor: pieceColor(for: index))
+                    .frame(width: 86, height: 86)
+                    .padding(10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(Theme.Wood.slotFill)
+                            .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .stroke(Theme.Wood.frameStroke.opacity(0.55), lineWidth: 2)
+                    )
+                    .gesture(
+                        DragGesture(minimumDistance: 0, coordinateSpace: .global)
+                            .onChanged { value in
+                                guard !showGameOver else { return }
+                                draggingPieceIndex = index
+                                dragLocation = value.location
+                            }
+                            .onEnded { _ in
+                                defer {
+                                    draggingPieceIndex = nil
+                                    dragLocation = nil
+                                }
+
+                                guard !showGameOver, let origin = ghostOrigin else { return }
+                                handleDrop(index: index, origin: origin)
+                            }
+                    )
+            }
+        }
+        .padding(.horizontal, 20)
+    }
+
+    private func handleDrop(index: Int, origin: BlockPuzzlePoint) {
+        guard let result = gameState.tryPlacePiece(
+            at: index,
+            origin: origin,
+            colorIndex: index % piecePalette.count
+        ) else { return }
+
+        let linesCleared = result.rowsCleared + result.colsCleared
+
+        if mode == .fast {
+            if linesCleared > 0 {
+                combo += 1
+                let extra = result.clearBonus * max(0, combo - 1)
+                if extra > 0 { gameState.score += extra }
+
+                var parts: [String] = []
+                parts.append("+\(result.clearBonus + extra)")
+                if combo > 1 { parts.append("(x\(combo))") }
+                scorePopupText = parts.joined(separator: " ")
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                    withAnimation(.easeOut(duration: 0.18)) {
+                        scorePopupText = nil
+                    }
+                }
+            } else {
+                combo = 0
+            }
+        }
+
+        if !result.clearedOverlay.isEmpty {
+            clearOverlay = result.clearedOverlay
+            clearFadeOut = false
+
+            let impactStyle: UIImpactFeedbackGenerator.FeedbackStyle = (linesCleared >= 2) ? .heavy : .medium
+            UIImpactFeedbackGenerator(style: impactStyle).impactOccurred()
+
+            let flashStrength = CGFloat(min(1.0, (Double(linesCleared) * 0.45) + (Double(combo) * 0.10)))
+            effects.flash(strength: flashStrength)
+            if let center = boardCenterInOverlay() {
+                effects.glowWave(at: center, strength: CGFloat(0.9 + 0.18 * Double(combo) + 0.35 * Double(max(0, linesCleared - 1))))
+                effects.ring(at: center, strength: CGFloat(0.9 + 0.25 * Double(combo)), thick: linesCleared >= 2)
+            }
+
+            let pts = clearedCellCentersInOverlay(points: Array(result.clearedOverlay.keys))
+            let palette = Theme.Wood.blockPalette
+            let keyedColors = Array(result.clearedOverlay.values).map { palette[$0 % palette.count] }
+            effects.burst(at: pts, colors: keyedColors, combo: combo, linesCleared: linesCleared)
+
+            let shakeA: CGFloat = linesCleared >= 2 ? 16 : 10
+            let shakeB: CGFloat = linesCleared >= 2 ? -10 : -6
+            boardShake = shakeA
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) { boardShake = shakeB }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) { boardShake = 0 }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) { clearFadeOut = true }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                clearOverlay = [:]
+                clearFadeOut = false
+            }
+        }
+
+        gameState.refillPiecesIfNeeded(random: &rng)
+        if gameState.score > bestScore { bestScore = gameState.score }
+
+        if gameState.isGameOver() {
+            gameOverTitle = "No Moves"
+            finalComboAtEnd = combo
+            showGameOver = true
+        }
+    }
+
     var body: some View {
         ZStack {
             LinearGradient(
@@ -184,161 +328,9 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 2)
 
-                ZStack {
-                    BoardView(
-                        gameState: gameState,
-                        ghostCells: ghost?.cells,
-                        ghostColor: ghost?.color,
-                        ghostValid: ghost?.valid ?? true,
-                        clearOverlay: clearOverlay,
-                        clearFadeOut: clearFadeOut
-                    )
-                    .animation(.spring(response: 0.18, dampingFraction: 0.65), value: boardShake)
-                    .offset(x: boardShake)
+                boardSection
 
-                    // SpriteKit overlay confined to board area.
-                    BoardEffectsOverlayView(controller: effects)
-                        .allowsHitTesting(false)
-                }
-                .padding(16)
-                .background(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .fill(Theme.Wood.frameFill)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .stroke(Theme.Wood.frameStroke, lineWidth: 3)
-                )
-                .padding(.horizontal, 20)
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { boardFrame = geo.frame(in: .global) }
-                            .onChange(of: geo.frame(in: .global)) { _, newValue in boardFrame = newValue }
-                    }
-                )
-
-                // Piece tray
-                HStack(spacing: 12) {
-                    ForEach(Array(gameState.currentPieces.enumerated()), id: \.offset) { index, piece in
-                        PieceView(piece: piece, fillColor: pieceColor(for: index))
-                            .frame(width: 86, height: 86)
-                            .padding(10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .fill(Theme.Wood.slotFill)
-                                    .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .stroke(Theme.Wood.frameStroke.opacity(0.55), lineWidth: 2)
-                            )
-                            .gesture(
-                                DragGesture(minimumDistance: 0, coordinateSpace: .global)
-                                    .onChanged { value in
-                                        guard !showGameOver else { return }
-                                        draggingPieceIndex = index
-                                        dragLocation = value.location
-                                    }
-                                    .onEnded { _ in
-                                        defer {
-                                            draggingPieceIndex = nil
-                                            dragLocation = nil
-                                        }
-
-                                        guard !showGameOver, let origin = ghostOrigin else { return }
-
-                                        if let result = gameState.tryPlacePiece(
-                                            at: index,
-                                            origin: origin,
-                                            colorIndex: index % piecePalette.count
-                                        ) {
-                                            let linesCleared = result.rowsCleared + result.colsCleared
-
-                                            if mode == .fast {
-                                                if linesCleared > 0 {
-                                                    combo += 1
-
-                                                    // Combo multiplier (Option A): multiply clear bonus only.
-                                                    // GameState already added `clearBonus` once; add extra bonus for xN.
-                                                    let extra = result.clearBonus * max(0, combo - 1)
-                                                    if extra > 0 {
-                                                        gameState.score += extra
-                                                    }
-
-                                                    var parts: [String] = []
-                                                    parts.append("+\(result.clearBonus + extra)")
-                                                    if combo > 1 { parts.append("(x\(combo))") }
-                                                    scorePopupText = parts.joined(separator: " ")
-
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                                                        withAnimation(.easeOut(duration: 0.18)) {
-                                                            scorePopupText = nil
-                                                        }
-                                                    }
-                                                } else {
-                                                    combo = 0
-                                                }
-                                            }
-
-                                            // Clear animation + SpriteKit explode (board-area only).
-                                            if !result.clearedOverlay.isEmpty {
-                                                clearOverlay = result.clearedOverlay
-                                                clearFadeOut = false
-
-                                                // Haptics: bigger clear => stronger impact.
-                                                let impactStyle: UIImpactFeedbackGenerator.FeedbackStyle = (linesCleared >= 2) ? .heavy : .medium
-                                                UIImpactFeedbackGenerator(style: impactStyle).impactOccurred()
-
-                                                // Flash + ring at board center.
-                                                effects.flash(strength: CGFloat(min(1.0, Double(linesCleared) / 3.0)))
-                                                if let center = boardCenterInOverlay() {
-                                                    effects.ring(at: center, strength: CGFloat(0.9 + 0.25 * Double(combo)))
-                                                }
-
-                                                // Confetti burst from cleared cells.
-                                                let pts = clearedCellCentersInOverlay(points: Array(result.clearedOverlay.keys))
-                                                let colors = pts.indices.map { _ in Color.white } // fallback
-                                                // Better: use palette index per point.
-                                                let palette = Theme.Wood.blockPalette
-                                                let keyedColors = Array(result.clearedOverlay.values).map { palette[$0 % palette.count] }
-                                                effects.burst(at: pts, colors: keyedColors.isEmpty ? colors : keyedColors, combo: combo)
-
-                                                // SwiftUI shake.
-                                                boardShake = 10
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
-                                                    boardShake = -6
-                                                }
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
-                                                    boardShake = 0
-                                                }
-
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
-                                                    clearFadeOut = true
-                                                }
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                                                    clearOverlay = [:]
-                                                    clearFadeOut = false
-                                                }
-                                            }
-
-                                            gameState.refillPiecesIfNeeded(random: &rng)
-
-                                            if gameState.score > bestScore {
-                                                bestScore = gameState.score
-                                            }
-
-                                            if gameState.isGameOver() {
-                                                gameOverTitle = "No Moves"
-                                                finalComboAtEnd = combo
-                                                showGameOver = true
-                                            }
-                                        }
-                                    }
-                            )
-                    }
-                }
-                .padding(.horizontal, 20)
+                pieceTray
 
                 Button {
                     startNewGame()
