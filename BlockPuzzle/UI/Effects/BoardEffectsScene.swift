@@ -1,6 +1,12 @@
 import SpriteKit
 import UIKit
 
+private extension Comparable {
+    func clamped(to range: ClosedRange<Self>) -> Self {
+        min(max(self, range.lowerBound), range.upperBound)
+    }
+}
+
 final class BoardEffectsScene: SKScene {
     private let flashNode = SKSpriteNode(color: .white, size: .zero)
     private static var _glowTex: SKTexture? = nil
@@ -25,8 +31,10 @@ final class BoardEffectsScene: SKScene {
         let s = max(0, min(1, strength))
         flashNode.removeAllActions()
         flashNode.alpha = 0
-        let up = SKAction.fadeAlpha(to: 0.18 + 0.22 * s, duration: 0.05)
-        let down = SKAction.fadeOut(withDuration: 0.10)
+        // Brighter, punchier flash for "Explode".
+        let peak = 0.26 + 0.38 * s
+        let up = SKAction.fadeAlpha(to: peak, duration: 0.04)
+        let down = SKAction.fadeOut(withDuration: 0.12)
         flashNode.run(.sequence([up, down]))
     }
 
@@ -66,27 +74,37 @@ final class BoardEffectsScene: SKScene {
         guard !points.isEmpty else { return }
 
         let lc = max(1, linesCleared)
-        let multiLineBoost = (lc >= 2) ? 1.8 : 1.0
+        let multiLineBoost = (lc >= 2) ? 2.2 : 1.0
+
+        // Combo should feel "超誇張" when high.
+        // Use a gentle exponential curve after combo >= 4.
+        let c = max(0, combo)
+        let comboBoost: Double = {
+            if c <= 1 { return 1.0 }
+            if c <= 3 { return 1.0 + 0.35 * Double(c - 1) } // 1.0, 1.35, 1.70
+            return 1.70 + pow(1.22, Double(c - 3)) * 0.95       // ramps fast
+        }()
 
         // Overall intensity scales with combo + multi-line clears.
-        let base = 28
-        let extra = min(180, combo * 26)
-        var totalParticles = Double(base + extra + points.count * 6)
-        totalParticles *= multiLineBoost
-        let capped = min(340.0, totalParticles)
+        let base = 36
+        let extra = min(380, c * 44)
+        var total = Double(base + extra + points.count * 8)
+        total *= multiLineBoost
+        total *= comboBoost
 
-        let perPoint = max(8, Int(capped) / points.count)
+        let capped = min(980.0, total)
+        let perPoint = max(14, Int(capped) / points.count)
         let epicenter = average(points)
 
         for (i, p) in points.enumerated() {
             let count = (i == 0) ? perPoint + (Int(capped) % points.count) : perPoint
-            spawnConfetti(at: p, count: count, palette: colors)
+            spawnConfetti(at: p, count: count, palette: colors, comboBoost: comboBoost)
             // Add "block shards" that fly outwards from the cleared line.
-            spawnShards(at: p, awayFrom: epicenter, palette: colors, boost: multiLineBoost)
+            spawnShards(at: p, awayFrom: epicenter, palette: colors, boost: multiLineBoost * comboBoost)
         }
     }
 
-    private func spawnConfetti(at point: CGPoint, count: Int, palette: [UIColor]) {
+    private func spawnConfetti(at point: CGPoint, count: Int, palette: [UIColor], comboBoost: Double) {
         // Brighter palette for "Explode" feel.
         let base = palette.isEmpty
             ? [UIColor.systemPink, .systemTeal, .systemYellow, .systemOrange, .systemPurple]
@@ -128,15 +146,19 @@ final class BoardEffectsScene: SKScene {
 
             // IMPORTANT: Keep the effect "above the cleared line" (no raining down).
             // We use action-based motion (no gravity) + fast fade.
-            let life = CGFloat.random(in: 0.45...0.85)
-            let dx = CGFloat.random(in: -90...90)
-            let dy = CGFloat.random(in: 60...190)
+            let cb = CGFloat(min(3.0, comboBoost))
+            let life = CGFloat.random(in: (0.40 - 0.05 * cb)...(0.78 - 0.06 * cb)).clamped(to: 0.22...0.85)
+
+            // Faster, more explosive velocity.
+            let dx = CGFloat.random(in: (-120 - 40 * cb)...(120 + 40 * cb))
+            let dy = CGFloat.random(in: (110 + 30 * cb)...(280 + 60 * cb))
+
             let drift = SKAction.moveBy(x: dx, y: dy, duration: TimeInterval(life))
             drift.timingMode = .easeOut
 
-            let spin = SKAction.rotate(byAngle: CGFloat.random(in: -3.5...3.5), duration: TimeInterval(life))
+            let spin = SKAction.rotate(byAngle: CGFloat.random(in: (-5.5 - 1.5 * cb)...(5.5 + 1.5 * cb)), duration: TimeInterval(life))
             let fade = SKAction.fadeOut(withDuration: TimeInterval(life))
-            let shrink = SKAction.scale(to: CGFloat.random(in: 0.65...0.9), duration: TimeInterval(life))
+            let shrink = SKAction.scale(to: CGFloat.random(in: 0.55...0.88), duration: TimeInterval(life))
 
             node.run(.sequence([
                 .group([drift, spin, fade, shrink]),
@@ -155,28 +177,32 @@ final class BoardEffectsScene: SKScene {
         let ux = dx / len
         let uy = dy / len
 
-        let shards = Int(3 + min(6, boost * 3))
+        let b = max(1.0, min(4.0, boost))
+        let shards = Int(5 + min(14, b * 4.0))
+
         for _ in 0..<shards {
-            let w = CGFloat.random(in: 2.0...3.5)
-            let h = CGFloat.random(in: 2.0...3.5)
+            let w = CGFloat.random(in: 1.8...3.2)
+            let h = CGFloat.random(in: 1.8...3.2)
             let node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 0.9)
             node.position = point
-            node.zPosition = 45
+            node.zPosition = 46
             node.fillColor = basePalette.randomElement()!.withAlphaComponent(0.98)
             node.strokeColor = .clear
             node.zRotation = CGFloat.random(in: 0...(.pi * 2))
             addChild(node)
 
-            let life = CGFloat.random(in: 0.35...0.65)
-            let speed = CGFloat.random(in: 80...220) * CGFloat(boost)
-            let side = CGFloat.random(in: -1.0...1.0) * 0.55
+            let life = CGFloat.random(in: 0.22...0.52)
+            let speed = CGFloat.random(in: 140...360) * CGFloat(b)
+            let side = CGFloat.random(in: -1.0...1.0) * 0.75
             let vx = (ux + side * (-uy)) * speed
             let vy = (uy + side * (ux)) * speed
+
             let drift = SKAction.moveBy(x: vx * life, y: vy * life, duration: TimeInterval(life))
             drift.timingMode = .easeOut
             let fade = SKAction.fadeOut(withDuration: TimeInterval(life))
-            let spin = SKAction.rotate(byAngle: CGFloat.random(in: -5...5), duration: TimeInterval(life))
-            node.run(.sequence([.group([drift, fade, spin]), .removeFromParent()]))
+            let spin = SKAction.rotate(byAngle: CGFloat.random(in: -9...9), duration: TimeInterval(life))
+            let shrink = SKAction.scale(to: CGFloat.random(in: 0.5...0.85), duration: TimeInterval(life))
+            node.run(.sequence([.group([drift, fade, spin, shrink]), .removeFromParent()]))
         }
     }
 
