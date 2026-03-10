@@ -64,14 +64,20 @@ struct MainMenuView: View {
     }
 
     private var bestScoreCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("BEST SCORES")
                 .font(.system(size: 11, weight: .bold, design: .rounded))
                 .foregroundStyle(.white.opacity(0.7))
 
-            HStack(spacing: 12) {
-                bestColumn(title: "Classic", seven: classic7, ten: classic10)
-                bestColumn(title: "Fast", seven: fast7, ten: fast10)
+            VStack(spacing: 10) {
+                HStack(spacing: 10) {
+                    bestTile(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05))
+                    bestTile(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06))
+                }
+                HStack(spacing: 10) {
+                    bestTile(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10))
+                    bestTile(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10))
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -86,19 +92,44 @@ struct MainMenuView: View {
         )
     }
 
-    private func bestColumn(title: String, seven: Int, ten: Int) -> some View {
+    private func bestTile(modeTitle: String, board: String, score: Int, accent: Color, glow: Color) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(title)
-                .font(.system(size: 16, weight: .heavy, design: .rounded))
+            HStack {
+                Text(modeTitle)
+                    .font(.system(size: 13, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.white)
+                Spacer()
+                Circle()
+                    .fill(accent)
+                    .frame(width: 8, height: 8)
+            }
+
+            Text(board)
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundStyle(.white.opacity(0.72))
+
+            Spacer(minLength: 0)
+
+            Text("\(score)")
+                .font(.system(size: 24, weight: .heavy, design: .rounded))
                 .foregroundStyle(.white)
-            Text("7×7  \(seven)")
-                .font(.system(size: 12, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.82))
-            Text("10×10  \(ten)")
-                .font(.system(size: 12, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.82))
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(12)
+        .frame(maxWidth: .infinity)
+        .frame(height: 92)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(accent)
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(glow)
+                        .blur(radius: 10)
+                )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(.white.opacity(0.14), lineWidth: 1)
+        )
     }
 
     private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
