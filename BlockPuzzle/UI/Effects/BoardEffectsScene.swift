@@ -61,39 +61,77 @@ final class BoardEffectsScene: SKScene {
     }
 
     private func spawnConfetti(at point: CGPoint, count: Int, palette: [UIColor]) {
-        let palette = palette.isEmpty ? [UIColor.systemPink, .systemTeal, .systemYellow, .systemOrange, .systemPurple] : palette
+        // Brighter palette for "Explode" feel.
+        let base = palette.isEmpty
+            ? [UIColor.systemPink, .systemTeal, .systemYellow, .systemOrange, .systemPurple]
+            : palette
+        let brightPalette = base + [UIColor.white.withAlphaComponent(0.95), UIColor.cyan.withAlphaComponent(0.95)]
 
         for _ in 0..<count {
-            let w = CGFloat.random(in: 3...7)
-            let h = CGFloat.random(in: 3...9)
-            let node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.2)
+            let shape = Int.random(in: 0...3)
+            let node: SKShapeNode
+
+            switch shape {
+            case 0:
+                // Confetti rectangle
+                let w = CGFloat.random(in: 3...7)
+                let h = CGFloat.random(in: 3...10)
+                node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.2)
+            case 1:
+                // Dot
+                let r = CGFloat.random(in: 2.2...4.2)
+                node = SKShapeNode(circleOfRadius: r)
+            case 2:
+                // Star (simple 5-point)
+                let r = CGFloat.random(in: 4...7)
+                node = SKShapeNode(path: starPath(radius: r, innerRadius: r * 0.45))
+            default:
+                // Ribbon (thin long strip)
+                let w = CGFloat.random(in: 2.2...3.6)
+                let h = CGFloat.random(in: 10...18)
+                node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.6)
+            }
+
             node.position = point
             node.zPosition = 40
-            node.fillColor = palette.randomElement()!.withAlphaComponent(0.95)
+            node.fillColor = brightPalette.randomElement()!.withAlphaComponent(0.98)
             node.strokeColor = .clear
             node.zRotation = CGFloat.random(in: 0...(.pi * 2))
 
-            let body = SKPhysicsBody(rectangleOf: CGSize(width: w, height: h))
-            body.affectedByGravity = true
-            body.allowsRotation = true
-            body.linearDamping = 1.8
-            body.angularDamping = 1.2
-            body.restitution = 0.22
-            body.friction = 0.2
-
-            // Upward burst + sideways spread.
-            let vx = CGFloat.random(in: -220...220)
-            let vy = CGFloat.random(in: 180...520)
-            body.velocity = CGVector(dx: vx, dy: vy)
-            body.angularVelocity = CGFloat.random(in: -8...8)
-
-            node.physicsBody = body
             addChild(node)
 
-            let life = CGFloat.random(in: 0.55...1.05)
+            // IMPORTANT: Keep the effect "above the cleared line" (no raining down).
+            // We use action-based motion (no gravity) + fast fade.
+            let life = CGFloat.random(in: 0.45...0.85)
+            let dx = CGFloat.random(in: -90...90)
+            let dy = CGFloat.random(in: 60...190)
+            let drift = SKAction.moveBy(x: dx, y: dy, duration: TimeInterval(life))
+            drift.timingMode = .easeOut
+
+            let spin = SKAction.rotate(byAngle: CGFloat.random(in: -3.5...3.5), duration: TimeInterval(life))
             let fade = SKAction.fadeOut(withDuration: TimeInterval(life))
-            let shrink = SKAction.scale(to: CGFloat.random(in: 0.55...0.85), duration: TimeInterval(life))
-            node.run(.sequence([.group([fade, shrink]), .removeFromParent()]))
+            let shrink = SKAction.scale(to: CGFloat.random(in: 0.65...0.9), duration: TimeInterval(life))
+
+            node.run(.sequence([
+                .group([drift, spin, fade, shrink]),
+                .removeFromParent()
+            ]))
         }
+    }
+
+    private func starPath(radius: CGFloat, innerRadius: CGFloat) -> CGPath {
+        let path = UIBezierPath()
+        let points = 5
+        let angle = CGFloat.pi * 2 / CGFloat(points * 2)
+        let center = CGPoint(x: 0, y: 0)
+
+        for i in 0..<(points * 2) {
+            let r = (i % 2 == 0) ? radius : innerRadius
+            let a = angle * CGFloat(i) - CGFloat.pi / 2
+            let p = CGPoint(x: center.x + cos(a) * r, y: center.y + sin(a) * r)
+            if i == 0 { path.move(to: p) } else { path.addLine(to: p) }
+        }
+        path.close()
+        return path.cgPath
     }
 }
