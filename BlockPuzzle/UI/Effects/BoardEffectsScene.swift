@@ -31,11 +31,12 @@ final class BoardEffectsScene: SKScene {
         let s = max(0, min(1, strength))
         flashNode.removeAllActions()
         flashNode.alpha = 0
-        // Brighter, punchier flash for "Explode".
+        // Brighter but slightly slower so the eye can "enjoy" the blast.
         let peak = 0.26 + 0.38 * s
-        let up = SKAction.fadeAlpha(to: peak, duration: 0.04)
-        let down = SKAction.fadeOut(withDuration: 0.12)
-        flashNode.run(.sequence([up, down]))
+        let up = SKAction.fadeAlpha(to: peak, duration: 0.06)
+        let hold = SKAction.wait(forDuration: 0.05)
+        let down = SKAction.fadeOut(withDuration: 0.22)
+        flashNode.run(.sequence([up, hold, down]))
     }
 
     func ring(at point: CGPoint, strength: CGFloat, thick: Bool = false) {
@@ -43,31 +44,36 @@ final class BoardEffectsScene: SKScene {
         let node = SKShapeNode(circleOfRadius: 10)
         node.position = point
         node.strokeColor = UIColor.white.withAlphaComponent(0.62)
-        node.lineWidth = thick ? 3.5 : 2.0
+        node.lineWidth = thick ? 3.8 : 2.2
         node.fillColor = .clear
         node.zPosition = 60
         addChild(node)
 
-        let scale = SKAction.scale(to: (thick ? 4.2 : 3.2) * s, duration: thick ? 0.34 : 0.28)
-        let fade = SKAction.fadeOut(withDuration: thick ? 0.34 : 0.28)
+        // Slightly slower so it reads as a "wave".
+        let dur: TimeInterval = thick ? 0.52 : 0.44
+        let scale = SKAction.scale(to: (thick ? 4.6 : 3.6) * s, duration: dur)
+        scale.timingMode = .easeOut
+        let fade = SKAction.fadeOut(withDuration: dur)
         node.run(.sequence([.group([scale, fade]), .removeFromParent()]))
     }
 
     func glowWave(at point: CGPoint, strength: CGFloat) {
-        let s = max(0.4, min(2.0, strength))
+        let s = max(0.4, min(2.2, strength))
         let tex = glowTexture()
         let sprite = SKSpriteNode(texture: tex)
         sprite.position = point
         sprite.zPosition = 55
         sprite.alpha = 0
-        sprite.setScale(0.35)
+        sprite.setScale(0.32)
         addChild(sprite)
 
-        let up = SKAction.fadeAlpha(to: 0.55, duration: 0.05)
-        let expand = SKAction.scale(to: 1.35 * s, duration: 0.30)
+        // Slower glow expansion for "enjoyable" explosion.
+        let up = SKAction.fadeAlpha(to: 0.62, duration: 0.08)
+        let expand = SKAction.scale(to: 1.55 * s, duration: 0.46)
         expand.timingMode = .easeOut
-        let down = SKAction.fadeOut(withDuration: 0.28)
-        sprite.run(.sequence([.group([up, expand]), down, .removeFromParent()]))
+        let hold = SKAction.wait(forDuration: 0.06)
+        let down = SKAction.fadeOut(withDuration: 0.36)
+        sprite.run(.sequence([.group([up, expand]), hold, down, .removeFromParent()]))
     }
 
     func burst(at points: [CGPoint], colors: [UIColor], combo: Int, linesCleared: Int) {
@@ -112,28 +118,34 @@ final class BoardEffectsScene: SKScene {
         let brightPalette = base + [UIColor.white.withAlphaComponent(0.95), UIColor.cyan.withAlphaComponent(0.95)]
 
         for _ in 0..<count {
-            let shape = Int.random(in: 0...3)
-            let node: SKShapeNode
+            // Make ribbons more likely when combo is high.
+            let ribbonChance = min(0.55, 0.12 + 0.10 * comboBoost)
+            let roll = Double.random(in: 0...1)
 
-            switch shape {
-            case 0:
-                // Confetti rectangle
-                let w = CGFloat.random(in: 3...7)
-                let h = CGFloat.random(in: 3...10)
-                node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.2)
-            case 1:
-                // Dot
-                let r = CGFloat.random(in: 2.2...4.2)
-                node = SKShapeNode(circleOfRadius: r)
-            case 2:
-                // Star (simple 5-point)
-                let r = CGFloat.random(in: 4...7)
-                node = SKShapeNode(path: starPath(radius: r, innerRadius: r * 0.45))
-            default:
-                // Ribbon (thin long strip)
-                let w = CGFloat.random(in: 2.2...3.6)
-                let h = CGFloat.random(in: 10...18)
-                node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.6)
+            let node: SKShapeNode
+            if roll < ribbonChance {
+                // Curved ribbon streamer (more "彩帶" feel)
+                let len = CGFloat.random(in: 34...64)
+                let amp = CGFloat.random(in: 6...16)
+                let w = CGFloat.random(in: 2.6...4.2)
+                node = SKShapeNode(path: ribbonPath(length: len, amplitude: amp, width: w))
+            } else {
+                let shape = Int.random(in: 0...2)
+                switch shape {
+                case 0:
+                    // Confetti rectangle
+                    let w = CGFloat.random(in: 3...8)
+                    let h = CGFloat.random(in: 3...12)
+                    node = SKShapeNode(rectOf: CGSize(width: w, height: h), cornerRadius: 1.2)
+                case 1:
+                    // Dot
+                    let r = CGFloat.random(in: 2.2...4.6)
+                    node = SKShapeNode(circleOfRadius: r)
+                default:
+                    // Star (simple 5-point)
+                    let r = CGFloat.random(in: 4...7.5)
+                    node = SKShapeNode(path: starPath(radius: r, innerRadius: r * 0.45))
+                }
             }
 
             node.position = point
@@ -145,23 +157,30 @@ final class BoardEffectsScene: SKScene {
             addChild(node)
 
             // IMPORTANT: Keep the effect "above the cleared line" (no raining down).
-            // We use action-based motion (no gravity) + fast fade.
+            // We use action-based motion (no gravity) + enjoyable fade.
             let cb = CGFloat(min(3.0, comboBoost))
-            let life = CGFloat.random(in: (0.40 - 0.05 * cb)...(0.78 - 0.06 * cb)).clamped(to: 0.22...0.85)
+            let life = CGFloat.random(in: (0.70 - 0.06 * cb)...(1.15 - 0.08 * cb)).clamped(to: 0.45...1.25)
 
-            // Faster, more explosive velocity.
-            let dx = CGFloat.random(in: (-120 - 40 * cb)...(120 + 40 * cb))
-            let dy = CGFloat.random(in: (110 + 30 * cb)...(280 + 60 * cb))
+            // Explosive velocity with longer travel.
+            let dx = CGFloat.random(in: (-150 - 55 * cb)...(150 + 55 * cb))
+            let dy = CGFloat.random(in: (150 + 45 * cb)...(360 + 85 * cb))
 
             let drift = SKAction.moveBy(x: dx, y: dy, duration: TimeInterval(life))
             drift.timingMode = .easeOut
 
-            let spin = SKAction.rotate(byAngle: CGFloat.random(in: (-5.5 - 1.5 * cb)...(5.5 + 1.5 * cb)), duration: TimeInterval(life))
-            let fade = SKAction.fadeOut(withDuration: TimeInterval(life))
-            let shrink = SKAction.scale(to: CGFloat.random(in: 0.55...0.88), duration: TimeInterval(life))
+            // Ribbons should feel more like streamers: less spin.
+            let spinRange: CGFloat = (roll < ribbonChance) ? 2.4 : (6.2 + 1.6 * cb)
+            let spin = SKAction.rotate(byAngle: CGFloat.random(in: -spinRange...spinRange), duration: TimeInterval(life))
+
+            // Fade should not disappear instantly; hold a bit then fade.
+            let hold = SKAction.wait(forDuration: TimeInterval(0.10 + 0.05 * cb))
+            let fade = SKAction.fadeOut(withDuration: TimeInterval(life * 0.75))
+            let shrink = SKAction.scale(to: CGFloat.random(in: 0.58...0.92), duration: TimeInterval(life))
 
             node.run(.sequence([
-                .group([drift, spin, fade, shrink]),
+                .group([drift, spin, shrink]),
+                hold,
+                fade,
                 .removeFromParent()
             ]))
         }
@@ -246,6 +265,20 @@ final class BoardEffectsScene: SKScene {
         tex.filteringMode = .linear
         Self._glowTex = tex
         return tex
+    }
+
+    private func ribbonPath(length: CGFloat, amplitude: CGFloat, width: CGFloat) -> CGPath {
+        // A simple curved ribbon made from a thick stroked Bezier path.
+        // Build the centerline, then stroke it to get a filled ribbon shape.
+        let p = UIBezierPath()
+        p.move(to: CGPoint(x: 0, y: -length / 2))
+        p.addQuadCurve(
+            to: CGPoint(x: 0, y: length / 2),
+            controlPoint: CGPoint(x: amplitude, y: 0)
+        )
+
+        let stroked = p.cgPath.copy(strokingWithWidth: width, lineCap: .round, lineJoin: .round, miterLimit: 2)
+        return stroked
     }
 
     private func starPath(radius: CGFloat, innerRadius: CGFloat) -> CGPath {
