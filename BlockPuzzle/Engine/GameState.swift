@@ -1,6 +1,6 @@
 import Foundation
 
-struct GameState: Codable, Hashable {
+nonisolated struct GameState: Codable, Hashable, Sendable {
     struct PlacementResult: Hashable {
         let clearedOverlay: [BlockPuzzlePoint: Int]
         let clearBonus: Int

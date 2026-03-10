@@ -1,7 +1,7 @@
 import Foundation
 
 /// A polyomino-like piece described as a set of occupied points in local coordinates.
-struct Piece: Hashable, Codable {
+nonisolated struct Piece: Hashable, Codable, Sendable {
     let id: UUID
     let cells: Set<BlockPuzzlePoint>
 

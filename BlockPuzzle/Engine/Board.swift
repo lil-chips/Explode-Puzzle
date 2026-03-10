@@ -1,6 +1,6 @@
 import Foundation
 
-struct Board: Codable, Hashable {
+nonisolated struct Board: Codable, Hashable, Sendable {
     let width: Int
     let height: Int
 
