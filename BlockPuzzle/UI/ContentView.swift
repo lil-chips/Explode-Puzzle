@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import UIKit
 
 // Fast mode: combo + result breakdown UI lives here (engine stays simple for MVP).
 
@@ -25,6 +26,16 @@ struct ContentView: View {
 
     // Board frame in global coordinates (for hit-testing finger location).
     @State private var boardFrame: CGRect = .zero
+
+    // SpriteKit effects overlay (confetti + flash + rings). Rendered on top of the board only.
+    @StateObject private var effects = BoardEffectsController()
+
+    // Clearing overlay animation (already supported by BoardView, wired here).
+    @State private var clearOverlay: [BlockPuzzlePoint: Int] = [:]
+    @State private var clearFadeOut: Bool = false
+
+    // Board shake (SwiftUI-level, keeps SpriteKit simple).
+    @State private var boardShake: CGFloat = 0
 
     // Drag state.
     @State private var draggingPieceIndex: Int? = nil
@@ -173,12 +184,22 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 2)
 
-                BoardView(
-                    gameState: gameState,
-                    ghostCells: ghost?.cells,
-                    ghostColor: ghost?.color,
-                    ghostValid: ghost?.valid ?? true
-                )
+                ZStack {
+                    BoardView(
+                        gameState: gameState,
+                        ghostCells: ghost?.cells,
+                        ghostColor: ghost?.color,
+                        ghostValid: ghost?.valid ?? true,
+                        clearOverlay: clearOverlay,
+                        clearFadeOut: clearFadeOut
+                    )
+                    .animation(.spring(response: 0.18, dampingFraction: 0.65), value: boardShake)
+                    .offset(x: boardShake)
+
+                    // SpriteKit overlay confined to board area.
+                    BoardEffectsOverlayView(controller: effects)
+                        .allowsHitTesting(false)
+                }
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 18, style: .continuous)
@@ -250,8 +271,6 @@ struct ContentView: View {
                                                     if combo > 1 { parts.append("(x\(combo))") }
                                                     scorePopupText = parts.joined(separator: " ")
 
-                                                    withAnimation(.easeOut(duration: 0.18)) { }
-
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                                                         withAnimation(.easeOut(duration: 0.18)) {
                                                             scorePopupText = nil
@@ -259,6 +278,47 @@ struct ContentView: View {
                                                     }
                                                 } else {
                                                     combo = 0
+                                                }
+                                            }
+
+                                            // Clear animation + SpriteKit explode (board-area only).
+                                            if !result.clearedOverlay.isEmpty {
+                                                clearOverlay = result.clearedOverlay
+                                                clearFadeOut = false
+
+                                                // Haptics: bigger clear => stronger impact.
+                                                let impactStyle: UIImpactFeedbackGenerator.FeedbackStyle = (linesCleared >= 2) ? .heavy : .medium
+                                                UIImpactFeedbackGenerator(style: impactStyle).impactOccurred()
+
+                                                // Flash + ring at board center.
+                                                effects.flash(strength: CGFloat(min(1.0, Double(linesCleared) / 3.0)))
+                                                if let center = boardCenterInOverlay() {
+                                                    effects.ring(at: center, strength: CGFloat(0.9 + 0.25 * Double(combo)))
+                                                }
+
+                                                // Confetti burst from cleared cells.
+                                                let pts = clearedCellCentersInOverlay(points: Array(result.clearedOverlay.keys))
+                                                let colors = pts.indices.map { _ in Color.white } // fallback
+                                                // Better: use palette index per point.
+                                                let palette = Theme.Wood.blockPalette
+                                                let keyedColors = Array(result.clearedOverlay.values).map { palette[$0 % palette.count] }
+                                                effects.burst(at: pts, colors: keyedColors.isEmpty ? colors : keyedColors, combo: combo)
+
+                                                // SwiftUI shake.
+                                                boardShake = 10
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
+                                                    boardShake = -6
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
+                                                    boardShake = 0
+                                                }
+
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
+                                                    clearFadeOut = true
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                                                    clearOverlay = [:]
+                                                    clearFadeOut = false
                                                 }
                                             }
 
@@ -374,6 +434,32 @@ struct ContentView: View {
             Text(right)
                 .font(.system(size: strong ? 16 : 13, weight: strong ? .heavy : .bold, design: .rounded))
                 .foregroundStyle(.white.opacity(strong ? 0.95 : 0.90))
+        }
+    }
+
+    // MARK: - Board overlay coordinate helpers (SpriteKit confined to board area)
+
+    private func boardCenterInOverlay() -> CGPoint? {
+        guard boardFrame != .zero else { return nil }
+        return CGPoint(x: boardFrame.width / 2, y: boardFrame.height / 2)
+    }
+
+    private func clearedCellCentersInOverlay(points: [BlockPuzzlePoint]) -> [CGPoint] {
+        guard boardFrame != .zero else { return [] }
+
+        // Must match BoardView gridSpacing.
+        let gridSpacing: CGFloat = 2
+        let side = min(boardFrame.width, boardFrame.height)
+        let w = gameState.board.width
+        let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
+        let step = cellSide + gridSpacing
+
+        // BoardView draws y=0 at the top (VStack order), so overlay coordinates follow that.
+        return points.map { p in
+            CGPoint(
+                x: (CGFloat(p.x) + 0.5) * step,
+                y: (CGFloat(p.y) + 0.5) * step
+            )
         }
     }
 
