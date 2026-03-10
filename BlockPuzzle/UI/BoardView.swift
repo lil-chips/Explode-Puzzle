@@ -80,6 +80,13 @@ struct BoardView: View {
             }
             .frame(width: gridWidth, height: gridHeight, alignment: .center)
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
+            // Report the exact grid rect (local to BoardView) for precise effect placement.
+            .background(
+                GeometryReader { g in
+                    Color.clear
+                        .preference(key: BoardGridRectPreferenceKey.self, value: g.frame(in: .local))
+                }
+            )
         }
         .aspectRatio(1, contentMode: .fit)
         .accessibilityIdentifier("board")

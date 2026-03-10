@@ -30,6 +30,9 @@ struct ContentView: View {
     // SpriteKit effects overlay (confetti + flash + rings). Rendered on top of the board only.
     @StateObject private var effects = BoardEffectsController()
 
+    // Precise grid rect (local to BoardView) for accurate effect placement.
+    @State private var gridRect: CGRect = .zero
+
     // Clearing overlay animation (already supported by BoardView, wired here).
     @State private var clearOverlay: [BlockPuzzlePoint: Int] = [:]
     @State private var clearFadeOut: Bool = false
@@ -131,6 +134,9 @@ struct ContentView: View {
                 clearOverlay: clearOverlay,
                 clearFadeOut: clearFadeOut
             )
+            .onPreferenceChange(BoardGridRectPreferenceKey.self) { newValue in
+                gridRect = newValue
+            }
             .animation(.spring(response: 0.18, dampingFraction: 0.65), value: boardShake)
             .offset(x: boardShake)
 
@@ -432,25 +438,25 @@ struct ContentView: View {
     // MARK: - Board overlay coordinate helpers (SpriteKit confined to board area)
 
     private func boardCenterInOverlay() -> CGPoint? {
-        guard boardFrame != .zero else { return nil }
-        return CGPoint(x: boardFrame.width / 2, y: boardFrame.height / 2)
+        guard gridRect != .zero else { return nil }
+        return CGPoint(x: gridRect.midX, y: gridRect.midY)
     }
 
     private func clearedCellCentersInOverlay(points: [BlockPuzzlePoint]) -> [CGPoint] {
-        guard boardFrame != .zero else { return [] }
+        guard gridRect != .zero else { return [] }
 
         // Must match BoardView gridSpacing.
         let gridSpacing: CGFloat = 2
-        let side = min(boardFrame.width, boardFrame.height)
         let w = gameState.board.width
+        let side = min(gridRect.width, gridRect.height)
         let cellSide = (side - gridSpacing * CGFloat(w - 1)) / CGFloat(w)
         let step = cellSide + gridSpacing
 
-        // BoardView draws y=0 at the top (VStack order), so overlay coordinates follow that.
+        // BoardView draws y=0 at the top (VStack order).
         return points.map { p in
             CGPoint(
-                x: (CGFloat(p.x) + 0.5) * step,
-                y: (CGFloat(p.y) + 0.5) * step
+                x: gridRect.minX + (CGFloat(p.x) + 0.5) * step,
+                y: gridRect.minY + (CGFloat(p.y) + 0.5) * step
             )
         }
     }
