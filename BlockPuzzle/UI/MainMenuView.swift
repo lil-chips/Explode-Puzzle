@@ -147,7 +147,8 @@ private struct BestTileView: View {
     let isNewBest: Bool
 
     @State private var popped: Bool = false
-    @State private var sweepOn: Bool = false
+    @State private var glowPhase: Bool = false
+    @State private var floatPhase: Bool = false
 
     private var isFastTile: Bool {
         modeTitle == "Fast"
@@ -197,51 +198,49 @@ private struct BestTileView: View {
         .frame(maxWidth: .infinity)
         .frame(height: 92)
         .background(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(accent)
-                .background(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(crowned ? glow.opacity(1.3) : glow)
-                        .blur(radius: crowned ? 14 : 10)
-                )
-        )
-        .overlay(
             ZStack {
-                if isFastTile {
-                    GeometryReader { geo in
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        .clear,
-                                        .white.opacity(0.00),
-                                        .white.opacity(0.20),
-                                        .white.opacity(0.00),
-                                        .clear
-                                    ],
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                            )
-                            .frame(width: geo.size.width * 0.34)
-                            .rotationEffect(.degrees(18))
-                            .offset(x: sweepOn ? geo.size.width * 0.85 : -geo.size.width * 0.85)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .allowsHitTesting(false)
-                }
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(accent)
 
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
+                    .fill(crowned ? glow.opacity(1.3) : glow)
+                    .blur(radius: crowned ? 14 : 10)
+
+                if isFastTile {
+                    // Whole-card soft glow sweep / breathing feel.
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    .white.opacity(glowPhase ? 0.02 : 0.00),
+                                    .white.opacity(glowPhase ? 0.16 : 0.08),
+                                    .white.opacity(glowPhase ? 0.22 : 0.10),
+                                    .white.opacity(glowPhase ? 0.12 : 0.04)
+                                ],
+                                startPoint: glowPhase ? .topLeading : .bottomTrailing,
+                                endPoint: glowPhase ? .bottomTrailing : .topLeading
+                            )
+                        )
+                        .blur(radius: glowPhase ? 14 : 8)
+                        .opacity(0.95)
+                }
             }
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
         )
         .shadow(color: crowned ? .yellow.opacity(0.18) : .clear, radius: 10, x: 0, y: 0)
         .scaleEffect(popped ? 1.06 : 1.0)
+        .offset(y: isFastTile ? (floatPhase ? -1.5 : 1.5) : 0)
         .animation(.spring(response: 0.24, dampingFraction: 0.55), value: popped)
         .onAppear {
             guard isFastTile else { return }
-            withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: false)) {
-                sweepOn = true
+            withAnimation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true)) {
+                glowPhase.toggle()
+            }
+            withAnimation(.easeInOut(duration: 2.2).repeatForever(autoreverses: true)) {
+                floatPhase.toggle()
             }
         }
         .onChange(of: score) { _, newValue in
