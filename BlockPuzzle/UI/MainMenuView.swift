@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    private let classic7 = BestScoreStore.value(mode: .classic, boardSize: .seven)
-    private let classic10 = BestScoreStore.value(mode: .classic, boardSize: .ten)
-    private let fast7 = BestScoreStore.value(mode: .fast, boardSize: .seven)
-    private let fast10 = BestScoreStore.value(mode: .fast, boardSize: .ten)
+    @AppStorage("blockpuzzle.best.classic.7") private var classic7: Int = 0
+    @AppStorage("blockpuzzle.best.classic.10") private var classic10: Int = 0
+    @AppStorage("blockpuzzle.best.fast.7") private var fast7: Int = 0
+    @AppStorage("blockpuzzle.best.fast.10") private var fast10: Int = 0
 
     private var topScore: Int {
         max(classic7, classic10, fast7, fast10)
@@ -75,12 +75,12 @@ struct MainMenuView: View {
 
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    bestTile(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore)
-                    bestTile(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore)
+                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore)
+                    BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore)
                 }
                 HStack(spacing: 10) {
-                    bestTile(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore)
-                    bestTile(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore)
+                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore)
+                    BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore)
                 }
             }
         }
@@ -96,7 +96,57 @@ struct MainMenuView: View {
         )
     }
 
-    private func bestTile(modeTitle: String, board: String, score: Int, accent: Color, glow: Color, crowned: Bool) -> some View {
+    private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
+        HStack(spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(accent)
+                // 小小彩紙點綴（先用幾個點，之後可以換成真正 confetti）
+                Circle().fill(Color.white.opacity(0.22)).frame(width: 8, height: 8).offset(x: -16, y: -10)
+                Circle().fill(Color.white.opacity(0.16)).frame(width: 6, height: 6).offset(x: 14, y: 12)
+                Circle().fill(Color.white.opacity(0.18)).frame(width: 5, height: 5).offset(x: 18, y: -12)
+            }
+            .frame(width: 54, height: 54)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 20, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.white)
+                Text(subtitle)
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .foregroundStyle(.white.opacity(0.75))
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(.white.opacity(0.7))
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(.white.opacity(0.12))
+                .shadow(color: .black.opacity(0.20), radius: 10, x: 0, y: 6)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(.white.opacity(0.14), lineWidth: 1)
+        )
+    }
+}
+
+private struct BestTileView: View {
+    let modeTitle: String
+    let board: String
+    let score: Int
+    let accent: Color
+    let glow: Color
+    let crowned: Bool
+
+    @State private var popped: Bool = false
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
                 Text(modeTitle)
@@ -141,45 +191,15 @@ struct MainMenuView: View {
                 .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
         )
         .shadow(color: crowned ? .yellow.opacity(0.18) : .clear, radius: 10, x: 0, y: 0)
-    }
-
-    private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
-        HStack(spacing: 14) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(accent)
-                // 小小彩紙點綴（先用幾個點，之後可以換成真正 confetti）
-                Circle().fill(Color.white.opacity(0.22)).frame(width: 8, height: 8).offset(x: -16, y: -10)
-                Circle().fill(Color.white.opacity(0.16)).frame(width: 6, height: 6).offset(x: 14, y: 12)
-                Circle().fill(Color.white.opacity(0.18)).frame(width: 5, height: 5).offset(x: 18, y: -12)
+        .scaleEffect(popped ? 1.06 : 1.0)
+        .animation(.spring(response: 0.24, dampingFraction: 0.55), value: popped)
+        .onChange(of: score) { _, newValue in
+            guard newValue > 0 else { return }
+            popped = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
+                popped = false
             }
-            .frame(width: 54, height: 54)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title)
-                    .font(.system(size: 20, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
-                Text(subtitle)
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.75))
-            }
-
-            Spacer()
-
-            Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(.white.opacity(0.7))
         }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(.white.opacity(0.12))
-                .shadow(color: .black.opacity(0.20), radius: 10, x: 0, y: 6)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(.white.opacity(0.14), lineWidth: 1)
-        )
     }
 }
 
