@@ -156,35 +156,45 @@ private struct BestTileView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(modeTitle)
-                    .font(.system(size: 13, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(modeTitle)
+                        .font(.system(size: 13, weight: .heavy, design: .rounded))
+                        .foregroundStyle(.white)
+
+                    Text(board)
+                        .font(.system(size: 11, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white.opacity(0.72))
+                }
+
                 Spacer()
-                if crowned {
-                    Image(systemName: "crown.fill")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(.yellow)
-                } else {
-                    Circle()
-                        .fill(accent)
-                        .frame(width: 8, height: 8)
+
+                VStack(alignment: .trailing, spacing: 6) {
+                    if crowned {
+                        Image(systemName: "crown.fill")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundStyle(.yellow)
+                    } else {
+                        Circle()
+                            .fill(accent)
+                            .frame(width: 8, height: 8)
+                    }
+
+                    if isNewBest {
+                        Text("NEW BEST!")
+                            .font(.system(size: 9, weight: .heavy, design: .rounded))
+                            .foregroundStyle(.black)
+                            .padding(.horizontal, 7)
+                            .padding(.vertical, 3)
+                            .background(
+                                Capsule(style: .continuous)
+                                    .fill(Color.yellow)
+                            )
+                    }
                 }
             }
 
-            if isNewBest {
-                Text("NEW BEST!")
-                    .font(.system(size: 9, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.black)
-                    .padding(.horizontal, 7)
-                    .padding(.vertical, 3)
-                    .background(
-                        Capsule(style: .continuous)
-                            .fill(Color.yellow)
-                    )
-            }
-
-            Text(board)
+            Spacer(minLength: 0)
                 .font(.system(size: 11, weight: .bold, design: .rounded))
                 .foregroundStyle(.white.opacity(0.72))
 
