@@ -147,6 +147,11 @@ private struct BestTileView: View {
     let isNewBest: Bool
 
     @State private var popped: Bool = false
+    @State private var sweepOn: Bool = false
+
+    private var isFastTile: Bool {
+        modeTitle == "Fast"
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -201,12 +206,44 @@ private struct BestTileView: View {
                 )
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
+            ZStack {
+                if isFastTile {
+                    GeometryReader { geo in
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(
+                                LinearGradient(
+                                    colors: [
+                                        .clear,
+                                        .white.opacity(0.00),
+                                        .white.opacity(0.20),
+                                        .white.opacity(0.00),
+                                        .clear
+                                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+                            .frame(width: geo.size.width * 0.34)
+                            .rotationEffect(.degrees(18))
+                            .offset(x: sweepOn ? geo.size.width * 0.85 : -geo.size.width * 0.85)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .allowsHitTesting(false)
+                }
+
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
+            }
         )
         .shadow(color: crowned ? .yellow.opacity(0.18) : .clear, radius: 10, x: 0, y: 0)
         .scaleEffect(popped ? 1.06 : 1.0)
         .animation(.spring(response: 0.24, dampingFraction: 0.55), value: popped)
+        .onAppear {
+            guard isFastTile else { return }
+            withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: false)) {
+                sweepOn = true
+            }
+        }
         .onChange(of: score) { _, newValue in
             guard newValue > 0 else { return }
             popped = true
