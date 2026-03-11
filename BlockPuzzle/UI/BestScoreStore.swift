@@ -1,6 +1,8 @@
 import Foundation
 
 struct BestScoreStore {
+    static let lastUpdatedKeyStorage = "blockpuzzle.best.lastUpdated"
+
     static func key(mode: GameMode, boardSize: BoardSize) -> String {
         "blockpuzzle.best.\(mode.rawValue).\(boardSize.rawValue)"
     }
@@ -10,6 +12,8 @@ struct BestScoreStore {
     }
 
     static func set(_ score: Int, mode: GameMode, boardSize: BoardSize) {
-        UserDefaults.standard.set(score, forKey: key(mode: mode, boardSize: boardSize))
+        let scoreKey = key(mode: mode, boardSize: boardSize)
+        UserDefaults.standard.set(score, forKey: scoreKey)
+        UserDefaults.standard.set(scoreKey, forKey: lastUpdatedKeyStorage)
     }
 }

@@ -5,6 +5,7 @@ struct MainMenuView: View {
     @AppStorage("blockpuzzle.best.classic.10") private var classic10: Int = 0
     @AppStorage("blockpuzzle.best.fast.7") private var fast7: Int = 0
     @AppStorage("blockpuzzle.best.fast.10") private var fast10: Int = 0
+    @AppStorage("blockpuzzle.best.lastUpdated") private var lastUpdatedBestKey: String = ""
 
     private var topScore: Int {
         max(classic7, classic10, fast7, fast10)
@@ -75,12 +76,12 @@ struct MainMenuView: View {
 
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore)
-                    BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore)
+                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .seven))
+                    BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .ten))
                 }
                 HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore)
-                    BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore)
+                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .seven))
+                    BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .ten))
                 }
             }
         }
@@ -143,6 +144,7 @@ private struct BestTileView: View {
     let accent: Color
     let glow: Color
     let crowned: Bool
+    let isNewBest: Bool
 
     @State private var popped: Bool = false
 
@@ -162,6 +164,18 @@ private struct BestTileView: View {
                         .fill(accent)
                         .frame(width: 8, height: 8)
                 }
+            }
+
+            if isNewBest {
+                Text("NEW BEST!")
+                    .font(.system(size: 9, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 3)
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(Color.yellow)
+                    )
             }
 
             Text(board)
