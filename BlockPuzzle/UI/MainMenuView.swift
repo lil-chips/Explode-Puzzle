@@ -6,6 +6,10 @@ struct MainMenuView: View {
     private let fast7 = BestScoreStore.value(mode: .fast, boardSize: .seven)
     private let fast10 = BestScoreStore.value(mode: .fast, boardSize: .ten)
 
+    private var topScore: Int {
+        max(classic7, classic10, fast7, fast10)
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -71,12 +75,12 @@ struct MainMenuView: View {
 
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    bestTile(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05))
-                    bestTile(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06))
+                    bestTile(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore)
+                    bestTile(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore)
                 }
                 HStack(spacing: 10) {
-                    bestTile(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10))
-                    bestTile(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10))
+                    bestTile(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore)
+                    bestTile(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore)
                 }
             }
         }
@@ -92,16 +96,22 @@ struct MainMenuView: View {
         )
     }
 
-    private func bestTile(modeTitle: String, board: String, score: Int, accent: Color, glow: Color) -> some View {
+    private func bestTile(modeTitle: String, board: String, score: Int, accent: Color, glow: Color, crowned: Bool) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
                 Text(modeTitle)
                     .font(.system(size: 13, weight: .heavy, design: .rounded))
                     .foregroundStyle(.white)
                 Spacer()
-                Circle()
-                    .fill(accent)
-                    .frame(width: 8, height: 8)
+                if crowned {
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.yellow)
+                } else {
+                    Circle()
+                        .fill(accent)
+                        .frame(width: 8, height: 8)
+                }
             }
 
             Text(board)
@@ -122,14 +132,15 @@ struct MainMenuView: View {
                 .fill(accent)
                 .background(
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(glow)
-                        .blur(radius: 10)
+                        .fill(crowned ? glow.opacity(1.3) : glow)
+                        .blur(radius: crowned ? 14 : 10)
                 )
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(.white.opacity(0.14), lineWidth: 1)
+                .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
         )
+        .shadow(color: crowned ? .yellow.opacity(0.18) : .clear, radius: 10, x: 0, y: 0)
     }
 
     private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
