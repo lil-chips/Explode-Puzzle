@@ -40,7 +40,7 @@ struct BoardView: View {
     private let cornerRadius: CGFloat = 2
 
     // Early wood theme palette.
-    private let filledPalette: [Color] = Theme.Wood.blockPalette
+    private let filledPalette: [Color] = Theme.Neon.blockPalette
 
     var body: some View {
         GeometryReader { geo in
@@ -141,14 +141,14 @@ struct BoardView: View {
                 path.addLine(to: CGPoint(x: CGFloat(width) * cellSide + CGFloat(max(0, width - 1)) * gridSpacing, y: ypos))
             }
         }
-        .stroke(Theme.Wood.subgridStroke, style: StrokeStyle(lineWidth: max(2, gridSpacing), lineCap: .round))
+        .stroke(Theme.Neon.subgridStroke, style: StrokeStyle(lineWidth: max(2, gridSpacing), lineCap: .round))
     }
 
     @ViewBuilder
     private func cellView(x: Int, y: Int) -> some View {
         let p = BlockPuzzlePoint(x, y)
         let isFilled = gameState.board.isOccupied(p)
-        let fillColor = isFilled ? filledColor(x: x, y: y) : Theme.Wood.slotFill
+        let fillColor = isFilled ? filledColor(x: x, y: y) : Theme.Neon.slotFill
 
         let isGhost = ghostCells?.contains(p) ?? false
         let ghostFill = (ghostColor ?? Color.white)
@@ -172,7 +172,7 @@ struct BoardView: View {
                             ? clearColor.opacity(0.7)
                             : (isGhost
                                 ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                                : (isFilled ? fillColor.opacity(0.55) : Theme.Wood.slotStroke)),
+                                : (isFilled ? fillColor.opacity(0.55) : Theme.Neon.slotStroke)),
                         lineWidth: 1
                     )
             }

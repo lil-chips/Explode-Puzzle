@@ -8,14 +8,9 @@ struct ModeSetupView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Theme.Wood.backgroundTop, Theme.Wood.backgroundBottom],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            NeonBackgroundView()
 
-            VStack(spacing: 16) {
+            VStack(spacing: 18) {
                 header
 
                 boardSizeSection
@@ -29,15 +24,21 @@ struct ModeSetupView: View {
                 NavigationLink {
                     ContentView(mode: mode, boardSize: boardSize, fastTime: mode == .fast ? fastTime : nil)
                 } label: {
-                    Text("Start")
-                        .font(.system(size: 18, weight: .heavy, design: .rounded))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(
-                            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                                .fill(.white)
-                        )
-                        .foregroundStyle(.black)
+                    HStack(spacing: 12) {
+                        Image(systemName: "bolt.fill")
+                            .font(.system(size: 18, weight: .heavy))
+                        Text("START RUN")
+                            .font(.system(size: 18, weight: .heavy, design: .rounded))
+                            .tracking(2)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(LinearGradient(colors: [Theme.Neon.cyan, Theme.Neon.cyanSoft], startPoint: .leading, endPoint: .trailing))
+                    )
+                    .foregroundStyle(Color.black.opacity(0.82))
+                    .shadow(color: Theme.Neon.cyan.opacity(0.45), radius: 18)
                 }
                 .buttonStyle(.plain)
             }
@@ -49,23 +50,26 @@ struct ModeSetupView: View {
     }
 
     private var header: some View {
-        VStack(spacing: 6) {
-            Text(mode == .classic ? "Classic" : "Fast")
-                .font(.system(size: 26, weight: .heavy, design: .rounded))
-                .foregroundStyle(.white)
+        VStack(spacing: 8) {
+            Text(mode == .classic ? "CLASSIC MODE" : "FAST MODE")
+                .font(.system(size: 28, weight: .black, design: .rounded))
+                .tracking(2)
+                .foregroundStyle(Theme.Neon.cyanSoft)
+                .neonTitleGlow()
 
-            Text(mode == .classic ? "無限時間｜拼高分" : "限時衝刺｜爆分連擊")
+            Text(mode == .classic ? "Unlimited time · Build your best score" : "Time attack · Chase explosive combos")
                 .font(.system(size: 13, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.75))
+                .foregroundStyle(Theme.Neon.textSecondary)
         }
         .padding(.top, 6)
     }
 
     private var boardSizeSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("棋盤大小")
-                .font(.system(size: 13, weight: .heavy, design: .rounded))
-                .foregroundStyle(.white.opacity(0.8))
+        VStack(alignment: .leading, spacing: 12) {
+            Text("BOARD SIZE")
+                .font(.system(size: 12, weight: .heavy, design: .rounded))
+                .tracking(2)
+                .foregroundStyle(Theme.Neon.textSecondary)
 
             HStack(spacing: 12) {
                 boardCard(.seven)
@@ -77,44 +81,47 @@ struct ModeSetupView: View {
     private func boardCard(_ size: BoardSize) -> some View {
         let selected = (boardSize == size)
 
-        return VStack(alignment: .leading, spacing: 6) {
+        return VStack(alignment: .leading, spacing: 8) {
             Text(size.title)
-                .font(.system(size: 20, weight: .heavy, design: .rounded))
-                .foregroundStyle(.white)
+                .font(.system(size: 22, weight: .heavy, design: .rounded))
+                .foregroundStyle(Theme.Neon.textPrimary)
 
             Text(size.subtitle)
                 .font(.system(size: 12, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.75))
+                .foregroundStyle(Theme.Neon.textSecondary)
 
             Spacer(minLength: 0)
 
             HStack {
                 Spacer()
                 Image(systemName: selected ? "checkmark.circle.fill" : "circle")
-                    .foregroundStyle(selected ? .white : .white.opacity(0.35))
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(selected ? Theme.Neon.cyanSoft : Theme.Neon.textMuted)
             }
         }
-        .padding(14)
+        .padding(16)
         .frame(maxWidth: .infinity)
-        .frame(height: 110)
+        .frame(height: 118)
         .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(.white.opacity(selected ? 0.18 : 0.10))
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .fill(selected ? Theme.Neon.cyan.opacity(0.12) : Theme.Neon.panel)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(.white.opacity(selected ? 0.22 : 0.12), lineWidth: selected ? 2 : 1)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(selected ? Theme.Neon.cyan.opacity(0.38) : Theme.Neon.panelStroke, lineWidth: selected ? 1.5 : 1)
         )
+        .shadow(color: selected ? Theme.Neon.cyan.opacity(0.22) : .clear, radius: 16)
         .onTapGesture {
             boardSize = size
         }
     }
 
     private var fastTimeSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("時間")
-                .font(.system(size: 13, weight: .heavy, design: .rounded))
-                .foregroundStyle(.white.opacity(0.8))
+        VStack(alignment: .leading, spacing: 12) {
+            Text("TIME LIMIT")
+                .font(.system(size: 12, weight: .heavy, design: .rounded))
+                .tracking(2)
+                .foregroundStyle(Theme.Neon.textSecondary)
 
             HStack(spacing: 10) {
                 ForEach(FastTimeLimit.allCases, id: \.self) { t in
@@ -130,17 +137,17 @@ struct ModeSetupView: View {
 
         return Text(t.title)
             .font(.system(size: 13, weight: .heavy, design: .rounded))
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 11)
             .background(
                 Capsule(style: .continuous)
-                    .fill(.white.opacity(selected ? 0.20 : 0.10))
+                    .fill(selected ? Theme.Neon.pink.opacity(0.18) : Theme.Neon.panel)
             )
             .overlay(
                 Capsule(style: .continuous)
-                    .stroke(.white.opacity(selected ? 0.22 : 0.12), lineWidth: selected ? 2 : 1)
+                    .stroke(selected ? Theme.Neon.pink.opacity(0.38) : Theme.Neon.panelStroke, lineWidth: 1)
             )
-            .foregroundStyle(.white)
+            .foregroundStyle(selected ? Theme.Neon.textPrimary : Theme.Neon.textSecondary)
             .onTapGesture { fastTime = t }
     }
 }

@@ -14,125 +14,247 @@ struct MainMenuView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(
-                    colors: [Theme.Wood.backgroundTop, Theme.Wood.backgroundBottom],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
+                NeonBackgroundView()
 
-                VStack(spacing: 18) {
-                    Spacer(minLength: 10)
+                VStack(spacing: 0) {
+                    topSystemBar
+                        .padding(.horizontal, 22)
+                        .padding(.top, 14)
 
-                    VStack(spacing: 6) {
-                        Text("Explode Puzzle")
-                            .font(.system(size: 34, weight: .heavy, design: .rounded))
-                            .foregroundStyle(.white)
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 24) {
+                            heroSection
+                                .padding(.top, 28)
 
-                        Text("Classic / Fast")
-                            .font(.system(size: 14, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.75))
-                    }
+                            actionGrid
 
-                    bestScoreCard
-                        .padding(.top, 6)
+                            bestScorePanel
 
-                    VStack(spacing: 12) {
-                        NavigationLink {
-                            ModeSetupView(mode: .classic)
-                        } label: {
-                            modeButton(title: "Classic", subtitle: "無限時間｜拼高分", accent: Color.white.opacity(0.18))
+                            bottomPlayBar
+                                .padding(.top, 8)
                         }
-                        .buttonStyle(.plain)
-
-                        NavigationLink {
-                            ModeSetupView(mode: .fast)
-                        } label: {
-                            modeButton(title: "Fast", subtitle: "限時衝刺｜爆分連擊", accent: Color.white.opacity(0.18))
-                        }
-                        .buttonStyle(.plain)
+                        .padding(.horizontal, 22)
+                        .padding(.bottom, 110)
                     }
-                    .padding(.top, 10)
-
-                    Spacer()
-
-                    Text("\u{201C}爆炸、絢麗、爽感\u{201D}")
-                        .font(.system(size: 12, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white.opacity(0.6))
-                        .padding(.bottom, 10)
                 }
-                .padding(.horizontal, 22)
-                .padding(.vertical, 16)
             }
             .navigationBarHidden(true)
         }
     }
 
-    private var bestScoreCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("BEST SCORES")
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.7))
+    private var topSystemBar: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "square.grid.3x3")
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(Theme.Neon.cyan)
 
-            VStack(spacing: 10) {
-                HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: .white.opacity(0.10), glow: .white.opacity(0.05), crowned: classic7 > 0 && classic7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .seven))
-                    BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: .white.opacity(0.12), glow: .white.opacity(0.06), crowned: classic10 > 0 && classic10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .ten))
-                }
-                HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Color.orange.opacity(0.22), glow: Color.yellow.opacity(0.10), crowned: fast7 > 0 && fast7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .seven))
-                    BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Color.red.opacity(0.20), glow: Color.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .ten))
-                }
-            }
+            Rectangle()
+                .fill(Theme.Neon.divider)
+                .frame(width: 1, height: 22)
+
+            Text("KINETIC NEON OS")
+                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .tracking(2)
+                .foregroundStyle(Theme.Neon.textSecondary)
+
+            Spacer()
+
+            Text("LOCAL PROFILE")
+                .font(.system(size: 9, weight: .bold, design: .rounded))
+                .tracking(1.6)
+                .foregroundStyle(Theme.Neon.textMuted)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(14)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(.white.opacity(0.10))
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(.white.opacity(0.14), lineWidth: 1)
-        )
     }
 
-    private func modeButton(title: String, subtitle: String, accent: Color) -> some View {
-        HStack(spacing: 14) {
+    private var heroSection: some View {
+        VStack(spacing: 14) {
             ZStack {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(accent)
-                // 小小彩紙點綴（先用幾個點，之後可以換成真正 confetti）
-                Circle().fill(Color.white.opacity(0.22)).frame(width: 8, height: 8).offset(x: -16, y: -10)
-                Circle().fill(Color.white.opacity(0.16)).frame(width: 6, height: 6).offset(x: 14, y: 12)
-                Circle().fill(Color.white.opacity(0.18)).frame(width: 5, height: 5).offset(x: 18, y: -12)
-            }
-            .frame(width: 54, height: 54)
+                RoundedRectangle(cornerRadius: 26, style: .continuous)
+                    .fill(LinearGradient(colors: [Theme.Neon.cyan.opacity(0.30), Theme.Neon.cyan.opacity(0.08)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width: 126, height: 126)
+                    .blur(radius: 18)
 
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title)
-                    .font(.system(size: 20, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
-                Text(subtitle)
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .fill(Theme.Neon.background.opacity(0.92))
+                    .frame(width: 118, height: 118)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .stroke(Theme.Neon.cyan.opacity(0.55), lineWidth: 1.5)
+                    )
+
+                Image("AppIcon-1024")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 98, height: 98)
+                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            }
+
+            VStack(spacing: 6) {
+                Text("NEON")
+                    .font(.system(size: 16, weight: .heavy, design: .rounded))
+                    .tracking(4)
+                    .foregroundStyle(Theme.Neon.textSecondary)
+
+                Text("Puzzles")
+                    .font(.system(size: 40, weight: .black, design: .rounded))
+                    .foregroundStyle(Theme.Neon.cyanSoft)
+                    .neonTitleGlow()
+
+                Text("IGNITING THE GRID")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(3)
+                    .foregroundStyle(Theme.Neon.textMuted)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    private var actionGrid: some View {
+        VStack(spacing: 14) {
+            NavigationLink {
+                ModeSetupView(mode: .classic)
+            } label: {
+                primaryPlayCard
+            }
+            .buttonStyle(.plain)
+
+            HStack(spacing: 14) {
+                smallMenuCard(icon: "sparkles", title: "SKINS", subtitle: "Soon", accent: Theme.Neon.pink)
+                smallMenuCard(icon: "chart.bar.xaxis", title: "STATS", subtitle: "Best runs", accent: Theme.Neon.cyan)
+            }
+
+            HStack(spacing: 14) {
+                smallMenuCard(icon: "play.rectangle", title: "COINS", subtitle: "Ads only", accent: Theme.Neon.orange)
+                smallMenuCard(icon: "gearshape", title: "SETTINGS", subtitle: "Local", accent: Theme.Neon.pink)
+            }
+        }
+    }
+
+    private var primaryPlayCard: some View {
+        HStack(spacing: 16) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(LinearGradient(colors: [Theme.Neon.cyan, Theme.Neon.cyanSoft], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width: 62, height: 62)
+                    .shadow(color: Theme.Neon.cyan.opacity(0.45), radius: 18)
+
+                Image(systemName: "play.fill")
+                    .font(.system(size: 22, weight: .black))
+                    .foregroundStyle(Color.black.opacity(0.78))
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("PLAY")
+                    .font(.system(size: 24, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.Neon.textPrimary)
+                Text("Classic / Fast · Local profile")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white.opacity(0.75))
+                    .foregroundStyle(Theme.Neon.textSecondary)
             }
 
             Spacer()
 
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(.white.opacity(0.7))
+                .font(.system(size: 15, weight: .heavy))
+                .foregroundStyle(Theme.Neon.cyan)
         }
-        .padding(16)
+        .padding(18)
         .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(.white.opacity(0.12))
-                .shadow(color: .black.opacity(0.20), radius: 10, x: 0, y: 6)
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(Theme.Neon.panelStrong)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(.white.opacity(0.14), lineWidth: 1)
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .stroke(Theme.Neon.cyan.opacity(0.30), lineWidth: 1.2)
+        )
+    }
+
+    private func smallMenuCard(icon: String, title: String, subtitle: String, accent: Color) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(accent.opacity(0.16))
+                    .frame(width: 44, height: 44)
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(accent)
+            }
+
+            Spacer(minLength: 0)
+
+            Text(title)
+                .font(.system(size: 14, weight: .heavy, design: .rounded))
+                .foregroundStyle(Theme.Neon.textPrimary)
+            Text(subtitle)
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundStyle(Theme.Neon.textSecondary)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity)
+        .frame(height: 122)
+        .neonPanel(cornerRadius: 20)
+    }
+
+    private var bestScorePanel: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Text("BEST SCORES")
+                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                    .tracking(2)
+                    .foregroundStyle(Theme.Neon.textSecondary)
+                Spacer()
+                Text("LOCAL")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(1.8)
+                    .foregroundStyle(Theme.Neon.textMuted)
+            }
+
+            VStack(spacing: 10) {
+                HStack(spacing: 10) {
+                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: Theme.Neon.cyan.opacity(0.20), glow: Theme.Neon.cyan.opacity(0.14), crowned: classic7 > 0 && classic7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .seven))
+                    BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: Theme.Neon.cyan.opacity(0.16), glow: Theme.Neon.cyan.opacity(0.10), crowned: classic10 > 0 && classic10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .ten))
+                }
+                HStack(spacing: 10) {
+                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Theme.Neon.pink.opacity(0.22), glow: Theme.Neon.pink.opacity(0.12), crowned: fast7 > 0 && fast7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .seven))
+                    BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Theme.Neon.orange.opacity(0.20), glow: Theme.Neon.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .ten))
+                }
+            }
+        }
+        .padding(16)
+        .neonPanel(cornerRadius: 24)
+    }
+
+    private var bottomPlayBar: some View {
+        HStack(spacing: 0) {
+            bottomTab(icon: "gamecontroller.fill", title: "PLAY", active: true)
+            bottomTab(icon: "cart", title: "MARKET", active: false)
+            bottomTab(icon: "gearshape", title: "SETTINGS", active: false)
+        }
+        .padding(8)
+        .background(
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(Theme.Neon.background.opacity(0.88))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .stroke(Theme.Neon.panelStroke, lineWidth: 1)
+        )
+    }
+
+    private func bottomTab(icon: String, title: String, active: Bool) -> some View {
+        VStack(spacing: 6) {
+            Image(systemName: icon)
+                .font(.system(size: 15, weight: .bold))
+            Text(title)
+                .font(.system(size: 10, weight: .heavy, design: .rounded))
+                .tracking(1.3)
+        }
+        .foregroundStyle(active ? Theme.Neon.cyanSoft : Theme.Neon.textMuted)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 10)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(active ? Theme.Neon.cyan.opacity(0.12) : .clear)
         )
     }
 }
@@ -146,7 +268,6 @@ private struct BestTileView: View {
     let crowned: Bool
     let isNewBest: Bool
 
-    @State private var popped: Bool = false
     @State private var glowPhase: Bool = false
     @State private var floatPhase: Bool = false
 
@@ -157,14 +278,14 @@ private struct BestTileView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(modeTitle)
                         .font(.system(size: 13, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Theme.Neon.textPrimary)
 
                     Text(board)
                         .font(.system(size: 11, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white.opacity(0.72))
+                        .foregroundStyle(Theme.Neon.textSecondary)
                 }
 
                 Spacer()
@@ -173,7 +294,7 @@ private struct BestTileView: View {
                     if crowned {
                         Image(systemName: "crown.fill")
                             .font(.system(size: 12, weight: .bold))
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(Theme.Neon.orange)
                     } else {
                         Circle()
                             .fill(accent)
@@ -181,88 +302,58 @@ private struct BestTileView: View {
                     }
 
                     if isNewBest {
-                        Text("NEW BEST!")
-                            .font(.system(size: 9, weight: .heavy, design: .rounded))
+                        Text("NEW BEST")
+                            .font(.system(size: 8, weight: .heavy, design: .rounded))
                             .foregroundStyle(.black)
                             .padding(.horizontal, 7)
                             .padding(.vertical, 3)
-                            .background(
-                                Capsule(style: .continuous)
-                                    .fill(Color.yellow)
-                            )
+                            .background(Capsule().fill(Theme.Neon.orange))
                     }
                 }
             }
 
             Spacer(minLength: 0)
-                .font(.system(size: 11, weight: .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(0.72))
 
-            Spacer(minLength: 0)
+            Text("HIGH SCORE")
+                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .foregroundStyle(Theme.Neon.textMuted)
 
             Text("\(score)")
                 .font(.system(size: 24, weight: .heavy, design: .rounded))
-                .foregroundStyle(.white)
+                .foregroundStyle(Theme.Neon.textPrimary)
         }
         .padding(12)
         .frame(maxWidth: .infinity)
-        .frame(height: 92)
+        .frame(height: 96)
         .background(
             ZStack {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
                     .fill(accent)
 
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(crowned ? glow.opacity(1.3) : glow)
-                    .blur(radius: crowned ? 14 : 10)
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(glow.opacity(crowned ? 1.25 : 1.0))
+                    .blur(radius: crowned ? 16 : 12)
 
                 if isFastTile {
-                    // Whole-card soft glow sweep / breathing feel.
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    .white.opacity(glowPhase ? 0.02 : 0.00),
-                                    .white.opacity(glowPhase ? 0.16 : 0.08),
-                                    .white.opacity(glowPhase ? 0.22 : 0.10),
-                                    .white.opacity(glowPhase ? 0.12 : 0.04)
-                                ],
-                                startPoint: glowPhase ? .topLeading : .bottomTrailing,
-                                endPoint: glowPhase ? .bottomTrailing : .topLeading
-                            )
-                        )
-                        .blur(radius: glowPhase ? 14 : 8)
-                        .opacity(0.95)
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Theme.Neon.pink.opacity(glowPhase ? 0.85 : 0.30), lineWidth: glowPhase ? 1.8 : 1.0)
+                        .blur(radius: glowPhase ? 1.5 : 0)
                 }
             }
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(crowned ? .yellow.opacity(0.55) : .white.opacity(0.14), lineWidth: crowned ? 1.6 : 1)
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(Theme.Neon.panelStroke, lineWidth: 1)
         )
-        .shadow(color: crowned ? .yellow.opacity(0.18) : .clear, radius: 10, x: 0, y: 0)
-        .scaleEffect(popped ? 1.06 : 1.0)
-        .offset(y: isFastTile ? (floatPhase ? -1.5 : 1.5) : 0)
-        .animation(.spring(response: 0.24, dampingFraction: 0.55), value: popped)
+        .shadow(color: glow.opacity(0.65), radius: crowned ? 18 : 10)
+        .offset(y: isFastTile ? (floatPhase ? -2.5 : 2.5) : 0)
         .onAppear {
-            guard isFastTile else { return }
-            withAnimation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true)) {
-                glowPhase.toggle()
-            }
-            withAnimation(.easeInOut(duration: 2.2).repeatForever(autoreverses: true)) {
-                floatPhase.toggle()
-            }
-        }
-        .onChange(of: score) { _, newValue in
-            guard newValue > 0 else { return }
-            popped = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
-                popped = false
+            if isFastTile {
+                withAnimation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true)) {
+                    glowPhase = true
+                    floatPhase = true
+                }
             }
         }
     }
-}
-
-#Preview {
-    MainMenuView()
 }

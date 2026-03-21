@@ -68,7 +68,7 @@ struct ContentView: View {
     @State private var endCleanBonus: Int = 0
     @State private var endTotalScore: Int = 0
 
-    private let piecePalette: [Color] = Theme.Wood.blockPalette
+    private let piecePalette: [Color] = Theme.Neon.blockPalette
 
     private func pieceColor(for index: Int) -> Color {
         piecePalette[index % piecePalette.count]
@@ -160,11 +160,11 @@ struct ContentView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Theme.Wood.frameFill)
+                .fill(Theme.Neon.frameFill)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(Theme.Wood.frameStroke, lineWidth: 3)
+                .stroke(Theme.Neon.frameStroke, lineWidth: 3)
         )
         .padding(.horizontal, 20)
         .background(
@@ -184,12 +184,12 @@ struct ContentView: View {
                     .padding(10)
                     .background(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Theme.Wood.slotFill)
+                            .fill(Theme.Neon.slotFill)
                             .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Theme.Wood.frameStroke.opacity(0.55), lineWidth: 2)
+                            .stroke(Theme.Neon.frameStroke.opacity(0.55), lineWidth: 2)
                     )
                     .gesture(
                         DragGesture(minimumDistance: 0, coordinateSpace: .global)
@@ -258,7 +258,7 @@ struct ContentView: View {
             }
 
             let pts = clearedCellCentersInOverlay(points: Array(result.clearedOverlay.keys))
-            let palette = Theme.Wood.blockPalette
+            let palette = Theme.Neon.blockPalette
             let keyedColors = Array(result.clearedOverlay.values).map { palette[$0 % palette.count] }
             effects.burst(at: pts, colors: keyedColors, combo: combo, linesCleared: linesCleared)
 
@@ -288,7 +288,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [Theme.Wood.backgroundTop, Theme.Wood.backgroundBottom],
+                colors: [Theme.Neon.backgroundTop, Theme.Neon.backgroundBottom],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
