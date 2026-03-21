@@ -70,6 +70,8 @@ Edward prefers:
 - minimal filler language
 - proactive progress updates during multi-step work without needing to ask each time
 - when a task is difficult or slow-moving, break it into smaller concrete sub-tasks and deliver them incrementally to improve efficiency and avoid wasting time
+- for major UI overhauls, prioritize getting the UI structure and visual direction built first; it is acceptable if existing functionality is temporarily broken and fixed later to match the new UI
+- for the current BlockPuzzle neon overhaul, keep an explicit backfill list of functionality to restore after UI work: gameplay HUD wiring, piece tray interactions, end-screen stats, stats/leaderboard screen, settings behavior, local profile persistence, local coins flow, and rewarded-ad placeholder flow
 
 Responses should focus on clarity and usefulness.
 
