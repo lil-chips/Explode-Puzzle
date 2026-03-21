@@ -287,66 +287,15 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Theme.Neon.backgroundTop, Theme.Neon.backgroundBottom],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            NeonBackgroundView()
 
             VStack(spacing: 14) {
-                Text("Explode Puzzle")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color(red: 0.98, green: 0.95, blue: 0.90))
+                gameTopBar
+                    .padding(.horizontal, 18)
+                    .padding(.top, 8)
 
-                if mode == .fast, combo > 0 {
-                    Text("COMBO x\(combo)")
-                        .font(.system(size: 14, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.white.opacity(0.95))
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(
-                            Capsule(style: .continuous)
-                                .fill(.white.opacity(0.14))
-                        )
-                        .overlay(
-                            Capsule(style: .continuous)
-                                .stroke(.white.opacity(0.18), lineWidth: 1)
-                        )
-                        .transition(.scale.combined(with: .opacity))
-                }
-
-                HStack(spacing: 18) {
-                    VStack(spacing: 2) {
-                        Text("SCORE")
-                            .font(.system(size: 11, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.7))
-                        Text("\(gameState.score)")
-                            .font(.system(size: 22, weight: .heavy, design: .rounded))
-                            .foregroundStyle(.white)
-                    }
-
-                    if mode == .fast {
-                        VStack(spacing: 2) {
-                            Text("TIME")
-                                .font(.system(size: 11, weight: .bold, design: .rounded))
-                                .foregroundStyle(.white.opacity(0.7))
-                            Text(timeString(remainingSeconds))
-                                .font(.system(size: 22, weight: .heavy, design: .rounded))
-                                .foregroundStyle(remainingSeconds <= 10 ? .red.opacity(0.95) : .white)
-                        }
-                    } else {
-                        VStack(spacing: 2) {
-                            Text("BEST")
-                                .font(.system(size: 11, weight: .bold, design: .rounded))
-                                .foregroundStyle(.white.opacity(0.7))
-                            Text("\(bestScore)")
-                                .font(.system(size: 22, weight: .heavy, design: .rounded))
-                                .foregroundStyle(.white)
-                        }
-                    }
-                }
-                .padding(.bottom, 2)
+                gameScoreHud
+                    .padding(.horizontal, 18)
 
                 boardSection
 
@@ -355,39 +304,40 @@ struct ContentView: View {
                 Button {
                     startNewGame()
                 } label: {
-                    Text("New Game")
-                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                    Text("NEW GAME")
+                        .font(.system(size: 14, weight: .heavy, design: .rounded))
+                        .tracking(2)
                         .padding(.horizontal, 18)
-                        .padding(.vertical, 10)
+                        .padding(.vertical, 12)
                         .background(
                             Capsule(style: .continuous)
-                                .fill(.white.opacity(0.16))
+                                .fill(Theme.Neon.panelStrong)
                         )
                         .overlay(
                             Capsule(style: .continuous)
-                                .stroke(.white.opacity(0.25), lineWidth: 1)
+                                .stroke(Theme.Neon.panelStroke, lineWidth: 1)
                         )
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(.white.opacity(0.95))
+                .foregroundStyle(Theme.Neon.textPrimary)
                 .padding(.top, 2)
             }
-            .padding(.vertical, 20)
+            .padding(.vertical, 14)
 
             if let popup = scorePopupText {
                 VStack {
                     Text(popup)
                         .font(.system(size: 18, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Theme.Neon.textPrimary)
                         .padding(.horizontal, 14)
                         .padding(.vertical, 10)
                         .background(
                             Capsule(style: .continuous)
-                                .fill(.black.opacity(0.28))
+                                .fill(Theme.Neon.background.opacity(0.92))
                         )
                         .overlay(
                             Capsule(style: .continuous)
-                                .stroke(.white.opacity(0.16), lineWidth: 1)
+                                .stroke(Theme.Neon.cyan.opacity(0.18), lineWidth: 1)
                         )
                         .padding(.top, 18)
                     Spacer()
@@ -413,23 +363,127 @@ struct ContentView: View {
 
             if remainingSeconds <= 0 {
                 gameOverTitle = "Time Up"
-
-                // End-of-run bonuses (Fast only): final combo + clean board.
                 finalComboAtEnd = combo
                 let totalCells = boardSize.rawValue * boardSize.rawValue
                 endEmptyCells = max(0, totalCells - gameState.board.occupiedCells.count)
-
-                // Tune these two values later for feel.
                 endComboBonus = finalComboAtEnd * 200
                 endCleanBonus = endEmptyCells * 2
-
                 endTotalScore = gameState.score + endComboBonus + endCleanBonus
-
-                // Keep bestScore consistent with what we show as final.
                 updateBestScoreIfNeeded(endTotalScore)
-
                 showGameOver = true
             }
+        }
+    }
+
+    private var gameTopBar: some View {
+        HStack(spacing: 14) {
+            Button {
+            } label: {
+                Image(systemName: "arrow.left")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(Theme.Neon.cyanSoft)
+                    .frame(width: 42, height: 42)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.Neon.panel))
+                    .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Theme.Neon.panelStroke, lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("NEON PUZZLE")
+                    .font(.system(size: 19, weight: .black, design: .rounded))
+                    .tracking(1.5)
+                    .foregroundStyle(Theme.Neon.cyanSoft)
+                    .neonTitleGlow()
+                Text(mode == .fast ? "BLAST ZONE · FAST" : "BLAST ZONE · CLASSIC")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(1.7)
+                    .foregroundStyle(Theme.Neon.textMuted)
+            }
+
+            Spacer()
+
+            VStack(alignment: .trailing, spacing: 2) {
+                Text("BEST SCORE")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(1.4)
+                    .foregroundStyle(Theme.Neon.textMuted)
+                Text("\(bestScore)")
+                    .font(.system(size: 18, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.Neon.cyanSoft)
+            }
+
+            Button {
+            } label: {
+                Image(systemName: "storefront")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(Theme.Neon.cyanSoft)
+                    .frame(width: 42, height: 42)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.Neon.panel))
+                    .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Theme.Neon.panelStroke, lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    private var gameScoreHud: some View {
+        HStack(alignment: .bottom, spacing: 14) {
+            VStack(alignment: .leading, spacing: 8) {
+                if mode == .fast, combo > 0 {
+                    HStack(spacing: 8) {
+                        Circle()
+                            .fill(Theme.Neon.pink)
+                            .frame(width: 8, height: 8)
+                        Text("MULTIPLIER x\(combo)")
+                            .font(.system(size: 11, weight: .heavy, design: .rounded))
+                            .tracking(1.5)
+                            .foregroundStyle(Theme.Neon.pink)
+                    }
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("CURRENT SCORE")
+                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                        .tracking(1.8)
+                        .foregroundStyle(Theme.Neon.textMuted)
+                    Text("\(gameState.score)")
+                        .font(.system(size: 32, weight: .black, design: .rounded))
+                        .foregroundStyle(Theme.Neon.textPrimary)
+                }
+                .padding(16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .fill(Theme.Neon.background.opacity(0.82))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Theme.Neon.cyan.opacity(0.24), lineWidth: 1.2)
+                )
+            }
+
+            VStack(alignment: .trailing, spacing: 8) {
+                Text(mode == .fast ? "TIME" : "MODE")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(1.8)
+                    .foregroundStyle(Theme.Neon.textMuted)
+                Text(mode == .fast ? timeString(remainingSeconds) : boardSize.title)
+                    .font(.system(size: 22, weight: .heavy, design: .rounded))
+                    .foregroundStyle(mode == .fast && remainingSeconds <= 10 ? Theme.Neon.pink : Theme.Neon.cyanSoft)
+                Text(mode == .fast ? "COUNTDOWN" : "GRID")
+                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .tracking(1.2)
+                    .foregroundStyle(Theme.Neon.textSecondary)
+            }
+            .padding(16)
+            .frame(width: 120)
+            .background(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(Theme.Neon.panel)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(Theme.Neon.panelStroke, lineWidth: 1)
+            )
         }
     }
 
