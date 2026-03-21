@@ -68,6 +68,7 @@ Edward prefers:
 - logical reasoning
 - practical solutions
 - minimal filler language
+- proactive progress updates during multi-step work without needing to ask each time
 
 Responses should focus on clarity and usefulness.
 
@@ -87,6 +88,12 @@ Goals include:
 - improving reasoning capability
 - optimizing problem-solving performance
 - designing a stable agent architecture
+
+### Explode Puzzle / BlockPuzzle (separate repo)
+
+- Game work is kept in a separate GitHub repo: `https://github.com/lil-chips/Explode-Puzzle.git`.
+- The outer `ai-ding` workspace should ignore it (to avoid nested repo/submodule confusion).
+- Market brief cron job was disabled so briefs are manual-only.
 
 ---
 
