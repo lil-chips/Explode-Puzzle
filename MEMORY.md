@@ -69,6 +69,7 @@ Edward prefers:
 - practical solutions
 - minimal filler language
 - proactive progress updates during multi-step work without needing to ask each time
+- when a task is difficult or slow-moving, break it into smaller concrete sub-tasks and deliver them incrementally to improve efficiency and avoid wasting time
 
 Responses should focus on clarity and usefulness.
 
