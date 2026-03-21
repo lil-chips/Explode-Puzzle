@@ -72,6 +72,8 @@ Edward prefers:
 - when a task is difficult or slow-moving, break it into smaller concrete sub-tasks and deliver them incrementally to improve efficiency and avoid wasting time
 - for major UI overhauls, prioritize getting the UI structure and visual direction built first; it is acceptable if existing functionality is temporarily broken and fixed later to match the new UI
 - for the current BlockPuzzle neon overhaul, keep an explicit backfill list of functionality to restore after UI work: gameplay HUD wiring, piece tray interactions, end-screen stats, stats/leaderboard screen, settings behavior, local profile persistence, local coins flow, and rewarded-ad placeholder flow
+- for the current BlockPuzzle neon overhaul, prioritize the easiest/highest-leverage UI pieces first, then move toward harder ones; do not spend too long stuck on one difficult area before switching to another small deliverable
+- the user explicitly approved replacing/removing the old UI during this overhaul and rebuilding the app screens in the new neon style first, with functionality to be repaired afterward
 
 Responses should focus on clarity and usefulness.
 
