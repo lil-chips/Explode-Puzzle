@@ -139,40 +139,17 @@ struct ContentView: View {
     }
 
     private var boardSection: some View {
-        ZStack {
-            BoardView(
-                gameState: gameState,
-                ghostCells: ghost?.cells,
-                ghostColor: ghost?.color,
-                ghostValid: ghost?.valid ?? true,
-                clearOverlay: clearOverlay,
-                clearFadeOut: clearFadeOut
-            )
-            .onPreferenceChange(BoardGridRectPreferenceKey.self) { newValue in
-                gridRect = newValue
-            }
-            .animation(.spring(response: 0.18, dampingFraction: 0.65), value: boardShake)
-            .offset(x: boardShake)
-
-            BoardEffectsOverlayView(controller: effects)
-                .allowsHitTesting(false)
-        }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Theme.Neon.frameFill)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(Theme.Neon.frameStroke, lineWidth: 3)
-        )
-        .padding(.horizontal, 20)
-        .background(
-            GeometryReader { geo in
-                Color.clear
-                    .onAppear { boardFrame = geo.frame(in: .global) }
-                    .onChange(of: geo.frame(in: .global)) { _, newValue in boardFrame = newValue }
-            }
+        BoardContainerView(
+            gameState: gameState,
+            ghostCells: ghost?.cells,
+            ghostColor: ghost?.color,
+            ghostValid: ghost?.valid ?? true,
+            clearOverlay: clearOverlay,
+            clearFadeOut: clearFadeOut,
+            boardShake: boardShake,
+            effects: effects,
+            onGridRectChange: { gridRect = $0 },
+            onBoardFrameChange: { boardFrame = $0 }
         )
     }
 
