@@ -177,40 +177,24 @@ struct ContentView: View {
     }
 
     private var pieceTray: some View {
-        HStack(spacing: 12) {
-            ForEach(Array(gameState.currentPieces.enumerated()), id: \.offset) { index, piece in
-                PieceView(piece: piece, fillColor: pieceColor(for: index))
-                    .frame(width: 86, height: 86)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .fill(Theme.Neon.slotFill)
-                            .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Theme.Neon.frameStroke.opacity(0.55), lineWidth: 2)
-                    )
-                    .gesture(
-                        DragGesture(minimumDistance: 0, coordinateSpace: .global)
-                            .onChanged { value in
-                                guard !showGameOver else { return }
-                                draggingPieceIndex = index
-                                dragLocation = value.location
-                            }
-                            .onEnded { _ in
-                                defer {
-                                    draggingPieceIndex = nil
-                                    dragLocation = nil
-                                }
+        PieceTrayView(
+            pieces: gameState.currentPieces,
+            showGameOver: showGameOver,
+            colorForIndex: pieceColor,
+            onDragChanged: { index, location in
+                draggingPieceIndex = index
+                dragLocation = location
+            },
+            onDragEnded: { index in
+                defer {
+                    draggingPieceIndex = nil
+                    dragLocation = nil
+                }
 
-                                guard !showGameOver, let origin = ghostOrigin else { return }
-                                handleDrop(index: index, origin: origin)
-                            }
-                    )
+                guard let origin = ghostOrigin else { return }
+                handleDrop(index: index, origin: origin)
             }
-        }
-        .padding(.horizontal, 20)
+        )
     }
 
     private func handleDrop(index: Int, origin: BlockPuzzlePoint) {
