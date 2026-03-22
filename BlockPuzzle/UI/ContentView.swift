@@ -346,7 +346,18 @@ struct ContentView: View {
             }
 
             if showGameOver {
-                gameOverOverlay
+                EndScreenView(
+                    title: gameOverTitle,
+                    mode: mode,
+                    score: gameState.score,
+                    bestScore: bestScore,
+                    finalComboAtEnd: finalComboAtEnd,
+                    endEmptyCells: endEmptyCells,
+                    endComboBonus: endComboBonus,
+                    endCleanBonus: endCleanBonus,
+                    endTotalScore: endTotalScore,
+                    onRestart: startNewGame
+                )
             }
         }
         .onAppear {
@@ -492,18 +503,6 @@ struct ContentView: View {
         return String(format: "%d:%02d", s / 60, s % 60)
     }
 
-    private func row(_ left: String, _ right: String, strong: Bool = false) -> some View {
-        HStack {
-            Text(left)
-                .font(.system(size: strong ? 16 : 13, weight: strong ? .heavy : .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(strong ? 0.95 : 0.78))
-            Spacer()
-            Text(right)
-                .font(.system(size: strong ? 16 : 13, weight: strong ? .heavy : .bold, design: .rounded))
-                .foregroundStyle(.white.opacity(strong ? 0.95 : 0.90))
-        }
-    }
-
     // MARK: - Board overlay coordinate helpers (SpriteKit confined to board area)
 
     private func boardCenterInOverlay() -> CGPoint? {
@@ -542,69 +541,6 @@ struct ContentView: View {
         }
     }
 
-    private var gameOverOverlay: some View {
-        ZStack {
-            Color.black.opacity(0.55).ignoresSafeArea()
-
-            VStack(spacing: 12) {
-                Text(gameOverTitle)
-                    .font(.system(size: 28, weight: .heavy, design: .rounded))
-                    .foregroundStyle(.white)
-
-                Group {
-                    if mode == .fast, gameOverTitle == "Time Up" {
-                        VStack(spacing: 6) {
-                            row("Score", "\(gameState.score)")
-                            row("Final Combo", "x\(finalComboAtEnd)")
-                            row("Combo Bonus", "+\(endComboBonus)")
-                            row("Empty Cells", "\(endEmptyCells)")
-                            row("Clean Bonus", "+\(endCleanBonus)")
-
-                            Divider().overlay(.white.opacity(0.18))
-                                .padding(.top, 4)
-
-                            row("TOTAL", "\(endTotalScore)", strong: true)
-                        }
-                        .padding(.top, 2)
-                    } else {
-                        Text("Score: \(gameState.score)")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.95))
-
-                        Text("Best: \(bestScore)")
-                            .font(.system(size: 16, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.85))
-                    }
-                }
-
-                Button {
-                    startNewGame()
-                } label: {
-                    Text("Restart")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .padding(.horizontal, 28)
-                        .padding(.vertical, 12)
-                        .background(
-                            Capsule(style: .continuous)
-                                .fill(.white)
-                        )
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(.black)
-                .padding(.top, 6)
-            }
-            .padding(24)
-            .background(
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .fill(.white.opacity(0.12))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .stroke(.white.opacity(0.18), lineWidth: 1)
-                    )
-            )
-            .padding(.horizontal, 26)
-        }
-    }
 }
 
 #Preview {
