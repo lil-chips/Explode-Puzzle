@@ -126,7 +126,12 @@ struct MainMenuView: View {
             .buttonStyle(.plain)
 
             HStack(spacing: 14) {
-                smallMenuCard(icon: "sparkles", title: "SKINS", subtitle: "Soon", accent: Theme.Neon.pink)
+                NavigationLink {
+                    SkinsLabView()
+                } label: {
+                    smallMenuCard(icon: "sparkles", title: "SKINS", subtitle: "Local lab", accent: Theme.Neon.pink)
+                }
+                .buttonStyle(.plain)
 
                 NavigationLink {
                     StatsDashboardView(classic7: classic7, classic10: classic10, fast7: fast7, fast10: fast10)
