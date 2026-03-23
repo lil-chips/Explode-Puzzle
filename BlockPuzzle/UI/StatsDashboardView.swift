@@ -17,6 +17,23 @@ struct StatsDashboardView: View {
         max(classic7, classic10, fast7, fast10)
     }
 
+    private var unlockedBoards: Int {
+        [classic7, classic10, fast7, fast10].filter { $0 > 0 }.count
+    }
+
+    private var activeModeLabel: String {
+        let classicBest = max(classic7, classic10)
+        let fastBest = max(fast7, fast10)
+
+        if classicBest == 0 && fastBest == 0 { return "No runs yet" }
+        if classicBest == fastBest { return "Classic / Fast tied" }
+        return classicBest > fastBest ? "Classic ahead" : "Fast ahead"
+    }
+
+    private var hasAnyRuns: Bool {
+        topScore > 0
+    }
+
     var body: some View {
         ZStack {
             NeonBackgroundView()
@@ -26,6 +43,7 @@ struct StatsDashboardView: View {
                     headerCard
                     profileSnapshotRow
                     summaryRow
+                    progressionRow
                     classicSection
                     fastSection
                 }
@@ -39,10 +57,16 @@ struct StatsDashboardView: View {
 
     private var headerCard: some View {
         statsSection(title: "LOCAL DATA", subtitle: "Stats & Leaderboard", accent: Theme.Neon.cyan) {
-            Text("A neon snapshot of your best local runs. Online leaderboard can be wired later without replacing this screen.")
-                .font(.system(size: 13, weight: .semibold, design: .rounded))
-                .foregroundStyle(Theme.Neon.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("A neon snapshot of your best local runs. Online leaderboard can be wired later without replacing this screen.")
+                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                    .foregroundStyle(Theme.Neon.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(hasAnyRuns ? "Local record tracking is active on this device." : "Play one run to start building your local dashboard.")
+                    .font(.system(size: 11, weight: .bold, design: .rounded))
+                    .foregroundStyle(hasAnyRuns ? Theme.Neon.cyanSoft : Theme.Neon.textMuted)
+            }
         }
     }
 
@@ -57,6 +81,13 @@ struct StatsDashboardView: View {
         HStack(spacing: 12) {
             summaryCard(label: "TOP SCORE", value: "\(topScore)", accent: Theme.Neon.cyan)
             summaryCard(label: "TOTAL", value: "\(totalScore)", accent: Theme.Neon.pink)
+        }
+    }
+
+    private var progressionRow: some View {
+        HStack(spacing: 12) {
+            summaryCard(label: "BOARDS", value: "\(unlockedBoards)/4", accent: Theme.Neon.cyanSoft)
+            summaryCard(label: "TREND", value: activeModeLabel, accent: Theme.Neon.orange)
         }
     }
 
