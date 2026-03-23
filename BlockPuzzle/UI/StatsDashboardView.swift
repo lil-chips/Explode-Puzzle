@@ -95,7 +95,7 @@ struct StatsDashboardView: View {
         statsSection(title: "CLASSIC", subtitle: "Personal Bests", accent: Theme.Neon.cyanSoft) {
             VStack(spacing: 10) {
                 leaderboardRow(rank: 1, title: "Classic 10×10", score: classic10, accent: Theme.Neon.cyan)
-                leaderboardRow(rank: 2, title: "Classic 7×7", score: classic7, accent: Theme.Neon.cyanSoft)
+                leaderboardRow(rank: 2, title: "Classic 8×8", score: classic7, accent: Theme.Neon.cyanSoft)
             }
         }
     }
@@ -104,7 +104,7 @@ struct StatsDashboardView: View {
         statsSection(title: "FAST", subtitle: "Combo Records", accent: Theme.Neon.pink) {
             VStack(spacing: 10) {
                 leaderboardRow(rank: 1, title: "Fast 10×10", score: fast10, accent: Theme.Neon.orange)
-                leaderboardRow(rank: 2, title: "Fast 7×7", score: fast7, accent: Theme.Neon.pink)
+                leaderboardRow(rank: 2, title: "Fast 8×8", score: fast7, accent: Theme.Neon.pink)
             }
         }
     }

@@ -18,17 +18,4 @@ nonisolated struct Piece: Hashable, Codable, Sendable {
         return (maxX + 1, maxY + 1)
     }
 
-    /// A small canonical set of starter shapes (no rotation for MVP).
-    static let starterPool: [Piece] = [
-        Piece(cells: [BlockPuzzlePoint(0,0)]), // 1
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0)]), // 2 line
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(0,1)]), // 2 vertical
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(2,0)]), // 3 line
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(0,2)]), // 3 vertical
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(1,1)]), // 2x2
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(2,0), BlockPuzzlePoint(0,1)]), // L4
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(0,2), BlockPuzzlePoint(1,0)]), // L4 rotated
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(1,0), BlockPuzzlePoint(1,1)]), // small corner
-        Piece(cells: [BlockPuzzlePoint(0,0), BlockPuzzlePoint(0,1), BlockPuzzlePoint(1,1)]), // small corner rotated
-    ]
 }

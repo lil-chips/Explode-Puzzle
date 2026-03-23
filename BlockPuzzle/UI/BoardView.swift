@@ -160,22 +160,47 @@ struct BoardView: View {
 
         // Priority: clearing overlay > ghost > existing occupied.
         let baseFill: Color = isClearing
-            ? clearColor
-            : (isGhost ? ghostFill : fillColor)
+            ? clearColor.opacity(0.76)
+            : (isGhost ? ghostFill : (isFilled ? fillColor.opacity(0.70) : fillColor))
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
             .fill(baseFill)
             .overlay {
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(
-                        isClearing
-                            ? clearColor.opacity(0.7)
-                            : (isGhost
-                                ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                                : (isFilled ? fillColor.opacity(0.55) : Theme.Neon.slotStroke)),
-                        lineWidth: 1
-                    )
+                ZStack {
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .stroke(
+                            isClearing
+                                ? clearColor.opacity(0.76)
+                                : (isGhost
+                                    ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
+                                    : (isFilled ? fillColor.opacity(0.72) : Theme.Neon.slotStroke)),
+                            lineWidth: 1
+                        )
+
+                    if isFilled || isClearing {
+                        RoundedRectangle(cornerRadius: max(1, cornerRadius - 0.5), style: .continuous)
+                            .stroke(.white.opacity(0.22), lineWidth: 0.7)
+                            .padding(0.7)
+
+                        VStack(spacing: 0) {
+                            LinearGradient(
+                                colors: [.white.opacity(0.26), .white.opacity(0.06), .clear],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+                            Spacer(minLength: 0)
+                        }
+                        .padding(0.8)
+                    }
+                }
             }
+            .background(
+                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                    .fill((isFilled || isClearing) ? fillColor.opacity(0.10) : .clear)
+                    .blur(radius: 1.4)
+            )
+            .shadow(color: (isFilled || isClearing) ? fillColor.opacity(0.16) : .clear, radius: 2.4, x: 0, y: 1)
             .shadow(color: (isFilled || isGhost || isClearing) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
             .opacity(isClearing ? (clearFadeOut ? 0.0 : 1.0) : 1.0)
             .scaleEffect(

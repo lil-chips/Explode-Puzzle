@@ -44,14 +44,37 @@ struct PieceView: View {
         let filled = piece.cells.contains(BlockPuzzlePoint(x, y))
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(filled ? fillColor : Color.clear)
+            .fill(filled ? fillColor.opacity(0.68) : Color.clear)
             .overlay {
                 if filled {
-                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                        .stroke(fillColor.opacity(0.55), lineWidth: 1)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                            .stroke(fillColor.opacity(0.75), lineWidth: 1)
+
+                        RoundedRectangle(cornerRadius: cornerRadius - 1, style: .continuous)
+                            .stroke(.white.opacity(0.28), lineWidth: 0.8)
+                            .padding(0.8)
+
+                        VStack(spacing: 0) {
+                            LinearGradient(
+                                colors: [.white.opacity(0.34), .white.opacity(0.08), .clear],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+                            Spacer(minLength: 0)
+                        }
+                        .padding(1)
+                    }
                 }
             }
-            .shadow(color: filled ? .black.opacity(0.18) : .clear, radius: 1.5, x: 0, y: 1)
+            .background(
+                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                    .fill(filled ? fillColor.opacity(0.14) : .clear)
+                    .blur(radius: 1.2)
+            )
+            .shadow(color: filled ? fillColor.opacity(0.18) : .clear, radius: 3, x: 0, y: 1.5)
+            .shadow(color: filled ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
     }
 }
 

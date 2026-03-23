@@ -72,7 +72,7 @@ struct ModeSetupView: View {
                 .foregroundStyle(Theme.Neon.textSecondary)
 
             HStack(spacing: 12) {
-                boardCard(.seven)
+                boardCard(.eight)
                 boardCard(.ten)
             }
         }

@@ -38,8 +38,13 @@ nonisolated struct GameState: Codable, Hashable, Sendable {
 
     mutating func refillPiecesIfNeeded<R: RandomNumberGenerator>(random: inout R) {
         guard currentPieces.isEmpty else { return }
+
+        let boardSize = BoardSize(rawValue: board.width) ?? .ten
+        let pool = PieceCatalog.starterPool(for: boardSize)
+        let fallback = pool.first ?? PieceCatalog.all.first?.piece ?? Piece(cells: [BlockPuzzlePoint(0,0)])
+
         currentPieces = (0..<3).map { _ in
-            Piece.starterPool.randomElement(using: &random) ?? Piece.starterPool[0]
+            pool.randomElement(using: &random) ?? fallback
         }
     }
 

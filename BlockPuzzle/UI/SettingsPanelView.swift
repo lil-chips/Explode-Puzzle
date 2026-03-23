@@ -266,9 +266,9 @@ struct SettingsPanelView: View {
     private func clearBestScores() {
         let defaults = UserDefaults.standard
         let keys = [
-            BestScoreStore.key(mode: .classic, boardSize: .seven),
+            BestScoreStore.key(mode: .classic, boardSize: .eight),
             BestScoreStore.key(mode: .classic, boardSize: .ten),
-            BestScoreStore.key(mode: .fast, boardSize: .seven),
+            BestScoreStore.key(mode: .fast, boardSize: .eight),
             BestScoreStore.key(mode: .fast, boardSize: .ten),
             BestScoreStore.lastUpdatedKeyStorage
         ]

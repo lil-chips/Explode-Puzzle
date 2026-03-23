@@ -240,11 +240,11 @@ struct MainMenuView: View {
 
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Classic", board: "7×7", score: classic7, accent: Theme.Neon.cyan.opacity(0.20), glow: Theme.Neon.cyan.opacity(0.14), crowned: classic7 > 0 && classic7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .seven))
+                    BestTileView(modeTitle: "Classic", board: "8×8", score: classic7, accent: Theme.Neon.cyan.opacity(0.20), glow: Theme.Neon.cyan.opacity(0.14), crowned: classic7 > 0 && classic7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .eight))
                     BestTileView(modeTitle: "Classic", board: "10×10", score: classic10, accent: Theme.Neon.cyan.opacity(0.16), glow: Theme.Neon.cyan.opacity(0.10), crowned: classic10 > 0 && classic10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .classic, boardSize: .ten))
                 }
                 HStack(spacing: 10) {
-                    BestTileView(modeTitle: "Fast", board: "7×7", score: fast7, accent: Theme.Neon.pink.opacity(0.22), glow: Theme.Neon.pink.opacity(0.12), crowned: fast7 > 0 && fast7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .seven))
+                    BestTileView(modeTitle: "Fast", board: "8×8", score: fast7, accent: Theme.Neon.pink.opacity(0.22), glow: Theme.Neon.pink.opacity(0.12), crowned: fast7 > 0 && fast7 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .eight))
                     BestTileView(modeTitle: "Fast", board: "10×10", score: fast10, accent: Theme.Neon.orange.opacity(0.20), glow: Theme.Neon.orange.opacity(0.10), crowned: fast10 > 0 && fast10 == topScore, isNewBest: lastUpdatedBestKey == BestScoreStore.key(mode: .fast, boardSize: .ten))
                 }
             }

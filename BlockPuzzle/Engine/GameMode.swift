@@ -6,19 +6,19 @@ enum GameMode: String, Codable, Hashable {
 }
 
 enum BoardSize: Int, Codable, Hashable, CaseIterable {
-    case seven = 7
+    case eight = 8
     case ten = 10
 
     var title: String {
         switch self {
-        case .seven: return "7×7"
+        case .eight: return "8×8"
         case .ten: return "10×10"
         }
     }
 
     var subtitle: String {
         switch self {
-        case .seven: return "更緊湊、更刺激"
+        case .eight: return "更緊湊、節奏更快"
         case .ten: return "經典尺寸、策略空間更大"
         }
     }
