@@ -250,9 +250,26 @@ struct MainMenuView: View {
 
     private var bottomPlayBar: some View {
         HStack(spacing: 0) {
-            bottomTab(icon: "gamecontroller.fill", title: "PLAY", active: true)
-            bottomTab(icon: "cart", title: "MARKET", active: false)
-            bottomTab(icon: "gearshape", title: "SETTINGS", active: false)
+            NavigationLink {
+                ModeSetupView(mode: .classic)
+            } label: {
+                bottomTab(icon: "gamecontroller.fill", title: "PLAY", active: true)
+            }
+            .buttonStyle(.plain)
+
+            NavigationLink {
+                CoinsCenterView()
+            } label: {
+                bottomTab(icon: "cart", title: "MARKET", active: false)
+            }
+            .buttonStyle(.plain)
+
+            NavigationLink {
+                SettingsPanelView()
+            } label: {
+                bottomTab(icon: "gearshape", title: "SETTINGS", active: false)
+            }
+            .buttonStyle(.plain)
         }
         .padding(8)
         .background(
