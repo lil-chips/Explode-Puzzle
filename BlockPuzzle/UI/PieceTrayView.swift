@@ -43,7 +43,11 @@ struct PieceTrayView: View {
     ZStack {
         NeonBackgroundView()
         PieceTrayView(
-            pieces: DemoGameState.pieces,
+            pieces: [
+                Piece(cells: [BlockPuzzlePoint(0, 0), BlockPuzzlePoint(1, 0), BlockPuzzlePoint(0, 1), BlockPuzzlePoint(1, 1)]),
+                Piece(cells: [BlockPuzzlePoint(0, 0), BlockPuzzlePoint(1, 0), BlockPuzzlePoint(2, 0), BlockPuzzlePoint(3, 0)]),
+                Piece(cells: [BlockPuzzlePoint(0, 0), BlockPuzzlePoint(0, 1), BlockPuzzlePoint(1, 1)])
+            ],
             showGameOver: false,
             colorForIndex: { Theme.Neon.blockPalette[$0 % Theme.Neon.blockPalette.count] },
             onDragChanged: { _, _ in },

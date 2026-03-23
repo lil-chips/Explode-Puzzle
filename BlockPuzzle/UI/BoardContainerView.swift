@@ -55,7 +55,7 @@ struct BoardContainerView: View {
     ZStack {
         NeonBackgroundView()
         BoardContainerView(
-            gameState: DemoGameState.make(),
+            gameState: .demo,
             ghostCells: nil,
             ghostColor: nil,
             ghostValid: true,
