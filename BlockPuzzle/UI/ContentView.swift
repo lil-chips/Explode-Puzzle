@@ -5,6 +5,9 @@ import UIKit
 // Fast mode: combo + result breakdown UI lives here (engine stays simple for MVP).
 
 struct ContentView: View {
+    @Environment(\.dismiss) private var dismiss
+    @State private var showCoinsCenter: Bool = false
+
     let mode: GameMode
     let boardSize: BoardSize
     let fastTime: FastTimeLimit?
@@ -258,8 +261,8 @@ struct ContentView: View {
                     currentScore: gameState.score,
                     combo: combo,
                     remainingSeconds: remainingSeconds,
-                    onBack: {},
-                    onStore: {}
+                    onBack: { dismiss() },
+                    onStore: { showCoinsCenter = true }
                 )
                 .padding(.horizontal, 18)
                 .padding(.top, 8)
@@ -325,6 +328,11 @@ struct ContentView: View {
                     endTotalScore: endTotalScore,
                     onRestart: startNewGame
                 )
+            }
+        }
+        .sheet(isPresented: $showCoinsCenter) {
+            NavigationStack {
+                CoinsCenterView()
             }
         }
         .onAppear {
