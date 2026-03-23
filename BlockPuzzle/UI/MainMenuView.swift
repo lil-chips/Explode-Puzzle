@@ -6,6 +6,8 @@ struct MainMenuView: View {
     @AppStorage("blockpuzzle.best.fast.7") private var fast7: Int = 0
     @AppStorage("blockpuzzle.best.fast.10") private var fast10: Int = 0
     @AppStorage("blockpuzzle.best.lastUpdated") private var lastUpdatedBestKey: String = ""
+    @AppStorage("neonpuzzles.localProfileName") private var localProfileName: String = "Pilot"
+    @AppStorage("neonpuzzles.localCoins") private var localCoins: Int = 120
 
     private var topScore: Int {
         max(classic7, classic10, fast7, fast10)
@@ -59,10 +61,15 @@ struct MainMenuView: View {
 
             Spacer()
 
-            Text("LOCAL PROFILE")
-                .font(.system(size: 9, weight: .bold, design: .rounded))
-                .tracking(1.6)
-                .foregroundStyle(Theme.Neon.textMuted)
+            VStack(alignment: .trailing, spacing: 2) {
+                Text("LOCAL PROFILE")
+                    .font(.system(size: 9, weight: .bold, design: .rounded))
+                    .tracking(1.6)
+                    .foregroundStyle(Theme.Neon.textMuted)
+                Text(localProfileName.isEmpty ? "Pilot" : localProfileName)
+                    .font(.system(size: 11, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.Neon.textSecondary)
+            }
         }
     }
 
@@ -120,12 +127,29 @@ struct MainMenuView: View {
 
             HStack(spacing: 14) {
                 smallMenuCard(icon: "sparkles", title: "SKINS", subtitle: "Soon", accent: Theme.Neon.pink)
-                smallMenuCard(icon: "chart.bar.xaxis", title: "STATS", subtitle: "Best runs", accent: Theme.Neon.cyan)
+
+                NavigationLink {
+                    StatsDashboardView(classic7: classic7, classic10: classic10, fast7: fast7, fast10: fast10)
+                } label: {
+                    smallMenuCard(icon: "chart.bar.xaxis", title: "STATS", subtitle: "Best runs", accent: Theme.Neon.cyan)
+                }
+                .buttonStyle(.plain)
             }
 
             HStack(spacing: 14) {
-                smallMenuCard(icon: "play.rectangle", title: "COINS", subtitle: "Ads only", accent: Theme.Neon.orange)
-                smallMenuCard(icon: "gearshape", title: "SETTINGS", subtitle: "Local", accent: Theme.Neon.pink)
+                NavigationLink {
+                    CoinsCenterView()
+                } label: {
+                    smallMenuCard(icon: "play.rectangle", title: "COINS", subtitle: "\(localCoins) stored", accent: Theme.Neon.orange)
+                }
+                .buttonStyle(.plain)
+
+                NavigationLink {
+                    SettingsPanelView()
+                } label: {
+                    smallMenuCard(icon: "gearshape", title: "SETTINGS", subtitle: "Local", accent: Theme.Neon.pink)
+                }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -356,4 +380,8 @@ private struct BestTileView: View {
             }
         }
     }
+}
+
+#Preview {
+    MainMenuView()
 }
