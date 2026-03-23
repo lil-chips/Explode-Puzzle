@@ -40,11 +40,14 @@ nonisolated struct GameState: Codable, Hashable, Sendable {
         guard currentPieces.isEmpty else { return }
 
         let boardSize = BoardSize(rawValue: board.width) ?? .ten
-        let pool = PieceCatalog.starterPool(for: boardSize)
-        let fallback = pool.first ?? PieceCatalog.all.first?.piece ?? Piece(cells: [BlockPuzzlePoint(0,0)])
+        currentPieces = [
+            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .friendly, random: &random),
+            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .neutral, random: &random),
+            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .pressure, random: &random)
+        ]
 
-        currentPieces = (0..<3).map { _ in
-            pool.randomElement(using: &random) ?? fallback
+        if !currentPieces.contains(where: { board.hasAnyValidPlacement(for: $0) }) {
+            currentPieces[0] = PieceCatalog.randomPiece(for: boardSize, score: max(0, score - 1500), bucket: .friendly, random: &random)
         }
     }
 
