@@ -210,14 +210,12 @@ struct EndScreenView: View {
 
             // Score + outer glow + NEW BEST badge
             ZStack(alignment: .topTrailing) {
-                // Outer glow
                 Circle()
                     .fill(Theme.Neon.cyan.opacity(0.15))
                     .frame(width: 220, height: 220)
                     .blur(radius: 50)
+                    .frame(maxWidth: .infinity, alignment: .center)
 
-                // Score: text-7xl (approx 64–72pt), drop-shadow glow
-                // minimumScaleFactor prevents 6-digit scores from overflowing on iPhone SE
                 Text("\(displayScore)")
                     .font(.system(size: 72, weight: .heavy, design: .rounded))
                     .foregroundStyle(Theme.Neon.textPrimary)
@@ -228,26 +226,25 @@ struct EndScreenView: View {
                     .shadow(color: Theme.Neon.cyan.opacity(0.30), radius: 20)
                     .contentTransition(.numericText())
                     .padding(.horizontal, 12)
+                    .frame(maxWidth: .infinity, alignment: .center)
 
-                // NEW BEST badge: bg-secondary rotate-12, offset clear of score
                 if isNewBest {
                     Text("NEW BEST")
                         .font(.system(size: 10, weight: .heavy, design: .rounded))
                         .tracking(1.5)
-                        .foregroundStyle(Color(hex: "#47001f"))   // on-secondary
+                        .foregroundStyle(Color(hex: "#47001f"))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                         .background(
                             RoundedRectangle(cornerRadius: 2, style: .continuous)
-                                .fill(Theme.Neon.pink)    // bg-secondary = #ff6b9b
+                                .fill(Theme.Neon.pink)
                                 .shadow(color: Theme.Neon.pink.opacity(0.50), radius: 15)
                         )
                         .rotationEffect(.degrees(12))
-                        .offset(x: 6, y: -18)
+                        .offset(x: -4, y: -18)
                 }
             }
-            // Extra trailing room so the NEW BEST badge doesn't clip the screen edge
-            .padding(.trailing, 8)
+            .frame(maxWidth: .infinity)
 
             // Particle fragments: 3 colored squares
             HStack(spacing: 8) {
