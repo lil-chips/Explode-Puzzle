@@ -18,6 +18,8 @@ struct CoinsCenterView: View {
     @State private var toast: String? = nil
     @State private var toastVisible = false
     @State private var pingAnim = false
+    @StateObject private var adManager = AdManager.shared
+    @State private var adLoading = false
 
     private var avatar: PlayerAvatar {
         PlayerAvatar(rawValue: localAvatarRaw) ?? .cat
@@ -348,8 +350,16 @@ struct CoinsCenterView: View {
 
     private var freeCoinsCard: some View {
         Button {
-            localCoins += 1000
-            showToast("+1,000 COINS added!")
+            adLoading = true
+            adManager.showRewarded(for: .freeCoins) { rewarded in
+                adLoading = false
+                if rewarded {
+                    localCoins += 1000
+                    showToast("+1,000 COINS added!")
+                } else {
+                    showToast(adManager.freeCoinsRewardReady ? "Ad was not completed." : "Rewarded ad unavailable right now.")
+                }
+            }
         } label: {
             ZStack(alignment: .topTrailing) {
                 VStack(spacing: 16) {
@@ -374,7 +384,7 @@ struct CoinsCenterView: View {
                             .minimumScaleFactor(0.75).lineLimit(1)
                             .foregroundStyle(Theme.Neon.cyanSoft)
                     }
-                    Text("WATCH AD")
+                    Text(adLoading ? "LOADING AD..." : "WATCH AD")
                         .font(.system(size: 12, weight: .black, design: .rounded))
                         .tracking(1.5)
                         .foregroundStyle(Color(hex: "#003840"))
@@ -396,6 +406,7 @@ struct CoinsCenterView: View {
             }
         }
         .buttonStyle(.plain)
+        .disabled(adLoading)
     }
 
     private var coinPackCard: some View {

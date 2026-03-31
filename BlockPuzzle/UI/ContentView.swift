@@ -249,28 +249,25 @@ struct ContentView: View {
         let count = skillCount(skill)
         ZStack(alignment: .topTrailing) {
             VStack(spacing: 4) {
-                Image(systemName: skill.icon)
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(count > 0
-                        ? skill.color
-                        : skill.color.opacity(0.35))
-                    .frame(width: 46, height: 38)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(count > 0
-                                ? skill.color.opacity(0.15)
-                                : Theme.Neon.panel)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .stroke(count > 0
-                                ? skill.color.opacity(0.55)
-                                : Theme.Neon.panelStroke,
-                                lineWidth: 1.2)
-                    )
-                    .shadow(color: count > 0
-                        ? skill.color.opacity(0.35) : .clear,
-                        radius: 6)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .fill(count > 0
+                            ? skill.color.opacity(0.15)
+                            : Theme.Neon.panel)
+                    gameplaySkillIconVisual(skill, enabled: count > 0)
+                        .frame(width: 30, height: 30)
+                }
+                .frame(width: 46, height: 38)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .stroke(count > 0
+                            ? skill.color.opacity(0.55)
+                            : Theme.Neon.panelStroke,
+                            lineWidth: 1.2)
+                )
+                .shadow(color: count > 0
+                    ? skill.color.opacity(0.35) : .clear,
+                    radius: 6)
                 Text(skill.shortTitle)
                     .font(.system(size: 9, weight: .heavy, design: .rounded))
                     .tracking(0.8)
@@ -316,6 +313,48 @@ struct ContentView: View {
                     handleSkillUse(skill: skill, target: target)
                 }
         )
+    }
+
+    @ViewBuilder
+    private func gameplaySkillIconVisual(_ skill: SkillType, enabled: Bool) -> some View {
+        let c = enabled ? skill.color : skill.color.opacity(0.35)
+        switch skill {
+        case .clearRow:
+            Rectangle().fill(c).frame(width: 24, height: 4).shadow(color: c.opacity(0.8), radius: enabled ? 5 : 0)
+        case .clearCol:
+            Rectangle().fill(c).frame(width: 4, height: 24).shadow(color: c.opacity(0.8), radius: enabled ? 5 : 0)
+        case .clearBoth:
+            ZStack {
+                Rectangle().fill(enabled ? Theme.Neon.cyan : Theme.Neon.cyan.opacity(0.35)).frame(width: 4, height: 24)
+                Rectangle().fill(enabled ? Theme.Neon.pink : Theme.Neon.pink.opacity(0.35)).frame(width: 24, height: 4)
+                Circle().fill(Color.white.opacity(enabled ? 0.9 : 0.25)).frame(width: 6, height: 6)
+            }
+        case .clear3Rows:
+            VStack(spacing: 3) {
+                Rectangle().fill(c.opacity(0.5)).frame(width: 22, height: 2.5)
+                Rectangle().fill(c).frame(width: 22, height: 4).shadow(color: c.opacity(0.9), radius: enabled ? 5 : 0)
+                Rectangle().fill(c.opacity(0.5)).frame(width: 22, height: 2.5)
+            }
+        case .clear3Cols:
+            HStack(spacing: 3) {
+                Rectangle().fill(c.opacity(0.5)).frame(width: 2.5, height: 22)
+                Rectangle().fill(c).frame(width: 4, height: 22).shadow(color: c.opacity(0.9), radius: enabled ? 5 : 0)
+                Rectangle().fill(c.opacity(0.5)).frame(width: 2.5, height: 22)
+            }
+        case .blast3x3:
+            VStack(spacing: 1.5) {
+                ForEach(0..<3, id: \.self) { _ in
+                    HStack(spacing: 1.5) {
+                        ForEach(0..<3, id: \.self) { _ in
+                            RoundedRectangle(cornerRadius: 1.5, style: .continuous)
+                                .fill(c.opacity(0.75))
+                                .frame(width: 7, height: 7)
+                        }
+                    }
+                }
+            }
+            .shadow(color: c.opacity(0.80), radius: enabled ? 6 : 0)
+        }
     }
 
     private var newGameButton: some View {
@@ -593,9 +632,11 @@ struct ContentView: View {
     // MARK: - Rewarded ad "continue" (classic only)
 
     private func watchAdContinue() {
-        // AdManager will handle this; for now we just un-do game-over.
-        // TODO: hook into AdManager.shared.showRewarded(...)
-        showGameOver = false
+        AdManager.shared.showRewarded(for: .continueGame) { rewarded in
+            if rewarded {
+                showGameOver = false
+            }
+        }
     }
 
     // MARK: - Fast mode timer
