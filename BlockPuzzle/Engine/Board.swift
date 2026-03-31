@@ -76,6 +76,11 @@ nonisolated struct Board: Codable, Hashable, Sendable {
         return (fullRows.count, fullCols.count)
     }
 
+    /// Remove a specific set of cells (used by skill effects).
+    mutating func removeCells(_ points: Set<BlockPuzzlePoint>) {
+        for p in points { occupied.removeValue(forKey: p) }
+    }
+
     func hasAnyValidPlacement(for piece: Piece) -> Bool {
         for y in 0..<height {
             for x in 0..<width {

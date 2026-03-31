@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Keep it in AppDelegate for now (no SceneDelegate) to minimize project churn.
         let root = AppFlowView()
         if window == nil {
-            window = UIWindow(frame: UIScreen.main.bounds)
+            let scene = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }.first
+            // Always use windowScene init (UIScreen.main deprecated in iOS 16+)
+            if let ws = scene {
+                window = UIWindow(windowScene: ws)
+            }
         }
         window?.rootViewController = UIHostingController(rootView: root)
         window?.makeKeyAndVisible()

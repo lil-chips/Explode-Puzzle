@@ -1,128 +1,212 @@
 import SwiftUI
 
-/// Centralized palette and shared view styling.
+// MARK: - Design System
+// Exact values from neon puzzles UI.docx HTML/CSS
+
 enum Theme {
     enum Neon {
-        static let background = Color(red: 0.055, green: 0.055, blue: 0.075)
-        static let backgroundTop = Color(red: 0.070, green: 0.070, blue: 0.100)
-        static let backgroundBottom = Color(red: 0.035, green: 0.035, blue: 0.055)
+        // ── Primary ──────────────────────────────────────────────────
+        static let primary         = Color(hex: "#81ecff")   // cyan soft
+        static let primaryDim      = Color(hex: "#00d4ec")
+        static let primaryFixed    = Color(hex: "#00e3fd")
+        static let onPrimary       = Color(hex: "#005762")   // dark teal on cyan
 
-        static let cyan = Color(red: 0.00, green: 0.89, blue: 1.00)
-        static let cyanSoft = Color(red: 0.51, green: 0.93, blue: 1.00)
-        static let pink = Color(red: 1.00, green: 0.42, blue: 0.61)
-        static let orange = Color(red: 1.00, green: 0.62, blue: 0.29)
+        // ── Secondary ────────────────────────────────────────────────
+        static let secondary       = Color(hex: "#ff6b9b")   // pink
+        static let secondaryDim    = Color(hex: "#e30071")
+        static let onSecondary     = Color(hex: "#ffffff")
 
-        static let panel = Color.white.opacity(0.08)
-        static let panelStrong = Color.white.opacity(0.12)
-        static let panelStroke = Color.white.opacity(0.10)
-        static let divider = Color.white.opacity(0.08)
-        static let textPrimary = Color.white
-        static let textSecondary = Color.white.opacity(0.72)
-        static let textMuted = Color.white.opacity(0.48)
+        // ── Tertiary ─────────────────────────────────────────────────
+        static let tertiary        = Color(hex: "#ff9f4a")   // orange
+        static let tertiaryDim     = Color(hex: "#fd8b00")
+        static let onTertiary      = Color(hex: "#000000")
 
-        static let frameFill = Color(red: 0.10, green: 0.10, blue: 0.14)
-        static let frameStroke = cyan.opacity(0.35)
-        static let slotFill = Color(red: 0.12, green: 0.12, blue: 0.17)
-        static let slotStroke = Color.white.opacity(0.08)
-        static let subgridStroke = cyan.opacity(0.15)
+        // ── Surface scale (dark) ──────────────────────────────────────
+        static let background      = Color(hex: "#0e0e13")
+        static let surfaceDim      = Color(hex: "#0e0e13")
+        static let surfaceLow      = Color(hex: "#131319")
+        static let surface         = Color(hex: "#19191f")
+        static let surfaceHigh     = Color(hex: "#1f1f26")
+        static let surfaceHighest  = Color(hex: "#25252d")
+        static let surfaceBright   = Color(hex: "#2c2b33")
+
+        // ── Borders ───────────────────────────────────────────────────
+        static let outline         = Color(hex: "#76747b")
+        static let outlineVariant  = Color(hex: "#48474d")
+
+        // ── Text ──────────────────────────────────────────────────────
+        static let onSurface       = Color(hex: "#f9f5fd")
+        static let onSurfaceVar    = Color(hex: "#acaab1")
+
+        // ── Aliases used by game code ─────────────────────────────────
+        static let cyan            = primaryFixed             // #00e3fd bright
+        static let cyanSoft        = primary                  // #81ecff
+        static let pink            = secondary
+        static let orange          = tertiary
+        static let gold            = Color(hex: "#ffd166")
+        static let teal            = Color(hex: "#00f5d4")
+        static let purple          = Color(hex: "#b06bff")
+
+        // ── Glass panel spec (from CSS) ───────────────────────────────
+        // background: rgba(25,25,31,0.6); backdrop-filter: blur(12px);
+        // border: 1px solid rgba(129,236,255,0.1)
+        static let glassBg         = Color(hex: "#19191f").opacity(0.6)
+        static let glassBorder     = Color(hex: "#81ecff").opacity(0.10)
+
+        // ── Legacy panel tokens (gameplay screens) ────────────────────
+        static let panel           = surfaceHigh.opacity(0.8)
+        static let panelStrong     = surfaceHighest
+        static let panelStroke     = glassBorder
+        static let divider         = outlineVariant.opacity(0.30)
+        static let textPrimary     = onSurface
+        static let textSecondary   = onSurfaceVar
+        static let textMuted       = onSurfaceVar.opacity(0.60)
+
+        // ── Game board ────────────────────────────────────────────────
+        static let frameFill       = surfaceLow
+        static let frameStroke     = primaryFixed.opacity(0.28)
+        static let slotFill        = Color(hex: "#101015")
+        static let slotStroke      = outlineVariant.opacity(0.20)
+        static let subgridStroke   = primaryFixed.opacity(0.08)
 
         static let blockPalette: [Color] = [
-            cyan,
-            pink,
-            orange,
-            Color(red: 0.54, green: 0.49, blue: 1.0),
-            Color(red: 0.15, green: 0.92, blue: 0.69),
-            Color(red: 1.0, green: 0.84, blue: 0.34)
+            primary, secondary, tertiary,
+            Color(hex: "#8b80ff"),
+            Color(hex: "#26ebb0"),
+            Color(hex: "#ffd166"),
         ]
     }
 
-    // Temporary compatibility alias while older gameplay screens are migrated.
     enum Wood {
-        static let backgroundTop = Neon.backgroundTop
-        static let backgroundBottom = Neon.backgroundBottom
-        static let frameFill = Neon.frameFill
-        static let frameStroke = Neon.frameStroke
-        static let slotFill = Neon.slotFill
-        static let slotStroke = Neon.slotStroke
-        static let subgridStroke = Neon.subgridStroke
-        static let blockPalette = Neon.blockPalette
+        static let backgroundTop    = Neon.background
+        static let backgroundBottom = Neon.surfaceDim
+        static let frameFill        = Neon.frameFill
+        static let frameStroke      = Neon.frameStroke
+        static let slotFill         = Neon.slotFill
+        static let slotStroke       = Neon.slotStroke
+        static let subgridStroke    = Neon.subgridStroke
+        static let blockPalette     = Neon.blockPalette
     }
 }
 
+// MARK: - Hex init
+
+extension Color {
+    init(hex: String) {
+        let h = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: h).scanHexInt64(&int)
+        let r = Double((int >> 16) & 0xFF) / 255
+        let g = Double((int >>  8) & 0xFF) / 255
+        let b = Double( int        & 0xFF) / 255
+        self.init(red: r, green: g, blue: b)
+    }
+}
+
+// MARK: - Background
+
 struct NeonBackgroundView: View {
     var body: some View {
+        // Base: flexible color + grid — always sized to screen width, never wider.
         ZStack {
-            LinearGradient(
-                colors: [Theme.Neon.backgroundTop, Theme.Neon.backgroundBottom],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
-
-            NeonGridOverlay()
-                .ignoresSafeArea()
-
-            Circle()
-                .fill(Theme.Neon.cyan.opacity(0.18))
-                .frame(width: 360, height: 360)
-                .blur(radius: 120)
-                .offset(x: -30, y: -180)
-
-            Circle()
-                .fill(Theme.Neon.pink.opacity(0.10))
-                .frame(width: 260, height: 260)
-                .blur(radius: 120)
-                .offset(x: 150, y: 220)
-
-            LinearGradient(
-                colors: [Theme.Neon.cyan.opacity(0.10), .clear],
-                startPoint: .bottom,
-                endPoint: .top
-            )
+            Color(hex: "#0e0e13").ignoresSafeArea()
+            NeonGridOverlay().ignoresSafeArea()
+        }
+        // Blobs live in an overlay so their fixed frame(width:) does NOT push
+        // the ZStack wider than the screen — that was the overflow root cause.
+        .overlay(alignment: .center) {
+            ZStack {
+                Circle()
+                    .fill(Color(hex: "#00d4ec").opacity(0.15))
+                    .frame(width: 480, height: 480)
+                    .blur(radius: 120)
+                    .offset(x: -100, y: -240)
+                Circle()
+                    .fill(Color(hex: "#ff6b9b").opacity(0.08))
+                    .frame(width: 340, height: 340)
+                    .blur(radius: 100)
+                    .offset(x: 180, y: 280)
+            }
+            .allowsHitTesting(false)
             .ignoresSafeArea()
         }
     }
 }
 
+// Grid: linear-gradient rgba(0,212,236,0.05) 1px at 40px
 struct NeonGridOverlay: View {
     var spacing: CGFloat = 40
-
     var body: some View {
         GeometryReader { geo in
             Path { path in
-                let width = geo.size.width
-                let height = geo.size.height
-
-                stride(from: 0, through: width, by: spacing).forEach { x in
-                    path.move(to: CGPoint(x: x, y: 0))
-                    path.addLine(to: CGPoint(x: x, y: height))
+                stride(from: 0, through: geo.size.width, by: spacing).forEach { x in
+                    path.move(to: .init(x: x, y: 0))
+                    path.addLine(to: .init(x: x, y: geo.size.height))
                 }
-
-                stride(from: 0, through: height, by: spacing).forEach { y in
-                    path.move(to: CGPoint(x: 0, y: y))
-                    path.addLine(to: CGPoint(x: width, y: y))
+                stride(from: 0, through: geo.size.height, by: spacing).forEach { y in
+                    path.move(to: .init(x: 0, y: y))
+                    path.addLine(to: .init(x: geo.size.width, y: y))
                 }
             }
-            .stroke(Theme.Neon.cyan.opacity(0.06), lineWidth: 1)
+            .stroke(Color(hex: "#00d4ec").opacity(0.05), lineWidth: 1)
         }
         .allowsHitTesting(false)
     }
 }
 
+// MARK: - View modifiers
+
 extension View {
-    func neonPanel(cornerRadius: CGFloat = 22) -> some View {
+    /// CSS: background rgba(25,25,31,0.6) blur(12px) border rgba(129,236,255,0.1)
+    func glassPanel(cornerRadius: CGFloat = 8) -> some View {
         self
             .background(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(Theme.Neon.panel)
+                ZStack {
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .fill(Color(hex: "#19191f").opacity(0.6))
+                    RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .fill(.ultraThinMaterial.opacity(0.15))
+                }
             )
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(Theme.Neon.panelStroke, lineWidth: 1)
+                    .stroke(Color(hex: "#81ecff").opacity(0.10), lineWidth: 1)
             )
     }
 
-    func neonTitleGlow() -> some View {
-        self.shadow(color: Theme.Neon.cyan.opacity(0.45), radius: 10)
+    /// Alias kept for gameplay screens
+    func neonPanel(cornerRadius: CGFloat = 8) -> some View {
+        glassPanel(cornerRadius: cornerRadius)
+    }
+
+    /// CSS: box-shadow 0 0 Xpx rgba(129,236,255,0.4) — primary glow
+    func neonGlow(_ color: Color = Color(hex: "#81ecff"), radius: CGFloat = 15) -> some View {
+        self.shadow(color: color.opacity(0.40), radius: radius / 2)
+            .shadow(color: color.opacity(0.20), radius: radius)
+    }
+
+    /// CSS: box-shadow 0 8px 32px rgba(0,212,236,0.3) — CTA button
+    func ctaGlow() -> some View {
+        self.shadow(color: Color(hex: "#00d4ec").opacity(0.30), radius: 16, y: 8)
+    }
+
+    /// CSS: text-shadow 0 0 10px rgba(129,236,255,0.6) 0 0 20px rgba(129,236,255,0.4)
+    func neonTitleGlow(_ color: Color = Color(hex: "#81ecff")) -> some View {
+        self
+            .shadow(color: color.opacity(0.60), radius: 5)
+            .shadow(color: color.opacity(0.40), radius: 10)
+    }
+
+    /// Premium border: border 2px + box-shadow glow + inset
+    func premiumBorder(_ color: Color, cornerRadius: CGFloat = 8) -> some View {
+        self.overlay(
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .stroke(color, lineWidth: 1.5)
+                .shadow(color: color.opacity(0.30), radius: 10)
+        )
+    }
+
+    func neonBorder(_ color: Color, cornerRadius: CGFloat = 8, width: CGFloat = 1.5) -> some View {
+        premiumBorder(color, cornerRadius: cornerRadius)
     }
 }

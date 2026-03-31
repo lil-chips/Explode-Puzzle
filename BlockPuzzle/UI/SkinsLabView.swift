@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SkinsLabView: View {
     @AppStorage("neonpuzzles.selectedSkin") private var selectedSkin: String = "neon-core"
-    @AppStorage("neonpuzzles.localCoins") private var localCoins: Int = 120
+    @AppStorage("neonpuzzles.localCoins") private var localCoins: Int = 0
 
     private let skins: [SkinOption] = [
         SkinOption(id: "neon-core", title: "Neon Core", subtitle: "Default cyan pulse", accent: Theme.Neon.cyan, cost: 0),

@@ -16,6 +16,10 @@ struct BoardView: View {
     let clearOverlay: [BlockPuzzlePoint: Int]
     let clearFadeOut: Bool
 
+    // Skill drag preview (highlighted cells + colour).
+    let skillPreviewCells: Set<BlockPuzzlePoint>?
+    let skillPreviewColor: Color?
+
     init(
         gameState: GameState,
         ghostCells: Set<BlockPuzzlePoint>? = nil,
@@ -24,7 +28,9 @@ struct BoardView: View {
         popCells: Set<BlockPuzzlePoint> = [],
         popOn: Bool = false,
         clearOverlay: [BlockPuzzlePoint: Int] = [:],
-        clearFadeOut: Bool = false
+        clearFadeOut: Bool = false,
+        skillPreviewCells: Set<BlockPuzzlePoint>? = nil,
+        skillPreviewColor: Color? = nil
     ) {
         self.gameState = gameState
         self.ghostCells = ghostCells
@@ -34,10 +40,12 @@ struct BoardView: View {
         self.popOn = popOn
         self.clearOverlay = clearOverlay
         self.clearFadeOut = clearFadeOut
+        self.skillPreviewCells = skillPreviewCells
+        self.skillPreviewColor = skillPreviewColor
     }
 
     private let gridSpacing: CGFloat = 2
-    private let cornerRadius: CGFloat = 2
+    private let cornerRadius: CGFloat = 3
 
     // Early wood theme palette.
     private let filledPalette: [Color] = Theme.Neon.blockPalette
@@ -158,50 +166,93 @@ struct BoardView: View {
         let clearIdx = clearOverlay[p] ?? 0
         let clearColor = filledPalette[clearIdx % filledPalette.count]
 
-        // Priority: clearing overlay > ghost > existing occupied.
+        // Skill preview highlight
+        let isSkillPreview = skillPreviewCells?.contains(p) ?? false
+        let skillColor = skillPreviewColor ?? Theme.Neon.cyan
+
+        // Priority: clearing overlay > skill preview > ghost > existing occupied.
         let baseFill: Color = isClearing
             ? clearColor.opacity(0.76)
-            : (isGhost ? ghostFill : (isFilled ? fillColor.opacity(0.70) : fillColor))
+            : (isSkillPreview
+                ? skillColor.opacity(isFilled ? 0.65 : 0.30)
+                : (isGhost ? ghostFill : (isFilled ? fillColor.opacity(0.70) : fillColor)))
+
+        let activeColor = isClearing ? clearColor : (isSkillPreview ? skillColor : (isFilled ? fillColor : (isGhost ? (ghostColor ?? .white) : Theme.Neon.slotFill)))
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
             .fill(baseFill)
             .overlay {
                 ZStack {
+                    // Skill preview border — bright neon outline
+                    if isSkillPreview {
+                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                            .stroke(skillColor.opacity(0.90), lineWidth: 1.5)
+                            .shadow(color: skillColor.opacity(0.70), radius: 3)
+                    }
+
+                    // Outer colour/glow border
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                         .stroke(
                             isClearing
-                                ? clearColor.opacity(0.76)
-                                : (isGhost
-                                    ? (ghostValid ? (ghostColor ?? .white).opacity(0.7) : Color.red.opacity(0.8))
-                                    : (isFilled ? fillColor.opacity(0.72) : Theme.Neon.slotStroke)),
+                                ? clearColor.opacity(0.80)
+                                : (isSkillPreview
+                                    ? skillColor.opacity(0.60)
+                                    : (isGhost
+                                        ? (ghostValid ? (ghostColor ?? .white).opacity(0.75) : Color.red.opacity(0.85))
+                                        : (isFilled ? fillColor.opacity(0.80) : Theme.Neon.slotStroke))),
                             lineWidth: 1
                         )
 
                     if isFilled || isClearing {
+                        // ── Inner white rim (bevel highlight) ──────────────
                         RoundedRectangle(cornerRadius: max(1, cornerRadius - 0.5), style: .continuous)
-                            .stroke(.white.opacity(0.22), lineWidth: 0.7)
-                            .padding(0.7)
+                            .stroke(.white.opacity(0.30), lineWidth: 0.8)
+                            .padding(0.8)
 
+                        // ── Top-left glass specular highlight ───────────────
+                        // Tall gradient covering top ~55% of the cell
                         VStack(spacing: 0) {
                             LinearGradient(
-                                colors: [.white.opacity(0.26), .white.opacity(0.06), .clear],
+                                colors: [
+                                    .white.opacity(0.40),
+                                    .white.opacity(0.18),
+                                    .white.opacity(0.04),
+                                    .clear
+                                ],
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
+                            .frame(maxHeight: .infinity)
                             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+                        }
+                        .padding(0.8)
+
+                        // ── Bottom shadow stripe (3D depth) ─────────────────
+                        VStack(spacing: 0) {
                             Spacer(minLength: 0)
+                            LinearGradient(
+                                colors: [.clear, .black.opacity(0.28)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .frame(height: cornerRadius * 3)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                            )
                         }
                         .padding(0.8)
                     }
                 }
             }
+            // Neon glow halo behind the block
             .background(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill((isFilled || isClearing) ? fillColor.opacity(0.10) : .clear)
-                    .blur(radius: 1.4)
+                RoundedRectangle(cornerRadius: cornerRadius + 1, style: .continuous)
+                    .fill((isFilled || isClearing) ? activeColor.opacity(0.22) : .clear)
+                    .blur(radius: 3.0)
             )
-            .shadow(color: (isFilled || isClearing) ? fillColor.opacity(0.16) : .clear, radius: 2.4, x: 0, y: 1)
-            .shadow(color: (isFilled || isGhost || isClearing) ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .shadow(color: (isFilled || isClearing) ? activeColor.opacity(0.45) : .clear, radius: 4, x: 0, y: 0)
+            .shadow(color: (isFilled || isClearing) ? activeColor.opacity(0.20) : .clear, radius: 8, x: 0, y: 2)
+            .shadow(color: (isFilled || isGhost || isClearing) ? .black.opacity(0.22) : .clear, radius: 2, x: 0, y: 1)
             .opacity(isClearing ? (clearFadeOut ? 0.0 : 1.0) : 1.0)
             .scaleEffect(
                 isClearing

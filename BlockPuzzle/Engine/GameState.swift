@@ -29,26 +29,86 @@ nonisolated struct GameState: Codable, Hashable, Sendable {
     var board: Board
     var currentPieces: [Piece]
     var score: Int
+    /// Rolling history of the last 9 piece keys used to reduce repetition.
+    var recentPieceKeys: [String]
 
     init(board: Board = Board(), currentPieces: [Piece] = [], score: Int = 0) {
         self.board = board
         self.currentPieces = currentPieces
         self.score = score
+        self.recentPieceKeys = []
+    }
+
+    // MARK: - Coins formula
+    /// Returns coins earned for clearing `lines` lines at a given `combo` depth.
+    /// Base: 3 coins × lines. Combo stacks: combo 1→×1.5, 2→×2, 3→×2.5 …
+    /// Cap multiplier at 4× to prevent runaway inflation.
+    static func coinsForClear(lines: Int, combo: Int) -> Int {
+        guard lines > 0 else { return 0 }
+        let multiplier = min(4.0, 1.0 + Double(max(0, combo)) * 0.5)
+        return max(1, Int(Double(lines * 3) * multiplier))
+    }
+
+    /// Stacked score combo bonus earned on top of the base clearBonus.
+    /// Formula: clearBonus × combo × 0.5 (so combo 1 adds +50%, combo 2 adds +100%, etc.)
+    static func comboBonusScore(clearBonus: Int, combo: Int) -> Int {
+        guard combo > 0 else { return 0 }
+        return Int(Double(clearBonus) * Double(combo) * 0.5)
     }
 
     mutating func refillPiecesIfNeeded<R: RandomNumberGenerator>(random: inout R) {
         guard currentPieces.isEmpty else { return }
 
-        let boardSize = BoardSize(rawValue: board.width) ?? .ten
-        currentPieces = [
-            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .friendly, random: &random),
-            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .neutral, random: &random),
-            PieceCatalog.randomPiece(for: boardSize, score: score, bucket: .pressure, random: &random)
+        let boardSize = BoardSize(rawValue: board.width) ?? .eight
+
+        // Pick one from each bucket using anti-repetition selection
+        let defs = [
+            PieceCatalog.randomPieceAvoiding(for: boardSize, score: score, bucket: .friendly, recentKeys: recentPieceKeys, random: &random),
+            PieceCatalog.randomPieceAvoiding(for: boardSize, score: score, bucket: .neutral,  recentKeys: recentPieceKeys, random: &random),
+            PieceCatalog.randomPieceAvoiding(for: boardSize, score: score, bucket: .pressure, recentKeys: recentPieceKeys, random: &random)
         ]
 
+        // Record keys in recent history (keep last 9)
+        for def in defs { recentPieceKeys.append(def.key) }
+        if recentPieceKeys.count > 9 { recentPieceKeys.removeFirst(recentPieceKeys.count - 9) }
+
+        currentPieces = defs.map { $0.piece }
+
+        // Safety net: if no piece can be placed, swap first slot for a friendlier piece
         if !currentPieces.contains(where: { board.hasAnyValidPlacement(for: $0) }) {
-            currentPieces[0] = PieceCatalog.randomPiece(for: boardSize, score: max(0, score - 1500), bucket: .friendly, random: &random)
+            let fallback = PieceCatalog.randomPieceAvoiding(
+                for: boardSize, score: max(0, score - 1500),
+                bucket: .friendly, recentKeys: [], random: &random)
+            currentPieces[0] = fallback.piece
+            recentPieceKeys.append(fallback.key)
         }
+    }
+
+    // MARK: - Skill application
+
+    /// Remove all cells in `skill.previewCells(target:)` from the board.
+    /// Returns a dictionary of removed points → their colour indices (for VFX overlay).
+    /// Also runs clearFullLines after removal and awards the clear bonus.
+    mutating func applySkill(_ skill: SkillType, at target: BlockPuzzlePoint) -> (removed: [BlockPuzzlePoint: Int], linesCleared: Int, bonus: Int) {
+        let affected   = skill.previewCells(target: target, boardWidth: board.width, boardHeight: board.height)
+        let beforeOcc  = board.occupiedCells
+
+        // Remove targeted cells
+        board.removeCells(affected)
+
+        // Now clear any newly-full lines (unlikely but possible)
+        let cleared    = board.clearFullLines()
+        let afterOcc   = board.occupiedCells
+        let linesCleared = cleared.rows + cleared.cols
+        let bonus      = GameState.clearBonus(for: linesCleared)
+        score         += bonus
+
+        // Build the removed-cells overlay (original colour indices)
+        let removedPts = Set(beforeOcc.keys).subtracting(afterOcc.keys)
+        let removed: [BlockPuzzlePoint: Int] = removedPts.reduce(into: [:]) { acc, p in
+            if let idx = beforeOcc[p] { acc[p] = idx }
+        }
+        return (removed, linesCleared, bonus)
     }
 
     /// Returns true if game over (none of the current pieces can be placed).

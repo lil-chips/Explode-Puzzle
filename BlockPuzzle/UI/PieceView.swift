@@ -44,20 +44,28 @@ struct PieceView: View {
         let filled = piece.cells.contains(BlockPuzzlePoint(x, y))
 
         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-            .fill(filled ? fillColor.opacity(0.68) : Color.clear)
+            .fill(filled ? fillColor.opacity(0.72) : Color.clear)
             .overlay {
                 if filled {
                     ZStack {
+                        // Outer colour border with glow
                         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                            .stroke(fillColor.opacity(0.75), lineWidth: 1)
+                            .stroke(fillColor.opacity(0.85), lineWidth: 1)
 
-                        RoundedRectangle(cornerRadius: cornerRadius - 1, style: .continuous)
-                            .stroke(.white.opacity(0.28), lineWidth: 0.8)
-                            .padding(0.8)
+                        // Inner white rim — bevel highlight
+                        RoundedRectangle(cornerRadius: cornerRadius - 0.8, style: .continuous)
+                            .stroke(.white.opacity(0.35), lineWidth: 0.9)
+                            .padding(0.9)
 
+                        // Glass specular — top highlight
                         VStack(spacing: 0) {
                             LinearGradient(
-                                colors: [.white.opacity(0.34), .white.opacity(0.08), .clear],
+                                colors: [
+                                    .white.opacity(0.50),
+                                    .white.opacity(0.22),
+                                    .white.opacity(0.05),
+                                    .clear
+                                ],
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
@@ -65,16 +73,31 @@ struct PieceView: View {
                             Spacer(minLength: 0)
                         }
                         .padding(1)
+
+                        // Bottom depth shadow
+                        VStack(spacing: 0) {
+                            Spacer(minLength: 0)
+                            LinearGradient(
+                                colors: [.clear, .black.opacity(0.32)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .frame(height: cornerRadius * 2.5)
+                            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+                        }
+                        .padding(1)
                     }
                 }
             }
+            // Neon glow halo
             .background(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(filled ? fillColor.opacity(0.14) : .clear)
-                    .blur(radius: 1.2)
+                RoundedRectangle(cornerRadius: cornerRadius + 1, style: .continuous)
+                    .fill(filled ? fillColor.opacity(0.30) : .clear)
+                    .blur(radius: 4)
             )
-            .shadow(color: filled ? fillColor.opacity(0.18) : .clear, radius: 3, x: 0, y: 1.5)
-            .shadow(color: filled ? .black.opacity(0.16) : .clear, radius: 1.5, x: 0, y: 1)
+            .shadow(color: filled ? fillColor.opacity(0.55) : .clear, radius: 5, x: 0, y: 0)
+            .shadow(color: filled ? fillColor.opacity(0.25) : .clear, radius: 10, x: 0, y: 2)
+            .shadow(color: filled ? .black.opacity(0.22) : .clear, radius: 2, x: 0, y: 1)
     }
 }
 

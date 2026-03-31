@@ -8,6 +8,8 @@ struct BoardContainerView: View {
     let clearOverlay: [BlockPuzzlePoint: Int]
     let clearFadeOut: Bool
     let boardShake: CGFloat
+    let skillPreviewCells: Set<BlockPuzzlePoint>?
+    let skillPreviewColor: Color?
     @ObservedObject var effects: BoardEffectsController
     let onGridRectChange: (CGRect) -> Void
     let onBoardFrameChange: (CGRect) -> Void
@@ -20,7 +22,9 @@ struct BoardContainerView: View {
                 ghostColor: ghostColor,
                 ghostValid: ghostValid,
                 clearOverlay: clearOverlay,
-                clearFadeOut: clearFadeOut
+                clearFadeOut: clearFadeOut,
+                skillPreviewCells: skillPreviewCells,
+                skillPreviewColor: skillPreviewColor
             )
             .onPreferenceChange(BoardGridRectPreferenceKey.self) { newValue in
                 onGridRectChange(newValue)
@@ -31,16 +35,17 @@ struct BoardContainerView: View {
             BoardEffectsOverlayView(controller: effects)
                 .allowsHitTesting(false)
         }
-        .padding(16)
+        .padding(10)
         .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(Theme.Neon.frameFill)
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(Theme.Neon.frameStroke, lineWidth: 3)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(Theme.Neon.frameStroke, lineWidth: 2.5)
+                .shadow(color: Theme.Neon.cyan.opacity(0.20), radius: 12)
         )
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 12)
         .background(
             GeometryReader { geo in
                 Color.clear
@@ -62,6 +67,8 @@ struct BoardContainerView: View {
             clearOverlay: [:],
             clearFadeOut: false,
             boardShake: 0,
+            skillPreviewCells: nil,
+            skillPreviewColor: nil,
             effects: BoardEffectsController(),
             onGridRectChange: { _ in },
             onBoardFrameChange: { _ in }
