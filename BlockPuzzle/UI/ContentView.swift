@@ -221,83 +221,101 @@ struct ContentView: View {
     // MARK: - Skill Tray
 
     private var skillTray: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 12) {
                 ForEach(SkillType.allCases) { skill in
-                    let count = skillCount(skill)
-                    ZStack(alignment: .topTrailing) {
-                        VStack(spacing: 4) {
-                            Image(systemName: skill.icon)
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundStyle(count > 0
-                                    ? skill.color
-                                    : skill.color.opacity(0.35))
-                                .frame(width: 46, height: 38)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(count > 0
-                                            ? skill.color.opacity(0.15)
-                                            : Theme.Neon.panel)
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .stroke(count > 0
-                                            ? skill.color.opacity(0.55)
-                                            : Theme.Neon.panelStroke,
-                                            lineWidth: 1.2)
-                                )
-                                .shadow(color: count > 0
-                                    ? skill.color.opacity(0.35) : .clear,
-                                    radius: 6)
-                            Text(skill.shortTitle)
-                                .font(.system(size: 9, weight: .heavy, design: .rounded))
-                                .tracking(0.8)
-                                .foregroundStyle(count > 0
-                                    ? skill.color
-                                    : Theme.Neon.textMuted)
-                        }
-                        // Badge
-                        if count > 0 {
-                            Text("\(count)")
-                                .font(.system(size: 9, weight: .heavy, design: .rounded))
-                                .foregroundStyle(.black)
-                                .padding(.horizontal, 4)
-                                .padding(.vertical, 2)
-                                .background(Capsule().fill(skill.color))
-                                .offset(x: 4, y: -4)
-                        } else {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 12, weight: .bold))
-                                .foregroundStyle(Theme.Neon.gold)
-                                .offset(x: 4, y: -4)
-                        }
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        if count == 0 { showCoinsCenter = true }
-                    }
-                    .gesture(
-                        DragGesture(minimumDistance: 4, coordinateSpace: .global)
-                            .onChanged { value in
-                                guard skillCount(skill) > 0 else { return }
-                                draggingSkillType = skill
-                                skillDragLocation = value.location
-                            }
-                            .onEnded { _ in
-                                defer {
-                                    draggingSkillType = nil
-                                    skillDragLocation = nil
-                                }
-                                guard skillCount(skill) > 0,
-                                      let target = skillTargetCell else { return }
-                                handleSkillUse(skill: skill, target: target)
-                            }
-                    )
+                    skillTrayItem(skill)
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .center)
             .padding(.horizontal, 16)
             .padding(.vertical, 6)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(SkillType.allCases) { skill in
+                        skillTrayItem(skill)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 6)
+            }
         }
+    }
+
+    @ViewBuilder
+    private func skillTrayItem(_ skill: SkillType) -> some View {
+        let count = skillCount(skill)
+        ZStack(alignment: .topTrailing) {
+            VStack(spacing: 4) {
+                Image(systemName: skill.icon)
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(count > 0
+                        ? skill.color
+                        : skill.color.opacity(0.35))
+                    .frame(width: 46, height: 38)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(count > 0
+                                ? skill.color.opacity(0.15)
+                                : Theme.Neon.panel)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .stroke(count > 0
+                                ? skill.color.opacity(0.55)
+                                : Theme.Neon.panelStroke,
+                                lineWidth: 1.2)
+                    )
+                    .shadow(color: count > 0
+                        ? skill.color.opacity(0.35) : .clear,
+                        radius: 6)
+                Text(skill.shortTitle)
+                    .font(.system(size: 9, weight: .heavy, design: .rounded))
+                    .tracking(0.8)
+                    .foregroundStyle(count > 0
+                        ? skill.color
+                        : Theme.Neon.textMuted)
+            }
+            // Badge
+            if count > 0 {
+                Text("\(count)")
+                    .font(.system(size: 9, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 2)
+                    .background(Capsule().fill(skill.color))
+                    .offset(x: 4, y: -4)
+            } else {
+                Image(systemName: "plus.circle.fill")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(Theme.Neon.gold)
+                    .offset(x: 4, y: -4)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            if count == 0 { showCoinsCenter = true }
+        }
+        .gesture(
+            DragGesture(minimumDistance: 4, coordinateSpace: .global)
+                .onChanged { value in
+                    guard skillCount(skill) > 0 else { return }
+                    draggingSkillType = skill
+                    skillDragLocation = value.location
+                }
+                .onEnded { _ in
+                    defer {
+                        draggingSkillType = nil
+                        skillDragLocation = nil
+                    }
+                    guard skillCount(skill) > 0,
+                          let target = skillTargetCell else { return }
+                    handleSkillUse(skill: skill, target: target)
+                }
+        )
     }
 
     private var newGameButton: some View {
