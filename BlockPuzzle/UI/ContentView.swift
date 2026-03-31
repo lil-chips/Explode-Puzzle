@@ -116,6 +116,7 @@ struct ContentView: View {
         .sheet(isPresented: $showCoinsCenter) {
             NavigationStack { CoinsCenterView() }
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             gameState.refillPiecesIfNeeded(random: &rng)
         }
