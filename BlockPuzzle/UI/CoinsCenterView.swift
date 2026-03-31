@@ -185,7 +185,7 @@ struct CoinsCenterView: View {
 
             VStack(spacing: 10) {
                 ForEach(SkillType.allCases) { skill in
-                    powerUpRow(skill: skill)
+                    powerUpRow(skill)
                 }
             }
         }

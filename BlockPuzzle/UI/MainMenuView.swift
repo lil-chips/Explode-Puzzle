@@ -30,7 +30,6 @@ struct MainMenuView: View {
                         VStack(spacing: 28) {
                             heroSection.padding(.top, 32)
                             playButton
-                            bentoRow
                             bestScorePanel
                         }
                         .padding(.horizontal, 20)
@@ -49,76 +48,7 @@ struct MainMenuView: View {
             .navigationBarHidden(true)
         }
         .sheet(isPresented: $showAvatarPicker) {
-            NavigationStack {
-                ZStack {
-                    NeonBackgroundView()
-                    VStack(spacing: 28) {
-                        Text("Choose Your Avatar")
-                            .font(.system(size: 20, weight: .heavy, design: .rounded))
-                            .foregroundStyle(Theme.Neon.textPrimary)
-                            .padding(.top, 24)
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 18), count: 3),
-                                  spacing: 18) {
-                            ForEach(PlayerAvatar.allCases, id: \.rawValue) { av in
-                                Button {
-                                    localAvatarRaw = av.rawValue
-                                    showAvatarPicker = false
-                                } label: {
-                                    VStack(spacing: 10) {
-                                        ZStack {
-                                            Circle()
-                                                .fill(av.accent.opacity(0.20))
-                                                .frame(width: 68, height: 68)
-                                                .overlay(
-                                                    Circle()
-                                                        .stroke(av.accent.opacity(av.rawValue == localAvatarRaw ? 1.0 : 0.35),
-                                                                lineWidth: av.rawValue == localAvatarRaw ? 3 : 1.5)
-                                                )
-                                            Text(av.emoji).font(.system(size: 32))
-                                            if av.rawValue == localAvatarRaw {
-                                                Circle()
-                                                    .fill(av.accent).frame(width: 18, height: 18)
-                                                    .overlay(
-                                                        Image(systemName: "checkmark")
-                                                            .font(.system(size: 9, weight: .heavy))
-                                                            .foregroundStyle(.black)
-                                                    )
-                                                    .offset(x: 24, y: -24)
-                                            }
-                                        }
-                                        Text(av.label)
-                                            .font(.system(size: 11, weight: .heavy, design: .rounded))
-                                            .tracking(1.5)
-                                            .foregroundStyle(av.rawValue == localAvatarRaw ? av.accent : Theme.Neon.textMuted)
-                                    }
-                                    .frame(maxWidth: .infinity).padding(.vertical, 16)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                            .fill(av.rawValue == localAvatarRaw ? av.accent.opacity(0.12) : Theme.Neon.surfaceHighest)
-                                    )
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                            .stroke(av.rawValue == localAvatarRaw ? av.accent.opacity(0.45) : Color.clear, lineWidth: 1.5)
-                                    )
-                                }
-                                .buttonStyle(.plain)
-                                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: localAvatarRaw)
-                            }
-                        }
-                        .padding(.horizontal, 24)
-                        Spacer()
-                    }
-                }
-                .navigationTitle("AVATAR").navigationBarTitleDisplayMode(.inline)
-                .toolbarColorScheme(.dark, for: .navigationBar)
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Done") { showAvatarPicker = false }
-                            .font(.system(size: 14, weight: .heavy, design: .rounded))
-                            .foregroundStyle(Theme.Neon.cyan)
-                    }
-                }
-            }
+            AvatarPickerSheetView(isPresented: $showAvatarPicker, localAvatarRaw: $localAvatarRaw)
         }
         .onAppear {
             withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) {
@@ -134,28 +64,8 @@ struct MainMenuView: View {
             // Avatar + name (tappable → avatar picker)
             Button { showAvatarPicker = true } label: {
                 HStack(spacing: 10) {
-                    ZStack {
-                        Circle()
-                            .fill(avatar.accent.opacity(0.20))
-                            .frame(width: 44, height: 44)
-                            .overlay(
-                                Circle()
-                                    .stroke(avatar.accent.opacity(0.60), lineWidth: 2)
-                            )
-                        Text(avatar.emoji)
-                            .font(.system(size: 22))
-                        // Edit badge
-                        Circle()
-                            .fill(Theme.Neon.surfaceHighest)
-                            .frame(width: 16, height: 16)
-                            .overlay(
-                                Image(systemName: "pencil")
-                                    .font(.system(size: 8, weight: .bold))
-                                    .foregroundStyle(avatar.accent)
-                            )
-                            .offset(x: 16, y: 16)
-                    }
-                    .frame(width: 48, height: 48)
+                    AvatarBadgeView(avatar: avatar, size: 44, showEditBadge: true)
+                        .frame(width: 48, height: 48)
                     VStack(alignment: .leading, spacing: 1) {
                         Text("LOCAL PROFILE")
                             .font(.system(size: 8, weight: .heavy, design: .rounded))
@@ -259,66 +169,7 @@ struct MainMenuView: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: - Bento row (GAME MODE + STATS)
-
-    private var bentoRow: some View {
-        HStack(spacing: 14) {
-            NavigationLink {
-                ModeSetupView()
-            } label: {
-                bentoCard(
-                    icon: "square.grid.3x3.fill",
-                    title: "GAME MODE",
-                    subtitle: "Classic · Fast",
-                    accent: Theme.Neon.cyan
-                )
-            }
-            .buttonStyle(.plain)
-
-            NavigationLink {
-                StatsDashboardView(classicBest: classicBest, fastBest: fastBest)
-            } label: {
-                bentoCard(
-                    icon: "chart.bar.xaxis",
-                    title: "STATS",
-                    subtitle: "Best runs",
-                    accent: Theme.Neon.pink
-                )
-            }
-            .buttonStyle(.plain)
-        }
-    }
-
-    private func bentoCard(icon: String, title: String, subtitle: String, accent: Color) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
-                    .fill(accent.opacity(0.18))
-                    .frame(width: 56, height: 56)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                            .stroke(accent.opacity(0.30), lineWidth: 1)
-                    )
-                Image(systemName: icon)
-                    .font(.system(size: 26, weight: .bold))
-                    .foregroundStyle(accent)
-                    .shadow(color: accent.opacity(0.45), radius: 8)
-            }
-            Spacer(minLength: 0)
-            VStack(alignment: .leading, spacing: 5) {
-                Text(title)
-                    .font(.system(size: 17, weight: .heavy, design: .rounded))
-                    .foregroundStyle(Theme.Neon.textPrimary)
-                Text(subtitle)
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(Theme.Neon.textSecondary)
-            }
-        }
-        .padding(18)
-        .frame(maxWidth: .infinity)
-        .frame(height: 140)
-        .neonPanel(cornerRadius: 22)
-    }
+    // MARK: - Removed upper GAME MODE / STATS bento row per latest menu layout
 
     // MARK: - Best score panel
 
@@ -375,6 +226,14 @@ struct MainMenuView: View {
                 CoinsCenterView()
             } label: {
                 navTab(icon: "cart.fill", label: "MARKET", active: false)
+            }
+            .buttonStyle(.plain)
+
+            // STATS
+            NavigationLink {
+                StatsDashboardView(classicBest: classicBest, fastBest: fastBest)
+            } label: {
+                navTab(icon: "chart.bar.xaxis", label: "STATS", active: false)
             }
             .buttonStyle(.plain)
 

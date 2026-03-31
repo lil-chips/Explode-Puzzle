@@ -145,11 +145,8 @@ struct PieceCatalog {
             let penalty = keyCounts[def.key, default: 0]
             // Halve weight for each recent occurrence (integer division, min 1 entry)
             if penalty == 0 { return def }
-            // Keep approximately weight/(2^penalty) copies by doing nothing special
-            // (pool is already repeated by weight); remove entries with ~50% chance per penalty level
-            let keepChance = 1.0 / pow(2.0, Double(penalty))
-            // Deterministic reduction: keep only every (2^penalty)-th copy by checking index
-            return def  // pass through, handled below via separate pool build
+            // Pass through here; reduced weighting is handled below via a fresh pool build.
+            return def
         }
 
         // More deterministic approach: build fresh with reduced counts

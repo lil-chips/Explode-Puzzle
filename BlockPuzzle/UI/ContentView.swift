@@ -94,7 +94,9 @@ struct ContentView: View {
     @State private var previousScore: Int    = 0   // for milestone detection
 
     // ── Fixed board size ───────────────────────────────────────────
-    private var boardSide: CGFloat { UIScreen.main.bounds.width - 24 }
+    private var boardSide: CGFloat {
+        max(280, min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) - 24)
+    }
 
     // ── Colour palette ─────────────────────────────────────────────
     private let piecePalette = Theme.Neon.blockPalette

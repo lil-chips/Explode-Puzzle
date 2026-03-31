@@ -7,6 +7,7 @@ struct StatsDashboardView: View {
     @AppStorage("neonpuzzles.localProfileName") private var localProfileName: String = "Pilot"
     @AppStorage("neonpuzzles.localCoins")       private var localCoins: Int = 0
     @AppStorage("neonpuzzles.localAvatarRaw")   private var localAvatarRaw: String = PlayerAvatar.cat.rawValue
+    @AppStorage(AvatarStorage.customAvatarEnabledKey) private var customAvatarEnabled: Bool = false
 
     let classicBest: Int
     let fastBest: Int
@@ -63,15 +64,7 @@ struct StatsDashboardView: View {
         HStack(alignment: .top, spacing: 20) {
             // Avatar
             ZStack(alignment: .bottomTrailing) {
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(avatar.accent.opacity(0.20))
-                    .frame(width: 72, height: 72)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .stroke(avatar.accent.opacity(0.35), lineWidth: 1.5)
-                    )
-                Text(avatar.emoji)
-                    .font(.system(size: 38))
+                AvatarSquareView(avatar: avatar, size: 72)
 
                 // Level badge
                 Text("LV 1")
@@ -86,6 +79,7 @@ struct StatsDashboardView: View {
                     )
                     .offset(x: 6, y: 6)
             }
+            .frame(width: 72, height: 72)
 
             VStack(alignment: .leading, spacing: 6) {
                 Text(localProfileName.isEmpty ? "PILOT" : localProfileName.uppercased())
@@ -93,7 +87,7 @@ struct StatsDashboardView: View {
                     .tracking(1.5)
                     .foregroundStyle(Theme.Neon.textPrimary)
 
-                Text("Neon Player")
+                Text(customAvatarEnabled ? "Custom Avatar" : "Neon Player")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .tracking(1.5)
                     .foregroundStyle(Theme.Neon.cyanSoft)

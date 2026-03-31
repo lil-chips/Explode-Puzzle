@@ -36,7 +36,6 @@ struct SettingsPanelView: View {
                 VStack(spacing: 32) {
                     profileSection
                     audioSection
-                    gameplaySection
                     dataSection
                     generalSection
                 }
@@ -48,7 +47,9 @@ struct SettingsPanelView: View {
         .navigationTitle("SETTINGS")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
-        .sheet(isPresented: $showAvatarPicker) { avatarPickerSheet }
+        .sheet(isPresented: $showAvatarPicker) {
+            AvatarPickerSheetView(isPresented: $showAvatarPicker, localAvatarRaw: $localAvatarRaw)
+        }
         .sheet(isPresented: $showHelpFAQ)      { helpFAQSheet }
         .sheet(isPresented: $showPrivacy)      { privacySheet }
     }
@@ -64,27 +65,8 @@ struct SettingsPanelView: View {
                 // Avatar row
                 HStack(spacing: 16) {
                     Button { showAvatarPicker = true } label: {
-                        ZStack {
-                            Circle()
-                                .fill(avatar.accent.opacity(0.20))
-                                .frame(width: 64, height: 64)
-                                .overlay(Circle().stroke(avatar.accent, lineWidth: 2))
-                            Text(avatar.emoji)
-                                .font(.system(size: 30))
-
-                            // Edit badge
-                            Circle()
-                                .fill(Theme.Neon.surfaceHighest)
-                                .frame(width: 22, height: 22)
-                                .overlay(Circle().stroke(avatar.accent.opacity(0.5), lineWidth: 1))
-                                .overlay(
-                                    Image(systemName: "pencil")
-                                        .font(.system(size: 10, weight: .bold))
-                                        .foregroundStyle(avatar.accent)
-                                )
-                                .offset(x: 22, y: 22)
-                        }
-                        .frame(width: 72, height: 72)
+                        AvatarBadgeView(avatar: avatar, size: 64, showEditBadge: true)
+                            .frame(width: 72, height: 72)
                     }
                     .buttonStyle(.plain)
 
@@ -93,7 +75,7 @@ struct SettingsPanelView: View {
                             .font(.system(size: 9, weight: .heavy, design: .rounded))
                             .tracking(2)
                             .foregroundStyle(Theme.Neon.textMuted)
-                        Text(avatar.label)
+                        Text("CUSTOM PHOTO")
                             .font(.system(size: 15, weight: .heavy, design: .rounded))
                             .foregroundStyle(avatar.accent)
                         Text("Tap to change")
@@ -242,45 +224,6 @@ struct SettingsPanelView: View {
         }
     }
 
-    // MARK: - Gameplay
-
-    private var gameplaySection: some View {
-        VStack(spacing: 20) {
-            sectionHeader(icon: "gamecontroller.fill", title: "Gameplay Preferences",
-                          color: Theme.Neon.pink)
-            VStack(spacing: 22) {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Grid Size")
-                        .font(.system(size: 12, weight: .heavy, design: .rounded))
-                        .tracking(0.5)
-                        .foregroundStyle(Theme.Neon.textMuted)
-                    HStack(spacing: 6) {
-                        Text("8 × 8")
-                            .font(.system(size: 13, weight: .heavy, design: .rounded))
-                            .foregroundStyle(Theme.Neon.cyan)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Theme.Neon.cyan.opacity(0.10))
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .stroke(Theme.Neon.cyan.opacity(0.30), lineWidth: 1)
-                            )
-                    }
-                    .padding(4)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Theme.Neon.surfaceLow)
-                    )
-                }
-            }
-            .padding(22)
-            .glassCard()
-        }
-    }
-
     // MARK: - Data & Storage (replaces Account & Sync)
 
     private var dataSection: some View {
@@ -388,85 +331,6 @@ struct SettingsPanelView: View {
     }
 
     // MARK: - Sheets
-
-    private var avatarPickerSheet: some View {
-        NavigationStack {
-            ZStack {
-                NeonBackgroundView()
-                VStack(spacing: 28) {
-                    Text("Choose Your Avatar")
-                        .font(.system(size: 20, weight: .heavy, design: .rounded))
-                        .foregroundStyle(Theme.Neon.textPrimary)
-                        .padding(.top, 24)
-
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 18), count: 3),
-                              spacing: 18) {
-                        ForEach(PlayerAvatar.allCases, id: \.rawValue) { av in
-                            Button {
-                                localAvatarRaw = av.rawValue
-                                showAvatarPicker = false
-                            } label: {
-                                VStack(spacing: 10) {
-                                    ZStack {
-                                        Circle()
-                                            .fill(av.accent.opacity(0.20))
-                                            .frame(width: 72, height: 72)
-                                            .overlay(
-                                                Circle()
-                                                    .stroke(av.accent.opacity(av.rawValue == localAvatarRaw ? 1.0 : 0.35),
-                                                            lineWidth: av.rawValue == localAvatarRaw ? 3 : 1.5)
-                                            )
-                                        Text(av.emoji)
-                                            .font(.system(size: 34))
-                                        if av.rawValue == localAvatarRaw {
-                                            Circle()
-                                                .fill(av.accent)
-                                                .frame(width: 18, height: 18)
-                                                .overlay(
-                                                    Image(systemName: "checkmark")
-                                                        .font(.system(size: 9, weight: .heavy))
-                                                        .foregroundStyle(.black)
-                                                )
-                                                .offset(x: 26, y: -26)
-                                        }
-                                    }
-                                    Text(av.label)
-                                        .font(.system(size: 11, weight: .heavy, design: .rounded))
-                                        .tracking(1.5)
-                                        .foregroundStyle(av.rawValue == localAvatarRaw ? av.accent : Theme.Neon.textMuted)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 16)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                        .fill(av.rawValue == localAvatarRaw ? av.accent.opacity(0.12) : Theme.Neon.surfaceHighest)
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                        .stroke(av.rawValue == localAvatarRaw ? av.accent.opacity(0.45) : Color.clear, lineWidth: 1.5)
-                                )
-                                .shadow(color: av.rawValue == localAvatarRaw ? av.accent.opacity(0.25) : .clear, radius: 10)
-                            }
-                            .buttonStyle(.plain)
-                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: localAvatarRaw)
-                        }
-                    }
-                    .padding(.horizontal, 24)
-                    Spacer()
-                }
-            }
-            .navigationTitle("AVATAR")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { showAvatarPicker = false }
-                        .font(.system(size: 14, weight: .heavy, design: .rounded))
-                        .foregroundStyle(Theme.Neon.cyan)
-                }
-            }
-        }
-    }
 
     private var helpFAQSheet: some View {
         NavigationStack {
