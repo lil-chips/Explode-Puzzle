@@ -150,7 +150,6 @@ struct ContentView: View {
                 .frame(width: boardSide, height: boardSide)
             skillTray
             pieceTray
-            newGameButton
         }
         .padding(.vertical, 10)
     }
@@ -222,7 +221,7 @@ struct ContentView: View {
 
     private var skillTray: some View {
         ViewThatFits(in: .horizontal) {
-            HStack(spacing: 12) {
+            HStack(spacing: 14) {
                 ForEach(SkillType.allCases) { skill in
                     skillTrayItem(skill)
                 }
@@ -232,7 +231,7 @@ struct ContentView: View {
             .padding(.vertical, 6)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
+                HStack(spacing: 14) {
                     ForEach(SkillType.allCases) { skill in
                         skillTrayItem(skill)
                     }
@@ -250,14 +249,14 @@ struct ContentView: View {
         ZStack(alignment: .topTrailing) {
             VStack(spacing: 4) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(count > 0
                             ? skill.color.opacity(0.15)
                             : Theme.Neon.panel)
                     gameplaySkillIconVisual(skill, enabled: count > 0)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 36, height: 36)
                 }
-                .frame(width: 46, height: 38)
+                .frame(width: 55, height: 46)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .stroke(count > 0
@@ -269,7 +268,7 @@ struct ContentView: View {
                     ? skill.color.opacity(0.35) : .clear,
                     radius: 6)
                 Text(skill.shortTitle)
-                    .font(.system(size: 9, weight: .heavy, design: .rounded))
+                    .font(.system(size: 11, weight: .heavy, design: .rounded))
                     .tracking(0.8)
                     .foregroundStyle(count > 0
                         ? skill.color
@@ -278,7 +277,7 @@ struct ContentView: View {
             // Badge
             if count > 0 {
                 Text("\(count)")
-                    .font(.system(size: 9, weight: .heavy, design: .rounded))
+                    .font(.system(size: 10, weight: .heavy, design: .rounded))
                     .foregroundStyle(.black)
                     .padding(.horizontal, 4)
                     .padding(.vertical, 2)
@@ -286,7 +285,7 @@ struct ContentView: View {
                     .offset(x: 4, y: -4)
             } else {
                 Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(Theme.Neon.gold)
                     .offset(x: 4, y: -4)
             }
@@ -355,21 +354,6 @@ struct ContentView: View {
             }
             .shadow(color: c.opacity(0.80), radius: enabled ? 6 : 0)
         }
-    }
-
-    private var newGameButton: some View {
-        Button { startNewGame() } label: {
-            Text("NEW GAME")
-                .font(.system(size: 14, weight: .heavy, design: .rounded))
-                .tracking(2)
-                .padding(.horizontal, 18)
-                .padding(.vertical, 12)
-                .background(Capsule(style: .continuous).fill(Theme.Neon.panelStrong))
-                .overlay(Capsule(style: .continuous).stroke(Theme.Neon.panelStroke, lineWidth: 1))
-        }
-        .buttonStyle(.plain)
-        .foregroundStyle(Theme.Neon.textPrimary)
-        .padding(.top, 2)
     }
 
     @ViewBuilder
