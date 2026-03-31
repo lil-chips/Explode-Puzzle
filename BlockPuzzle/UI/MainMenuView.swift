@@ -81,24 +81,29 @@ struct MainMenuView: View {
 
             Spacer()
 
-            // Coin counter
-            HStack(spacing: 6) {
-                Image(systemName: "circle.hexagongrid.fill")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(Theme.Neon.gold)
-                    .shadow(color: Theme.Neon.gold.opacity(0.50), radius: 4)
-                Text("\(localCoins)")
-                    .font(.system(size: 14, weight: .heavy, design: .rounded))
-                    .foregroundStyle(Theme.Neon.gold)
-                    .contentTransition(.numericText(countsDown: false))
+            // Coin counter → opens Market
+            NavigationLink {
+                CoinsCenterView()
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "circle.hexagongrid.fill")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(Theme.Neon.gold)
+                        .shadow(color: Theme.Neon.gold.opacity(0.50), radius: 4)
+                    Text("\(localCoins)")
+                        .font(.system(size: 14, weight: .heavy, design: .rounded))
+                        .foregroundStyle(Theme.Neon.gold)
+                        .contentTransition(.numericText(countsDown: false))
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 7)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(Theme.Neon.gold.opacity(0.12))
+                        .overlay(Capsule().stroke(Theme.Neon.gold.opacity(0.30), lineWidth: 1))
+                )
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 7)
-            .background(
-                Capsule(style: .continuous)
-                    .fill(Theme.Neon.gold.opacity(0.12))
-                    .overlay(Capsule().stroke(Theme.Neon.gold.opacity(0.30), lineWidth: 1))
-            )
+            .buttonStyle(.plain)
         }
     }
 
