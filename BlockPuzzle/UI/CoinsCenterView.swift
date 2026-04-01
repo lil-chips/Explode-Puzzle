@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 // MARK: - Market Screen
 
@@ -19,6 +20,7 @@ struct CoinsCenterView: View {
     @State private var toastVisible = false
     @State private var pingAnim = false
     @StateObject private var adManager = AdManager.shared
+    @StateObject private var iapManager = IAPManager.shared
     @State private var adLoading = false
 
     private var avatar: PlayerAvatar {
@@ -100,6 +102,9 @@ struct CoinsCenterView: View {
         .onAppear {
             withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) {
                 pingAnim = true
+            }
+            Task {
+                await iapManager.loadProducts()
             }
         }
     }
@@ -410,7 +415,24 @@ struct CoinsCenterView: View {
     }
 
     private var coinPackCard: some View {
-        Button { showToast("Coming soon — purchase wiring in progress.") } label: {
+        Button {
+            Task {
+                let outcome = await iapManager.purchaseCoinPack5000()
+                switch outcome {
+                case .success(let coins):
+                    localCoins += coins
+                    showToast("+\(coins) COINS purchased!")
+                case .cancelled:
+                    showToast("Purchase cancelled.")
+                case .pending:
+                    showToast("Purchase is pending approval.")
+                case .unavailable:
+                    showToast("Coin pack unavailable. Check StoreKit config.")
+                case .failed(let message):
+                    showToast(message)
+                }
+            }
+        } label: {
             VStack(spacing: 16) {
                 ZStack {
                     Circle().fill(Theme.Neon.pink.opacity(0.10)).frame(width: 64, height: 64)
@@ -429,10 +451,18 @@ struct CoinsCenterView: View {
                         .font(.system(size: 14, weight: .heavy, design: .rounded))
                         .minimumScaleFactor(0.75).lineLimit(1)
                         .foregroundStyle(Theme.Neon.pink)
+                    if iapManager.coinPackProduct == nil {
+                        Text("LOCAL STOREKIT TEST")
+                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .tracking(1)
+                            .foregroundStyle(Theme.Neon.textMuted)
+                    }
                 }
                 HStack(spacing: 8) {
-                    Text("BUY PACK").font(.system(size: 12, weight: .black, design: .rounded)).tracking(1.5)
-                    Text("$1.99").font(.system(size: 12, weight: .bold, design: .rounded)).opacity(0.70)
+                    Text(iapManager.isPurchasing ? "BUYING..." : "BUY PACK")
+                        .font(.system(size: 12, weight: .black, design: .rounded)).tracking(1.5)
+                    Text(iapManager.coinPackProduct?.displayPrice ?? "$1.99")
+                        .font(.system(size: 12, weight: .bold, design: .rounded)).opacity(0.70)
                 }
                 .foregroundStyle(Theme.Neon.onSurface)
                 .frame(maxWidth: .infinity).padding(.vertical, 12)
@@ -446,6 +476,7 @@ struct CoinsCenterView: View {
             .neonGlow(Theme.Neon.pink, radius: 8)
         }
         .buttonStyle(.plain)
+        .disabled(iapManager.isPurchasing || iapManager.isLoadingProducts)
     }
 
     // MARK: - Toast

@@ -1,0 +1,38 @@
+{
+  "identifier" : "A97A22A7-26BB-4F73-BD50-4E4BB4A774F1",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "F95D29E8-7D93-49BE-9FEA-D114D856C52E",
+      "localizations" : [
+        {
+          "description" : "Adds 5,000 coins to the local player profile.",
+          "displayName" : "Coin Pack 5,000",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.ed.blockpuzzle.coinpack.5000",
+      "referenceName" : "Coin Pack 5000",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "E4F71AAB-C9A4-4FEC-A87D-94BA1436B1D9",
+    "_developerTeamID" : "LOCALTESTTEAM",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 765288000,
+    "_locale" : "en_US",
+    "_storefront" : "USA"
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

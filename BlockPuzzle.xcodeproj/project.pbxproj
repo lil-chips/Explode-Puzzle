@@ -33,11 +33,21 @@
 		E1704FAB2F557A2D00494AAB /* BlockPuzzleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockPuzzleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F0A200012026033100000001 /* Exceptions for "BlockPuzzle" folder in "BlockPuzzle" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E1704F872F557A2B00494AAB /* BlockPuzzle */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E1704F8A2F557A2B00494AAB /* BlockPuzzle */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F0A200012026033100000001 /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+				F0A200012026033100000001 /* Exceptions for "BlockPuzzle" folder in "BlockPuzzle" target */,
 			);
 			path = BlockPuzzle;
 			sourceTree = "<group>";
@@ -53,16 +63,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F0A200012026033100000001 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = E1704F872F557A2B00494AAB /* BlockPuzzle */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 
 /* Begin PBXFrameworksBuildPhase section */
 		E1704F852F557A2B00494AAB /* Frameworks */ = {
