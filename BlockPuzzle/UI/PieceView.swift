@@ -14,12 +14,13 @@ struct PieceView: View {
             let size = piece.size
             let cols = max(size.width, 1)
             let rows = max(size.height, 1)
+            let occupancyScale: CGFloat = piece.cells.count == 1 ? 0.68 : 1.0
 
             // Fit the piece inside the available box while preserving square cells.
             let cellSide = min(
                 (geo.size.width - spacing * CGFloat(cols - 1)) / CGFloat(cols),
                 (geo.size.height - spacing * CGFloat(rows - 1)) / CGFloat(rows)
-            )
+            ) * occupancyScale
 
             VStack(spacing: spacing) {
                 ForEach(0..<rows, id: \.self) { y in

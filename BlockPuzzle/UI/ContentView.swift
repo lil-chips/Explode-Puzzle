@@ -220,15 +220,21 @@ struct ContentView: View {
     // MARK: - Skill Tray
 
     private var skillTray: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 16) {
-                ForEach(SkillType.allCases) { skill in
-                    skillTrayItem(skill)
+        GeometryReader { geo in
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    Color.clear.frame(width: 18, height: 1)
+                    ForEach(SkillType.allCases) { skill in
+                        skillTrayItem(skill)
+                    }
+                    Color.clear.frame(width: 18, height: 1)
                 }
+                .padding(.vertical, 8)
+                .frame(minWidth: geo.size.width + 40, alignment: .leading)
             }
-            .padding(.horizontal, 18)
-            .padding(.vertical, 8)
+            .scrollClipDisabled()
         }
+        .frame(height: 92)
     }
 
     @ViewBuilder
