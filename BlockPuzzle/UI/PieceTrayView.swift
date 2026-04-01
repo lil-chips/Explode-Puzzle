@@ -8,18 +8,18 @@ struct PieceTrayView: View {
     let onDragEnded: (Int) -> Void
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 10) {
             ForEach(Array(pieces.enumerated()), id: \.offset) { index, piece in
                 PieceView(piece: piece, fillColor: colorForIndex(index))
-                    .frame(width: 51, height: 51)
-                    .padding(5)
+                    .frame(width: 61, height: 61)
+                    .padding(6)
                     .background(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .fill(Theme.Neon.slotFill)
                             .shadow(color: .black.opacity(0.18), radius: 4, x: 0, y: 2)
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .stroke(Theme.Neon.frameStroke.opacity(0.55), lineWidth: 1.5)
                     )
                     .gesture(

@@ -103,18 +103,19 @@ struct GameplayHUDView: View {
                 }
                 .opacity(0.85)
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 2) {
                     Text("SCORE")
-                        .font(.system(size: 10, weight: .bold, design: .rounded))
-                        .tracking(1.8)
+                        .font(.system(size: 9, weight: .bold, design: .rounded))
+                        .tracking(1.6)
                         .foregroundStyle(Theme.Neon.textMuted)
                     Text("\(currentScore)")
-                        .font(.system(size: 32, weight: .black, design: .rounded))
+                        .font(.system(size: 26, weight: .black, design: .rounded))
                         .foregroundStyle(Theme.Neon.textPrimary)
                         .contentTransition(.numericText(countsDown: false))
                         .animation(.spring(response: 0.3), value: currentScore)
                 }
-                .padding(16)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(RoundedRectangle(cornerRadius: 18, style: .continuous)
                     .fill(Theme.Neon.background.opacity(0.82)))
