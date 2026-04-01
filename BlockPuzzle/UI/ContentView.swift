@@ -221,16 +221,16 @@ struct ContentView: View {
 
     private var skillTray: some View {
         GeometryReader { geo in
+            let itemWidth: CGFloat = max(74, (geo.size.width - 36 - 16 * 3) / 4)
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    Color.clear.frame(width: 18, height: 1)
                     ForEach(SkillType.allCases) { skill in
-                        skillTrayItem(skill)
+                        skillTrayItem(skill, width: itemWidth)
                     }
-                    Color.clear.frame(width: 18, height: 1)
                 }
+                .padding(.horizontal, 18)
                 .padding(.vertical, 8)
-                .frame(minWidth: geo.size.width + 40, alignment: .leading)
             }
             .scrollClipDisabled()
         }
@@ -238,7 +238,7 @@ struct ContentView: View {
     }
 
     @ViewBuilder
-    private func skillTrayItem(_ skill: SkillType) -> some View {
+    private func skillTrayItem(_ skill: SkillType, width: CGFloat) -> some View {
         let count = skillCount(skill)
         ZStack(alignment: .topTrailing) {
             VStack(spacing: 5) {
@@ -285,7 +285,7 @@ struct ContentView: View {
                     .offset(x: 4, y: -4)
             }
         }
-        .frame(width: 74)
+        .frame(width: width)
         .contentShape(Rectangle())
         .onTapGesture {
             if count == 0 { showCoinsCenter = true }

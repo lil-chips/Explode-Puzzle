@@ -225,7 +225,6 @@ struct AvatarPickerSheetView: View {
                             Button {
                                 localAvatarRaw = av.rawValue
                                 disableCustomAvatar()
-                                isPresented = false
                             } label: {
                                 VStack(spacing: 10) {
                                     ZStack {
