@@ -220,26 +220,14 @@ struct ContentView: View {
     // MARK: - Skill Tray
 
     private var skillTray: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 14) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 16) {
                 ForEach(SkillType.allCases) { skill in
                     skillTrayItem(skill)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 6)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 14) {
-                    ForEach(SkillType.allCases) { skill in
-                        skillTrayItem(skill)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 6)
-            }
+            .padding(.horizontal, 18)
+            .padding(.vertical, 8)
         }
     }
 
@@ -247,16 +235,16 @@ struct ContentView: View {
     private func skillTrayItem(_ skill: SkillType) -> some View {
         let count = skillCount(skill)
         ZStack(alignment: .topTrailing) {
-            VStack(spacing: 4) {
+            VStack(spacing: 5) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(count > 0
                             ? skill.color.opacity(0.15)
                             : Theme.Neon.panel)
                     gameplaySkillIconVisual(skill, enabled: count > 0)
-                        .frame(width: 36, height: 36)
+                        .frame(width: 43, height: 43)
                 }
-                .frame(width: 55, height: 46)
+                .frame(width: 66, height: 55)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .stroke(count > 0
@@ -268,29 +256,30 @@ struct ContentView: View {
                     ? skill.color.opacity(0.35) : .clear,
                     radius: 6)
                 Text(skill.shortTitle)
-                    .font(.system(size: 11, weight: .heavy, design: .rounded))
+                    .font(.system(size: 13, weight: .heavy, design: .rounded))
                     .tracking(0.8)
                     .foregroundStyle(count > 0
                         ? skill.color
                         : Theme.Neon.textMuted)
+                    .lineLimit(1)
             }
             // Badge
             if count > 0 {
                 Text("\(count)")
-                    .font(.system(size: 10, weight: .heavy, design: .rounded))
+                    .font(.system(size: 11, weight: .heavy, design: .rounded))
                     .foregroundStyle(.black)
-                    .padding(.horizontal, 4)
-                    .padding(.vertical, 2)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 3)
                     .background(Capsule().fill(skill.color))
                     .offset(x: 4, y: -4)
             } else {
                 Image(systemName: "plus.circle.fill")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.system(size: 17, weight: .bold))
                     .foregroundStyle(Theme.Neon.gold)
                     .offset(x: 4, y: -4)
             }
         }
-        .frame(maxWidth: .infinity)
+        .frame(width: 74)
         .contentShape(Rectangle())
         .onTapGesture {
             if count == 0 { showCoinsCenter = true }
