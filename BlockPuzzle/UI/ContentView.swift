@@ -284,21 +284,33 @@ struct ContentView: View {
         .onTapGesture {
             if count == 0 { showCoinsCenter = true }
         }
-        .gesture(
-            DragGesture(minimumDistance: 4, coordinateSpace: .global)
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 0.18)
+                .sequenced(before: DragGesture(minimumDistance: 0, coordinateSpace: .global))
                 .onChanged { value in
                     guard skillCount(skill) > 0 else { return }
-                    draggingSkillType = skill
-                    skillDragLocation = value.location
+                    switch value {
+                    case .second(true, let drag?):
+                        draggingSkillType = skill
+                        skillDragLocation = drag.location
+                    default:
+                        break
+                    }
                 }
-                .onEnded { _ in
+                .onEnded { value in
                     defer {
                         draggingSkillType = nil
                         skillDragLocation = nil
                     }
-                    guard skillCount(skill) > 0,
-                          let target = skillTargetCell else { return }
-                    handleSkillUse(skill: skill, target: target)
+                    guard skillCount(skill) > 0 else { return }
+                    switch value {
+                    case .second(true, let drag?):
+                        skillDragLocation = drag.location
+                        guard let target = skillTargetCell else { return }
+                        handleSkillUse(skill: skill, target: target)
+                    default:
+                        break
+                    }
                 }
         )
     }
