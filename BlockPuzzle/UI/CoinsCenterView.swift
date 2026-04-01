@@ -22,6 +22,7 @@ struct CoinsCenterView: View {
     @StateObject private var adManager = AdManager.shared
     @StateObject private var iapManager = IAPManager.shared
     @State private var adLoading = false
+    @State private var restoreLoading = false
 
     private var avatar: PlayerAvatar {
         PlayerAvatar(rawValue: localAvatarRaw) ?? .cat
@@ -282,6 +283,7 @@ struct CoinsCenterView: View {
                     .stroke(count > 0 ? accentColor.opacity(0.15) : Theme.Neon.outlineVariant.opacity(0.25), lineWidth: 1)
             )
             .opacity(canAfford ? 1.0 : 0.60)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }
@@ -350,6 +352,8 @@ struct CoinsCenterView: View {
                 freeCoinsCard.frame(maxWidth: .infinity)
                 coinPackCard.frame(maxWidth: .infinity)
             }
+
+            restorePurchasesButton
         }
     }
 
@@ -428,6 +432,8 @@ struct CoinsCenterView: View {
                     showToast("Purchase is pending approval.")
                 case .unavailable:
                     showToast("Coin pack unavailable. Check StoreKit config.")
+                case .duplicate:
+                    showToast("Purchase already delivered.")
                 case .failed(let message):
                     showToast(message)
                 }
@@ -477,6 +483,44 @@ struct CoinsCenterView: View {
         }
         .buttonStyle(.plain)
         .disabled(iapManager.isPurchasing || iapManager.isLoadingProducts)
+    }
+
+    private var restorePurchasesButton: some View {
+        Button {
+            Task {
+                restoreLoading = true
+                let restoredCoins = await iapManager.syncUnfinishedTransactions()
+                restoreLoading = false
+
+                if restoredCoins > 0 {
+                    localCoins += restoredCoins
+                    showToast("Restored +\(restoredCoins) COINS.")
+                } else {
+                    showToast("No undelivered purchases found.")
+                }
+            }
+        } label: {
+            HStack(spacing: 10) {
+                Image(systemName: "arrow.clockwise.circle.fill")
+                    .font(.system(size: 15, weight: .bold))
+                Text(restoreLoading ? "CHECKING PURCHASES..." : "RESTORE UNDELIVERED PURCHASES")
+                    .font(.system(size: 12, weight: .black, design: .rounded))
+                    .tracking(1)
+            }
+            .foregroundStyle(Theme.Neon.cyanSoft)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(Theme.Neon.surface.opacity(0.70))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .stroke(Theme.Neon.cyan.opacity(0.35), lineWidth: 1)
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .disabled(restoreLoading || iapManager.isPurchasing)
     }
 
     // MARK: - Toast

@@ -103,16 +103,16 @@ struct EndScreenView: View {
                             .animation(.spring(response: 0.44, dampingFraction: 0.72), value: appeared)
 
                         statsGrid
-                            .padding(.top, 32)
+                            .padding(.top, 18)
                             .opacity(appeared ? 1 : 0)
                             .animation(.spring(response: 0.44, dampingFraction: 0.72).delay(0.08), value: appeared)
 
                         ctaSection
-                            .padding(.top, 28)
+                            .padding(.top, 16)
                             .opacity(appeared ? 1 : 0)
                             .animation(.spring(response: 0.44, dampingFraction: 0.72).delay(0.14), value: appeared)
 
-                        Spacer(minLength: 110)
+                        Spacer(minLength: 72)
                     }
                     .padding(.horizontal, 24)
                 }
@@ -201,7 +201,7 @@ struct EndScreenView: View {
     // CSS: text-7xl md:text-9xl, NEW BEST = bg-secondary rotate-12
 
     private var heroSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 8) {
             // "FINAL SCORE" label
             Text("FINAL SCORE")
                 .font(.system(size: 11, weight: .heavy, design: .rounded))
@@ -264,7 +264,7 @@ struct EndScreenView: View {
                     .rotationEffect(.degrees(30))
                     .shadow(color: Theme.Neon.orange.opacity(0.80), radius: 5)
             }
-            .padding(.top, 4)
+            .padding(.top, 2)
         }
         .frame(maxWidth: .infinity)
     }
@@ -273,7 +273,7 @@ struct EndScreenView: View {
     // CSS: grid grid-cols-2 gap-3, border-l-2 border-primary/30 (col 1) border-secondary/30 (col 2)
 
     private var statsGrid: some View {
-        return VStack(spacing: 10) {
+        return VStack(spacing: 8) {
             HStack(spacing: 10) {
                 statCell(
                     label: "Lines Cleared",
@@ -365,7 +365,7 @@ struct EndScreenView: View {
     // CSS: bg-gradient-to-br from-primary to-primary-container text-on-primary-container py-5 rounded-md
 
     private var ctaSection: some View {
-        VStack(spacing: 14) {
+        VStack(spacing: 12) {
             if let watchAd = onWatchAd {
                 Button(action: watchAd) {
                     HStack(spacing: 10) {
