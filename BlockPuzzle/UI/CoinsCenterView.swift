@@ -200,92 +200,91 @@ struct CoinsCenterView: View {
     }
 
     private func powerUpRow(_ skill: SkillType) -> some View {
-        let count      = skillCount(skill)
-        let canAfford  = localCoins >= skill.cost
+        let count = skillCount(skill)
+        let canAfford = localCoins >= skill.cost
         let accentColor = skill.color
 
-        return Button {
-            guard canAfford else {
-                showToast("Not enough coins! Need \(skill.cost) coins.")
-                return
+        return HStack(spacing: 14) {
+            // Skill icon + visual preview
+            ZStack {
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(Theme.Neon.surface)
+                    .frame(width: 56, height: 56)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .stroke(accentColor.opacity(0.25), lineWidth: 1)
+                    )
+                skillIconVisual(skill)
             }
-            localCoins -= skill.cost
-            addToInventory(skill)
-            showToast("\(skill.title) added! You own \(skillCount(skill) + 0).")
-        } label: {
-            HStack(spacing: 14) {
-                // Skill icon + visual preview
+
+            // Title + cost
+            VStack(alignment: .leading, spacing: 4) {
+                Text(skill.title)
+                    .font(.system(size: 14, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.Neon.textPrimary)
+                HStack(spacing: 4) {
+                    Image(systemName: "circle.hexagongrid.fill")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundStyle(accentColor)
+                    Text("\(skill.cost) COINS")
+                        .font(.system(size: 11, weight: .heavy, design: .rounded))
+                        .foregroundStyle(canAfford ? accentColor : Theme.Neon.textMuted)
+                }
+            }
+
+            Spacer()
+
+            // Owned count badge
+            VStack(spacing: 6) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(Theme.Neon.surface)
-                        .frame(width: 56, height: 56)
+                    Circle()
+                        .fill(count > 0 ? accentColor.opacity(0.22) : Theme.Neon.surfaceHighest)
+                        .frame(width: 32, height: 32)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                .stroke(accentColor.opacity(0.25), lineWidth: 1)
+                            Circle()
+                                .stroke(count > 0 ? accentColor.opacity(0.55) : Theme.Neon.outlineVariant.opacity(0.4),
+                                        lineWidth: 1.5)
                         )
-                    skillIconVisual(skill)
+                    Text("\(count)")
+                        .font(.system(size: 13, weight: .heavy, design: .rounded))
+                        .foregroundStyle(count > 0 ? accentColor : Theme.Neon.textMuted)
                 }
+                Text("owned")
+                    .font(.system(size: 9, weight: .medium, design: .rounded))
+                    .foregroundStyle(Theme.Neon.textMuted)
+            }
 
-                // Title + cost
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(skill.title)
-                        .font(.system(size: 14, weight: .heavy, design: .rounded))
-                        .foregroundStyle(Theme.Neon.textPrimary)
-                    HStack(spacing: 4) {
-                        Image(systemName: "circle.hexagongrid.fill")
-                            .font(.system(size: 10, weight: .bold))
-                            .foregroundStyle(accentColor)
-                        Text("\(skill.cost) COINS")
-                            .font(.system(size: 11, weight: .heavy, design: .rounded))
-                            .foregroundStyle(canAfford ? accentColor : Theme.Neon.textMuted)
-                    }
+            Button {
+                guard canAfford else {
+                    showToast("Not enough coins! Need \(skill.cost) coins.")
+                    return
                 }
-
-                Spacer()
-
-                // Owned count badge
-                VStack(spacing: 6) {
-                    // Count circle
-                    ZStack {
-                        Circle()
-                            .fill(count > 0 ? accentColor.opacity(0.22) : Theme.Neon.surfaceHighest)
-                            .frame(width: 32, height: 32)
-                            .overlay(
-                                Circle()
-                                    .stroke(count > 0 ? accentColor.opacity(0.55) : Theme.Neon.outlineVariant.opacity(0.4),
-                                            lineWidth: 1.5)
-                            )
-                        Text("\(count)")
-                            .font(.system(size: 13, weight: .heavy, design: .rounded))
-                            .foregroundStyle(count > 0 ? accentColor : Theme.Neon.textMuted)
-                    }
-                    Text("owned")
-                        .font(.system(size: 9, weight: .medium, design: .rounded))
-                        .foregroundStyle(Theme.Neon.textMuted)
-                }
-
-                // Buy button
+                localCoins -= skill.cost
+                addToInventory(skill)
+                showToast("\(skill.title) added! You own \(skillCount(skill)).")
+            } label: {
                 Image(systemName: "plus.circle.fill")
                     .font(.system(size: 22, weight: .medium))
                     .foregroundStyle(canAfford ? accentColor.opacity(0.80) : Theme.Neon.textMuted.opacity(0.35))
+                    .frame(width: 36, height: 36)
+                    .contentShape(Rectangle())
             }
-            .padding(14)
-            .background(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(Theme.Neon.surface.opacity(0.60))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(.ultraThinMaterial.opacity(0.12))
-                    )
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(count > 0 ? accentColor.opacity(0.15) : Theme.Neon.outlineVariant.opacity(0.25), lineWidth: 1)
-            )
-            .opacity(canAfford ? 1.0 : 0.60)
-            .contentShape(Rectangle())
+            .buttonStyle(.plain)
         }
-        .buttonStyle(.plain)
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(Theme.Neon.surface.opacity(0.60))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(.ultraThinMaterial.opacity(0.12))
+                )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .stroke(count > 0 ? accentColor.opacity(0.15) : Theme.Neon.outlineVariant.opacity(0.25), lineWidth: 1)
+        )
+        .opacity(canAfford ? 1.0 : 0.60)
     }
 
     @ViewBuilder
