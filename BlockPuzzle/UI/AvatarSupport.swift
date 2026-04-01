@@ -193,8 +193,7 @@ struct AvatarPickerSheetView: View {
 
                     if customAvatarEnabled {
                         Button {
-                            AvatarStorage.removeCustomAvatar()
-                            customAvatarVersion += 1
+                            disableCustomAvatar()
                         } label: {
                             Text("REMOVE CUSTOM PHOTO")
                                 .font(.system(size: 12, weight: .heavy, design: .rounded))
@@ -225,6 +224,7 @@ struct AvatarPickerSheetView: View {
                         ForEach(PlayerAvatar.allCases, id: \.rawValue) { av in
                             Button {
                                 localAvatarRaw = av.rawValue
+                                disableCustomAvatar()
                                 isPresented = false
                             } label: {
                                 VStack(spacing: 10) {
@@ -293,6 +293,14 @@ struct AvatarPickerSheetView: View {
                 await importPhoto(from: newItem)
             }
         }
+    }
+
+    private func disableCustomAvatar() {
+        if customAvatarEnabled {
+            AvatarStorage.removeCustomAvatar()
+            customAvatarVersion += 1
+        }
+        importError = nil
     }
 
     @MainActor
